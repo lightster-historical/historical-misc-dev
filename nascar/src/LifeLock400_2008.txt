@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	LifeLock 400
+track:	Chicagoland
+location:	Joliet, IL
+length: 	400
+laps: 	267
+track_length: 	1.5
+scale: 	0.600
+x_offset: 	22
+y_offset: 	12
+tv_network: 	TNT
+track_image_file: 	chicago.gif
+</RACE>
+<PARTICIPANTS>
+18	Kyle Busch	Toyota	1	Kyle	Busch	2686
+88	Earnhardt Jr.	Chevrolet	2	Dale	Earnhardt Jr.	2504
+31	J. Burton	Chevrolet	3	Jeff	Burton	2484
+99	Edwards	Ford	4	Carl	Edwards	2437
+48	Johnson	Chevrolet	5	Jimmie	Johnson	2319
+24	J. Gordon	Chevrolet	6	Jeff	Gordon	2249
+11	Hamlin	Toyota	7	Denny	Hamlin	2240
+9	Kahne	Dodge	8	Kasey	Kahne	2177
+17	Kenseth	Ford	9	Matt	Kenseth	2166
+07	Bowyer	Chevrolet	10	Clint	Bowyer	2159
+16	Biffle	Ford	11	Greg	Biffle	2153
+20	Stewart	Toyota	12	Tony	Stewart	2145
+29	Harvick	Chevrolet	13	Kevin	Harvick	2143
+6	Ragan	Ford	14	David	Ragan	2043
+83	Vickers	Toyota	15	Brian	Vickers	2033
+8	Martin	Chevrolet	16	Mark	Martin	1571
+12	Newman	Dodge	17	Ryan	Newman	1960
+2	Kurt Busch	Dodge	18	Kurt	Busch	1954
+1	Truex Jr.	Chevrolet	19	Martin	Truex Jr.	1907
+43	B. Labonte	Dodge	20	Bobby	Labonte	1829
+28	Kvapil	Ford	21	Travis	Kvapil	1801
+42	Montoya	Dodge	22	Juan Pablo	Montoya	1754
+38	Gilliland	Ford	23	David	Gilliland	1735
+26	McMurray	Ford	24	Jamie	McMurray	1723
+5	Mears	Chevrolet	25	Casey	Mears	1718
+19	E. Sadler	Dodge	26	Elliott	Sadler	1667
+15	Menard	Chevrolet	27	Paul	Menard	1642
+55	Waltrip	Toyota	28	Michael	Waltrip	1508
+44	Reutimann	Toyota	29	David	Reutimann	1596
+22	Blaney	Toyota	30	Dave	Blaney	1469
+7	R. Gordon	Dodge	31	Robby	Gordon	1484
+41	Sorenson	Dodge	32	Reed	Sorenson	1426
+01	Smith	Chevrolet	33	Regan	Smith	1360
+00	McDowell	Toyota	34	Michael	McDowell	921
+77	Hornish Jr.	Dodge	35	Sam	Hornish Jr.	1370
+45	T. Labonte	Dodge	36	Terry	Labonte	434
+21	Elliott	Ford	37	Bill	Elliott	539
+66	Riggs	Chevrolet	38	Scott	Riggs	1211
+84	Allmendinger	Toyota	39	A.J.	Allmendinger	727
+96	Yeley	Toyota	40	J.J.	Yeley	1047
+78	Nemechek	Chevrolet	41	Joe	Nemechek	1061
+10	Carpentier	Dodge	42	Patrick	Carpentier	1048
+70	Leffler	Chevrolet	43	Jason	Leffler	43
+</PARTICIPANTS>
