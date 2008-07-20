@@ -8,6 +8,7 @@ import java.awt.Rectangle;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.swing.JFrame;
 
@@ -20,7 +21,15 @@ import com.sportvision.model.Race;
 public class LeaderboardWindow extends AppWindow
 	implements QuitHandler, Runnable
 {
-	private final static int NUM_BUFFERS = 3;
+	// number of buffers to use for graphics rendering
+	private final static int NUM_GFX_BUFFERS = 2;
+	
+	// updates per second (data/stats updates)
+	private final static float UPS = 0.25f;
+	// frames per second
+	private final static float FPS = 30.0f;
+	
+	private final static long SWAP_PERIOD = 1000;
 	
 	private Leaderboard leaderboard;
 	
@@ -41,9 +50,21 @@ public class LeaderboardWindow extends AppWindow
 	public final static int ROWS = 14;
 	
 	private Cell[][] cells;
+	//private Cell[][] tempCells;
+
+	private Swap[] colSwaps;
+	private Swap[] rowSwaps;	
+	private int[] colSwapMap;
+	private int[] rowSwapMap;
 	
-	//private Swap[] columnSwap;
-	private Swap swap;
+	private Random rand;
+	
+	private int width;
+	private int height;
+	
+	private int cellMargin;
+	private int cellWidth;
+	private int cellHeight;
 	
 	
 	public LeaderboardWindow(Leaderboard leaderboard)
@@ -55,8 +76,6 @@ public class LeaderboardWindow extends AppWindow
 		
 		this.leaderboard = leaderboard;
 		
-		swap = null;
-		
 		setUndecorated(true);
 		setIgnoreRepaint(true);
 
@@ -65,7 +84,7 @@ public class LeaderboardWindow extends AppWindow
         
         device.setFullScreenWindow(this);
 
-        createBufferStrategy(NUM_BUFFERS);
+        createBufferStrategy(NUM_GFX_BUFFERS);
         bufferStrategy = getBufferStrategy();
 
 		//leaderboard.init();
@@ -76,15 +95,20 @@ public class LeaderboardWindow extends AppWindow
 		//WindowUtil.centerWindow(this);
 		//setVisible(true);
         
-		int margin = 2;
+        cellMargin = 2;
+
 		Rectangle dim = device.getDefaultConfiguration().getBounds();
-		int width = (((int)dim.getWidth() - margin) / COLUMNS) - margin;
-		int height = (((int)dim.getHeight() - margin) / ROWS) - margin;
+        width = (int)dim.getWidth();
+        height = (int)dim.getHeight();
+        
+		cellWidth = ((width - cellMargin) / COLUMNS) - cellMargin;
+		cellHeight = ((height - cellMargin) / ROWS) - cellMargin;
 		
 		com.lightdatasys.nascar.Driver.loadAllFromDatabase();
 		com.lightdatasys.nascar.Driver[] drivers = com.lightdatasys.nascar.Driver.getDrivers(); 
         
 		cells = new Cell[COLUMNS][ROWS];
+		//tempCells = new Cell[COLUMNS][ROWS];
 		for(int x = 0; x < COLUMNS; x++)
 		{
 			for(int y = 0; y < ROWS; y++)
@@ -92,40 +116,98 @@ public class LeaderboardWindow extends AppWindow
 				if(!((0 <= x && x <= 1) && (0 <= y && y <= 1)))
 				{
 					int i = (x + y * COLUMNS) % drivers.length;
-					if(x % 2 == 0)
-						cells[x][y] = new CarNoCell(width, height, "24", drivers[i].getFontColor(),
+					
+					/*if(x % 2 == 0)
+						cells[x][y] = new CarNoCell(cellWidth, cellHeight, "24", drivers[i].getFontColor(),
 								drivers[i].getBackgroundColor(), drivers[i].getBorderColor());
-					else
-						cells[x][y] = new CarNoCell(width, height, "124", drivers[i].getFontColor(),
+					else*/
+						cells[x][y] = new CarNoCell(cellWidth, cellHeight, "" + x, drivers[i].getFontColor(),
 								drivers[i].getBackgroundColor(), drivers[i].getBorderColor());	
 				}
 				else
 					cells[x][y] = null;
+				
+				//tempCells[x][y] = cells[x][y];
 			}
 		}
-		cells[0][0] = new Cell(width*2 + margin, height*2 + margin);
+		cells[0][0] = new Cell(cellWidth*2 + cellMargin, cellHeight*2 + cellMargin);
+		//tempCells[0][0] = cells[0][0];
+		
+		colSwaps = new Swap[COLUMNS];
+		rowSwaps = new Swap[ROWS];
+		
+		colSwapMap = new int[COLUMNS];
+		rowSwapMap = new int[ROWS];
+		initSwapMaps();
         
         setBackground(Color.BLACK);
+
+        rand = new Random();
+	}
+	
+	
+	public void update()
+	{
+		moveColumn(2, 6);
+		moveColumn(3, 2);
+		moveColumn(4, 3);
+		moveColumn(5, 7);
+		moveColumn(6, 4);
+		moveColumn(7, 5);
+
+		//*
+		moveRow(5, 8);
+		moveRow(8, 3);
+		moveRow(3, 5);
+		//*/
+		
+		Cell[][] tempCells = new Cell[COLUMNS][ROWS];
+		for(int x = 0; x < cells.length; x++)
+		{
+			for(int y = 0; y < cells[x].length; y++)
+			{
+				tempCells[x][y] = cells[x][y];
+			}
+		}
+
+		for(int x = 0; x < cells.length; x++)
+		{
+			for(int y = 0; y < cells[x].length; y++)
+			{
+				cells[x][y] = tempCells[colSwapMap[x]][rowSwapMap[y]];
+			}
+		}
+		
+		initSwapMaps();
+	}
+	
+	
+	protected void initSwapMaps()
+	{
+		for(int x = 0; x < colSwapMap.length; x++)
+		{
+			colSwapMap[x] = x;
+		}
+		
+		for(int y = 0; y < rowSwapMap.length; y++)
+		{
+			rowSwapMap[y] = y;
+		}
 	}
 	
 	
 	public void render(Graphics2D g)
-	{		
-		int margin = 2;
-		Rectangle dim = device.getDefaultConfiguration().getBounds();
-		
-		g.clearRect(dim.x, dim.y, dim.width, dim.height);
-		
-		int width = (((int)dim.getWidth() - margin) / COLUMNS) - margin;
-		int height = (((int)dim.getHeight() - margin) / ROWS) - margin;
-		
-		if(swap == null)
-		{
-			swap = new Swap(width + margin, 20);
-		}
+	{	
+		g.clearRect(0, 0, width, height);
 		
 		for(int x = 0; x < COLUMNS; x++)
 		{
+			int xPos = cellMargin + x * (cellWidth + cellMargin);
+			if(colSwaps[x] != null)
+			{
+				xPos = colSwaps[x].getPosition();
+			}
+			
 			for(int y = 0; y < ROWS; y++)
 			{
 				Cell cell = cells[x][y];
@@ -137,56 +219,128 @@ public class LeaderboardWindow extends AppWindow
 					
 					AffineTransform transform = new AffineTransform();
 
-					if(x == 4)
-						transform.translate(margin + x * (width + margin) + swap.getDisplacement(), margin + y * (height + margin));
-					else if(x == 5)
-						transform.translate(margin + x * (width + margin) - swap.getDisplacement(), margin + y * (height + margin));
-					else
-						transform.translate(margin + x * (width + margin), margin + y * (height + margin));
+					int yPos = cellMargin + y * (cellHeight + cellMargin);
+					if(rowSwaps[y] != null)
+						yPos = rowSwaps[y].getPosition();
+					
+					transform.translate(xPos, yPos);
 					
 					g.drawRenderedImage(img, transform);
+					g.setColor(Color.WHITE);
+					g.drawString(""+x, xPos, 50);
 					img = null;
 				}
 			}
+			
+			if(colSwaps[x] != null && colSwaps[x].isDone())
+			{
+				colSwaps[x] = null;
+			}
 		}
 		
-		swap.increment();
-		//System.out.println(swap.getDelta() + " " + swap.getDisplacement());
-		if(swap.isDone() && swap.getDelta() - swap.getMaxDelta() > 10)
+		for(int y = 0; y < ROWS; y++)
 		{
-			swap = null;
-			
-			Cell[] col = cells[4];
-			cells[4] = cells[5];
-			cells[5] = col;
+			if(rowSwaps[y] != null && rowSwaps[y].isDone())
+			{
+				rowSwaps[y] = null;
+			}
 		}
 	}
 	
+
+	public void moveColumn(int col1, int col2)
+	{
+		if(0 <= col1 && col1 < cells.length &&
+			0 <= col2 && col2 < cells.length &&
+			col1 != col2)
+		{
+			int pos1 = cellMargin + col1 * (cellWidth + cellMargin);
+			//if(colSwaps[col1] != null)
+			//	pos1 = colSwaps[col1].getPosition();
+			
+			int pos2 = cellMargin + col2 * (cellWidth + cellMargin);
+
+			colSwaps[col2] = new Swap(pos1, pos2, SWAP_PERIOD);
+			colSwapMap[col2] = col1;
+		}
+	}
+
+	public void moveRow(int row1, int row2)
+	{
+		if(0 <= row1 && row1 < cells[0].length &&
+			0 <= row2 && row2 < cells[0].length &&
+			row1 != row2)
+		{
+			int pos1 = cellMargin + row1 * (cellHeight + cellMargin);
+			//if(colSwaps[row1] != null)
+			//	pos1 = colSwaps[row1].getPosition();
+			
+			int pos2 = cellMargin + row2 * (cellHeight + cellMargin);
+			
+			rowSwaps[row2] = new Swap(pos1, pos2, SWAP_PERIOD);
+			rowSwapMap[row2] = row1;
+		}
+	}
+	
+	
 	public void run()
 	{
+		long lastUpdateTime = 0;
+		long lastRenderTime = 0;
+		
+		long updateInterval = Math.round(1000.0d / UPS); 
+		long renderInterval = Math.round(1000.0d / FPS);
+		
+		final long MAX_SLEEP_TIME = Math.min(updateInterval, renderInterval);
+
+		long lastTime = System.currentTimeMillis();
 		try
 		{
 			while(!done)
 			{
-		        Graphics2D g = (Graphics2D)bufferStrategy.getDrawGraphics();
-		        
-		        //if(!bufferStrategy.contentsLost()) 
-		        //{
-		            render(g);
+				long updateDiff = (System.currentTimeMillis() - lastUpdateTime);
+				if(updateDiff >= updateInterval)
+				{
+					update();
+
+		            lastUpdateTime = System.currentTimeMillis();
+				}
+				
+				long renderDiff = (System.currentTimeMillis() - lastRenderTime);
+	        	if(renderDiff >= renderInterval)
+	        	{
+					Graphics2D g = null;
+					try
+					{
+						g = (Graphics2D)bufferStrategy.getDrawGraphics();
+			            render(g);
+			            g.setColor(Color.WHITE);
+			            g.drawString((int)(1000.0f / renderDiff) + " fps", 5, 30);
+					}
+					finally
+					{
+			            g.dispose();
+					}
 		            bufferStrategy.show();
-		            g.dispose();
-		        //}
+		         
+		            lastRenderTime = System.currentTimeMillis();
+	        	}
+	        	
+	        	long updateSleepTime = updateInterval - (System.currentTimeMillis() - lastUpdateTime);
+	        	long renderSleepTime = renderInterval - (System.currentTimeMillis() - lastRenderTime);
+	        	long sleepTime = Math.min(updateSleepTime, renderSleepTime);
 		        
-		        /*
 		        try
 		        {
-			        Thread.sleep(1000);	
+		        	if(sleepTime > 0)
+		        	{
+		        		Thread.sleep(sleepTime);
+		        	}
 		        }
 		        catch(InterruptedException ex)
 		        {
 		        	ex.printStackTrace();
 		        }
-		        //*/
 			}
 		}
 		finally

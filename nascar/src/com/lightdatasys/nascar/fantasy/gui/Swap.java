@@ -2,49 +2,48 @@ package com.lightdatasys.nascar.fantasy.gui;
 
 public class Swap
 {
-	private int distance;
-	private int maxDelta;
-	private int currDelta;
+	private int startPos;
+	private int endPos;
+	private long maxDelta;
+	private long start;
 	
 	
-	public Swap(int distance, int maxDelta)
+	public Swap(int startPos, int endPos, long maxDelta)
 	{
-		this.distance = distance;
+		this.startPos = startPos;
+		this.endPos = endPos;
 		this.maxDelta = maxDelta;
-		this.currDelta = 0;
+		this.start = System.currentTimeMillis();
 	}
 	
 	
-	public void increment()
+	public long getDelta()
 	{
-		currDelta++;
+		return System.currentTimeMillis() - start;
 	}
 	
-	public int getDelta()
-	{
-		return currDelta;
-	}
-	
-	public int getMaxDelta()
+	public long getMaxDelta()
 	{
 		return maxDelta;
 	}
 	
-	public int getDisplacement()
+	public int getPosition()
 	{
 		int displacement = 0;
 		
-		int halfDelta = maxDelta / 2;
+		int distance = endPos - startPos;
+		
+		long halfDelta = maxDelta / 2;
 		
 		float maxSpeed = 2.0f * ((.5f * distance) / halfDelta);
 		float accel = maxSpeed / halfDelta;
 		
 		if(isDone())
 			displacement = distance;
-		else if(currDelta >= halfDelta)
+		else if(getDelta() >= halfDelta)
 		{
 			//System.out.println("a");
-			int delta = currDelta - halfDelta;
+			long delta = getDelta() - halfDelta;
 			
 			displacement = Math.round(distance / 2.0f + maxSpeed * delta - .5f * accel * delta * delta); 
 			//displacement = (int)(.5f * accel * halfDelta * halfDelta);
@@ -52,14 +51,14 @@ public class Swap
 		else
 		{
 			//System.out.println("b" + accel);
-			displacement = Math.round(.5f * accel * currDelta * currDelta);
+			displacement = Math.round(.5f * accel * getDelta() * getDelta());
 		}
 		
-		return displacement;
+		return startPos + displacement;
 	}
 	
 	public boolean isDone()
 	{
-		return (currDelta >= maxDelta);
+		return (getDelta() >= maxDelta);
 	}
 }

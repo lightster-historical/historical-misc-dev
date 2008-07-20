@@ -26,7 +26,7 @@ public class Cell
 	
 	public void render(Graphics2D g)
 	{
-		g.setColor(LeaderboardWindow.colors[(int)System.currentTimeMillis() % 6]);
+		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, width, height);
 		g.setColor(Color.WHITE);
 		g.drawString("Test", 2, height);
