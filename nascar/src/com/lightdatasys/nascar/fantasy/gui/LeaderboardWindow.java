@@ -5,21 +5,27 @@ import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
+import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.util.Random;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
 import com.lightdatasys.gui.AppWindow;
 import com.lightdatasys.gui.QuitHandler;
+import com.lightdatasys.nascar.Driver;
+import com.lightdatasys.nascar.Result;
+import com.lightdatasys.nascar.event.PositionChangeEvent;
+import com.lightdatasys.nascar.event.PositionChangeListener;
 import com.lightdatasys.nascar.fantasy.Leaderboard;
 import com.sportvision.model.Drivers;
 import com.sportvision.model.Race;
 
 public class LeaderboardWindow extends AppWindow
-	implements QuitHandler, Runnable
+	implements QuitHandler, Runnable, PositionChangeListener
 {
 	// number of buffers to use for graphics rendering
 	private final static int NUM_GFX_BUFFERS = 2;
@@ -40,16 +46,20 @@ public class LeaderboardWindow extends AppWindow
 	
 	private boolean done = false;
 	
-	private int count = 0;
+	//private int count = 0;
 	
 	public final static Color[] colors = {Color.BLACK, Color.BLUE, Color.CYAN, Color.DARK_GRAY,
 			Color.GRAY, Color.GREEN, Color.MAGENTA, Color.ORANGE, Color.PINK, Color.RED,
 			Color.YELLOW};
 	
-	public final static int COLUMNS = 20;
+	public final static int COLUMNS = 45;
 	public final static int ROWS = 14;
 	
 	private Cell[][] cells;
+	private int[] colSize;
+	private int[] rowSize;
+	private int[] colPosition;
+	private int[] rowPosition;
 	//private Cell[][] tempCells;
 
 	private Swap[] colSwaps;
@@ -57,7 +67,7 @@ public class LeaderboardWindow extends AppWindow
 	private int[] colSwapMap;
 	private int[] rowSwapMap;
 	
-	private Random rand;
+	//private Random rand;
 	
 	private int width;
 	private int height;
@@ -65,6 +75,13 @@ public class LeaderboardWindow extends AppWindow
 	private int cellMargin;
 	private int cellWidth;
 	private int cellHeight;
+
+	private int colOffsetPos;
+	private long colOffsetTime;
+	
+	private ArrayList<PositionChangeEvent> positionChangeEvents;
+	
+	private com.lightdatasys.nascar.Race race;
 	
 	
 	public LeaderboardWindow(Leaderboard leaderboard)
@@ -86,6 +103,8 @@ public class LeaderboardWindow extends AppWindow
 
         createBufferStrategy(NUM_GFX_BUFFERS);
         bufferStrategy = getBufferStrategy();
+        
+        positionChangeEvents = new ArrayList<PositionChangeEvent>();
 
 		//leaderboard.init();
 		//leaderboard.start();
@@ -104,28 +123,83 @@ public class LeaderboardWindow extends AppWindow
 		cellWidth = ((width - cellMargin) / COLUMNS) - cellMargin;
 		cellHeight = ((height - cellMargin) / ROWS) - cellMargin;
 		
+		colOffsetPos = 0;
+		colOffsetTime = System.currentTimeMillis();
+
+		race = com.lightdatasys.nascar.Race.getById(1066);
+		race.addPositionChangeListener(this);
+		AbstractMap<Integer,com.lightdatasys.nascar.Result> results = race.getResults();
+
 		com.lightdatasys.nascar.Driver.loadAllFromDatabase();
 		com.lightdatasys.nascar.Driver[] drivers = com.lightdatasys.nascar.Driver.getDrivers(); 
-        
+		
+		com.lightdatasys.nascar.fantasy.FantasyPlayer.loadAllFromDatabase();
+		com.lightdatasys.nascar.fantasy.FantasyPlayer[] players = com.lightdatasys.nascar.fantasy.FantasyPlayer.getPlayers(); 
+
+		colSize = new int[COLUMNS];
+		colPosition = new int[COLUMNS];
+		colSize[0] = 80; colSize[1] = 80;
+		for(int i = 2; i < COLUMNS; i++)
+		{
+			colSize[i] = 60;
+		}
+		colPosition[0] = cellMargin;
+		for(int i = 1; i < COLUMNS; i++)
+		{
+			colPosition[i] = colPosition[i - 1] + colSize[i - 1] + cellMargin;
+		}
+
+		rowSize = new int[ROWS];
+		rowPosition = new int[ROWS];
+		rowSize[0] = 60; rowSize[1] = 60;
+		for(int i = 2; i < ROWS; i++)
+		{
+			rowSize[i] = 60;
+		}
+		rowPosition[0] = cellMargin;
+		for(int i = 1; i < ROWS; i++)
+		{
+			rowPosition[i] = rowPosition[i - 1] + rowSize[i - 1] + cellMargin;
+		}
+		
 		cells = new Cell[COLUMNS][ROWS];
 		//tempCells = new Cell[COLUMNS][ROWS];
 		for(int x = 0; x < COLUMNS; x++)
 		{
 			for(int y = 0; y < ROWS; y++)
 			{
+				cells[x][y] = null;
+				
 				if(!((0 <= x && x <= 1) && (0 <= y && y <= 1)))
 				{
 					int i = (x + y * COLUMNS) % drivers.length;
-					
-					/*if(x % 2 == 0)
-						cells[x][y] = new CarNoCell(cellWidth, cellHeight, "24", drivers[i].getFontColor(),
-								drivers[i].getBackgroundColor(), drivers[i].getBorderColor());
-					else*/
-						cells[x][y] = new CarNoCell(cellWidth, cellHeight, "" + x, drivers[i].getFontColor(),
-								drivers[i].getBackgroundColor(), drivers[i].getBorderColor());	
+
+					//System.out.println()
+					if(y == 0)
+					{
+						Result result = results.get(x - 1);
+						Driver driver = result.getDriver();
+						cells[x][y] = new CarNoCell(colSize[x], rowSize[y], result.getCar(), driver.getFontColor(),
+								driver.getBackgroundColor(), driver.getBorderColor());
+					}
+					else if(y == 1)
+					{
+						Result result = results.get(x - 1);
+						cells[x][y] = new ResultCell(colSize[x], rowSize[y], result, 
+								Color.WHITE, Color.BLACK, Color.WHITE);
+					}
+					else if(x < 2)
+					{
+						cells[x][y] = new CarNoCell(colSize[x], rowSize[y], "" + x, 
+								Color.WHITE, Color.BLACK, Color.WHITE);
+					}
+					else if(x == 4)// && (y == 3 || y == 5 || y == 7))//x >= 2 && y >= 2 && !(y == 3 && x == 5))
+					{
+						cells[x][y] = new FantasyPlayerCell(colSize[x], rowSize[y], players[(x + y * COLUMNS) % players.length].toString(), Color.WHITE,
+								players[(x + y * COLUMNS) % players.length].getBackgroundColor()/*drivers[i].getBackgroundColor()*/, Color.WHITE);
+					}
 				}
-				else
-					cells[x][y] = null;
+				//else
 				
 				//tempCells[x][y] = cells[x][y];
 			}
@@ -142,20 +216,31 @@ public class LeaderboardWindow extends AppWindow
         
         setBackground(Color.BLACK);
 
-        rand = new Random();
+        //rand = new Random();
 	}
 	
 	
 	public void update()
 	{
+		race.getResultByFinish(5).setFinish(race.getResultByCarNo("48").getFinish());
+		race.getResultByCarNo("48").setFinish(5);
+		
+		for(PositionChangeEvent event : positionChangeEvents)
+		{
+			if(event.getOldPosition() + 1 < cells.length 
+				&& event.getNewPosition() + 1 < cells.length)
+				moveColumn(event.getOldPosition() + 1, event.getNewPosition() + 1);
+		}
+		positionChangeEvents.clear();
+		/*
 		moveColumn(2, 6);
 		moveColumn(3, 2);
 		moveColumn(4, 3);
 		moveColumn(5, 7);
 		moveColumn(6, 4);
-		moveColumn(7, 5);
+		moveColumn(7, 5);*/
 
-		//*
+		/*
 		moveRow(5, 8);
 		moveRow(8, 3);
 		moveRow(3, 5);
@@ -199,14 +284,21 @@ public class LeaderboardWindow extends AppWindow
 	public void render(Graphics2D g)
 	{	
 		g.clearRect(0, 0, width, height);
+
+		float speed = .08f;
+		int distance = colPosition[43] - colPosition[2];
+		int xOffset = Math.round(1.0f * speed * ((System.currentTimeMillis() - colOffsetTime)));
 		
 		for(int x = 0; x < COLUMNS; x++)
 		{
-			int xPos = cellMargin + x * (cellWidth + cellMargin);
+			int xPos = colPosition[x];//cellMargin + x * (cellWidth + cellMargin);
 			if(colSwaps[x] != null)
 			{
 				xPos = colSwaps[x].getPosition();
 			}
+			
+			if(x >= 2)
+				xPos -= xOffset;
 			
 			for(int y = 0; y < ROWS; y++)
 			{
@@ -219,15 +311,13 @@ public class LeaderboardWindow extends AppWindow
 					
 					AffineTransform transform = new AffineTransform();
 
-					int yPos = cellMargin + y * (cellHeight + cellMargin);
+					int yPos = rowPosition[y];//cellMargin + y * (cellHeight + cellMargin);
 					if(rowSwaps[y] != null)
 						yPos = rowSwaps[y].getPosition();
 					
 					transform.translate(xPos, yPos);
 					
 					g.drawRenderedImage(img, transform);
-					g.setColor(Color.WHITE);
-					g.drawString(""+x, xPos, 50);
 					img = null;
 				}
 			}
@@ -254,11 +344,11 @@ public class LeaderboardWindow extends AppWindow
 			0 <= col2 && col2 < cells.length &&
 			col1 != col2)
 		{
-			int pos1 = cellMargin + col1 * (cellWidth + cellMargin);
+			int pos1 = colPosition[col1];//cellMargin + col1 * (cellWidth + cellMargin);
 			//if(colSwaps[col1] != null)
 			//	pos1 = colSwaps[col1].getPosition();
 			
-			int pos2 = cellMargin + col2 * (cellWidth + cellMargin);
+			int pos2 = colPosition[col2];//cellMargin + col2 * (cellWidth + cellMargin);
 
 			colSwaps[col2] = new Swap(pos1, pos2, SWAP_PERIOD);
 			colSwapMap[col2] = col1;
@@ -271,11 +361,11 @@ public class LeaderboardWindow extends AppWindow
 			0 <= row2 && row2 < cells[0].length &&
 			row1 != row2)
 		{
-			int pos1 = cellMargin + row1 * (cellHeight + cellMargin);
+			int pos1 = rowPosition[row1];//cellMargin + row1 * (cellHeight + cellMargin);
 			//if(colSwaps[row1] != null)
 			//	pos1 = colSwaps[row1].getPosition();
 			
-			int pos2 = cellMargin + row2 * (cellHeight + cellMargin);
+			int pos2 = rowPosition[row2];//cellMargin + row2 * (cellHeight + cellMargin);
 			
 			rowSwaps[row2] = new Swap(pos1, pos2, SWAP_PERIOD);
 			rowSwapMap[row2] = row1;
@@ -285,8 +375,8 @@ public class LeaderboardWindow extends AppWindow
 	
 	public void run()
 	{
-		long lastUpdateTime = 0;
-		long lastRenderTime = 0;
+		long lastUpdateTime = System.currentTimeMillis();
+		long lastRenderTime = System.currentTimeMillis();
 		
 		long updateInterval = Math.round(1000.0d / UPS); 
 		long renderInterval = Math.round(1000.0d / FPS);
@@ -313,9 +403,19 @@ public class LeaderboardWindow extends AppWindow
 					try
 					{
 						g = (Graphics2D)bufferStrategy.getDrawGraphics();
+
+				        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+				            RenderingHints.VALUE_ANTIALIAS_ON);
+				        g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
+				                RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+				        
 			            render(g);
-			            g.setColor(Color.WHITE);
-			            g.drawString((int)(1000.0f / renderDiff) + " fps", 5, 30);
+			            //*
+			            g.setColor(new Color(255, 255, 255, 100));
+			            g.setFont(g.getFont().deriveFont(150.0f));
+			            g.drawString((int)(1000.0f / renderDiff) + " fps", 5, 300);
+			            //*/
+			            
 					}
 					finally
 					{
@@ -347,6 +447,12 @@ public class LeaderboardWindow extends AppWindow
 		{
 			device.setFullScreenWindow(null);
 		}
+	}
+	
+	
+	public void positionChanged(PositionChangeEvent event)
+	{
+		positionChangeEvents.add(event);
 	}
 	
 	

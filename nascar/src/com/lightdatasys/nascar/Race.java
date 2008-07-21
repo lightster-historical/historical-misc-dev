@@ -5,11 +5,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
-import javax.swing.JCheckBox;
 import javax.swing.table.AbstractTableModel;
+
+import com.lightdatasys.nascar.event.PositionChangeEvent;
+import com.lightdatasys.nascar.event.PositionChangeListener;
 
 public class Race
 {
@@ -26,12 +29,16 @@ public class Race
 	private String name;
 	private String nascarComId;
 	private Date date;
+
+	private AbstractMap<Integer,Result> resultsByFinish;
+	private AbstractMap<String,Result> resultsByCarNo;
 	
-	private AbstractMap<Integer,Result> results;
+	private ArrayList<PositionChangeListener> positionChangeListeners;
 
 	
 	public Race()
 	{
+		positionChangeListeners = new ArrayList<PositionChangeListener>();
 	}
 	
 	
@@ -67,7 +74,51 @@ public class Race
 	
 	public AbstractMap<Integer,Result> getResults()
 	{
-		return results;
+		return resultsByFinish;
+	}
+	
+	public Result getResultByFinish(int finish)
+	{
+		if(resultsByFinish.containsKey(finish))
+		{
+			return resultsByFinish.get(finish);
+		}
+		
+		return null;
+	}
+	
+	public Result getResultByCarNo(String carNo)
+	{
+		if(resultsByCarNo.containsKey(carNo))
+		{
+			return resultsByCarNo.get(carNo);
+		}
+		
+		return null;
+	}
+	
+	
+	void setFinish(String carNo, int finish)
+	{
+		if(resultsByCarNo.containsKey(carNo))
+		{
+			Result result = resultsByCarNo.get(carNo);
+			
+			for(PositionChangeListener listener : positionChangeListeners)
+			{
+				PositionChangeEvent ev = new PositionChangeEvent(carNo, result.getFinish(), finish);
+				listener.positionChanged(ev);
+			}
+			
+			resultsByFinish.put(finish, result);
+		}
+	}
+	
+	
+	public void addPositionChangeListener(PositionChangeListener listener)
+	{
+		if(!positionChangeListeners.contains(listener))
+			positionChangeListeners.add(listener);
 	}
 	
 	
@@ -149,7 +200,8 @@ public class Race
 	{
 		try
 		{
-			results = new HashMap<Integer,Result>();
+			resultsByFinish = new HashMap<Integer,Result>();
+			resultsByCarNo = new HashMap<String,Result>();
 			
 			Statement sResults = NASCARData.getSQLConnection().createStatement();
 			sResults.execute("SELECT resultId, driverId, car, start, finish, ledLaps, ledMostLaps, penalties FROM nascarResult WHERE raceId=" + raceId
@@ -168,7 +220,8 @@ public class Race
 				int penalties = rsResults.getInt("penalties");
 				
 				Result result = new Result(this, driver, car, start, finish, ledLaps, ledMostLaps, penalties);
-				results.put(finish, result);
+				resultsByFinish.put(finish, result);
+				resultsByCarNo.put(car, result);
 			}
 		}
 		catch(SQLException e)

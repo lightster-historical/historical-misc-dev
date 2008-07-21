@@ -24,6 +24,21 @@ public class Driver
 	{
 	}
 
+	
+	public int getId()
+	{
+		return driverId;
+	}
+	
+	public String getFirstName()
+	{
+		return firstName;
+	}
+	
+	public String getLastName()
+	{
+		return lastName;
+	}
 
 	public Color getFontColor()
 	{
@@ -125,14 +140,22 @@ public class Driver
 	}
 	
 	
-	private static Color getColor(String encodedColor, Color alternate)
+	public static Color getColor(String encodedColor, Color alternate)
 	{
-		try
+		if(encodedColor.length() == 7 && encodedColor.charAt(0) == '#')
 		{
-			return Color.decode(encodedColor);
+			encodedColor = encodedColor.substring(1);
 		}
-		catch(Exception ex)
+		
+		if(encodedColor.length() == 6 && encodedColor.matches("[0-9a-fA-F]{6,6}"))
 		{
+			int r = 0, g = 0, b = 0;
+			
+			r = Integer.parseInt(encodedColor.substring(0, 2), 16);
+			g = Integer.parseInt(encodedColor.substring(2, 4), 16);
+			b = Integer.parseInt(encodedColor.substring(4, 6), 16);
+			
+			return new Color(r, g, b);
 		}
 		
 		return alternate;

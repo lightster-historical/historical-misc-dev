@@ -17,6 +17,8 @@ public class Cell
 	
 	public Cell(int w, int h)
 	{
+		this();
+		
 		image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 		
 		width = w;
@@ -28,8 +30,6 @@ public class Cell
 	{
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, width, height);
-		g.setColor(Color.WHITE);
-		g.drawString("Test", 2, height);
 	}
 	
 	public BufferedImage getImage()

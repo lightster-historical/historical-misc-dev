@@ -64,4 +64,13 @@ public class Result
 	{
 		return penalties;
 	}
+	
+	
+	public void setFinish(int finish)
+	{
+		if(race != null)
+			race.setFinish(car, finish);
+		
+		this.finish = finish;
+	}
 }

@@ -11,8 +11,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -35,18 +33,14 @@ import com.sportvision.comm.RaceStatusListener;
 import com.sportvision.comm.RaceStatusMessage;
 import com.sportvision.comm.RacecastListener;
 import com.sportvision.comm.ShoutcastSocketv2;
-import com.sportvision.gui.about.AboutPanel;
 import com.sportvision.gui.chase.ChasePanel;
 import com.sportvision.gui.components.AlertDialog;
 import com.sportvision.gui.components.RacecastButtonLabel;
-import com.sportvision.gui.components.RacecastTabbedPane;
 import com.sportvision.gui.dashboard.DualDashboardPanel;
 import com.sportvision.gui.header.RacecastHeader;
-import com.sportvision.gui.help.HelpPanel;
 import com.sportvision.gui.leaderboard.LeaderboardPanel;
 import com.sportvision.gui.main.CardPanel;
 import com.sportvision.gui.top_ten.TrackTopTenPanel;
-import com.sportvision.gui.track_panel.TrackPanel;
 import com.sportvision.gui.viewers_choice.ViewersChoicePanel;
 import com.sportvision.model.Drivers;
 import com.sportvision.model.Race;
@@ -70,7 +64,8 @@ public class Leaderboard extends JPanel
 	
 	public static void main(String args[])
 	{
-		window = new LeaderboardWindow(new Leaderboard());
+		leaderboard = new Leaderboard();
+		window = new LeaderboardWindow(leaderboard);
 		System.out.println("window created");
 		Thread test = new Thread(window);
 		test.start();
@@ -94,7 +89,7 @@ public class Leaderboard extends JPanel
  {
      propertyFileLocation = "";
      host = null;
-     shoutcastHost = new String("ultravox.nascar.com");
+     //shoutcastHost = new String("ultravox.nascar.com");
      alternateShoutcastHost = null;
      portList = null;
      hilite = false;
@@ -115,15 +110,11 @@ public class Leaderboard extends JPanel
      //rootPaneContainer = null;
      //gp = null;
      header = null;
-     trackPanel = null;
      leaderboardPanel = null;
      trackTopTenPanel = null;
      viewersChoicePanel = null;
      dualDashboardPanel = null;
      chasePanel = null;
-     aboutPanel = null;
-     helpPanel = null;
-     tabPane = null;
      tabButtonBackgroundLabel = null;
      tabButtonBackgroundIcon = new ImageIcon(ImageFactory.getHeaderTabImage("hot_tab_back.png", this));
      TAB_NAMES = new String[0];
@@ -132,7 +123,7 @@ public class Leaderboard extends JPanel
      tabHotButtons = new RacecastButtonLabel[NUM_TABS];
      popped = new boolean[NUM_TABS];
      selected = 1;
-     trackMotionTolerance = 40;
+     //trackMotionTolerance = 40;
      bufferSize = 6000;
      shoutcastSID = "42";
      dataTimeoutValue = 20000;
@@ -611,12 +602,12 @@ public class Leaderboard extends JPanel
  public static final int HEIGHT = 490;
  public static final String VERSION = "Build Version 2.5.14 09/14/2007";
  public static final String DEFAULT_SHOUTCAST_HOST = "ultravox.nascar.com";
- private static final String PROPERTY_FILE_PATH = "Sportvision/Racecast/Assets/Config/";
- private static final String DEFAULT_CC_HOST = "localhost";
- private static final int HEARTBEAT_WAIT = 20000;
+ //private static final String PROPERTY_FILE_PATH = "Sportvision/Racecast/Assets/Config/";
+ //private static final String DEFAULT_CC_HOST = "localhost";
+ //private static final int HEARTBEAT_WAIT = 20000;
  public String propertyFileLocation;
  private String host;
- private String shoutcastHost;
+ //private String shoutcastHost;
  private String alternateShoutcastHost;
  private String portList;
  private boolean hilite;
@@ -637,15 +628,11 @@ public class Leaderboard extends JPanel
  //private RootPaneContainer rootPaneContainer;
  //private DoorGlassPane gp;
  private RacecastHeader header;
- private TrackPanel trackPanel;
  private LeaderboardPanel leaderboardPanel;
  private TrackTopTenPanel trackTopTenPanel;
  private ViewersChoicePanel viewersChoicePanel;
  private DualDashboardPanel dualDashboardPanel;
  private ChasePanel chasePanel;
- private AboutPanel aboutPanel;
- private HelpPanel helpPanel;
- private RacecastTabbedPane tabPane;
  private JLabel tabButtonBackgroundLabel;
  private ImageIcon tabButtonBackgroundIcon;
  private String TAB_NAMES[];
@@ -654,7 +641,7 @@ public class Leaderboard extends JPanel
  private RacecastButtonLabel tabHotButtons[];
  private boolean popped[];
  private int selected;
- private int trackMotionTolerance;
+ //private int trackMotionTolerance;
  private int bufferSize;
  private String shoutcastSID;
  private int dataTimeoutValue;

@@ -3,15 +3,21 @@ package com.lightdatasys.nascar.fantasy.gui;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.font.FontRenderContext;
 
-public class CarNoCell extends Cell 
+import com.lightdatasys.nascar.Result;
+
+public class ResultCell extends Cell 
 {
-	private String carNo;
+	public enum Mode {POSITION, LAPS_LED, LEADER_INTERVAL, LOCAL_INTERVAL, SEASON_POINTS, RACE_POINTS};
+	
+	
+	private Result result;
+	
+	private static Mode mode;
 	
 	private Color border;
 	private Color background;
@@ -22,16 +28,37 @@ public class CarNoCell extends Cell
 	private int w2;
 	
 	
-	public CarNoCell(int w, int h, String carNo, Color text, Color bg, Color border)
+	public ResultCell(int w, int h, Result result, Color text, Color bg, Color border)
 	{
 		super(w, h);
 		
-		this.carNo = carNo;
+		this.result = result;
 		this.border = border;
 		this.background = bg;
 		this.text = text;
 		
-
+		setMode(Mode.POSITION);
+	}
+	
+	
+	private String getValue()
+	{
+		if(mode == Mode.LAPS_LED)
+		{
+			
+		}
+		else
+		{
+			return (new Integer(result.getFinish())).toString();
+		}
+		
+		return "";
+	}
+	
+	public void setMode(Mode mode)
+	{
+		this.mode = mode;
+		
 		int borderWidth = 2;
 		
 		Graphics2D g = (Graphics2D)getImage().getGraphics();
@@ -40,15 +67,12 @@ public class CarNoCell extends Cell
         font = new Font(null, Font.BOLD, (int)((getHeight() - 10) * dpi / 72f));
         FontRenderContext fontRender = g.getFontRenderContext();
 
-	    w2 = (int)(font.getStringBounds(String.format("%s", carNo), fontRender).getWidth());
+	    w2 = (int)(font.getStringBounds(String.format("%s", getValue()), fontRender).getWidth());
         if(w2 > getWidth()-2*5)
         {
-            font = new Font(null, Font.BOLD, (int)((2f / carNo.length()) * (getHeight()-2*5) * dpi / 72f));
-            w2 = (int)(font.getStringBounds(String.format("%s", carNo), fontRender).getWidth());
+            font = new Font(null, Font.BOLD, (int)((2f / getValue().length()) * (getHeight()-2*5) * dpi / 72f));
+            w2 = (int)(font.getStringBounds(String.format("%s", getValue()), fontRender).getWidth());
         }
-        
-        int h2 = (int)font.getStringBounds(String.format("%s", carNo), fontRender).getHeight();
-		int digitWidth = (int)font.getStringBounds("9", fontRender).getWidth();
 	}
 	
 	
@@ -63,8 +87,6 @@ public class CarNoCell extends Cell
 
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
             RenderingHints.VALUE_ANTIALIAS_ON);
-        g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
-                RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
         g.setFont(font);
         
@@ -77,6 +99,6 @@ public class CarNoCell extends Cell
 
 		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));
 		g.setColor(text);
-		g.drawString(carNo, (getWidth() - w2)/2, yOffset);
+		g.drawString(getValue(), (getWidth() - w2)/2, yOffset);
 	}
 }

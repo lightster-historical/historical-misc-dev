@@ -3,13 +3,12 @@ package com.lightdatasys.nascar.fantasy.gui;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
 import java.awt.font.FontRenderContext;
 
-public class CarNoCell extends Cell 
+public class FantasyPlayerCell extends Cell 
 {
 	private String carNo;
 	
@@ -22,9 +21,13 @@ public class CarNoCell extends Cell
 	private int w2;
 	
 	
-	public CarNoCell(int w, int h, String carNo, Color text, Color bg, Color border)
+	public FantasyPlayerCell(int w, int h, String carNo, Color text, Color bg, Color border)
 	{
 		super(w, h);
+		
+		String[] temp = carNo.split(" ");
+		carNo = temp[0].substring(0, 1) + temp[0].substring(temp[0].length() - 1, temp[0].length());
+        
 		
 		this.carNo = carNo;
 		this.border = border;
@@ -41,14 +44,14 @@ public class CarNoCell extends Cell
         FontRenderContext fontRender = g.getFontRenderContext();
 
 	    w2 = (int)(font.getStringBounds(String.format("%s", carNo), fontRender).getWidth());
-        if(w2 > getWidth()-2*5)
+        if(w2 > getHeight()-2*5)
         {
             font = new Font(null, Font.BOLD, (int)((2f / carNo.length()) * (getHeight()-2*5) * dpi / 72f));
             w2 = (int)(font.getStringBounds(String.format("%s", carNo), fontRender).getWidth());
         }
         
         int h2 = (int)font.getStringBounds(String.format("%s", carNo), fontRender).getHeight();
-		int digitWidth = (int)font.getStringBounds("9", fontRender).getWidth();
+		int digitWidth = (int)font.getStringBounds("W", fontRender).getWidth();
 	}
 	
 	
@@ -63,17 +66,15 @@ public class CarNoCell extends Cell
 
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
             RenderingHints.VALUE_ANTIALIAS_ON);
-        g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
-                RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 
         g.setFont(font);
         
 		// border
 		g.setColor(border);
-		g.fillRect(0, 0, getWidth(), getHeight());
+		g.fillRoundRect(0, 0, getWidth(), getHeight(), getWidth()/3, getWidth()/3);
 
 		g.setColor(background);
-		g.fillRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth);
+		g.fillRoundRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth, getWidth()/4, getWidth()/4);
 
 		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));
 		g.setColor(text);
