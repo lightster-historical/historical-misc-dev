@@ -125,7 +125,7 @@ public class SettingsServer implements Runnable
 		        								default: mode = FantasyResultCell.Mode.POSITION; break;
 	        								}
 
-	        								if(word[1].toLowerCase().equals("fantasyresultmode1"))
+	        								if(word[1].toLowerCase().equals("fantasymode1"))
 	        									settings.setFantasyMode1(mode);
 	        								else
 	        									settings.setFantasyMode2(mode);
@@ -176,7 +176,7 @@ public class SettingsServer implements Runnable
         						done = true;
     						}
         					else if(word[1].toLowerCase().equals("fantasymode1") ||
-    							word[1].toLowerCase().equals("fantasymode1"))
+    							word[1].toLowerCase().equals("fantasymode2"))
         					{
 								FantasyResultCell.Mode mode;
 								if(word[1].toLowerCase().equals("fantasymode1"))
@@ -203,7 +203,7 @@ public class SettingsServer implements Runnable
 	        			out.println("done");
 	        		else
 	        			out.println("nope");
-	        		System.out.println(inputLine);
+	        		System.out.println(inputLine + " " + done);
 	        	}
 
 	        	out.close();
