@@ -1,11 +1,13 @@
 package com.lightdatasys.nascar.fantasy.gui;
 
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import com.lightdatasys.nascar.fantasy.Leaderboard;
-import com.sportvision.model.Race;
+import com.lightdatasys.gui.FontUtility;
+import com.lightdatasys.nascar.Race;
 
 public class RaceStatusCell extends Cell 
 {
@@ -15,14 +17,14 @@ public class RaceStatusCell extends Cell
 	
 	protected boolean updated;
 	
-	private Leaderboard leaderboard;
+	private Race race;
 	
 	
-	public RaceStatusCell(int w, int h, Leaderboard leaderboard)
+	public RaceStatusCell(int w, int h, Race race)
 	{
 		super(w, h);
 		
-		this.leaderboard = leaderboard;
+		this.race = race;
 		
 		image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 		
@@ -35,15 +37,27 @@ public class RaceStatusCell extends Cell
 	
 	public void render(Graphics2D g)
 	{
-		if(leaderboard.getRace() != null)
+		if(race != null)
 		{
-			Race race = leaderboard.getRace();
-			if(race.flag == Race.PRE_RACE)
+			if(race.getFlag() == Race.Flag.PRE_RACE)
 			{
 				g.setColor(Color.BLACK);
 				g.fillRect(0, 0, width, height);
+				
+				String label = String.format("%d", race.getLapCount() - race.getCurrentLap());
+				g.setColor(Color.WHITE);
+				
+				Font font = FontUtility.getScaledFont(width, height, label, g.getFont(), g);
+				FontMetrics metrics = g.getFontMetrics(font);
+				g.setFont(font);
+
+				float xOffset = (float)(getWidth() - font.getStringBounds(label, g.getFontRenderContext()).getWidth()) / 2.0f;
+				float yOffset = (getHeight() + metrics.getAscent() - metrics.getDescent()) / 2.0f;
+				
+				
+				g.drawString(label, xOffset, yOffset);
 			}
-			else if(race.flag == Race.CHECKERED)
+			else if(race.getFlag() == Race.Flag.CHECKERED)
 			{
 				int rows, cols;
 				int squareW, squareH;
@@ -72,13 +86,13 @@ public class RaceStatusCell extends Cell
 			}
 			else
 			{
-				if(race.flag == Race.GREEN)
+				if(race.getFlag() == Race.Flag.GREEN)
 					g.setColor(Color.GREEN);
-				else if(race.flag == Race.RED)
+				else if(race.getFlag() == Race.Flag.RED)
 					g.setColor(Color.RED);
-				else if(race.flag == Race.WHITE)
+				else if(race.getFlag() == Race.Flag.WHITE)
 					g.setColor(Color.WHITE);
-				else if(race.flag == Race.YELLOW)
+				else if(race.getFlag() == Race.Flag.YELLOW)
 					g.setColor(Color.YELLOW);
 				
 				g.fillRect(0, 0, width, height);

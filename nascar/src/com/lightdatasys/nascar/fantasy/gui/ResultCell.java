@@ -143,7 +143,7 @@ public class ResultCell extends Cell
         
 		// border
 		g.setColor(border);
-		if(mode == Mode.LAPS_LED)
+		/*if(mode == Mode.LAPS_LED)
 			g.setColor(Color.BLUE);
 		else if(mode == Mode.LEADER_INTERVAL)
 			g.setColor(Color.YELLOW);
@@ -154,7 +154,7 @@ public class ResultCell extends Cell
 		else if(mode == Mode.RACE_POINTS)
 			g.setColor(Color.BLUE);
 		else if(mode == Mode.SEASON_POINTS)
-			g.setColor(Color.YELLOW);
+			g.setColor(Color.YELLOW);*/
 		g.fillRect(0, 0, getWidth(), getHeight());
 
 		g.setColor(background);

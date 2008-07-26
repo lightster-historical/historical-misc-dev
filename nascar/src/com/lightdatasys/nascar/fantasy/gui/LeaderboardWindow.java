@@ -1,9 +1,11 @@
 package com.lightdatasys.nascar.fantasy.gui;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
@@ -33,12 +35,15 @@ public class LeaderboardWindow extends AppWindow
 	// number of buffers to use for graphics rendering
 	private final static int NUM_GFX_BUFFERS = 2;
 	
+	/*
 	// updates per second (data/stats updates)
 	private final static float UPS = .2f;
 	// frames per second
 	private final static float FPS = 60.0f;
 	
-	private final static long SWAP_PERIOD = 1000;
+	private final static long SWAP_PERIOD = 1000;*/
+	
+	private Settings settings;
 	
 	private Leaderboard leaderboard;
 	
@@ -82,12 +87,18 @@ public class LeaderboardWindow extends AppWindow
 	private int colOffsetPos;
 	private long colOffsetTime;
 	
-	private ResultCell.Mode resultMode;
+	//private ResultCell.Mode resultMode;
 
 	private ArrayList<PositionChangeEvent> positionChangeEvents;
 	private ArrayList<PositionChangeEvent> fantasyPositionChangeEvents;
 	
 	private com.lightdatasys.nascar.Race race;
+	
+	// timing
+	long lastUpdateTime;  // time of last update
+	long lastRenderTime;  // and last render
+	long updateInterval;  // number of milliseconds between each update
+	long renderInterval;  // and each render
 	
 	
 	public LeaderboardWindow(Leaderboard leaderboard)
@@ -120,10 +131,15 @@ public class LeaderboardWindow extends AppWindow
 
 		//WindowUtil.centerWindow(this);
 		//setVisible(true);
+		
+		settings = new Settings();
+		Thread test = new Thread(new SettingsServer(settings));
+		test.start();
+		System.out.println("settings thread created");
         
         cellMargin = 2;
         
-        resultMode = ResultCell.Mode.POSITION;
+        //resultMode = ResultCell.Mode.POSITION;
 
 		Rectangle dim = device.getDefaultConfiguration().getBounds();
         width = (int)dim.getWidth();
@@ -133,7 +149,7 @@ public class LeaderboardWindow extends AppWindow
 		cellHeight = ((height - cellMargin) / ROWS) - cellMargin;
 		
 		colOffsetPos = 0;
-		colOffsetTime = System.currentTimeMillis();
+		colOffsetTime = 0;
 
 		race = com.lightdatasys.nascar.Race.getById(1066);
 		
@@ -209,9 +225,9 @@ public class LeaderboardWindow extends AppWindow
 					if(x == 0)
 					{
 						FantasyResult result = fantasyResults.get(y - 1);
-						System.out.println(result);
-						FantasyResultCell cell = new FantasyResultCell(colSize[x], rowSize[y], result,
-							Color.WHITE, Color.BLACK, Color.WHITE);
+						FantasyPlayer player = result.getPlayer();
+						FantasyResultCell cell = new FantasyResultCell(colSize[x], rowSize[y], result, Color.WHITE,
+								player.getBackgroundColor(), Color.WHITE);
 						cell.setMode(FantasyResultCell.Mode.POSITION);
 						cells[x][y] = cell;
 					}
@@ -259,7 +275,7 @@ public class LeaderboardWindow extends AppWindow
 				//tempCells[x][y] = cells[x][y];
 			}
 		}
-		cells[0][0] = new RaceStatusCell(colSize[0]+colSize[1] + cellMargin, rowSize[0]+rowSize[1] + cellMargin, leaderboard);
+		cells[0][0] = new RaceStatusCell(colSize[0]+colSize[1] + cellMargin, rowSize[0]+rowSize[1] + cellMargin, race);
 		//tempCells[0][0] = cells[0][0];
 		
 		colSwaps = new Swap[COLUMNS];
@@ -271,15 +287,20 @@ public class LeaderboardWindow extends AppWindow
         
         setBackground(Color.BLACK);
 
+        BufferedImage img = new BufferedImage(16,16,BufferedImage.TYPE_4BYTE_ABGR);
+        Cursor blankCursor = getToolkit().createCustomCursor(img,new Point(0,0),"blankCursor");
+        setCursor(blankCursor);
+
         //rand = new Random();
 	}
 	
 	
 	public void update()
 	{
+		initTiming();
 		//race.getResultByFinish(5).setFinish(race.getResultByCarNo("48").getFinish());
 		//race.getResultByCarNo("48").setFinish(5);
-		switch(resultMode)
+		/*switch(resultMode)
 		{
 			case LAPS_LED:
 				resultMode = ResultCell.Mode.LEADER_INTERVAL;
@@ -299,7 +320,40 @@ public class LeaderboardWindow extends AppWindow
 			case SEASON_POINTS:
 				resultMode = ResultCell.Mode.LAPS_LED;
 				break;
+		}*/
+		
+		com.lightdatasys.nascar.Race.Flag flag;
+		switch(getRace().flag)
+		{
+			case com.sportvision.model.Race.CHECKERED:
+				flag = com.lightdatasys.nascar.Race.Flag.CHECKERED;
+				break;
+			case com.sportvision.model.Race.GREEN:
+				flag = com.lightdatasys.nascar.Race.Flag.GREEN;
+				break;
+			case com.sportvision.model.Race.PRE_RACE:
+				flag = com.lightdatasys.nascar.Race.Flag.PRE_RACE;
+				break;
+			case com.sportvision.model.Race.RED:
+				flag = com.lightdatasys.nascar.Race.Flag.RED;
+				break;
+			case com.sportvision.model.Race.WHITE:
+				flag = com.lightdatasys.nascar.Race.Flag.WHITE;
+				break;
+			case com.sportvision.model.Race.YELLOW:
+				flag = com.lightdatasys.nascar.Race.Flag.YELLOW;
+				break;
+			default:
+				flag = com.lightdatasys.nascar.Race.Flag.PRE_RACE;
+				break;
 		}
+		race.setCurrentLap(getRace().currentLap);
+		race.setFlag(flag);
+		race.setLastFlagChange(getRace().flagChangeLap);
+		race.setLapCount(getRace().lapCount);
+		race.setCautionCount(getRace().numberOfCautions);
+		race.setLeadChangeCount(getRace().numberOfLeadChanges);
+		race.setLeaderCount(getRace().numberOfLeaders);
 		
 		boolean raceStarted = false;
 		if(getRace().currentLap > 0)
@@ -443,7 +497,15 @@ public class LeaderboardWindow extends AppWindow
 				{		
 					if(cell instanceof ResultCell)
 					{
-						((ResultCell)cell).setMode(resultMode);
+						((ResultCell)cell).setMode(settings.getResultMode());
+					}
+					
+					if(cell instanceof FantasyResultCell)
+					{
+						if(x == 0)
+							((FantasyResultCell)cell).setMode(settings.getFantasyMode1());
+						else if(x == 1)
+							((FantasyResultCell)cell).setMode(settings.getFantasyMode2());
 					}
 					
 					BufferedImage img = cell.getImage();
@@ -479,7 +541,7 @@ public class LeaderboardWindow extends AppWindow
 			
 			int pos2 = colPosition[col2];//cellMargin + col2 * (cellWidth + cellMargin);
 
-			colSwaps[col2] = new Swap(pos1, pos2, SWAP_PERIOD);
+			colSwaps[col2] = new Swap(pos1, pos2, settings.getSwapPeriod());
 			colSwapMap[col2] = col1;
 		}
 	}
@@ -496,35 +558,32 @@ public class LeaderboardWindow extends AppWindow
 			
 			int pos2 = rowPosition[row2];//cellMargin + row2 * (cellHeight + cellMargin);
 			
-			rowSwaps[row2] = new Swap(pos1, pos2, SWAP_PERIOD);
+			rowSwaps[row2] = new Swap(pos1, pos2, settings.getSwapPeriod());
 			rowSwapMap[row2] = row1;
 		}
 	}
 	
 	
+	public void initTiming()
+	{
+		lastUpdateTime = System.currentTimeMillis();
+		lastRenderTime = System.currentTimeMillis();
+		
+		updateInterval = Math.round(1000.0d / settings.getUPS()); 
+		renderInterval = Math.round(1000.0d / settings.getFPS());
+	}
+	
 	public void run()
 	{
-		long lastUpdateTime = System.currentTimeMillis();
-		long lastRenderTime = System.currentTimeMillis();
+		initTiming();
 		
-		long updateInterval = Math.round(1000.0d / UPS); 
-		long renderInterval = Math.round(1000.0d / FPS);
+		//final long MAX_SLEEP_TIME = Math.min(updateInterval, renderInterval);
+		//long lastTime = System.currentTimeMillis();
 		
-		final long MAX_SLEEP_TIME = Math.min(updateInterval, renderInterval);
-
-		long lastTime = System.currentTimeMillis();
 		try
 		{
 			while(!done)
 			{
-				long updateDiff = (System.currentTimeMillis() - lastUpdateTime);
-				if(updateDiff >= updateInterval)
-				{
-					update();
-
-		            lastUpdateTime = System.currentTimeMillis();
-				}
-				
 				long renderDiff = (System.currentTimeMillis() - lastRenderTime);
 	        	if(renderDiff >= renderInterval)
 	        	{
@@ -555,9 +614,17 @@ public class LeaderboardWindow extends AppWindow
 		            lastRenderTime = System.currentTimeMillis();
 	        	}
 	        	
+				long updateDiff = (System.currentTimeMillis() - lastUpdateTime);
+				if(updateDiff >= updateInterval)
+				{
+					update();
+
+		            lastUpdateTime = System.currentTimeMillis();
+				}
+	        	
 	        	long updateSleepTime = updateInterval - (System.currentTimeMillis() - lastUpdateTime);
 	        	long renderSleepTime = renderInterval - (System.currentTimeMillis() - lastRenderTime);
-	        	long sleepTime = Math.min(updateSleepTime, renderSleepTime);
+	        	long sleepTime = Math.min(Math.min(updateSleepTime, renderSleepTime), 5000);
 		        
 		        try
 		        {

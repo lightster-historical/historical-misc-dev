@@ -20,6 +20,9 @@ import com.lightdatasys.nascar.fantasy.FantasyStanding;
 
 public class Race
 {
+	public enum Flag {GREEN, YELLOW, RED, WHITE, CHECKERED, PRE_RACE};
+	
+	
 	private static AbstractMap<Integer,Race> racesById = new HashMap<Integer,Race>();
 	
 	
@@ -33,6 +36,17 @@ public class Race
 	private String name;
 	private String nascarComId;
 	private Date date;
+	
+	private int currentLap;
+	private int lapCount;
+	private int time;
+	
+	private Flag flag;
+	private int lastFlagChange;
+	private int cautionCount;
+	
+	private int leadChangeCount;
+	private int leaderCount;
 
 	private AbstractMap<Integer,Result> resultsByFinish;
 	private AbstractMap<String,Result> resultsByCarNo;
@@ -52,6 +66,17 @@ public class Race
 	{
 		positionChangeListeners = new ArrayList<PositionChangeListener>();
 		fantasyPositionChangeListeners = new ArrayList<PositionChangeListener>();
+		
+		currentLap = 0;
+		lapCount = 0;
+		time = 0;
+		
+		flag = Flag.PRE_RACE;
+		lastFlagChange = 0;
+		cautionCount = 0;
+		
+		leadChangeCount = 0;
+		leaderCount = 0;
 	}
 	
 	
@@ -83,6 +108,41 @@ public class Race
 	public Date getDate()
 	{
 		return date;
+	}
+	
+	public int getCurrentLap()
+	{
+		return currentLap;
+	}
+	
+	public int getLapCount()
+	{
+		return lapCount;
+	}
+	
+	public Flag getFlag()
+	{
+		return flag;
+	}
+	
+	public int getLastFlagChange()
+	{
+		return lastFlagChange;
+	}
+	
+	public int getCautionCount()
+	{
+		return cautionCount;
+	}
+	
+	public int getLeadChangeCount()
+	{
+		return leadChangeCount;
+	}
+	
+	public int getLeaderCount()
+	{
+		return leaderCount;
 	}
 	
 	public AbstractMap<Integer,Result> getResults()
@@ -125,7 +185,6 @@ public class Race
 		return null;
 	}
 	
-	
 	public AbstractMap<Integer,Standing> getStandings()
 	{
 		return standingsByDriver;
@@ -136,6 +195,42 @@ public class Race
 		return standingsByPlayer;
 	}
 	
+
+	
+	public void setCurrentLap(int currentLap)
+	{
+		this.currentLap = currentLap;
+	}
+	
+	public void setLapCount(int lapCount)
+	{
+		this.lapCount = lapCount;
+	}
+	
+	public void setFlag(Flag flag)
+	{
+		this.flag = flag;
+	}
+	
+	public void setLastFlagChange(int lastFlagChange)
+	{
+		this.lastFlagChange = lastFlagChange;
+	}
+	
+	public void setCautionCount(int cautionCount)
+	{
+		this.cautionCount = cautionCount;
+	}
+	
+	public void setLeadChangeCount(int leadChangeCount)
+	{
+		this.leadChangeCount = leadChangeCount;
+	}
+	
+	public void setLeaderCount(int leaderCount)
+	{
+		this.leaderCount = leaderCount;
+	}
 	
 	public void setFinish(String carNo, int finish)
 	{

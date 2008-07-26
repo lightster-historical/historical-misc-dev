@@ -109,12 +109,6 @@ public class FantasyResultCell extends Cell
         
 		// border
 		g.setColor(border);
-		if(mode == Mode.POSITION)
-			g.setColor(Color.YELLOW);
-		else if(mode == Mode.RACE_POINTS)
-			g.setColor(Color.BLUE);
-		else if(mode == Mode.SEASON_POINTS)
-			g.setColor(Color.YELLOW);
 		g.fillRect(0, 0, getWidth(), getHeight());
 
 		g.setColor(background);
