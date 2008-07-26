@@ -10,9 +10,12 @@ public class Cell
 	private int width;
 	private int height;
 	
+	protected boolean updated;
+	
 
 	private Cell()
 	{
+		updated = true;
 	}
 	
 	public Cell(int w, int h)
@@ -30,11 +33,19 @@ public class Cell
 	{
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, width, height);
+		
+		updated = false;
 	}
 	
 	public BufferedImage getImage()
 	{
 		return image;
+	}
+	
+	
+	public boolean isUpdated()
+	{
+		return updated;
 	}
 	
 	

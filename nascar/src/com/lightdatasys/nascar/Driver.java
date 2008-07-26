@@ -5,6 +5,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Driver 
@@ -134,9 +139,166 @@ public class Driver
 		return null;
 	}
 	
+	
 	public static Driver[] getDrivers()
 	{
 		return driversById.values().toArray(new Driver[driversById.size()]);
+	}
+	
+
+	public static AbstractMap<Integer,Standing> getStandings(Race race)
+	{
+		AbstractMap<Integer,Standing> standings = new HashMap<Integer,Standing>();
+		Date date = race.getDate();
+		
+		Connection conn = NASCARData.getSQLConnection();
+
+		Date chaseDate = null;
+		try
+		{
+			Statement sChaseDate = conn.createStatement();
+			sChaseDate.execute("SELECT date FROM nascarRace WHERE seasonId=" + race.getSeason().getId() + " ORDER BY date LIMIT 25,1");
+			
+			ResultSet rsChaseDate = sChaseDate.getResultSet();
+
+			if(rsChaseDate.next())
+				chaseDate = rsChaseDate.getDate("date");
+		}
+		catch(Exception ex)
+		{
+			System.err.println("The chase date for race " + race.getId() + " cannot be determined.");
+			ex.printStackTrace();
+		}		
+		
+		try
+		{
+			String whereChase = "";
+			if(chaseDate != null)
+				whereChase = String.format(" AND ra.date<='%1$tY-%1$tm-%1$td'", chaseDate);
+			
+			Statement sPreChase = conn.createStatement();
+			String sqlPreChase = String.format(
+					"SELECT d.driverId, COUNT(ra.raceId) starts, SUM(IF(finish=1,1,0)) wins, " +
+					"SUM(IF(finish<=5,1,0)) top5s, SUM(IF(finish<=10,1,0)) top10s, " +
+					"SUM(IF(finish=1,185,IF(finish<=6, 150+(6-finish)*5,IF(finish<=11, 130+(11-finish)*4,IF(finish<=43, 34+(43-finish)*3,0))))+IF(ledLaps>=1,5,0)+IF(ledMostLaps>=1,5,0)+penalties) AS points " +
+					"FROM nascarDriver AS d " +
+					"INNER JOIN nascarResult AS re ON d.driverId=re.driverId " +
+					"INNER JOIN nascarRace AS ra ON re.raceId=ra.raceId " +
+					"WHERE ra.seasonId=%1$d AND ra.date<'%2$tY-%2$tm-%2$td'%3$s " +
+					"GROUP BY d.driverId ORDER BY points DESC",
+					race.getSeason().getId(), race.getDate(), whereChase);
+			sPreChase.execute(sqlPreChase);
+			
+			ResultSet rsPreChase = sPreChase.getResultSet();
+			while(rsPreChase.next())
+			{
+				int driverId = rsPreChase.getInt("driverId");
+				
+				Driver driver = Driver.getById(driverId);
+				Standing standing = new Standing(driver);
+				standings.put(driverId, standing);
+				
+				standing.starts = rsPreChase.getInt("starts");
+				standing.wins = rsPreChase.getInt("wins");
+				standing.top10s = rsPreChase.getInt("top10s");
+				standing.top5s = rsPreChase.getInt("top5s");
+				standing.points = rsPreChase.getInt("points");
+			}
+			
+			if(chaseDate != null && date.compareTo(chaseDate) > 0)
+			{
+				ArrayList<Standing> sorted = new ArrayList<Standing>();
+				sorted.addAll(standings.values());
+				Collections.sort(sorted);
+				
+				for(int i = 0; i < 12; i++)
+				{
+					sorted.get(i).points = 5000 + sorted.get(i).wins * 10; 
+				}
+				
+				if(chaseDate != null)
+					whereChase = String.format(" AND ra.date>'%1$tY-%1$tm-%1$td'", chaseDate);
+				
+				Statement sPostChase = conn.createStatement();
+				String sqlPostChase = String.format(
+						"SELECT d.driverId, COUNT(ra.raceId) starts, SUM(IF(finish=1,1,0)) wins, " +
+						"SUM(IF(finish<=5,1,0)) top5s, SUM(IF(finish<=10,1,0)) top10s, " +
+						"SUM(IF(finish=1,185,IF(finish<=6, 150+(6-finish)*5,IF(finish<=11, 130+(11-finish)*4,IF(finish<=43, 34+(43-finish)*3,0))))+IF(ledLaps>=1,5,0)+IF(ledMostLaps>=1,5,0)+penalties) AS points " +
+						"FROM nascarDriver AS d " +
+						"INNER JOIN nascarResult AS re ON d.driverId=re.driverId " +
+						"INNER JOIN nascarRace AS ra ON re.raceId=ra.raceId " +
+						"WHERE ra.seasonId=%1$d AND ra.date<'%2$tY-%2$tm-%2$td'%3$s " +
+						"GROUP BY d.driverId ORDER BY points DESC",
+						race.getSeason().getId(), race.getDate(), whereChase);
+				sPostChase.execute(sqlPostChase);
+				
+				ResultSet rsPostChase = sPostChase.getResultSet();
+				while(rsPreChase.next())
+				{
+					Standing standing;
+					
+					int driverId = rsPreChase.getInt("driverId");
+					if(standings.containsKey(driverId))
+						standing = standings.get(driverId);
+					else
+					{
+						Driver driver = Driver.getById(driverId);
+						standing = new Standing(driver);
+						standings.put(driverId, standing);
+					}
+					
+					standing.starts += rsPreChase.getInt("starts");
+					standing.wins += rsPreChase.getInt("wins");
+					standing.top10s += rsPreChase.getInt("top10s");
+					standing.top5s += rsPreChase.getInt("top5s");
+					standing.points += rsPreChase.getInt("points");
+					
+					standing.points = -1;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			System.err.println("The standings for race " + race.getId() + " cannot be determined.");
+			ex.printStackTrace();
+		}
+		
+		return standings;
+		
+		/*
+        
+ 
+        if($raceNo >= 26)
+        {
+            $i = 0;
+            foreach($drivers as $driverId => $driver)
+            {
+                if($i < 12)
+                    $drivers[$driverId]['points'] = 5000 + (10 * $driver['wins']);
+                else
+                    break;
+                $i++;
+            }
+            
+            $query = new Query('SELECT d.*, COUNT(ra.raceId) starts, SUM(IF(finish=1,1,0)) wins, SUM(IF(finish<=5,1,0)) top5s, SUM(IF(finish<=10,1,0)) top10s, SUM(IF(finish=1,185,IF(finish<=6, 150+(6-finish)*5,IF(finish<=11, 130+(11-finish)*4,IF(finish<=43, 34+(43-finish)*3,0))))+IF(ledLaps>=1,5,0)+IF(ledMostLaps>=1,5,0)+penalties) AS points FROM nascarDriver AS d INNER JOIN nascarResult AS re ON d.driverId=re.driverId INNER JOIN nascarRace AS ra ON re.raceId=ra.raceId WHERE ra.seasonId=' . $seasonId . ' AND ra.date<=\'' . $raceDate . '\' AND ra.date>\'' . $chaseDate . '\' GROUP BY d.driverId ORDER BY points DESC');
+            $result = $db->execQuery($query);
+            while($row = $db->getAssoc($result))
+            {
+                if(array_key_exists($row['driverId'], $drivers))
+                {
+                    $drivers[$row['driverId']]['starts'] += $row['starts'];
+                    $drivers[$row['driverId']]['wins'] += $row['wins'];
+                    $drivers[$row['driverId']]['top5s'] += $row['top5s'];
+                    $drivers[$row['driverId']]['top10s'] += $row['top10s'];
+                    $drivers[$row['driverId']]['points'] += $row['points'];
+                }
+                else
+                {
+                    $drivers[$row['driverId']] = $row; 
+                }
+            }
+        }
+        */
 	}
 	
 	

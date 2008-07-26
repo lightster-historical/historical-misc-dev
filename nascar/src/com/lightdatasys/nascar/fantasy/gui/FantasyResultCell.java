@@ -5,17 +5,16 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
-import java.text.NumberFormat;
 
 import com.lightdatasys.gui.FontUtility;
-import com.lightdatasys.nascar.Result;
+import com.lightdatasys.nascar.fantasy.FantasyResult;
 
-public class ResultCell extends Cell 
+public class FantasyResultCell extends Cell 
 {
-	public enum Mode {POSITION, LAPS_LED, LEADER_INTERVAL, LOCAL_INTERVAL, SEASON_POINTS, RACE_POINTS};
+	public enum Mode {POSITION, SEASON_POINTS, RACE_POINTS, DRIVER_RACE_POINTS};
 	
 	
-	private Result result;
+	private FantasyResult result;
 	
 	private Mode mode;
 	
@@ -28,7 +27,7 @@ public class ResultCell extends Cell
 	private String cachedValue;
 	
 	
-	public ResultCell(int w, int h, Result result, Color text, Color bg, Color border)
+	public FantasyResultCell(int w, int h, FantasyResult result, Color text, Color bg, Color border)
 	{
 		super(w, h);
 		
@@ -45,50 +44,17 @@ public class ResultCell extends Cell
 	
 	private String getValue()
 	{
-		if(mode == Mode.LAPS_LED)
-		{
-			return (new Integer(result.getLapsLed())).toString();
-		}
-		else if(mode == Mode.LEADER_INTERVAL)
-		{
-			if(result.getFinish() == 1)
-			{
-				return "";
-			}
-			else
-			{
-				float interval = Math.abs(result.getBehindLeader());
-
-				if(interval >= 10)
-					return String.format("%.1f", interval);
-				else
-					return String.format("%.3f", interval);
-			}
-		}
-		else if(mode == Mode.LOCAL_INTERVAL)
-		{
-			if(result.getFinish() == 1)
-			{
-				return "";
-			}
-			else
-			{
-				float interval = Math.abs(result.getBehindLeader() -
-					result.getRace().getResultByFinish(result.getFinish()-1).getBehindLeader());
-
-				if(interval >= 10)
-					return String.format("%.1f", interval);
-				else
-					return String.format("%.3f", interval);
-			}
-		}
-		else if(mode == Mode.SEASON_POINTS)
+		if(mode == Mode.SEASON_POINTS)
 		{
 			return String.format("%s", result.getSeasonPoints());
 		}
 		else if(mode == Mode.RACE_POINTS)
 		{
 			return String.format("%s", result.getRacePoints());
+		}
+		else if(mode == Mode.DRIVER_RACE_POINTS)
+		{
+			return String.format("%s", result.getDriverRacePoints());
 		}
 		
 		return (new Integer(result.getFinish())).toString();
@@ -143,13 +109,7 @@ public class ResultCell extends Cell
         
 		// border
 		g.setColor(border);
-		if(mode == Mode.LAPS_LED)
-			g.setColor(Color.BLUE);
-		else if(mode == Mode.LEADER_INTERVAL)
-			g.setColor(Color.YELLOW);
-		else if(mode == Mode.LOCAL_INTERVAL)
-			g.setColor(Color.BLUE);
-		else if(mode == Mode.POSITION)
+		if(mode == Mode.POSITION)
 			g.setColor(Color.YELLOW);
 		else if(mode == Mode.RACE_POINTS)
 			g.setColor(Color.BLUE);

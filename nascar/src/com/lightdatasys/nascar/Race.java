@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -13,6 +14,9 @@ import javax.swing.table.AbstractTableModel;
 
 import com.lightdatasys.nascar.event.PositionChangeEvent;
 import com.lightdatasys.nascar.event.PositionChangeListener;
+import com.lightdatasys.nascar.fantasy.FantasyPlayer;
+import com.lightdatasys.nascar.fantasy.FantasyResult;
+import com.lightdatasys.nascar.fantasy.FantasyStanding;
 
 public class Race
 {
@@ -32,13 +36,22 @@ public class Race
 
 	private AbstractMap<Integer,Result> resultsByFinish;
 	private AbstractMap<String,Result> resultsByCarNo;
+	private AbstractMap<Driver,Result> resultsByDriver;
+	
+	private AbstractMap<Integer,FantasyResult> fantasyResultsByFinish;
+	private AbstractMap<FantasyPlayer,FantasyResult> fantasyResultsByPlayer;
 	
 	private ArrayList<PositionChangeListener> positionChangeListeners;
+	private ArrayList<PositionChangeListener> fantasyPositionChangeListeners;
+
+	private AbstractMap<Integer,Standing> standingsByDriver;
+	private AbstractMap<Integer,FantasyStanding> standingsByPlayer;
 
 	
 	public Race()
 	{
 		positionChangeListeners = new ArrayList<PositionChangeListener>();
+		fantasyPositionChangeListeners = new ArrayList<PositionChangeListener>();
 	}
 	
 	
@@ -77,6 +90,11 @@ public class Race
 		return resultsByFinish;
 	}
 	
+	public AbstractMap<Integer,FantasyResult> getFantasyResults()
+	{
+		return fantasyResultsByFinish;
+	}
+	
 	public Result getResultByFinish(int finish)
 	{
 		if(resultsByFinish.containsKey(finish))
@@ -97,8 +115,29 @@ public class Race
 		return null;
 	}
 	
+	public Result getResultByDriver(Driver driver)
+	{
+		if(resultsByDriver.containsKey(driver))
+		{
+			return resultsByDriver.get(driver);
+		}
+		
+		return null;
+	}
 	
-	void setFinish(String carNo, int finish)
+	
+	public AbstractMap<Integer,Standing> getStandings()
+	{
+		return standingsByDriver;
+	}
+	
+	public AbstractMap<Integer,FantasyStanding> getFantasyStandings()
+	{
+		return standingsByPlayer;
+	}
+	
+	
+	public void setFinish(String carNo, int finish)
 	{
 		if(resultsByCarNo.containsKey(carNo))
 		{
@@ -114,11 +153,45 @@ public class Race
 		}
 	}
 	
+	public void setFantasyFinish(FantasyPlayer player, int finish)
+	{
+		if(fantasyResultsByPlayer.containsKey(player))
+		{
+			FantasyResult result = fantasyResultsByPlayer.get(player);
+			
+			for(PositionChangeListener listener : fantasyPositionChangeListeners)
+			{
+				PositionChangeEvent ev = new PositionChangeEvent(player.toString(), result.getFinish(), finish);
+				listener.positionChanged(ev);
+			}
+			
+			fantasyResultsByFinish.put(finish, result);
+		}
+	}
+	
+	public void updateFantasyFinishPositions()
+	{
+		ArrayList<FantasyResult> sorted = new ArrayList<FantasyResult>();
+		sorted.addAll(fantasyResultsByPlayer.values());
+		Collections.sort(sorted);
+		
+		for(int i = 0; i < sorted.size(); i++)
+		{
+			sorted.get(i).setFinish(i + 1);
+		}
+	}
+
 	
 	public void addPositionChangeListener(PositionChangeListener listener)
 	{
 		if(!positionChangeListeners.contains(listener))
 			positionChangeListeners.add(listener);
+	}
+	
+	public void addFantasyPositionChangeListener(PositionChangeListener listener)
+	{
+		if(!fantasyPositionChangeListeners.contains(listener))
+			fantasyPositionChangeListeners.add(listener);
 	}
 	
 	
@@ -202,6 +275,7 @@ public class Race
 		{
 			resultsByFinish = new HashMap<Integer,Result>();
 			resultsByCarNo = new HashMap<String,Result>();
+			resultsByDriver = new HashMap<Driver,Result>();
 			
 			Statement sResults = NASCARData.getSQLConnection().createStatement();
 			sResults.execute("SELECT resultId, driverId, car, start, finish, ledLaps, ledMostLaps, penalties FROM nascarResult WHERE raceId=" + raceId
@@ -222,7 +296,46 @@ public class Race
 				Result result = new Result(this, driver, car, start, finish, ledLaps, ledMostLaps, penalties);
 				resultsByFinish.put(finish, result);
 				resultsByCarNo.put(car, result);
+				resultsByDriver.put(driver, result);
 			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public void loadFantasyResults()
+	{
+		try
+		{
+			fantasyResultsByFinish = new HashMap<Integer,FantasyResult>();
+			fantasyResultsByPlayer = new HashMap<FantasyPlayer,FantasyResult>();
+			
+			Statement sPicks = NASCARData.getSQLConnection().createStatement();
+			sPicks.execute("SELECT raceId, userId, driverId FROM nascarFantPick WHERE raceId=" + raceId);
+			
+			ResultSet rsPicks = sPicks.getResultSet();
+			
+			while(rsPicks.next())
+			{
+				FantasyPlayer player = FantasyPlayer.getByUserId(rsPicks.getInt("userId"));
+				
+				FantasyResult result;
+				if(fantasyResultsByPlayer.containsKey(player))
+				{
+					result = fantasyResultsByPlayer.get(player);
+				}
+				else
+				{
+					result = new FantasyResult(this, player, 0);
+					fantasyResultsByPlayer.put(player, result);
+				}
+				
+				result.addDriver(Driver.getById(rsPicks.getInt("driverId")));
+			}
+			
+			updateFantasyFinishPositions();
 		}
 		catch(SQLException e)
 		{
@@ -264,6 +377,10 @@ public class Race
 				race.date = rsRace.getDate("date");
 				
 				race.loadResults();
+				race.loadFantasyResults();
+				
+				race.standingsByDriver = Driver.getStandings(race);
+				race.standingsByPlayer = FantasyPlayer.getStandings(race);
 				
 				return race;
 			}

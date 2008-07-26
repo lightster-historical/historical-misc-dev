@@ -146,7 +146,7 @@ public class Leaderboard extends JPanel
  {
      CommonFunctions.dump("Racecast Version Build Version 2.5.14 09/14/2007");
      if(initComponents())
-         initCommunications(host);
+     ;//    initCommunications(host);
  }
 
  public void destroy()
@@ -297,7 +297,7 @@ public class Leaderboard extends JPanel
      }
  }
 
- public void addView(Component view)
+ public void addView2(Component view)
  {
      int ndx = -1;
      if(leaderboardPanel.equals(view))

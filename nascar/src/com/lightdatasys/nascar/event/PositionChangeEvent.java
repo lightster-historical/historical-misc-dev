@@ -15,7 +15,7 @@ public class PositionChangeEvent
 	}
 	
 	
-	public String getCarNo()
+	public String g()
 	{
 		return car;
 	}
