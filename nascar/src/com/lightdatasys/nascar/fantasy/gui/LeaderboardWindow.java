@@ -155,7 +155,7 @@ public class LeaderboardWindow extends AppWindow
 		colOffsetPos = 0;
 		colOffsetTime = 0;
 
-		race = com.lightdatasys.nascar.Race.getById(1066);
+		race = com.lightdatasys.nascar.Race.getById(1068);
 		
 		race.addPositionChangeListener
 		(
@@ -360,7 +360,7 @@ public class LeaderboardWindow extends AppWindow
 		race.setLeaderCount(getRace().numberOfLeaders);
 		
 		boolean raceStarted = false;
-		if(getRace().currentLap > 0)
+		if(race.getCurrentLap() > 0)
 			raceStarted = true;
 		
 		Vector<?> drivers = getDrivers().getSortedList();
@@ -368,13 +368,17 @@ public class LeaderboardWindow extends AppWindow
 		for(int i = 0; i < drivers.size(); i++)
 		{
 			String id = (String)drivers.get(i);
+
+			if(race.getResultByCarNo(id) != null)
+			{
+				int startPos = getDrivers().get(id).startPosition;
+				int currPos = getDrivers().get(id).currentPosition;
 			
-			int startPos = getDrivers().get(id).startPosition;
-			int currPos = getDrivers().get(id).currentPosition;
-			if(raceStarted && currPos != 0)
-				race.getResultByCarNo(id).setFinish(currPos);
-			else
-				race.getResultByCarNo(id).setFinish(startPos);
+				if(raceStarted && currPos != 0)
+					race.getResultByCarNo(id).setFinish(currPos);
+				else
+					race.getResultByCarNo(id).setFinish(startPos);
+			}
 		}
 		race.updateFantasyFinishPositions();
 		//*/
