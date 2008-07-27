@@ -473,6 +473,15 @@ public class LeaderboardWindow extends AppWindow
 	
 	public void render(Graphics2D g)
 	{	
+		if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.YELLOW)
+			setBackground(Color.YELLOW);
+		else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.RED)
+			setBackground(Color.RED);
+		else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.WHITE)
+			setBackground(Color.WHITE);
+		else
+			setBackground(Color.BLACK);
+		
 		g.clearRect(0, 0, width, height);
 
 		float speed = settings.getScrollSpeed() * .4f;

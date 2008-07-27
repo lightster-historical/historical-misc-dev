@@ -61,6 +61,8 @@ public class ResultCell extends Cell
 
 				if(interval >= 10)
 					return String.format("%.1f", interval);
+				else if(interval >= 1)
+					return String.format("%.2f", interval);					
 				else
 					return String.format("%.3f", interval);
 			}
@@ -78,6 +80,8 @@ public class ResultCell extends Cell
 
 				if(interval >= 10)
 					return String.format("%.1f", interval);
+				else if(interval >= 1)
+					return String.format("%.2f", interval);					
 				else
 					return String.format("%.3f", interval);
 			}
