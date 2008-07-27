@@ -187,12 +187,15 @@ public class LeaderboardWindow extends AppWindow
 		com.lightdatasys.nascar.fantasy.FantasyPlayer.loadAllFromDatabase();
 		com.lightdatasys.nascar.fantasy.FantasyPlayer[] players = com.lightdatasys.nascar.fantasy.FantasyPlayer.getPlayers(); 
 
+		cellWidth = 75;
+		cellHeight = 75;
+		
 		colSize = new int[COLUMNS];
 		colPosition = new int[COLUMNS];
-		colSize[0] = 60; colSize[1] = 60;
+		colSize[0] = cellWidth; colSize[1] = cellWidth;
 		for(int i = 2; i < COLUMNS; i++)
 		{
-			colSize[i] = 60;
+			colSize[i] = cellWidth;
 		}
 		colPosition[0] = cellMargin;
 		for(int i = 1; i < COLUMNS; i++)
@@ -202,10 +205,10 @@ public class LeaderboardWindow extends AppWindow
 
 		rowSize = new int[ROWS];
 		rowPosition = new int[ROWS];
-		rowSize[0] = 60; rowSize[1] = 60;
+		rowSize[0] = cellHeight; rowSize[1] = cellHeight;
 		for(int i = 2; i < ROWS; i++)
 		{
-			rowSize[i] = 60;
+			rowSize[i] = cellHeight;
 		}
 		rowPosition[0] = cellMargin;
 		for(int i = 1; i < ROWS; i++)
