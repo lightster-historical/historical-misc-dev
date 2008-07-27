@@ -113,7 +113,31 @@ public class Result
 		
 		return points;
 	}
+
+	public void setLapsLed(int lapsLed)
+	{
+		this.lapsLed = lapsLed;
+	}
 	
+	public void setLedLaps(boolean ledLaps)
+	{
+		this.ledLaps = ledLaps;
+	}
+	
+	public void setLedMostLaps(boolean ledMostLaps)
+	{
+		this.ledMostLaps = ledMostLaps;
+	}
+	
+	public void setPenalties(int penalties)
+	{
+		this.penalties = penalties;
+	}
+	
+	public void setBehindLeader(float behindLeader)
+	{
+		this.behindLeader = behindLeader;
+	}
 	
 	public void setFinish(int finish)
 	{

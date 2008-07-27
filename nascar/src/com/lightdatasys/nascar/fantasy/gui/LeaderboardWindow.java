@@ -368,19 +368,39 @@ public class LeaderboardWindow extends AppWindow
 		
 		Vector<?> drivers = getDrivers().getSortedList();
 		//*
+		int mostLapsLed = 0;
 		for(int i = 0; i < drivers.size(); i++)
 		{
 			String id = (String)drivers.get(i);
 
-			if(race.getResultByCarNo(id) != null)
+			Result result = race.getResultByCarNo(id);
+			if(result != null)
 			{
-				int startPos = getDrivers().get(id).startPosition;
-				int currPos = getDrivers().get(id).currentPosition;
+				com.sportvision.model.Driver d = getDrivers().get(id);
+				int startPos = d.startPosition;
+				int currPos = d.currentPosition;
 			
 				if(raceStarted && currPos != 0)
-					race.getResultByCarNo(id).setFinish(currPos);
+				{
+					result.setFinish(currPos);
+					
+					result.setBehindLeader((float)d.getTimeOffLeader());
+					result.setLapsLed(d.lapsLed);
+					result.setLedLaps(result.getLapsLed() > 0);
+					mostLapsLed = Math.max(mostLapsLed, result.getLapsLed());
+				}
 				else
-					race.getResultByCarNo(id).setFinish(startPos);
+					result.setFinish(startPos);
+			}
+		}
+		for(int i = 0; i < drivers.size(); i++)
+		{
+			String id = (String)drivers.get(i);
+
+			Result result = race.getResultByCarNo(id);
+			if(result != null)
+			{
+				result.setLedMostLaps(mostLapsLed == result.getLapsLed() && mostLapsLed != 0);
 			}
 		}
 		race.updateFantasyFinishPositions();
