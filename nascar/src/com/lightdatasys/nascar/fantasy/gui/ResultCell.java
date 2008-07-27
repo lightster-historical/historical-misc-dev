@@ -55,6 +55,10 @@ public class ResultCell extends Cell
 			{
 				return "";
 			}
+			else if(result.getLapsDown() != 0)
+			{
+				return String.format("%d", result.getLapsDown());
+			}
 			else
 			{
 				float interval = Math.abs(result.getBehindLeader());
@@ -72,6 +76,10 @@ public class ResultCell extends Cell
 			if(result.getFinish() == 1)
 			{
 				return "";
+			}
+			else if(result.getLapsDown() != 0)
+			{
+				return String.format("%d", result.getLapsDown());
 			}
 			else
 			{
@@ -161,11 +169,17 @@ public class ResultCell extends Cell
 			g.setColor(Color.YELLOW);*/
 		g.fillRect(0, 0, getWidth(), getHeight());
 
-		g.setColor(background);
+		if(result.getLapsDown() != 0)
+			g.setColor(new Color(0xCC, 0x00, 0x00));
+		else
+			g.setColor(background);
 		g.fillRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth);
 
 		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));
-		g.setColor(text);
+		if(result.getLapsDown() != 0)
+			g.setColor(Color.WHITE);
+		else
+			g.setColor(text);
 		g.drawString(cachedValue, xOffset, yOffset);
 		
 		updated = false;

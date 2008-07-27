@@ -14,6 +14,7 @@ public class Result
 	private boolean ledMostLaps;
 	private int penalties;
 	private float behindLeader;
+	private int lapsDown;
 	
 	
 	public Result(Race race, Driver driver, String car, int start, int finish, boolean ledLaps, boolean ledMostLaps, int penalties)
@@ -28,6 +29,7 @@ public class Result
 		this.ledMostLaps = ledMostLaps;
 		this.penalties = penalties;
 		this.behindLeader = 0.0f;
+		this.lapsDown = 0;
 	}
 	
 	
@@ -79,6 +81,11 @@ public class Result
 	public float getBehindLeader()
 	{
 		return behindLeader;
+	}
+	
+	public int getLapsDown()
+	{
+		return lapsDown;
 	}
 	
 	public int getSeasonPoints()
@@ -137,6 +144,11 @@ public class Result
 	public void setBehindLeader(float behindLeader)
 	{
 		this.behindLeader = behindLeader;
+	}
+	
+	public void setLapsDown(int lapsDown)
+	{
+		this.lapsDown = lapsDown;
 	}
 	
 	public void setFinish(int finish)
