@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Allstate 400 at the Brickyard
+track:	Indianapolis Motor Spwy
+location:	Indianapolis, IN
+length: 	400
+laps: 	160
+track_length: 	2.5
+scale: 	0.560
+x_offset: 	33
+y_offset: 	20
+tv_network: 	ESPN
+track_image_file: 	indianapolis.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	2494
+8	Martin	Chevrolet	2	Mark	Martin	1683
+12	Newman	Dodge	3	Ryan	Newman	2094
+9	Kahne	Dodge	4	Kasey	Kahne	2295
+24	J. Gordon	Chevrolet	5	Jeff	Gordon	2384
+19	E. Sadler	Dodge	6	Elliott	Sadler	1794
+2	Kurt Busch	Dodge	7	Kurt	Busch	2038
+26	McMurray	Ford	8	Jamie	McMurray	1823
+99	Edwards	Ford	9	Carl	Edwards	2509
+17	Kenseth	Ford	10	Matt	Kenseth	2317
+88	Earnhardt Jr.	Chevrolet	11	Dale	Earnhardt Jr.	2619
+16	Biffle	Ford	12	Greg	Biffle	2318
+42	Montoya	Dodge	13	Juan Pablo	Montoya	1863
+20	Stewart	Toyota	14	Tony	Stewart	2305
+10	Carpentier	Dodge	15	Patrick	Carpentier	1121
+6	Ragan	Ford	16	David	Ragan	2185
+83	Vickers	Toyota	17	Brian	Vickers	2188
+29	Harvick	Chevrolet	18	Kevin	Harvick	2308
+18	Kyle Busch	Toyota	19	Kyle	Busch	2881
+38	Gilliland	Ford	20	David	Gilliland	1772
+70	Leffler	Chevrolet	21	Jason	Leffler	125
+41	Sorenson	Dodge	22	Reed	Sorenson	1496
+11	Hamlin	Toyota	23	Denny	Hamlin	2283
+47	Ambrose	Ford	24	Marcos	Ambrose	37
+1	Truex Jr.	Chevrolet	25	Martin	Truex Jr.	2050
+84	Allmendinger	Toyota	26	A.J.	Allmendinger	851
+43	B. Labonte	Dodge	27	Bobby	Labonte	1905
+28	Kvapil	Ford	28	Travis	Kvapil	1841
+7	R. Gordon	Dodge	29	Robby	Gordon	1572
+00	McDowell	Toyota	30	Michael	McDowell	955
+5	Mears	Chevrolet	31	Casey	Mears	1782
+31	J. Burton	Chevrolet	32	Jeff	Burton	2590
+44	Reutimann	Toyota	33	David	Reutimann	1717
+55	Waltrip	Toyota	34	Michael	Waltrip	1563
+66	Riggs	Chevrolet	35	Scott	Riggs	1314
+78	Nemechek	Chevrolet	36	Joe	Nemechek	1107
+15	Menard	Chevrolet	37	Paul	Menard	1727
+77	Hornish Jr.	Dodge	38	Sam	Hornish Jr.	1422
+96	Yeley	Toyota	39	J.J.	Yeley	1138
+07	Bowyer	Chevrolet	40	Clint	Bowyer	2256
+22	Blaney	Toyota	41	Dave	Blaney	1563
+01	Smith	Chevrolet	42	Regan	Smith	1421
+45	T. Labonte	Dodge	43	Terry	Labonte	483
+</PARTICIPANTS>
