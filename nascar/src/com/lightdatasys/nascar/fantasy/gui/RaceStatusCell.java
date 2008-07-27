@@ -44,18 +44,7 @@ public class RaceStatusCell extends Cell
 				g.setColor(Color.BLACK);
 				g.fillRect(0, 0, width, height);
 				
-				String label = String.format("%d", race.getLapCount() - race.getCurrentLap());
 				g.setColor(Color.WHITE);
-				
-				Font font = FontUtility.getScaledFont(width, height, label, g.getFont(), g);
-				FontMetrics metrics = g.getFontMetrics(font);
-				g.setFont(font);
-
-				float xOffset = (float)(getWidth() - font.getStringBounds(label, g.getFontRenderContext()).getWidth()) / 2.0f;
-				float yOffset = (getHeight() + metrics.getAscent() - metrics.getDescent()) / 2.0f;
-				
-				
-				g.drawString(label, xOffset, yOffset);
 			}
 			else if(race.getFlag() == Race.Flag.CHECKERED)
 			{
@@ -83,6 +72,8 @@ public class RaceStatusCell extends Cell
 						g.fillRect(col * squareW, row * squareH, squareW, squareH);
 					}
 				}
+				
+				g.setColor(Color.RED);
 			}
 			else
 			{
@@ -96,6 +87,15 @@ public class RaceStatusCell extends Cell
 					g.setColor(Color.YELLOW);
 				
 				g.fillRect(0, 0, width, height);
+
+				if(race.getFlag() == Race.Flag.GREEN)
+					g.setColor(Color.WHITE);
+				else if(race.getFlag() == Race.Flag.RED)
+					g.setColor(Color.WHITE);
+				else if(race.getFlag() == Race.Flag.WHITE)
+					g.setColor(Color.BLACK);
+				else if(race.getFlag() == Race.Flag.YELLOW)
+					g.setColor(Color.BLACK);
 			}
 		}
 		else
@@ -103,6 +103,17 @@ public class RaceStatusCell extends Cell
 			g.setColor(Color.BLACK);
 			g.fillRect(0, 0, width, height);
 		}
+		
+		String label = String.format("%d", race.getLapCount() - race.getCurrentLap());
+		
+		Font font = FontUtility.getScaledFont(width, height, label, g.getFont(), g);
+		FontMetrics metrics = g.getFontMetrics(font);
+		g.setFont(font);
+
+		float xOffset = (float)(getWidth() - font.getStringBounds(label, g.getFontRenderContext()).getWidth()) / 2.0f;
+		float yOffset = (getHeight() + metrics.getAscent() - metrics.getDescent()) / 2.0f;
+		
+		g.drawString(label, xOffset, yOffset);
 		
 		//updated = false;
 	}
