@@ -87,6 +87,8 @@ public class LeaderboardWindow extends AppWindow
 	private int colOffsetPos;
 	private long colOffsetTime;
 	
+	private float xScrollOffset;
+	
 	//private ResultCell.Mode resultMode;
 
 	private ArrayList<PositionChangeEvent> positionChangeEvents;
@@ -125,7 +127,7 @@ public class LeaderboardWindow extends AppWindow
         fantasyPositionChangeEvents = new ArrayList<PositionChangeEvent>();
 
 		leaderboard.init();
-		//leaderboard.start();
+		leaderboard.start();
 					
 		//add(leaderboard);
 
@@ -138,6 +140,8 @@ public class LeaderboardWindow extends AppWindow
 		System.out.println("settings thread created");
         
         cellMargin = 2;
+        
+        xScrollOffset = 0;
         
         //resultMode = ResultCell.Mode.POSITION;
 
@@ -360,6 +364,7 @@ public class LeaderboardWindow extends AppWindow
 			raceStarted = true;
 		
 		Vector<?> drivers = getDrivers().getSortedList();
+		//*
 		for(int i = 0; i < drivers.size(); i++)
 		{
 			String id = (String)drivers.get(i);
@@ -372,6 +377,7 @@ public class LeaderboardWindow extends AppWindow
 				race.getResultByCarNo(id).setFinish(startPos);
 		}
 		race.updateFantasyFinishPositions();
+		//*/
 		
 		for(PositionChangeEvent event : positionChangeEvents)
 		{
@@ -442,19 +448,20 @@ public class LeaderboardWindow extends AppWindow
 	{	
 		g.clearRect(0, 0, width, height);
 
-		float speed = .08f;
-		int distance = colPosition[43] - colPosition[2];
-		float xOffset = 1.0f * speed * ((System.currentTimeMillis() - colOffsetTime));
+		float speed = settings.getScrollSpeed() * .4f;
+		//int distance = colPosition[43] - colPosition[2];
+	    xScrollOffset += 1.0f * speed * ((System.currentTimeMillis() - lastRenderTime));
 
-		if(xOffset > colPosition[44] + 11*cellMargin + colSize[44] - colPosition[2])
+		if(xScrollOffset > colPosition[44] + 11*cellMargin + colSize[44] - colPosition[2])
 		{
-			colOffsetTime = System.currentTimeMillis();
+			xScrollOffset -= colPosition[44] + 11*cellMargin + colSize[44] - colPosition[2];
+			//colOffsetTime = System.currentTimeMillis();
 			/*System.out.println("yep");
 			g.setColor(Color.YELLOW);
 			g.fillRect(100, 100, 100, 100);*/
 		}
-		renderCells(g, 2, COLUMNS, 0, ROWS, -xOffset, 0);
-		renderCells(g, 2, COLUMNS, 0, ROWS, -xOffset + colPosition[44] + 11*cellMargin + colSize[44] - colPosition[2], 0);
+		renderCells(g, 2, COLUMNS, 0, ROWS, -xScrollOffset, 0);
+		renderCells(g, 2, COLUMNS, 0, ROWS, -xScrollOffset + colPosition[44] + 11*cellMargin + colSize[44] - colPosition[2], 0);
 		
 		for(int x = 0; x < COLUMNS; x++)
 		{

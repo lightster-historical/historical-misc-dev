@@ -7,6 +7,8 @@ public class Settings
 	
 	private long swapPeriod;
 	
+	private float scrollSpeed;
+	
 	private ResultCell.Mode resultMode;
 	private FantasyResultCell.Mode fantasyMode1;
 	private FantasyResultCell.Mode fantasyMode2;
@@ -16,8 +18,9 @@ public class Settings
 	{
 		fps = 60.0f;
 		ups = .5f;
-		
+
 		swapPeriod = 1000;
+		scrollSpeed = 0.5f;
 		
 		resultMode = ResultCell.Mode.POSITION;
 		fantasyMode1 = FantasyResultCell.Mode.POSITION;
@@ -34,10 +37,15 @@ public class Settings
 	{
 		return ups;
 	}
-	
+
 	public synchronized long getSwapPeriod()
 	{
 		return swapPeriod;
+	}
+	
+	public synchronized float getScrollSpeed()
+	{
+		return scrollSpeed;
 	}
 	
 	public synchronized ResultCell.Mode getResultMode()
@@ -69,6 +77,11 @@ public class Settings
 	public synchronized void setSwapPeriod(long swapPeriod)
 	{
 		this.swapPeriod = swapPeriod;
+	}
+	
+	public synchronized void setScrollSpeed(float scrollSpeed)
+	{
+		this.scrollSpeed = scrollSpeed;
 	}
 	
 	public synchronized void setResultMode(ResultCell.Mode resultMode)

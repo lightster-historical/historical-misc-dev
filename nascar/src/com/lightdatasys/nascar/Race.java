@@ -185,6 +185,16 @@ public class Race
 		return null;
 	}
 	
+	public FantasyResult getFantasyResultByPlayer(FantasyPlayer player)
+	{
+		if(fantasyResultsByPlayer.containsKey(player))
+		{
+			return fantasyResultsByPlayer.get(player);
+		}
+		
+		return null;
+	}
+	
 	public AbstractMap<Integer,Standing> getStandings()
 	{
 		return standingsByDriver;
@@ -270,9 +280,17 @@ public class Race
 		sorted.addAll(fantasyResultsByPlayer.values());
 		Collections.sort(sorted);
 		
+		int lastPoints = -1;
+		int pos = 1;
 		for(int i = 0; i < sorted.size(); i++)
 		{
-			sorted.get(i).setFinish(i + 1);
+			if(lastPoints != sorted.get(i).getDriverRacePoints())
+				pos = i+1;
+
+			sorted.get(i).setFinish(i+1);
+			sorted.get(i).setActualFinish(pos);
+			
+			lastPoints = sorted.get(i).getDriverRacePoints();
 		}
 	}
 
@@ -437,17 +455,27 @@ public class Race
 			e.printStackTrace();
 		}
 	}
-	
+
 	
 	public static Race getById(int raceId)
+	{
+		return getById(raceId, true);
+	}
+	
+	public static Race getById(int raceId, boolean cache)
 	{
 		if(racesById.containsKey(raceId))
 			return racesById.get(raceId);
 		else
-			return loadFromDatabase(NASCARData.getSQLConnection(), raceId);		
+			return loadFromDatabase(NASCARData.getSQLConnection(), raceId, cache);		
 	}
 	
 	public static Race loadFromDatabase(Connection conn, int raceId)
+	{
+		return loadFromDatabase(conn, raceId, true);
+	}
+	
+	public static Race loadFromDatabase(Connection conn, int raceId, boolean cache)
 	{
 		Race race = new Race();
 		
@@ -460,7 +488,8 @@ public class Race
 		
 			if(rsRace.next())
 			{
-				racesById.put(raceId, race);
+				if(cache)
+					racesById.put(raceId, race);
 				
 				race.raceId = raceId;
 				

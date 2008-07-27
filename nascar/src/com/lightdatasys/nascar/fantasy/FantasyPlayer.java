@@ -148,7 +148,7 @@ public class FantasyPlayer
 		try
 		{
 			Statement sStandings = conn.createStatement();
-			String sqlStandings = String.format(
+			String sqlStandings = /*String.format(
 				"SELECT r.raceId, fp.userId, " +
 				"SUM(IF(finish=1,185,IF(finish<=6, 150+(6-finish)*5,IF(finish<=11, 130+(11-finish)*4,IF(finish<=43, 34+(43-finish)*3,0))))+IF(ledLaps>=1,5,0)+IF(ledMostLaps>=1,5,0)) AS points " +
 			    "FROM nascarFantPick AS fp " +
@@ -157,11 +157,31 @@ public class FantasyPlayer
 			    "LEFT JOIN nascarResult AS re ON r.raceId=re.raceId AND fp.driverId=re.driverId " +
 			    "WHERE seasonId=%1$d AND r.date<\'%2$tY-%2$tm-%2$td\' " +
 			    "GROUP BY r.raceId, fp.userId " +
-			    "ORDER BY points DESC",
+			    "ORDER BY points DESC",*/
+				String.format(
+				"SELECT raceId FROM nascarRace WHERE seasonId=%1$d AND date<\'%2$tY-%2$tm-%2$td\' ORDER BY date ASC",
 				race.getSeason().getId(), race.getDate());
 			sStandings.execute(sqlStandings);
 			
+			for(FantasyPlayer player : FantasyPlayer.getPlayers())
+			{
+				FantasyStanding standing = new FantasyStanding(player);
+				standings.put(player.getUserId(), standing);
+			}
+
 			ResultSet rsStandings = sStandings.getResultSet();
+			while(rsStandings.next())
+			{
+				int raceId = rsStandings.getInt("raceId");
+				Race r = Race.getById(raceId);
+
+				for(FantasyPlayer player : FantasyPlayer.getPlayers())
+				{
+					FantasyStanding standing = standings.get(player.getUserId());
+					standing.points += r.getFantasyResultByPlayer(player).getRacePoints();
+				}
+			}
+			/*
 			while(rsStandings.next())
 			{
 				int userId = rsStandings.getInt("userId");
@@ -171,7 +191,9 @@ public class FantasyPlayer
 				standings.put(userId, standing);
 				
 				standing.points = rsStandings.getInt("points");
+				System.out.println(standing.points);
 			}
+			*/
 		}
 		catch(Exception ex)
 		{

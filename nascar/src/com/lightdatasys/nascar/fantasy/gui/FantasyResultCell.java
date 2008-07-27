@@ -57,7 +57,7 @@ public class FantasyResultCell extends Cell
 			return String.format("%s", result.getDriverRacePoints());
 		}
 		
-		return (new Integer(result.getFinish())).toString();
+		return (new Integer(result.getActualFinish())).toString();
 	}
 	
 	public void setMode(Mode mode)

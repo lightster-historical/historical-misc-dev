@@ -95,6 +95,15 @@ public class SettingsServer implements Runnable
 	        							done = true;
 	        						}
 	        					}
+	        					else if(word[1].toLowerCase().equals("scrollspeed"))
+	        					{
+	        						float scrollSpeed = Float.parseFloat(word[2]);
+	        						if(0 <= scrollSpeed && scrollSpeed <= 1)
+	        						{
+	        							settings.setScrollSpeed(scrollSpeed);
+	        							done = true;
+	        						}
+	        					}
 	        					else if(word[1].toLowerCase().equals("resultmode") ||
         							word[1].toLowerCase().equals("fantasymode1") ||
         							word[1].toLowerCase().equals("fantasymode2"))
@@ -142,7 +151,7 @@ public class SettingsServer implements Runnable
 	        		}
 	        		else if(word.length == 2)
 	        		{
-	        			if(word[0].toLowerCase().equals("set"))
+	        			if(word[0].toLowerCase().equals("get"))
 	        			{
         					if(word[1].toLowerCase().equals("fps"))
         					{
@@ -157,6 +166,11 @@ public class SettingsServer implements Runnable
         					else if(word[1].toLowerCase().equals("swapperiod"))
         					{
         						out.println(settings.getSwapPeriod());
+        						done = true;
+        					}
+        					else if(word[1].toLowerCase().equals("scrollspeed"))
+        					{
+        						out.println(settings.getScrollSpeed());
         						done = true;
         					}
         					else if(word[1].toLowerCase().equals("resultmode"))

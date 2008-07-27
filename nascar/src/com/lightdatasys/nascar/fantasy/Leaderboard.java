@@ -8,8 +8,6 @@ package com.lightdatasys.nascar.fantasy;
 
 
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -19,8 +17,6 @@ import java.io.Reader;
 import java.net.Socket;
 import java.net.URL;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIDefaults;
 import javax.swing.UIManager;
@@ -31,17 +27,10 @@ import com.sportvision.comm.CCSocket;
 import com.sportvision.comm.ControlMessageListener;
 import com.sportvision.comm.RaceStatusListener;
 import com.sportvision.comm.RaceStatusMessage;
-import com.sportvision.comm.RacecastListener;
 import com.sportvision.comm.ShoutcastSocketv2;
 import com.sportvision.gui.chase.ChasePanel;
 import com.sportvision.gui.components.AlertDialog;
-import com.sportvision.gui.components.RacecastButtonLabel;
-import com.sportvision.gui.dashboard.DualDashboardPanel;
 import com.sportvision.gui.header.RacecastHeader;
-import com.sportvision.gui.leaderboard.LeaderboardPanel;
-import com.sportvision.gui.main.CardPanel;
-import com.sportvision.gui.top_ten.TrackTopTenPanel;
-import com.sportvision.gui.viewers_choice.ViewersChoicePanel;
 import com.sportvision.model.Drivers;
 import com.sportvision.model.Race;
 import com.sportvision.model.TickerListener;
@@ -56,7 +45,7 @@ import com.sportvision.utils.PropertiesParser;
 //         CardPanel
 
 public class Leaderboard extends JPanel
- implements ControlMessageListener, RaceStatusListener, TickerListener, RacecastListener
+ implements ControlMessageListener, RaceStatusListener, TickerListener//, RacecastListener
 {
 	private static LeaderboardWindow window;
 	private static Leaderboard leaderboard;
@@ -89,10 +78,8 @@ public class Leaderboard extends JPanel
  {
      propertyFileLocation = "";
      host = null;
-     //shoutcastHost = new String("ultravox.nascar.com");
      alternateShoutcastHost = null;
      portList = null;
-     hilite = false;
      trackFile = null;
      ccSocket = null;
      shoutcastSocket = null;
@@ -106,24 +93,13 @@ public class Leaderboard extends JPanel
      drivers = null;
      race = null;
      flagState = 0;
-     container = null;
-     //rootPaneContainer = null;
-     //gp = null;
      header = null;
-     leaderboardPanel = null;
+    /* leaderboardPanel = null;
      trackTopTenPanel = null;
      viewersChoicePanel = null;
-     dualDashboardPanel = null;
+     dualDashboardPanel = null;*/
      chasePanel = null;
-     tabButtonBackgroundLabel = null;
-     tabButtonBackgroundIcon = new ImageIcon(ImageFactory.getHeaderTabImage("hot_tab_back.png", this));
-     TAB_NAMES = new String[0];
-     NUM_TABS = TAB_NAMES.length;
-     tabButtons = new RacecastButtonLabel[NUM_TABS];
-     tabHotButtons = new RacecastButtonLabel[NUM_TABS];
-     popped = new boolean[NUM_TABS];
      selected = 1;
-     //trackMotionTolerance = 40;
      bufferSize = 6000;
      shoutcastSID = "42";
      dataTimeoutValue = 20000;
@@ -136,17 +112,15 @@ public class Leaderboard extends JPanel
      useChaseTab = false;
      enableChaseForChaseMode = false;
      chaseCarCount = 10;
-     cardPanel = new CardPanel();
      setSize(new Dimension(790, 490));
      setVisible(true);
-     //rootPaneContainer = this;
  }
 
  public void init()
  {
      CommonFunctions.dump("Racecast Version Build Version 2.5.14 09/14/2007");
      if(initComponents())
-     ;//    initCommunications(host);
+         initCommunications(host);
  }
 
  public void destroy()
@@ -206,133 +180,13 @@ public class Leaderboard extends JPanel
      race = propParser.getRace();
      messageParser = new MessageParser(bufferSize);
      setUpListeners();
-     container = this;
-     container.setLayout(null);
-     //gp = new DoorGlassPane(race);
-     header = new RacecastHeader(race, drivers);
-     header.setBounds(0, 0, 790, 130);
-     if(useChaseTab)
-         TAB_NAMES = (new String[] {
-             "leaderboard", "track_top10", "viewers_choice", "dashboard", "chase"
-         });
-     else
-         TAB_NAMES = (new String[] {
-             "leaderboard", "track_top10", "viewers_choice", "dashboard"
-         });
-     NUM_TABS = TAB_NAMES.length;
-     tabButtons = new RacecastButtonLabel[NUM_TABS];
-     tabHotButtons = new RacecastButtonLabel[NUM_TABS];
-     popped = new boolean[NUM_TABS];
-     for(int i = 0; i < NUM_TABS; i++)
-     {
-         tabButtons[i] = new RacecastButtonLabel();
-         tabButtons[i].setHotIcon(new ImageIcon(ImageFactory.getHeaderTabImage(TAB_NAMES[i] + "_hot.gif", this)));
-         tabButtons[i].setColdIcon(new ImageIcon(ImageFactory.getHeaderTabImage(TAB_NAMES[i] + "_cold.gif", this)));
-         tabButtons[i].setOverIcon(new ImageIcon(ImageFactory.getHeaderTabImage(TAB_NAMES[i] + "_over.gif", this)));
-     }
-
-     cardPanel.setBounds(0, 162, 790, 322);
-     cardPanel.setOpaque(false);
-     cardPanel.add(TAB_NAMES[0], leaderboardPanel = new LeaderboardPanel(drivers, hilite));
-     cardPanel.add(TAB_NAMES[1], trackTopTenPanel = new TrackTopTenPanel(drivers, race, hilite));
-     cardPanel.add(TAB_NAMES[2], viewersChoicePanel = new ViewersChoicePanel(race, drivers, hilite));
-     cardPanel.add(TAB_NAMES[3], dualDashboardPanel = new DualDashboardPanel(race, drivers));
      
-
-     cardPanel.show(TAB_NAMES[selected]);
-   
-
-
-     container.add(header);
-     container.add(cardPanel);
-     container.setBackground(Color.black);
      messageParser.addControlMessageListener(this);
-     messageParser.addRacecastDiagnosticsListener(viewersChoicePanel.trackPanel);
      messageParser.addTickerListener(this);
-     //setupDoorGlassPane();
-     if(useChaseTab)
-         cardPanel.add(TAB_NAMES[4], chasePanel = new ChasePanel(race, drivers, hilite, enableChaseForChaseMode));
+     
      return true;
  }
 
- public void removeView(Component view)
- {
-     int ndx = -1;
-     if(leaderboardPanel.equals(view))
-         ndx = 0;
-     else
-     if(trackTopTenPanel.equals(view))
-         ndx = 1;
-     else
-     if(viewersChoicePanel.equals(view))
-         ndx = 2;
-     else
-     if(dualDashboardPanel.equals(view))
-         ndx = 3;
-     else
-     if(chasePanel.equals(view))
-         ndx = 4;
-     if(ndx >= 0)
-     {
-         cardPanel.remove(view);
-         popped[ndx] = true;
-         tabButtons[ndx].setVisible(false);
-         tabHotButtons[ndx].setVisible(false);
-         for(int i = 0; i < popped.length; i++)
-         {
-             if(!popped[i])
-             {
-                 tabButtonBackgroundLabel.setBounds(tabButtons[i].getX() - 23, tabButtons[i].getY() - 2, tabButtonBackgroundIcon.getIconWidth(), tabButtonBackgroundIcon.getIconHeight());
-                 tabHotButtons[i].setVisible(true);
-                 tabButtons[i].setVisible(false);
-                 cardPanel.show(TAB_NAMES[i]);
-                 setPanelMode(i);
-                 break;
-             }
-             if(i == popped.length - 1)
-                 tabButtonBackgroundLabel.setVisible(false);
-         }
-
-         cardPanel.updateUI();
-     }
- }
-
- public void addView2(Component view)
- {
-     int ndx = -1;
-     if(leaderboardPanel.equals(view))
-         ndx = 0;
-     else
-     if(trackTopTenPanel.equals(view))
-         ndx = 1;
-     else
-     if(viewersChoicePanel.equals(view))
-         ndx = 2;
-     else
-     if(dualDashboardPanel.equals(view))
-         ndx = 3;
-     else
-     if(chasePanel.equals(view))
-         ndx = 4;
-     if(ndx >= 0)
-     {
-         for(int i = 0; i < popped.length; i++)
-             if(!popped[i])
-             {
-                 tabHotButtons[i].setVisible(false);
-                 tabButtons[i].setVisible(true);
-             }
-
-         popped[ndx] = false;
-         tabButtonBackgroundLabel.setBounds(tabButtons[ndx].getX() - 23, tabButtons[ndx].getY() - 2, tabButtonBackgroundIcon.getIconWidth(), tabButtonBackgroundIcon.getIconHeight());
-         tabHotButtons[ndx].setVisible(true);
-         tabButtons[ndx].setVisible(false);
-         setPanelMode(ndx);
-         cardPanel.add(TAB_NAMES[ndx], view);
-         cardPanel.show(TAB_NAMES[ndx]);
-         cardPanel.updateUI();
-     }
- }
 
  public void stop()
  {
@@ -365,7 +219,7 @@ public class Leaderboard extends JPanel
          ccSocket = null;
      }
  }
-
+/*
  public void setPanelMode(int mode)
  {
      if(flagState != 0 && flagState != 5)
@@ -419,7 +273,7 @@ public class Leaderboard extends JPanel
                  chasePanel.setDoUpdate(true);
              break;
          }
- }
+ }*/
 
  public void tickerMessageReceived(TickerMessage m, int c)
  {
@@ -428,7 +282,7 @@ public class Leaderboard extends JPanel
      alert.show();
  }
 
- public void messageReceived(byte message[], int messageType)
+ /*public void messageReceived(byte message[], int messageType)
  {
      char type = (char)message[6];
      if(type == 'S')// && doorsOpened)
@@ -441,7 +295,7 @@ public class Leaderboard extends JPanel
          
          setPanelMode(selected);
      }
- }
+ }*/
 
  public boolean initCommunications(String host)
  {
@@ -454,7 +308,7 @@ public class Leaderboard extends JPanel
              ccSocket = new CCSocket(host);
              ccSocket.addRacecastListener(messageParser);
              //ccSocket.addRacecastListener(gp);
-             ccSocket.addRacecastListener(this);
+             //ccSocket.addRacecastListener(this);
              ccSocket.start();
              GlobalTimer.start();
          } else
@@ -464,7 +318,7 @@ public class Leaderboard extends JPanel
              shoutcastSocket = new ShoutcastSocketv2(host, alternateShoutcastHost, portList, shoutcastSID, dataTimeoutValue);
              shoutcastSocket.addListener(messageParser);
              //shoutcastSocket.addListener(gp);
-             shoutcastSocket.addListener(this);
+             //shoutcastSocket.addListener(this);
              shoutcastSocket.setSocketTimeout(shoutcastSocketTimeout);
              shoutcastSocket.setInitialReconnectTime(shoutcastInitialReconnectTime);
              shoutcastSocket.setReconnectTimeIncrement(shoutcastReconnectTimeIncrement);
@@ -585,13 +439,13 @@ public class Leaderboard extends JPanel
      race.dump();
      setUpListeners();
      messageParser.addControlMessageListener(this);
-     messageParser.addRacecastDiagnosticsListener(viewersChoicePanel.trackPanel);
+     //messageParser.addRacecastDiagnosticsListener(viewersChoicePanel.trackPanel);
      messageParser.addTickerListener(this);
      header.reinit(race, drivers);
-     leaderboardPanel.reinit(drivers);
+     /*leaderboardPanel.reinit(drivers);
      trackTopTenPanel.reinit(race, drivers);
      viewersChoicePanel.reinit(race, drivers);
-     dualDashboardPanel.reinit(race, drivers);
+     dualDashboardPanel.reinit(race, drivers);*/
      if(useChaseTab)
          chasePanel.reinit(race, drivers);
      restartCommunications();
@@ -610,7 +464,7 @@ public class Leaderboard extends JPanel
  //private String shoutcastHost;
  private String alternateShoutcastHost;
  private String portList;
- private boolean hilite;
+ //private boolean hilite;
  private String trackFile;
  private CCSocket ccSocket;
  private ShoutcastSocketv2 shoutcastSocket;
@@ -624,24 +478,13 @@ public class Leaderboard extends JPanel
  private Drivers drivers;
  private Race race;
  private int flagState;
- private Container container;
- //private RootPaneContainer rootPaneContainer;
- //private DoorGlassPane gp;
  private RacecastHeader header;
- private LeaderboardPanel leaderboardPanel;
+ /*private LeaderboardPanel leaderboardPanel;
  private TrackTopTenPanel trackTopTenPanel;
  private ViewersChoicePanel viewersChoicePanel;
- private DualDashboardPanel dualDashboardPanel;
+ private DualDashboardPanel dualDashboardPanel;*/
  private ChasePanel chasePanel;
- private JLabel tabButtonBackgroundLabel;
- private ImageIcon tabButtonBackgroundIcon;
- private String TAB_NAMES[];
- private int NUM_TABS;
- private RacecastButtonLabel tabButtons[];
- private RacecastButtonLabel tabHotButtons[];
- private boolean popped[];
  private int selected;
- //private int trackMotionTolerance;
  private int bufferSize;
  private String shoutcastSID;
  private int dataTimeoutValue;
@@ -654,7 +497,6 @@ public class Leaderboard extends JPanel
  private boolean useChaseTab;
  private boolean enableChaseForChaseMode;
  private int chaseCarCount;
- private CardPanel cardPanel;
 
 
 
