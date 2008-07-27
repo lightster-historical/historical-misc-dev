@@ -507,11 +507,11 @@ public class LeaderboardWindow extends AppWindow
 		//int distance = colPosition[43] - colPosition[2];
 		if(speed > 10)
 		{
-			xScrollOffset += 1.0f * speed * ((System.currentTimeMillis() - lastRenderTime));
+			xScrollOffset = 0;
 		}
 		else
 		{
-			xScrollOffset = 0;
+			xScrollOffset += 1.0f * speed * ((System.currentTimeMillis() - lastRenderTime));
 		}
 
 		if(xScrollOffset > colPosition[44] + 11*cellMargin + colSize[44] - colPosition[2])

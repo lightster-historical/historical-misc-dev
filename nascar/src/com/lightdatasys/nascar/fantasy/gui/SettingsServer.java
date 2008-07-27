@@ -98,11 +98,9 @@ public class SettingsServer implements Runnable
 	        					else if(word[1].toLowerCase().equals("scrollspeed"))
 	        					{
 	        						float scrollSpeed = Float.parseFloat(word[2]);
-	        						if(0 <= scrollSpeed && scrollSpeed <= 1)
-	        						{
-	        							settings.setScrollSpeed(scrollSpeed);
-	        							done = true;
-	        						}
+	        						
+        							settings.setScrollSpeed(scrollSpeed);
+        							done = true;
 	        					}
 	        					else if(word[1].toLowerCase().equals("resultmode") ||
         							word[1].toLowerCase().equals("fantasymode1") ||
