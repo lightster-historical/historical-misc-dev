@@ -16,10 +16,10 @@ public class Settings
 	
 	public Settings()
 	{
-		fps = 60.0f;
-		ups = .5f;
+		fps = 75.0f;
+		ups = 2.0f;
 
-		swapPeriod = 1000;
+		swapPeriod = 500;
 		scrollSpeed = 0.5f;
 		
 		resultMode = ResultCell.Mode.POSITION;

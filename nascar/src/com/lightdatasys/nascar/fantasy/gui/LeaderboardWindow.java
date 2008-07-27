@@ -75,6 +75,9 @@ public class LeaderboardWindow extends AppWindow
 	private int[] colSwapMap;
 	private int[] rowSwapMap;
 	
+	private Cell bgCell;
+	private String leaderCar;
+	
 	//private Random rand;
 	
 	private int width;
@@ -284,6 +287,12 @@ public class LeaderboardWindow extends AppWindow
 		}
 		cells[0][0] = new RaceStatusCell(colSize[0]+colSize[1] + cellMargin, rowSize[0]+rowSize[1] + cellMargin, race);
 		//tempCells[0][0] = cells[0][0];
+
+		Result leaderResult = race.getResultByFinish(1);
+		Driver leader = leaderResult.getDriver();
+		bgCell = new CarNoCell(getWidth()-colSize[0]-colSize[1]-cellMargin, getHeight()-rowSize[0]-rowSize[1]-cellMargin, leaderResult.getCar(), leader.getFontColor(),
+				leader.getBackgroundColor(), leader.getBorderColor());
+		leaderCar = leaderResult.getCar();
 		
 		colSwaps = new Swap[COLUMNS];
 		rowSwaps = new Swap[ROWS];
@@ -422,6 +431,15 @@ public class LeaderboardWindow extends AppWindow
 				moveRow(event.getOldPosition() + 1, event.getNewPosition() + 1);
 		}
 		fantasyPositionChangeEvents.clear();
+
+		Result leaderResult = race.getResultByFinish(1);
+		if(leaderCar != leaderResult.getCar())
+		{
+			Driver leader = leaderResult.getDriver();
+			bgCell = new CarNoCell(getWidth()-colSize[0]-colSize[1]-cellMargin, getHeight()-rowSize[0]-rowSize[1]-cellMargin, leaderResult.getCar(), leader.getFontColor(),
+					leader.getBackgroundColor(), leader.getBorderColor());
+			leaderCar = leaderResult.getCar();
+		}
 		
 		/*
 		moveColumn(2, 6);
@@ -488,17 +506,12 @@ public class LeaderboardWindow extends AppWindow
 		if(race.getFlag() != com.lightdatasys.nascar.Race.Flag.RED
 			&& race.getFlag() != com.lightdatasys.nascar.Race.Flag.YELLOW)
 		{
-			Result result = race.getResultByFinish(1);
-			Driver driver = result.getDriver();
-			Cell cell = new CarNoCell(getWidth()-colSize[0]-colSize[1]-cellMargin, getHeight()-rowSize[0]-rowSize[1]-cellMargin, result.getCar(), driver.getFontColor(),
-					driver.getBackgroundColor(), driver.getBorderColor());
-
 			AffineTransform oldTransform = g.getTransform();
 			AffineTransform transform = new AffineTransform();
 			transform.translate(colPosition[2], rowPosition[2]);
 			g.setTransform(transform);
 			
-			cell.render(g);
+			bgCell.render(g);
 			
 			g.setTransform(oldTransform);
 		}
