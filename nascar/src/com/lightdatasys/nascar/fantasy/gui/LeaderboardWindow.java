@@ -484,10 +484,35 @@ public class LeaderboardWindow extends AppWindow
 			setBackground(Color.BLACK);
 		
 		g.clearRect(0, 0, width, height);
+		
+		if(race.getFlag() != com.lightdatasys.nascar.Race.Flag.RED
+			&& race.getFlag() != com.lightdatasys.nascar.Race.Flag.YELLOW)
+		{
+			Result result = race.getResultByFinish(1);
+			Driver driver = result.getDriver();
+			Cell cell = new CarNoCell(getWidth()-colSize[0]-colSize[1]-cellMargin, getHeight()-rowSize[0]-rowSize[1]-cellMargin, result.getCar(), driver.getFontColor(),
+					driver.getBackgroundColor(), driver.getBorderColor());
+
+			AffineTransform oldTransform = g.getTransform();
+			AffineTransform transform = new AffineTransform();
+			transform.translate(colPosition[2], rowPosition[2]);
+			g.setTransform(transform);
+			
+			cell.render(g);
+			
+			g.setTransform(oldTransform);
+		}
 
 		float speed = settings.getScrollSpeed() * .4f;
 		//int distance = colPosition[43] - colPosition[2];
-	    xScrollOffset += 1.0f * speed * ((System.currentTimeMillis() - lastRenderTime));
+		if(speed > 10)
+		{
+			xScrollOffset += 1.0f * speed * ((System.currentTimeMillis() - lastRenderTime));
+		}
+		else
+		{
+			xScrollOffset = 0;
+		}
 
 		if(xScrollOffset > colPosition[44] + 11*cellMargin + colSize[44] - colPosition[2])
 		{
