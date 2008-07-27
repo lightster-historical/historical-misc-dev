@@ -22,7 +22,7 @@ public class Settings
 		swapPeriod = 500;
 		scrollSpeed = 0.5f;
 		
-		resultMode = ResultCell.Mode.POSITION;
+		resultMode = ResultCell.Mode.LOCAL_INTERVAL;
 		fantasyMode1 = FantasyResultCell.Mode.POSITION;
 		fantasyMode2 = FantasyResultCell.Mode.DRIVER_RACE_POINTS;
 	}
