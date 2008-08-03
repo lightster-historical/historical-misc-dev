@@ -296,7 +296,8 @@ public class Race
 	
 	public void updateFantasyLastLapPositions()
 	{
-		ArrayList<FantasyResult> results = (ArrayList<FantasyResult>)fantasyResultsByPlayer.values();
+		ArrayList<FantasyResult> results = new ArrayList<FantasyResult>();
+		results.addAll(fantasyResultsByPlayer.values());
 		for(int i = 0; i < results.size(); i++)
 		{
 			results.get(i).setLastActualFinish(results.get(i).getActualFinish());
