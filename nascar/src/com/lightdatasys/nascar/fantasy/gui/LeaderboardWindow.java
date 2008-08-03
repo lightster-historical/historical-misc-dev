@@ -158,7 +158,7 @@ public class LeaderboardWindow extends AppWindow
 		colOffsetPos = 0;
 		colOffsetTime = 0;
 
-		race = com.lightdatasys.nascar.Race.getById(1068);
+		race = com.lightdatasys.nascar.Race.getById(1069);
 		
 		race.addPositionChangeListener
 		(
@@ -527,16 +527,16 @@ public class LeaderboardWindow extends AppWindow
 			xScrollOffset += 1.0f * speed * ((System.currentTimeMillis() - lastRenderTime));
 		}
 
-		if(xScrollOffset > colPosition[44] + 11*cellMargin + colSize[44] - colPosition[2])
+		if(xScrollOffset > colPosition[44] + 2*colSize[44] - colPosition[2])
 		{
-			xScrollOffset -= colPosition[44] + 11*cellMargin + colSize[44] - colPosition[2];
+			xScrollOffset -= colPosition[44] + 2*colSize[44] - colPosition[2];
 			//colOffsetTime = System.currentTimeMillis();
 			/*System.out.println("yep");
 			g.setColor(Color.YELLOW);
 			g.fillRect(100, 100, 100, 100);*/
 		}
 		renderCells(g, 2, COLUMNS, 0, ROWS, -xScrollOffset, 0);
-		renderCells(g, 2, COLUMNS, 0, ROWS, -xScrollOffset + colPosition[44] + 11*cellMargin + colSize[44] - colPosition[2], 0);
+		renderCells(g, 2, COLUMNS, 0, ROWS, -xScrollOffset + colPosition[44] + 2*colSize[44] - colPosition[2], 0);
 		
 		for(int x = 0; x < COLUMNS; x++)
 		{

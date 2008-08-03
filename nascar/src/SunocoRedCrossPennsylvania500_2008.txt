@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Sunoco Red Cross Pennsylvania 500
+track:	Pocono Raceway
+location:	Pocono, PA
+length: 	500
+laps: 	200
+track_length: 	2.5
+scale: 	0.587
+x_offset: 	37
+y_offset: 	8
+tv_network: 	ESPN
+track_image_file: 	pocono.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	2689
+8	Martin	Chevrolet	2	Mark	Martin	1813
+38	Gilliland	Ford	3	David	Gilliland	1875
+24	J. Gordon	Chevrolet	4	Jeff	Gordon	2544
+17	Kenseth	Ford	5	Matt	Kenseth	2366
+12	Newman	Dodge	6	Ryan	Newman	2218
+9	Kahne	Dodge	7	Kasey	Kahne	2441
+83	Vickers	Toyota	8	Brian	Vickers	2230
+16	Biffle	Ford	9	Greg	Biffle	2460
+2	Kurt Busch	Dodge	10	Kurt	Busch	2081
+43	B. Labonte	Dodge	11	Bobby	Labonte	2020
+88	Earnhardt Jr.	Chevrolet	12	Dale	Earnhardt Jr.	2751
+42	Montoya	Dodge	13	Juan Pablo	Montoya	1909
+11	Hamlin	Toyota	14	Denny	Hamlin	2453
+99	Edwards	Ford	15	Carl	Edwards	2684
+6	Ragan	Ford	16	David	Ragan	2306
+1	Truex Jr.	Chevrolet	17	Martin	Truex Jr.	2146
+70	Raines	Chevrolet	18	Tony	Raines	43
+28	Kvapil	Ford	19	Travis	Kvapil	1901
+20	Stewart	Toyota	20	Tony	Stewart	2399
+29	Harvick	Chevrolet	21	Kevin	Harvick	2360
+15	Menard	Chevrolet	22	Paul	Menard	1767
+78	Nemechek	Chevrolet	23	Joe	Nemechek	1183
+22	Blaney	Toyota	24	Dave	Blaney	1626
+10	T. Labonte	Dodge	25	Terry	Labonte	565
+77	Hornish Jr.	Dodge	26	Sam	Hornish Jr.	1522
+18	Kyle Busch	Toyota	27	Kyle	Busch	3004
+44	Reutimann	Toyota	28	David	Reutimann	1790
+19	E. Sadler	Dodge	29	Elliott	Sadler	1959
+07	Bowyer	Chevrolet	30	Clint	Bowyer	2362
+84	Allmendinger	Toyota	31	A.J.	Allmendinger	990
+41	Sorenson	Dodge	32	Reed	Sorenson	1608
+5	Mears	Chevrolet	33	Casey	Mears	1867
+45	McCumbee	Dodge	34	Chad	McCumbee	0
+00	McDowell	Toyota	35	Michael	McDowell	1021
+01	Smith	Chevrolet	36	Regan	Smith	1496
+21	Elliott	Ford	37	Bill	Elliott	597
+7	R. Gordon	Dodge	38	Robby	Gordon	1636
+31	J. Burton	Chevrolet	39	Jeff	Burton	2733
+66	Riggs	Chevrolet	40	Scott	Riggs	1407
+26	McMurray	Ford	41	Jamie	McMurray	1973
+55	Waltrip	Toyota	42	Michael	Waltrip	1597
+96	Yeley	Toyota	43	J.J.	Yeley	1217
+</PARTICIPANTS>
