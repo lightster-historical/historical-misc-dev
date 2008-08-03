@@ -174,7 +174,7 @@ public class ResultCell extends Cell
 		else if(result.ledMostLaps())
 			g.setColor(new Color(0x00, 0x99, 0x00));
 		else if(result.ledLaps())
-			g.setColor(new Color(0xCC, 0xCC, 0x00));
+			g.setColor(new Color(0xFF, 0xFF, 0x00));
 		else
 			g.setColor(background);
 		g.fillRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth);
@@ -182,6 +182,8 @@ public class ResultCell extends Cell
 		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));
 		if(result.getLapsDown() != 0)
 			g.setColor(Color.WHITE);
+		else if(result.ledMostLaps())
+			g.setColor(Color.BLACK);
 		else
 			g.setColor(text);
 		g.drawString(cachedValue, xOffset, yOffset);
