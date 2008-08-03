@@ -171,6 +171,10 @@ public class ResultCell extends Cell
 
 		if(result.getLapsDown() != 0)
 			g.setColor(new Color(0xCC, 0x00, 0x00));
+		else if(result.ledMostLaps())
+			g.setColor(new Color(0x00, 0x99, 0x00));
+		else if(result.ledLaps())
+			g.setColor(new Color(0xCC, 0xCC, 0x00));
 		else
 			g.setColor(background);
 		g.fillRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth);

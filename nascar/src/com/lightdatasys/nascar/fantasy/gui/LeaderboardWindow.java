@@ -512,13 +512,18 @@ public class LeaderboardWindow extends AppWindow
 		if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.YELLOW)
 			setBackground(Color.YELLOW);
 		else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.RED)
-			setBackground(Color.RED);
+			setBackground(new Color(0xCC, 0x00, 0x00));
 		else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.WHITE)
 			setBackground(Color.WHITE);
 		else
 			setBackground(Color.BLACK);
 		
 		g.clearRect(0, 0, width, height);
+		
+		if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.CHECKERED)
+		{
+			
+		}
 		
 		/*
 		if(race.getFlag() != com.lightdatasys.nascar.Race.Flag.RED

@@ -80,7 +80,7 @@ public class RaceStatusCell extends Cell
 				if(race.getFlag() == Race.Flag.GREEN)
 					g.setColor(new Color(0x00, 0x99, 0x00));
 				else if(race.getFlag() == Race.Flag.RED)
-					g.setColor(Color.RED);
+					g.setColor(new Color(0xCC, 0x00, 0x00));
 				else if(race.getFlag() == Race.Flag.WHITE)
 					g.setColor(Color.WHITE);
 				else if(race.getFlag() == Race.Flag.YELLOW)
