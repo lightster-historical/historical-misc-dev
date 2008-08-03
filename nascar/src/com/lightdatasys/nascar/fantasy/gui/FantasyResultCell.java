@@ -11,7 +11,8 @@ import com.lightdatasys.nascar.fantasy.FantasyResult;
 
 public class FantasyResultCell extends Cell 
 {
-	public enum Mode {POSITION, SEASON_POINTS, RACE_POINTS, DRIVER_RACE_POINTS};
+	public enum Mode {POSITION, SEASON_POINTS, RACE_POINTS, DRIVER_RACE_POINTS,
+		LAST_LAP_POSITION, POSITION_CHANGE};
 	
 	
 	private FantasyResult result;
@@ -55,6 +56,14 @@ public class FantasyResultCell extends Cell
 		else if(mode == Mode.DRIVER_RACE_POINTS)
 		{
 			return String.format("%s", result.getDriverRacePoints());
+		}
+		else if(mode == Mode.LAST_LAP_POSITION)
+		{
+			return String.format("%s", result.getLastActualFinish());
+		}
+		else if(mode == Mode.POSITION_CHANGE)
+		{
+			return String.format("%s", result.getPositionChange());
 		}
 		
 		return (new Integer(result.getActualFinish())).toString();
@@ -111,7 +120,17 @@ public class FantasyResultCell extends Cell
 		g.setColor(border);
 		g.fillRect(0, 0, getWidth(), getHeight());
 
-		g.setColor(background);
+		Color bg = background;
+		if(mode == Mode.POSITION_CHANGE)
+		{
+			if(result.getPositionChange() == 0)
+				bg = Color.BLACK;
+			else if(result.getPositionChange() > 0)
+				bg = new Color(0x00, 0xCC, 0x00);
+			else
+				bg = Color.RED;
+		}
+		g.setColor(bg);
 		g.fillRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth);
 
 		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));

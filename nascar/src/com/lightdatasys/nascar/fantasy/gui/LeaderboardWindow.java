@@ -60,7 +60,7 @@ public class LeaderboardWindow extends AppWindow
 			Color.GRAY, Color.GREEN, Color.MAGENTA, Color.ORANGE, Color.PINK, Color.RED,
 			Color.YELLOW};
 	
-	public final static int COLUMNS = 45;
+	public final static int COLUMNS = 46;
 	public final static int ROWS = 13;
 	
 	private Cell[][] cells;
@@ -249,6 +249,19 @@ public class LeaderboardWindow extends AppWindow
 						cell.setMode(FantasyResultCell.Mode.DRIVER_RACE_POINTS);
 						cells[x][y] = cell;
 					}
+					else if(x == 45)
+					{
+						if(y <= 1)
+							cells[x][y] = null;
+						else
+						{
+							FantasyResult result = fantasyResults.get(y - 1);
+							FantasyResultCell cell = new FantasyResultCell(colSize[x], rowSize[y], result,
+								Color.WHITE, Color.BLACK, Color.WHITE);
+							cell.setMode(FantasyResultCell.Mode.POSITION_CHANGE);
+							cells[x][y] = cell;
+						}
+					}
 					else if(y == 0)
 					{
 						Result result = results.get(x - 1);
@@ -262,11 +275,11 @@ public class LeaderboardWindow extends AppWindow
 						cells[x][y] = new ResultCell(colSize[x], rowSize[y], result, 
 								Color.WHITE, Color.BLACK, Color.WHITE);
 					}
-					else if(x < 2)
+					/*else if(x < 2)
 					{
 						cells[x][y] = new CarNoCell(colSize[x], rowSize[y], "" + x, 
 								Color.WHITE, Color.BLACK, Color.WHITE);
-					}
+					}*/
 					else if(x >= 2 && y >= 2)// && (y == 3 || y == 5 || y == 7))//x >= 2 && y >= 2 && !(y == 3 && x == 5))
 					{
 						Result result = results.get(x - 1);
@@ -363,10 +376,14 @@ public class LeaderboardWindow extends AppWindow
 				flag = com.lightdatasys.nascar.Race.Flag.PRE_RACE;
 				break;
 		}
+		if(race.getCurrentLap() != getRace().currentLap)
+		{
+			race.updateFantasyLastLapPositions();			
+			race.setLapCount(getRace().lapCount);
+		}
 		race.setCurrentLap(getRace().currentLap);
 		race.setFlag(flag);
 		race.setLastFlagChange(getRace().flagChangeLap);
-		race.setLapCount(getRace().lapCount);
 		race.setCautionCount(getRace().numberOfCautions);
 		race.setLeadChangeCount(getRace().numberOfLeadChanges);
 		race.setLeaderCount(getRace().numberOfLeaders);
@@ -529,16 +546,16 @@ public class LeaderboardWindow extends AppWindow
 			xScrollOffset += 1.0f * speed * ((System.currentTimeMillis() - lastRenderTime));
 		}
 
-		if(xScrollOffset > colPosition[44] + 2*colSize[44] - colPosition[2])
+		if(xScrollOffset > colPosition[COLUMNS-1] + 2*colSize[COLUMNS-1] + cellMargin - colPosition[2])
 		{
-			xScrollOffset -= colPosition[44] + 2*colSize[44] - colPosition[2];
+			xScrollOffset -= colPosition[COLUMNS-1] + 2*colSize[COLUMNS-1] + cellMargin - colPosition[2];
 			//colOffsetTime = System.currentTimeMillis();
 			/*System.out.println("yep");
 			g.setColor(Color.YELLOW);
 			g.fillRect(100, 100, 100, 100);*/
 		}
 		renderCells(g, 2, COLUMNS, 0, ROWS, -xScrollOffset, 0);
-		renderCells(g, 2, COLUMNS, 0, ROWS, -xScrollOffset + colPosition[44] + 2*colSize[44] - colPosition[2], 0);
+		renderCells(g, 2, COLUMNS, 0, ROWS, -xScrollOffset + colPosition[COLUMNS-1] + 2*colSize[COLUMNS-1] + cellMargin - colPosition[2], 0);
 		
 		for(int x = 0; x < COLUMNS; x++)
 		{

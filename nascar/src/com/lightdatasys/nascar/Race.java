@@ -293,6 +293,15 @@ public class Race
 			lastPoints = sorted.get(i).getDriverRacePoints();
 		}
 	}
+	
+	public void updateFantasyLastLapPositions()
+	{
+		ArrayList<FantasyResult> results = (ArrayList<FantasyResult>)fantasyResultsByPlayer.values();
+		for(int i = 0; i < results.size(); i++)
+		{
+			results.get(i).setLastActualFinish(results.get(i).getActualFinish());
+		}
+	}
 
 	
 	public void addPositionChangeListener(PositionChangeListener listener)
