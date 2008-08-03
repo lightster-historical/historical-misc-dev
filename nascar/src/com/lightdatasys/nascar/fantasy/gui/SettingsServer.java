@@ -129,6 +129,8 @@ public class SettingsServer implements Runnable
 		        								case 1: mode = FantasyResultCell.Mode.DRIVER_RACE_POINTS; break;
 		        								case 2: mode = FantasyResultCell.Mode.RACE_POINTS; break;
 		        								case 3: mode = FantasyResultCell.Mode.SEASON_POINTS; break;
+		        								case 4: mode = FantasyResultCell.Mode.LAST_LAP_POSITION; break;
+		        								case 5: mode = FantasyResultCell.Mode.POSITION_CHANGE; break;
 		        								default: mode = FantasyResultCell.Mode.POSITION; break;
 	        								}
 
@@ -202,6 +204,8 @@ public class SettingsServer implements Runnable
     								case DRIVER_RACE_POINTS: value = 1; break;
     								case RACE_POINTS: value = 2; break;
     								case SEASON_POINTS: value = 3; break;
+    								case LAST_LAP_POSITION: value = 4; break;
+    								case POSITION_CHANGE: value = 5; break;
     								default: value = 0; break;
 								}
 								
