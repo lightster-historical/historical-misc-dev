@@ -66,9 +66,9 @@ public class ResultCell extends Cell
 				if(interval >= 10)
 					return String.format("%.1f", interval);
 				else if(interval >= 1)
-					return String.format("%.2f", interval);					
+					return String.format("%.2f", interval);			
 				else
-					return String.format(".%d", (int)(interval*1000));
+					return String.format(".%03d", (int)(interval*1000));
 			}
 		}
 		else if(mode == Mode.LOCAL_INTERVAL)
@@ -91,7 +91,7 @@ public class ResultCell extends Cell
 				else if(interval >= 1)
 					return String.format("%.2f", interval);					
 				else
-					return String.format(".%d", (int)(interval*1000));
+					return String.format(".%03d", (int)(interval*1000));
 			}
 		}
 		else if(mode == Mode.SEASON_POINTS)

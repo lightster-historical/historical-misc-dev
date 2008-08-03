@@ -503,6 +503,7 @@ public class LeaderboardWindow extends AppWindow
 		
 		g.clearRect(0, 0, width, height);
 		
+		/*
 		if(race.getFlag() != com.lightdatasys.nascar.Race.Flag.RED
 			&& race.getFlag() != com.lightdatasys.nascar.Race.Flag.YELLOW)
 		{
@@ -515,6 +516,7 @@ public class LeaderboardWindow extends AppWindow
 			
 			g.setTransform(oldTransform);
 		}
+		//*/
 
 		float speed = settings.getScrollSpeed() * .4f;
 		//int distance = colPosition[43] - colPosition[2];
