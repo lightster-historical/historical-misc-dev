@@ -15,6 +15,7 @@ public class FantasyResult implements Comparable<FantasyResult>
 	private int finish; // with tie breaks (to allow for storing results by a unique finish position)
 	private int finishActual; // actual finish (with possible ties)
 	private int finishLastActual;
+	private int finishChange;
 	
 	private ArrayList<String> picks;
 	
@@ -25,6 +26,8 @@ public class FantasyResult implements Comparable<FantasyResult>
 		this.player = player;
 		this.finish = finish;
 		this.finishActual = finish;
+		this.finishLastActual = finish;
+		this.finishChange = 0;
 		
 		this.picks = new ArrayList<String>();
 	}
@@ -57,7 +60,7 @@ public class FantasyResult implements Comparable<FantasyResult>
 	
 	public int getPositionChange()
 	{
-		return getActualFinish() - getLastActualFinish();
+		return finishChange;
 	}
 	
 	public ArrayList<String> getPicks()
@@ -141,6 +144,11 @@ public class FantasyResult implements Comparable<FantasyResult>
 	public void setLastActualFinish(int finish)
 	{
 		this.finishLastActual = finish;
+	}
+	
+	public void setPositionChange(int change)
+	{
+		this.finishChange = change;
 	}
 	
 	

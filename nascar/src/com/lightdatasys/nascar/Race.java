@@ -300,6 +300,7 @@ public class Race
 		results.addAll(fantasyResultsByPlayer.values());
 		for(int i = 0; i < results.size(); i++)
 		{
+			results.get(i).setPositionChange(results.get(i).getLastActualFinish()-results.get(i).getActualFinish());
 			results.get(i).setLastActualFinish(results.get(i).getActualFinish());
 		}
 	}
