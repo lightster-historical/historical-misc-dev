@@ -182,7 +182,7 @@ public class ResultCell extends Cell
 		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));
 		if(result.getLapsDown() != 0)
 			g.setColor(Color.WHITE);
-		else if(result.ledMostLaps())
+		else if(result.ledLaps())
 			g.setColor(Color.BLACK);
 		else
 			g.setColor(text);
