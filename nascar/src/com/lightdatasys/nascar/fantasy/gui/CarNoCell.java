@@ -51,7 +51,7 @@ public class CarNoCell extends Cell
 		float xOffset = (float)(getWidth() - font.getStringBounds(label, g.getFontRenderContext()).getWidth()) / 2.0f;
 		float yOffset = (getHeight() + metrics.getAscent() - metrics.getDescent()) / 2.0f;
 
-        /*
+        //*
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
             RenderingHints.VALUE_ANTIALIAS_ON);
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
@@ -62,10 +62,10 @@ public class CarNoCell extends Cell
         
 		// border
 		g.setColor(border);
-		g.fillRect(0, 0, getWidth(), getHeight());
+		g.fillRoundRect(0, 0, getWidth(), getHeight(), 25, 25);
 
 		g.setColor(background);
-		g.fillRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth);
+		g.fillRoundRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth, 25, 25);
 
 		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));
 		g.setColor(text);

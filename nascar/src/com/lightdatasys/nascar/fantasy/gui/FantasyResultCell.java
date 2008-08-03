@@ -63,7 +63,7 @@ public class FantasyResultCell extends Cell
 		}
 		else if(mode == Mode.POSITION_CHANGE)
 		{
-			return String.format("%s", result.getPositionChange());
+			return String.format("%s", Math.abs(result.getPositionChange()));
 		}
 		
 		return (new Integer(result.getActualFinish())).toString();

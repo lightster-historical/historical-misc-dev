@@ -232,23 +232,23 @@ public class LeaderboardWindow extends AppWindow
 					int i = (x + y * COLUMNS) % drivers.length;
 
 					//System.out.println()
-					if(x == 0)
+					if(x == 0 || x == 1)
 					{
 						FantasyResult result = fantasyResults.get(y - 1);
 						FantasyPlayer player = result.getPlayer();
 						FantasyResultCell cell = new FantasyResultCell(colSize[x], rowSize[y], result, Color.WHITE,
 								player.getBackgroundColor(), Color.WHITE);
-						cell.setMode(FantasyResultCell.Mode.POSITION);
+						//cell.setMode(FantasyResultCell.Mode.POSITION);
 						cells[x][y] = cell;
 					}
-					else if(x == 1)
+					/*else if(x == 1)
 					{
 						FantasyResult result = fantasyResults.get(y - 1);
 						FantasyResultCell cell = new FantasyResultCell(colSize[x], rowSize[y], result,
 							Color.WHITE, Color.BLACK, Color.WHITE);
 						cell.setMode(FantasyResultCell.Mode.DRIVER_RACE_POINTS);
 						cells[x][y] = cell;
-					}
+					}*/
 					else if(x == 45)
 					{
 						if(y <= 1)
