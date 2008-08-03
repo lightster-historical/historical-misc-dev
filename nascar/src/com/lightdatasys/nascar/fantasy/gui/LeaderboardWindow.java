@@ -60,7 +60,7 @@ public class LeaderboardWindow extends AppWindow
 			Color.GRAY, Color.GREEN, Color.MAGENTA, Color.ORANGE, Color.PINK, Color.RED,
 			Color.YELLOW};
 	
-	public final static int COLUMNS = 46;
+	public final static int COLUMNS = 45;
 	public final static int ROWS = 13;
 	
 	private Cell[][] cells;
