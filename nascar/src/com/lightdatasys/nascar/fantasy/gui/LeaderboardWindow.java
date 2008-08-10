@@ -158,7 +158,7 @@ public class LeaderboardWindow extends AppWindow
 		colOffsetPos = 0;
 		colOffsetTime = 0;
 
-		race = com.lightdatasys.nascar.Race.getById(1069);
+		race = com.lightdatasys.nascar.Race.getById(1070);
 		
 		race.addPositionChangeListener
 		(

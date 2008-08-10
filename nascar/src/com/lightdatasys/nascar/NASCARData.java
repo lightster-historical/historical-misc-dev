@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class NASCARData
 {
-	public static final String SQL_HOST = "192.168.1.40";
+	public static final String SQL_HOST = "lightdatasys.light";
 	public static final String SQL_DB_NAME = "litesign_alpha";
 	public static final String SQL_USERNAME = "litesign_mlight";
 	public static final String SQL_PASSWORD = "***REMOVED***";
