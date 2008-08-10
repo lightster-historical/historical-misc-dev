@@ -9,6 +9,8 @@ public class Result
 	private String car;
 	private int start;
 	private int finish;
+	private int finishLast;
+	private int finishChange;
 	private int lapsLed;
 	private boolean ledLaps;
 	private boolean ledMostLaps;
@@ -24,6 +26,8 @@ public class Result
 		this.car = car;
 		this.start = start;
 		this.finish = finish;
+		this.finishLast = finish;
+		this.finishChange = 0;
 		this.lapsLed = 0;
 		this.ledLaps = ledLaps;
 		this.ledMostLaps = ledMostLaps;
@@ -56,6 +60,16 @@ public class Result
 	public int getFinish()
 	{
 		return finish;
+	}
+	
+	public int getLastFinish()
+	{
+		return finishLast;
+	}
+	
+	public int getPositionChange()
+	{
+		return finishChange;
 	}
 	
 	public int getLapsLed()
@@ -157,5 +171,15 @@ public class Result
 			race.setFinish(car, finish);
 		
 		this.finish = finish;
+	}
+	
+	public void setLastFinish(int finish)
+	{
+		this.finishLast = finish;
+	}
+	
+	public void setPositionChange(int change)
+	{
+		this.finishChange = change;
 	}
 }

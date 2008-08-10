@@ -9,10 +9,12 @@ import java.text.NumberFormat;
 
 import com.lightdatasys.gui.FontUtility;
 import com.lightdatasys.nascar.Result;
+import com.lightdatasys.nascar.fantasy.gui.FantasyResultCell.Mode;
 
 public class ResultCell extends Cell 
 {
-	public enum Mode {POSITION, LAPS_LED, LEADER_INTERVAL, LOCAL_INTERVAL, SEASON_POINTS, RACE_POINTS};
+	public enum Mode {POSITION, LAPS_LED, LEADER_INTERVAL, LOCAL_INTERVAL, SEASON_POINTS, RACE_POINTS,
+		LAST_LAP_POSITION, POSITION_CHANGE};
 	
 	
 	private Result result;
@@ -102,6 +104,14 @@ public class ResultCell extends Cell
 		{
 			return String.format("%s", result.getRacePoints());
 		}
+		else if(mode == Mode.LAST_LAP_POSITION)
+		{
+			return String.format("%s", result.getLastFinish());
+		}
+		else if(mode == Mode.POSITION_CHANGE)
+		{
+			return String.format("%s", result.getPositionChange());
+		}
 		
 		return (new Integer(result.getFinish())).toString();
 	}
@@ -154,7 +164,13 @@ public class ResultCell extends Cell
         g.setFont(font);
         
 		// border
-		g.setColor(border);
+		Color bc = border;
+		if(result.getPositionChange() > 0)
+			bc = new Color(0x00, 0xCC, 0x00);
+		else if(result.getPositionChange() < 0)
+			bc = Color.RED;
+		g.setColor(bc);
+		
 		/*if(mode == Mode.LAPS_LED)
 			g.setColor(Color.BLUE);
 		else if(mode == Mode.LEADER_INTERVAL)

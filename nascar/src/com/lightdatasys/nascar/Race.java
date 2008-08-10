@@ -304,6 +304,18 @@ public class Race
 			results.get(i).setLastActualFinish(results.get(i).getActualFinish());
 		}
 	}
+	
+	
+	public void updateLastLapPositions()
+	{
+		ArrayList<Result> results = new ArrayList<Result>();
+		results.addAll(resultsByDriver.values());
+		for(int i = 0; i < results.size(); i++)
+		{
+			results.get(i).setPositionChange(results.get(i).getLastFinish()-results.get(i).getFinish());
+			results.get(i).setLastFinish(results.get(i).getFinish());
+		}
+	}
 
 	
 	public void addPositionChangeListener(PositionChangeListener listener)

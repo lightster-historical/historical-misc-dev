@@ -378,7 +378,8 @@ public class LeaderboardWindow extends AppWindow
 		}
 		if(race.getCurrentLap() != getRace().currentLap)
 		{
-			race.updateFantasyLastLapPositions();			
+			race.updateFantasyLastLapPositions();
+			race.updateLastLapPositions();			
 			race.setLapCount(getRace().lapCount);
 		}
 		race.setCurrentLap(getRace().currentLap);
