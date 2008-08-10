@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Centurion Boats at the Glen
+track:	Watkins Glen Int'l
+location:	Watkins Glen, NY
+length: 	220.50
+laps: 	90
+track_length: 	2.450
+scale: 	0.600
+x_offset: 	36
+y_offset: 	4
+tv_network: 	ESPN
+track_image_file: 	watkins_glen.gif
+</RACE>
+<PARTICIPANTS>
+18	Kyle Busch	Toyota	1	Kyle	Busch	3059
+88	Earnhardt Jr.	Chevrolet	2	Dale	Earnhardt Jr.	2883
+99	Edwards	Ford	3	Carl	Edwards	2874
+48	Johnson	Chevrolet	4	Jimmie	Johnson	2859
+31	J. Burton	Chevrolet	5	Jeff	Burton	2833
+24	J. Gordon	Chevrolet	6	Jeff	Gordon	2678
+9	Kahne	Dodge	7	Kasey	Kahne	2592
+16	Biffle	Ford	8	Greg	Biffle	2589
+20	Stewart	Toyota	9	Tony	Stewart	2569
+11	Hamlin	Toyota	10	Denny	Hamlin	2547
+29	Harvick	Chevrolet	11	Kevin	Harvick	2520
+07	Bowyer	Chevrolet	12	Clint	Bowyer	2512
+17	Kenseth	Ford	13	Matt	Kenseth	2501
+6	Ragan	Ford	14	David	Ragan	2466
+8	Almirola	Chevrolet	15	Aric	Almirola	416
+12	Newman	Dodge	16	Ryan	Newman	2339
+83	Vickers	Toyota	17	Brian	Vickers	2309
+1	Truex Jr.	Chevrolet	18	Martin	Truex Jr.	2264
+2	Kurt Busch	Dodge	19	Kurt	Busch	2135
+26	McMurray	Ford	20	Jamie	McMurray	2116
+43	B. Labonte	Dodge	21	Bobby	Labonte	2084
+19	E. Sadler	Dodge	22	Elliott	Sadler	2041
+28	Kvapil	Ford	23	Travis	Kvapil	2016
+5	Mears	Chevrolet	24	Casey	Mears	1964
+42	Montoya	Dodge	25	Juan Pablo	Montoya	1952
+38	Gilliland	Ford	26	David	Gilliland	1936
+15	Menard	Chevrolet	27	Paul	Menard	1804
+44	Reutimann	Toyota	28	David	Reutimann	1863
+22	Blaney	Toyota	29	Dave	Blaney	1696
+41	Sorenson	Dodge	30	Reed	Sorenson	1666
+7	R. Gordon	Dodge	31	Robby	Gordon	1688
+01	Fellows	Chevrolet	32	Ron	Fellows	76
+55	Waltrip	Toyota	33	Michael	Waltrip	1636
+77	Hornish Jr.	Dodge	34	Sam	Hornish Jr.	1607
+66	Riggs	Chevrolet	35	Scott	Riggs	1488
+00	McDowell	Toyota	36	Michael	McDowell	1112
+84	Allmendinger	Toyota	37	A.J.	Allmendinger	1096
+96	Jones	Toyota	38	P.J.	Jones	0
+10	Carpentier	Dodge	39	Patrick	Carpentier	1230
+45	Said	Dodge	40	Boris	Said	103
+78	Nemechek	Chevrolet	41	Joe	Nemechek	1223
+70	Papis	Chevrolet	42	Max	Papis	58
+21	Ambrose	Ford	43	Marcos	Ambrose	134
+</PARTICIPANTS>
