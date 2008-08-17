@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	3M Performance 400
+track:	Michigan Int'l Spwy
+location:	Brooklyn, MI
+length: 	400
+laps: 	200
+track_length: 	2.0
+scale: 	0.591
+x_offset: 	18
+y_offset: 	18
+tv_network: 	ESPN
+track_image_file: 	michigan.gif
+</RACE>
+<PARTICIPANTS>
+83	Vickers	Toyota	1	Brian	Vickers	2418
+48	Johnson	Chevrolet	2	Jimmie	Johnson	3010
+19	E. Sadler	Dodge	3	Elliott	Sadler	2159
+88	Earnhardt Jr.	Chevrolet	4	Dale	Earnhardt Jr.	2985
+24	J. Gordon	Chevrolet	5	Jeff	Gordon	2754
+10	Carpentier	Dodge	6	Patrick	Carpentier	1333
+44	Reutimann	Toyota	7	David	Reutimann	1927
+01	Smith	Chevrolet	8	Regan	Smith	1584
+16	Biffle	Ford	9	Greg	Biffle	2689
+66	Riggs	Chevrolet	10	Scott	Riggs	1549
+18	Kyle Busch	Toyota	11	Kyle	Busch	3254
+7	R. Gordon	Dodge	12	Robby	Gordon	1770
+2	Kurt Busch	Dodge	13	Kurt	Busch	2269
+17	Kenseth	Ford	14	Matt	Kenseth	2628
+8	Martin	Chevrolet	15	Mark	Martin	1965
+6	Ragan	Ford	16	David	Ragan	2539
+45	T. Labonte	Dodge	17	Terry	Labonte	632
+26	McMurray	Ford	18	Jamie	McMurray	2231
+42	Montoya	Dodge	19	Juan Pablo	Montoya	2117
+12	Newman	Dodge	20	Ryan	Newman	2424
+20	Stewart	Toyota	21	Tony	Stewart	2744
+00	Skinner	Toyota	22	Mike	Skinner	423
+77	Hornish Jr.	Dodge	23	Sam	Hornish Jr.	1674
+22	Blaney	Toyota	24	Dave	Blaney	1736
+1	Truex Jr.	Chevrolet	25	Martin	Truex Jr.	2419
+28	Kvapil	Ford	26	Travis	Kvapil	2071
+99	Edwards	Ford	27	Carl	Edwards	3012
+31	J. Burton	Chevrolet	28	Jeff	Burton	2945
+5	Mears	Chevrolet	29	Casey	Mears	2070
+70	Raines	Chevrolet	30	Tony	Raines	152
+41	Sorenson	Dodge	31	Reed	Sorenson	1736
+9	Kahne	Dodge	32	Kasey	Kahne	2713
+84	Allmendinger	Toyota	33	A.J.	Allmendinger	1226
+78	Nemechek	Chevrolet	34	Joe	Nemechek	1272
+43	B. Labonte	Dodge	35	Bobby	Labonte	2121
+15	Menard	Chevrolet	36	Paul	Menard	1883
+11	Hamlin	Toyota	37	Denny	Hamlin	2689
+29	Harvick	Chevrolet	38	Kevin	Harvick	2670
+21	Ambrose	Ford	39	Marcos	Ambrose	299
+38	Gilliland	Ford	40	David	Gilliland	1979
+07	Bowyer	Chevrolet	41	Clint	Bowyer	2606
+55	Waltrip	Toyota	42	Michael	Waltrip	1682
+96	Coleman	Toyota	43	Brad	Coleman	0
+</PARTICIPANTS>

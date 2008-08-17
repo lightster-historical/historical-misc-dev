@@ -132,7 +132,7 @@ public class Leaderboard extends JPanel
  {
      try
      {
-         propertyFileLocation = "CenturionBoatsattheGlen_2008.txt";
+         propertyFileLocation = "3MPerformance400_2008.txt";
          CommonFunctions.dump("Participants File : '" + propertyFileLocation + "'");
          useShoutcast = true;
          System.out.println("shoucast mode: " + useShoutcast);
