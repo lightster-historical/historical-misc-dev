@@ -128,7 +128,7 @@ public class ResultCell extends Cell
 		}
 		else if(mode == Mode.SPEED)
 		{
-			return String.format("%.1f", result.getSpeed());
+			return String.format("%d", (int)result.getSpeed());
 		}
 		
 		return (new Integer(result.getFinish())).toString();
