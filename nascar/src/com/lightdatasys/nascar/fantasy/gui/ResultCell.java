@@ -85,15 +85,23 @@ public class ResultCell extends Cell
 			}
 			else
 			{
-				float interval = Math.abs(result.getBehindLeader() -
-					result.getRace().getResultByFinish(result.getFinish()-1).getBehindLeader());
-
-				if(interval >= 10)
-					return String.format("%.1f", interval);
-				else if(interval >= 1)
-					return String.format("%.2f", interval);					
-				else
-					return String.format(".%03d", (int)(interval*1000));
+				if(result != null)
+				{
+					Result otherResult = result.getRace().getResultByFinish(result.getFinish()-1);
+					
+					if(otherResult != null)
+					{
+						float interval = Math.abs(result.getBehindLeader() -
+								otherResult.getBehindLeader());
+		
+						if(interval >= 10)
+							return String.format("%.1f", interval);
+						else if(interval >= 1)
+							return String.format("%.2f", interval);					
+						else
+							return String.format(".%03d", (int)(interval*1000));
+					}
+				}
 			}
 		}
 		else if(mode == Mode.SEASON_POINTS)

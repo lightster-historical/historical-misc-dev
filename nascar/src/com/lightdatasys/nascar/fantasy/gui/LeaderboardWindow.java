@@ -265,15 +265,21 @@ public class LeaderboardWindow extends AppWindow
 					else if(y == 0)
 					{
 						Result result = results.get(x - 1);
-						Driver driver = result.getDriver();
-						cells[x][y] = new CarNoCell(colSize[x], rowSize[y], result.getCar(), driver.getFontColor(),
-								driver.getBackgroundColor(), driver.getBorderColor());
+						if(result != null)
+						{
+							Driver driver = result.getDriver();
+							cells[x][y] = new CarNoCell(colSize[x], rowSize[y], result.getCar(), driver.getFontColor(),
+									driver.getBackgroundColor(), driver.getBorderColor());
+						}
 					}
 					else if(y == 1)
 					{
 						Result result = results.get(x - 1);
-						cells[x][y] = new ResultCell(colSize[x], rowSize[y], result, 
-								Color.WHITE, Color.BLACK, Color.WHITE);
+						if(result != null)
+						{
+							cells[x][y] = new ResultCell(colSize[x], rowSize[y], result, 
+									Color.WHITE, Color.BLACK, Color.WHITE);
+						}
 					}
 					/*else if(x < 2)
 					{
@@ -283,13 +289,16 @@ public class LeaderboardWindow extends AppWindow
 					else if(x >= 2 && y >= 2)// && (y == 3 || y == 5 || y == 7))//x >= 2 && y >= 2 && !(y == 3 && x == 5))
 					{
 						Result result = results.get(x - 1);
-						FantasyResult fantasyResult = fantasyResults.get(y - 1);
-						
-						if(fantasyResult.getPicks().contains(result.getCar()))
+						if(result != null)
 						{
-							FantasyPlayer player = fantasyResult.getPlayer();
-							cells[x][y] = new FantasyPlayerCell(colSize[x], rowSize[y], player.toString(), Color.WHITE,
-									player.getBackgroundColor()/*drivers[i].getBackgroundColor()*/, Color.WHITE);
+							FantasyResult fantasyResult = fantasyResults.get(y - 1);
+							
+							if(fantasyResult.getPicks().contains(result.getCar()))
+							{
+								FantasyPlayer player = fantasyResult.getPlayer();
+								cells[x][y] = new FantasyPlayerCell(colSize[x], rowSize[y], player.toString(), Color.WHITE,
+										player.getBackgroundColor()/*drivers[i].getBackgroundColor()*/, Color.WHITE);
+							}
 						}
 					}
 				}
@@ -419,6 +428,10 @@ public class LeaderboardWindow extends AppWindow
 				}
 				else
 					result.setFinish(startPos);
+			}
+			else
+			{
+				System.out.println("result==null for id=" + id);
 			}
 		}
 		for(int i = 0; i < drivers.size(); i++)
