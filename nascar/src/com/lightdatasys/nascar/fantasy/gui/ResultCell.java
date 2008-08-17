@@ -83,13 +83,13 @@ public class ResultCell extends Cell
 		{
 			Result otherResult = result.getRace().getResultByFinish(result.getFinish()-1);
 
-			if(otherResult != null)
+			if(result.getFinish() == 1)
 			{
-				if(result.getFinish() == 1)
-				{
-					return "";
-				}
-				else if(result.getLapsDown() != 0)
+				return "";
+			}
+			else if(otherResult != null)
+			{
+				if(result.getLapsDown() != 0)
 				{
 					int diff = Math.abs(result.getLapsDown() -
 							otherResult.getLapsDown());
