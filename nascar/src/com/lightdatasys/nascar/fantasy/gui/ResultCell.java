@@ -28,6 +28,9 @@ public class ResultCell extends Cell
 	private Font font;
 	
 	private String cachedValue;
+	private boolean cachedLed;
+	private boolean cachedMostLed;
+	private int cachedLapsDown;
 	
 	
 	public ResultCell(int w, int h, Result result, Color text, Color bg, Color border)
@@ -40,6 +43,9 @@ public class ResultCell extends Cell
 		this.text = text;
 		
 		cachedValue = "";
+		cachedLed = false;
+		cachedMostLed = false;
+		cachedLapsDown = 0;
 		
 		setMode(Mode.POSITION);
 	}
@@ -148,7 +154,11 @@ public class ResultCell extends Cell
 	
 	public boolean isUpdated()
 	{
-		return updated || !cachedValue.equals(getValue());
+		return updated
+			|| !cachedValue.equals(getValue())
+			|| cachedLed != result.ledLaps()
+			|| cachedMostLed != result.ledMostLaps()
+		    || !cachedValue.equals(result.getLapsDown());
 	}
 	
 	
@@ -160,6 +170,9 @@ public class ResultCell extends Cell
 			updateFont();
 
 		cachedValue = getValue();
+		cachedLed = result.ledLaps();
+		cachedMostLed = result.ledMostLaps();
+		cachedLapsDown = result.getLapsDown();
         
         FontMetrics metrics = g.getFontMetrics(font);
 
