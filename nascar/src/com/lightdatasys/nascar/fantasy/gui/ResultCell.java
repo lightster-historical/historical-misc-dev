@@ -173,10 +173,10 @@ public class ResultCell extends Cell
         
 		// border
 		Color bc = border;
-		if(result.getPositionChange() > 0)
+		/*if(result.getPositionChange() > 0)
 			bc = new Color(0x00, 0xCC, 0x00);
 		else if(result.getPositionChange() < 0)
-			bc = Color.RED;
+			bc = Color.RED;*/
 		g.setColor(bc);
 		
 		/*if(mode == Mode.LAPS_LED)
