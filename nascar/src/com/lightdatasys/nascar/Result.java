@@ -17,6 +17,7 @@ public class Result
 	private int penalties;
 	private float behindLeader;
 	private int lapsDown;
+	private float speed;
 	
 	
 	public Result(Race race, Driver driver, String car, int start, int finish, boolean ledLaps, boolean ledMostLaps, int penalties)
@@ -34,6 +35,7 @@ public class Result
 		this.penalties = penalties;
 		this.behindLeader = 0.0f;
 		this.lapsDown = 0;
+		this.speed = 0.0f;
 	}
 	
 	
@@ -134,6 +136,11 @@ public class Result
 		
 		return points;
 	}
+	
+	public float getSpeed()
+	{
+		return speed;
+	}
 
 	public void setLapsLed(int lapsLed)
 	{
@@ -181,5 +188,10 @@ public class Result
 	public void setPositionChange(int change)
 	{
 		this.finishChange = change;
+	}
+	
+	public void setSpeed(float speed)
+	{
+		this.speed = speed;
 	}
 }

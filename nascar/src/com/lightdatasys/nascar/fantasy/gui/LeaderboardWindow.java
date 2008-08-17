@@ -425,6 +425,7 @@ public class LeaderboardWindow extends AppWindow
 					result.setLapsLed(d.lapsLed);
 					result.setLedLaps(result.getLapsLed() > 0);
 					mostLapsLed = Math.max(mostLapsLed, result.getLapsLed());
+					result.setSpeed(d.speed);
 				}
 				else
 					result.setFinish(startPos);

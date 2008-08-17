@@ -14,7 +14,7 @@ import com.lightdatasys.nascar.fantasy.gui.FantasyResultCell.Mode;
 public class ResultCell extends Cell 
 {
 	public enum Mode {POSITION, LAPS_LED, LEADER_INTERVAL, LOCAL_INTERVAL, SEASON_POINTS, RACE_POINTS,
-		LAST_LAP_POSITION, POSITION_CHANGE};
+		LAST_LAP_POSITION, POSITION_CHANGE, SPEED};
 	
 	
 	private Result result;
@@ -65,7 +65,7 @@ public class ResultCell extends Cell
 			}
 			else if(result.getLapsDown() != 0)
 			{
-				return String.format("%d", result.getLapsDown());
+				return String.format("%d", -result.getLapsDown());
 			}
 			else
 			{
@@ -81,32 +81,32 @@ public class ResultCell extends Cell
 		}
 		else if(mode == Mode.LOCAL_INTERVAL)
 		{
-			if(result.getFinish() == 1)
+			Result otherResult = result.getRace().getResultByFinish(result.getFinish()-1);
+
+			if(otherResult != null)
 			{
-				return "";
-			}
-			else if(result.getLapsDown() != 0)
-			{
-				return String.format("%d", result.getLapsDown());
-			}
-			else
-			{
-				if(result != null)
+				if(result.getFinish() == 1)
 				{
-					Result otherResult = result.getRace().getResultByFinish(result.getFinish()-1);
+					return "";
+				}
+				else if(result.getLapsDown() != 0)
+				{
+					int diff = Math.abs(result.getLapsDown() -
+							otherResult.getLapsDown());
 					
-					if(otherResult != null)
-					{
-						float interval = Math.abs(result.getBehindLeader() -
-								otherResult.getBehindLeader());
-		
-						if(interval >= 10)
-							return String.format("%.1f", interval);
-						else if(interval >= 1)
-							return String.format("%.2f", interval);					
-						else
-							return String.format(".%03d", (int)(interval*1000));
-					}
+					return String.format("%d", diff);
+				}
+				else
+				{
+					float interval = Math.abs(result.getBehindLeader() -
+							otherResult.getBehindLeader());
+	
+					if(interval >= 10)
+						return String.format("%.1f", interval);
+					else if(interval >= 1)
+						return String.format("%.2f", interval);					
+					else
+						return String.format(".%03d", (int)(interval*1000));
 				}
 			}
 		}
@@ -125,6 +125,10 @@ public class ResultCell extends Cell
 		else if(mode == Mode.POSITION_CHANGE)
 		{
 			return String.format("%s", result.getPositionChange());
+		}
+		else if(mode == Mode.SPEED)
+		{
+			return String.format("%.1f", result.getSpeed());
 		}
 		
 		return (new Integer(result.getFinish())).toString();
@@ -186,10 +190,13 @@ public class ResultCell extends Cell
         
 		// border
 		Color bc = border;
+		
 		/*if(result.getPositionChange() > 0)
 			bc = new Color(0x00, 0xCC, 0x00);
 		else if(result.getPositionChange() < 0)
 			bc = Color.RED;*/
+		if(!(result.getSpeed() > 0.9f))
+			bc = Color.BLACK;
 		g.setColor(bc);
 		
 		/*if(mode == Mode.LAPS_LED)

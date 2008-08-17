@@ -120,6 +120,7 @@ public class SettingsServer implements Runnable
 		        								case 5: settings.setResultMode(ResultCell.Mode.SEASON_POINTS); break;
 		        								case 6: settings.setResultMode(ResultCell.Mode.LAST_LAP_POSITION); break;
 		        								case 7: settings.setResultMode(ResultCell.Mode.POSITION_CHANGE); break;
+		        								case 8: settings.setResultMode(ResultCell.Mode.SPEED); break;
 		        								default: settings.setResultMode(ResultCell.Mode.POSITION); break;
 	        								}
 	        							}
@@ -187,6 +188,7 @@ public class SettingsServer implements Runnable
     								case SEASON_POINTS: value = 5; break;
     								case LAST_LAP_POSITION: value = 6; break;
     								case POSITION_CHANGE: value = 7; break;
+    								case SPEED: value = 8; break;
     								default: value = 0; break;
 								}
 								
