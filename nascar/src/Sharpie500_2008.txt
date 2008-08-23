@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Sharpie 500
+track:	Bristol Motor Speedway
+location:	Bristol, TN
+length: 	266
+laps: 	500
+track_length: 	0.533
+scale: 	0.573
+x_offset: 	25
+y_offset: 	16
+tv_network: 	ESPN
+track_image_file: 	bristol.gif
+</RACE>
+<PARTICIPANTS>
+99	Edwards	Ford	1	Carl	Edwards	3207
+44	Reutimann	Toyota	2	David	Reutimann	2048
+24	J. Gordon	Chevrolet	3	Jeff	Gordon	2791
+01	Smith	Chevrolet	4	Regan	Smith	1660
+21	Elliott	Ford	5	Bill	Elliott	705
+29	Harvick	Chevrolet	6	Kevin	Harvick	2812
+96	Schrader	Toyota	7	Ken	Schrader	298
+84	Allmendinger	Toyota	8	A.J.	Allmendinger	1305
+18	Kyle Busch	Toyota	9	Kyle	Busch	3429
+19	E. Sadler	Dodge	10	Elliott	Sadler	2297
+12	Newman	Dodge	11	Ryan	Newman	2524
+1	Truex Jr.	Chevrolet	12	Martin	Truex Jr.	2534
+9	Kahne	Dodge	13	Kasey	Kahne	2756
+16	Biffle	Ford	14	Greg	Biffle	2854
+38	Gilliland	Ford	15	David	Gilliland	2064
+15	Menard	Chevrolet	16	Paul	Menard	1974
+5	Mears	Chevrolet	17	Casey	Mears	2179
+31	J. Burton	Chevrolet	18	Jeff	Burton	3080
+2	Kurt Busch	Dodge	19	Kurt	Busch	2324
+70	Raines	Chevrolet	20	Tony	Raines	222
+11	Hamlin	Toyota	21	Denny	Hamlin	2735
+07	Bowyer	Chevrolet	22	Clint	Bowyer	2709
+8	Almirola	Chevrolet	23	Aric	Almirola	474
+09	Marlin	Chevrolet	24	Sterling	Marlin	268
+17	Kenseth	Ford	25	Matt	Kenseth	2783
+83	Vickers	Toyota	26	Brian	Vickers	2569
+6	Ragan	Ford	27	David	Ragan	2709
+20	Stewart	Toyota	28	Tony	Stewart	2871
+45	Petty	Dodge	29	Kyle	Petty	540
+41	Sorenson	Dodge	30	Reed	Sorenson	1800
+7	R. Gordon	Dodge	31	Robby	Gordon	1822
+28	Kvapil	Ford	32	Travis	Kvapil	2195
+00	Skinner	Toyota	33	Mike	Skinner	481
+48	Johnson	Chevrolet	34	Jimmie	Johnson	3127
+77	Hornish Jr.	Dodge	35	Sam	Hornish Jr.	1771
+22	Blaney	Toyota	36	Dave	Blaney	1776
+43	B. Labonte	Dodge	37	Bobby	Labonte	2203
+66	Riggs	Chevrolet	38	Scott	Riggs	1672
+42	Montoya	Dodge	39	Juan Pablo	Montoya	2205
+88	Earnhardt Jr.	Chevrolet	40	Dale	Earnhardt Jr.	3084
+26	McMurray	Ford	41	Jamie	McMurray	2365
+55	Waltrip	Toyota	42	Michael	Waltrip	1788
+78	Nemechek	Chevrolet	43	Joe	Nemechek	1333
+</PARTICIPANTS>

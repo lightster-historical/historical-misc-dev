@@ -32,6 +32,9 @@ import com.sportvision.model.Race;
 public class LeaderboardWindow extends AppWindow
 	implements QuitHandler, Runnable
 {
+	private final static int RACE_ID = 1072;
+	
+	
 	// number of buffers to use for graphics rendering
 	private final static int NUM_GFX_BUFFERS = 2;
 	
@@ -158,7 +161,7 @@ public class LeaderboardWindow extends AppWindow
 		colOffsetPos = 0;
 		colOffsetTime = 0;
 
-		race = com.lightdatasys.nascar.Race.getById(1071);
+		race = com.lightdatasys.nascar.Race.getById(RACE_ID);
 		
 		race.addPositionChangeListener
 		(
