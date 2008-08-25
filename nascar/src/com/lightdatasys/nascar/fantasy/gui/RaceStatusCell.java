@@ -113,7 +113,8 @@ public class RaceStatusCell extends Cell
 		float xOffset = (float)(getWidth() - font.getStringBounds(label, g.getFontRenderContext()).getWidth()) / 2.0f;
 		float yOffset = (getHeight() + metrics.getAscent() - metrics.getDescent()) / 2.0f;
 		
-		g.drawString(label, xOffset, yOffset);
+		if(race.getFlag() != Race.Flag.CHECKERED)
+			g.drawString(label, xOffset, yOffset);
 		
 		//updated = false;
 	}

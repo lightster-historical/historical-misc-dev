@@ -339,29 +339,6 @@ public class LeaderboardWindow extends AppWindow
 	public void update()
 	{
 		initTiming();
-		//race.getResultByFinish(5).setFinish(race.getResultByCarNo("48").getFinish());
-		//race.getResultByCarNo("48").setFinish(5);
-		/*switch(resultMode)
-		{
-			case LAPS_LED:
-				resultMode = ResultCell.Mode.LEADER_INTERVAL;
-				break;
-			case LEADER_INTERVAL:
-				resultMode = ResultCell.Mode.LOCAL_INTERVAL;
-				break;
-			case LOCAL_INTERVAL:
-				resultMode = ResultCell.Mode.POSITION;
-				break;
-			case POSITION:
-				resultMode = ResultCell.Mode.RACE_POINTS;
-				break;
-			case RACE_POINTS:
-				resultMode = ResultCell.Mode.SEASON_POINTS;
-				break;
-			case SEASON_POINTS:
-				resultMode = ResultCell.Mode.LAPS_LED;
-				break;
-		}*/
 		
 		com.lightdatasys.nascar.Race.Flag flag;
 		switch(getRace().flag)
@@ -475,20 +452,6 @@ public class LeaderboardWindow extends AppWindow
 					leader.getBackgroundColor(), leader.getBorderColor());
 			leaderCar = leaderResult.getCar();
 		}
-		
-		/*
-		moveColumn(2, 6);
-		moveColumn(3, 2);
-		moveColumn(4, 3);
-		moveColumn(5, 7);
-		moveColumn(6, 4);
-		moveColumn(7, 5);*/
-
-		/*
-		moveRow(5, 8);
-		moveRow(8, 3);
-		moveRow(3, 5);
-		//*/
 		
 		Cell[][] tempCells = new Cell[COLUMNS][ROWS];
 		for(int x = 0; x < cells.length; x++)
@@ -700,9 +663,6 @@ public class LeaderboardWindow extends AppWindow
 	public void run()
 	{
 		initTiming();
-		
-		//final long MAX_SLEEP_TIME = Math.min(updateInterval, renderInterval);
-		//long lastTime = System.currentTimeMillis();
 		
 		try
 		{

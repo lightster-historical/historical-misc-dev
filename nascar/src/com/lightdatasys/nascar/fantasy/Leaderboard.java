@@ -56,9 +56,9 @@ public class Leaderboard extends JPanel
 		leaderboard = new Leaderboard();
 		window = new LeaderboardWindow(leaderboard);
 		System.out.println("window created");
-		Thread test = new Thread(window);
-		test.start();
-		System.out.println("thread created");
+		Thread guiThread = new Thread(window);
+		guiThread.start();
+		System.out.println("guiThread created");
 	}
 	
 	
