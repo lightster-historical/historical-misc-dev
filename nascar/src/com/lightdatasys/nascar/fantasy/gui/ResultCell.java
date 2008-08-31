@@ -161,8 +161,8 @@ public class ResultCell extends Cell
 		return updated
 			|| !cachedValue.equals(getValue())
 			|| cachedLed != result.ledLaps()
-			|| cachedMostLed != result.ledMostLaps()
-		    || !cachedValue.equals(result.getLapsDown());
+			|| cachedMostLed != result.ledMostLaps();
+		    //|| !cachedValue.equals(result.getLapsDown());
 	}
 	
 	

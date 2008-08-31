@@ -2,17 +2,19 @@ package com.lightdatasys.nascar.fantasy.gui;
 
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.DisplayMode;
 import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Vector;
 
 import javax.swing.JFrame;
@@ -32,7 +34,12 @@ import com.sportvision.model.Race;
 public class LeaderboardWindow extends AppWindow
 	implements QuitHandler, Runnable
 {
-	private final static int RACE_ID = 1072;
+	private final static String PROPERTY_FILE = "Pepsi500_2008.txt";
+	private final static int RACE_ID = 1073;
+	
+	
+	private final static boolean ALLOW_UPDATES = true;
+	private final static boolean SHOW_FPS = false;
 	
 	
 	// number of buffers to use for graphics rendering
@@ -57,14 +64,17 @@ public class LeaderboardWindow extends AppWindow
 	
 	private boolean done = false;
 	
-	//private int count = 0;
-	
-	public final static Color[] colors = {Color.BLACK, Color.BLUE, Color.CYAN, Color.DARK_GRAY,
-			Color.GRAY, Color.GREEN, Color.MAGENTA, Color.ORANGE, Color.PINK, Color.RED,
-			Color.YELLOW};
-	
 	public final static int COLUMNS = 45;
 	public final static int ROWS = 13;
+	
+	private Cell raceStatusCell;
+	//private AbstractMap<String,Cell> driverHeaderCells;
+	private AbstractMap<String,Cell> driverCells;
+	private AbstractMap<String,Cell> driverResult1Cells;
+	private AbstractMap<Integer,Cell> playerHeaderCells;
+	private AbstractMap<Integer,Cell> playerCells;
+	private AbstractMap<Integer,Cell> playerResult1Cells;
+	private AbstractMap<Integer,Cell> playerResult2Cells;
 	
 	private Cell[][] cells;
 	private int[] colSize;
@@ -90,8 +100,8 @@ public class LeaderboardWindow extends AppWindow
 	private int cellWidth;
 	private int cellHeight;
 
-	private int colOffsetPos;
-	private long colOffsetTime;
+	//private int colOffsetPos;
+	//private long colOffsetTime;
 	
 	private float xScrollOffset;
 	
@@ -122,17 +132,24 @@ public class LeaderboardWindow extends AppWindow
 		setIgnoreRepaint(true);
 
         env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        DisplayMode[] modes = env.getDefaultScreenDevice().getDisplayModes();
         device = env.getDefaultScreenDevice();
+    	System.out.println(((float)device.getDisplayMode().getWidth() / device.getDisplayMode().getHeight()) + " " + device.getDisplayMode().getWidth() + " " + device.getDisplayMode().getHeight() + " " + device.getDisplayMode().getRefreshRate() + " " + device.getDisplayMode().getBitDepth());
+        
+        for(int i = 0; i < modes.length; i++)
+        	System.out.println(i + " " + ((float)modes[i].getWidth() / modes[i].getHeight()) + " " + modes[i].getWidth() + " " + modes[i].getHeight() + " " + modes[i].getRefreshRate() + " " + modes[i].getBitDepth());
         
         device.setFullScreenWindow(this);
+        //device.setDisplayMode(modes[13]);
 
         createBufferStrategy(NUM_GFX_BUFFERS);
         bufferStrategy = getBufferStrategy();
+        System.out.println("Page flipping: " + bufferStrategy.getCapabilities().isPageFlipping());
         
         positionChangeEvents = new ArrayList<PositionChangeEvent>();
         fantasyPositionChangeEvents = new ArrayList<PositionChangeEvent>();
 
-		leaderboard.init();
+		leaderboard.init(PROPERTY_FILE, ALLOW_UPDATES);
 		leaderboard.start();
 					
 		//add(leaderboard);
@@ -151,15 +168,16 @@ public class LeaderboardWindow extends AppWindow
         
         //resultMode = ResultCell.Mode.POSITION;
 
-		Rectangle dim = device.getDefaultConfiguration().getBounds();
+		DisplayMode dim = device.getDisplayMode();
         width = (int)dim.getWidth();
         height = (int)dim.getHeight();
         
 		cellWidth = ((width - cellMargin) / COLUMNS) - cellMargin;
 		cellHeight = ((height - cellMargin) / ROWS) - cellMargin;
+		cellWidth = cellHeight;
 		
-		colOffsetPos = 0;
-		colOffsetTime = 0;
+		//colOffsetPos = 0;
+		//colOffsetTime = 0;
 
 		race = com.lightdatasys.nascar.Race.getById(RACE_ID);
 		
@@ -193,8 +211,8 @@ public class LeaderboardWindow extends AppWindow
 		com.lightdatasys.nascar.fantasy.FantasyPlayer.loadAllFromDatabase();
 		com.lightdatasys.nascar.fantasy.FantasyPlayer[] players = com.lightdatasys.nascar.fantasy.FantasyPlayer.getPlayers(); 
 
-		cellWidth = 75;
-		cellHeight = 75;
+		//cellWidth = 75;
+		//cellHeight = 75;
 		
 		colSize = new int[COLUMNS];
 		colPosition = new int[COLUMNS];
@@ -221,6 +239,10 @@ public class LeaderboardWindow extends AppWindow
 		{
 			rowPosition[i] = rowPosition[i - 1] + rowSize[i - 1] + cellMargin;
 		}
+
+		initGlobalCells(cellWidth*2 + cellMargin);
+		initDriverCells(cellWidth, cellWidth);
+		initPlayerCells(cellWidth, cellWidth);
 		
 		cells = new Cell[COLUMNS][ROWS];
 		//tempCells = new Cell[COLUMNS][ROWS];
@@ -239,10 +261,11 @@ public class LeaderboardWindow extends AppWindow
 					{
 						FantasyResult result = fantasyResults.get(y - 1);
 						FantasyPlayer player = result.getPlayer();
-						FantasyResultCell cell = new FantasyResultCell(colSize[x], rowSize[y], result, Color.WHITE,
+						/*FantasyResultCell cell = new FantasyResultCell(colSize[x], rowSize[y], result, Color.WHITE,
 								player.getBackgroundColor(), Color.WHITE);
+								*/
 						//cell.setMode(FantasyResultCell.Mode.POSITION);
-						cells[x][y] = cell;
+						cells[x][y] = playerResult1Cells.get(player.getPlayerId());
 					}
 					/*else if(x == 1)
 					{
@@ -299,8 +322,10 @@ public class LeaderboardWindow extends AppWindow
 							if(fantasyResult.getPicks().contains(result.getCar()))
 							{
 								FantasyPlayer player = fantasyResult.getPlayer();
-								cells[x][y] = new FantasyPlayerCell(colSize[x], rowSize[y], player.toString(), Color.WHITE,
-										player.getBackgroundColor()/*drivers[i].getBackgroundColor()*/, Color.WHITE);
+
+								cells[x][y] = playerCells.get(player.getPlayerId());
+								//cells[x][y] = new FantasyPlayerCell(colSize[x], rowSize[y], player.toString(), Color.WHITE,
+								//		player.getBackgroundColor()/*drivers[i].getBackgroundColor()*/, Color.WHITE);
 							}
 						}
 					}
@@ -333,6 +358,80 @@ public class LeaderboardWindow extends AppWindow
         setCursor(blankCursor);
 
         //rand = new Random();
+	}
+	
+	
+	public void initGlobalCells(int dim)
+	{
+		raceStatusCell = new RaceStatusCell(dim, dim, race);
+		
+		Result leaderResult = race.getResultByFinish(1);
+		Driver leader = leaderResult.getDriver();
+		bgCell = new CarNoCell(getWidth()-dim, getHeight()-dim, leaderResult.getCar(), leader.getFontColor(),
+				leader.getBackgroundColor(), leader.getBorderColor());
+	}
+
+	public void initDriverCells(int dim, int resultWidth)
+	{
+		driverCells = new HashMap<String,Cell>();
+		driverResult1Cells = new HashMap<String,Cell>();
+
+		AbstractMap<Integer,com.lightdatasys.nascar.Result> results = race.getResults();
+		
+		Iterator<Integer> it = results.keySet().iterator();
+		while(it.hasNext())
+		{
+			Result result = results.get(it.next());
+			if(result != null)
+			{
+				Driver driver = result.getDriver();
+				
+				Cell driverCell = new CarNoCell(dim, dim, result.getCar(), driver.getFontColor(),
+						driver.getBackgroundColor(), driver.getBorderColor());
+				driverCells.put(result.getCar(), driverCell);
+				
+				Cell driverResult1Cell = new ResultCell(resultWidth, dim, result, 
+						Color.WHITE, Color.BLACK, Color.WHITE);
+				driverCells.put(result.getCar(), driverResult1Cell);
+			}
+		}
+	}
+	
+	public void initPlayerCells(int dim, int headerHeight)
+	{
+		playerHeaderCells = new HashMap<Integer,Cell>();
+		playerCells = new HashMap<Integer,Cell>();
+		playerResult1Cells = new HashMap<Integer,Cell>();
+		playerResult2Cells = new HashMap<Integer,Cell>();
+
+		AbstractMap<Integer,FantasyResult> fantasyResults = race.getFantasyResults();
+
+		Iterator<Integer> it = fantasyResults.keySet().iterator();
+		while(it.hasNext())
+		{
+			FantasyResult result = fantasyResults.get(it.next());
+			if(result != null)
+			{
+				FantasyPlayer player = result.getPlayer();
+				
+				FantasyPlayerCell playerHeaderCell = new FantasyPlayerCell(dim, headerHeight, player.toString(), Color.WHITE,
+						player.getBackgroundColor()/*drivers[i].getBackgroundColor()*/, Color.WHITE);
+				playerHeaderCells.put(player.getPlayerId(), playerHeaderCell);
+				
+				FantasyPlayerCell playerCell = new FantasyPlayerCell(dim, dim, player.toString(), Color.WHITE,
+						player.getBackgroundColor()/*drivers[i].getBackgroundColor()*/, Color.WHITE);
+				playerCells.put(player.getPlayerId(), playerCell);
+				
+				FantasyResultCell playerResult1Cell = new FantasyResultCell(dim, dim, result, Color.WHITE,
+						player.getBackgroundColor(), Color.WHITE);
+				playerResult1Cells.put(player.getPlayerId(), playerResult1Cell);
+				
+				FantasyResultCell playerResult2Cell = new FantasyResultCell(dim, dim, result, Color.WHITE,
+						player.getBackgroundColor(), Color.WHITE);
+				playerResult2Cell.setMode(FantasyResultCell.Mode.POSITION_CHANGE);
+				playerResult2Cells.put(player.getPlayerId(), playerResult2Cell);
+			}
+		}
 	}
 	
 	
@@ -503,13 +602,6 @@ public class LeaderboardWindow extends AppWindow
 		
 		if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.CHECKERED)
 		{
-			
-		}
-		
-		/*
-		if(race.getFlag() != com.lightdatasys.nascar.Race.Flag.RED
-			&& race.getFlag() != com.lightdatasys.nascar.Race.Flag.YELLOW)
-		{
 			AffineTransform oldTransform = g.getTransform();
 			AffineTransform transform = new AffineTransform();
 			transform.translate(colPosition[2], rowPosition[2]);
@@ -519,7 +611,6 @@ public class LeaderboardWindow extends AppWindow
 			
 			g.setTransform(oldTransform);
 		}
-		//*/
 
 		float speed = settings.getScrollSpeed() * .4f;
 		//int distance = colPosition[43] - colPosition[2];
@@ -576,42 +667,49 @@ public class LeaderboardWindow extends AppWindow
 			if(x >= 2)
 				xPos += xOffset;
 			
-			for(int y = y0; y < y1; y++)
+			if(xPos <= width && xPos + colSize[x] >= 0)
 			{
-				Cell cell = cells[x][y];
-				
-				if(cell != null)
-				{		
-					if(cell instanceof ResultCell)
-					{
-						((ResultCell)cell).setMode(settings.getResultMode());
+				for(int y = y0; y < y1; y++)
+				{
+					Cell cell = cells[x][y];
+					
+					if(cell != null)
+					{		
+						if(cell instanceof ResultCell)
+						{
+							((ResultCell)cell).setMode(settings.getResultMode());
+						}
+						
+						if(cell instanceof FantasyResultCell)
+						{
+							if(x == 0)
+								((FantasyResultCell)cell).setMode(settings.getFantasyMode1());
+							else if(x == 1)
+								((FantasyResultCell)cell).setMode(settings.getFantasyMode2());
+						}
+						
+						BufferedImage img = cell.getImage();
+	
+						if(cell.isUpdated())
+						{
+							cell.render((Graphics2D)img.getGraphics());
+						}
+						
+						AffineTransform transform = new AffineTransform();
+	
+						int yPos = rowPosition[y];//cellMargin + y * (cellHeight + cellMargin);
+						if(rowSwaps[y] != null)
+							yPos = rowSwaps[y].getPosition();
+						
+						transform.translate(xPos, yPos);
+						
+						g.drawRenderedImage(img, transform);
+						img = null;
 					}
-					
-					if(cell instanceof FantasyResultCell)
-					{
-						if(x == 0)
-							((FantasyResultCell)cell).setMode(settings.getFantasyMode1());
-						else if(x == 1)
-							((FantasyResultCell)cell).setMode(settings.getFantasyMode2());
-					}
-					
-					BufferedImage img = cell.getImage();
-
-					if(cell.isUpdated())
-						cell.render((Graphics2D)img.getGraphics());
-					
-					AffineTransform transform = new AffineTransform();
-
-					int yPos = rowPosition[y];//cellMargin + y * (cellHeight + cellMargin);
-					if(rowSwaps[y] != null)
-						yPos = rowSwaps[y].getPosition();
-					
-					transform.translate(xPos, yPos);
-					
-					g.drawRenderedImage(img, transform);
-					img = null;
 				}
 			}
+			//else if(!(xPos <= width))
+			//	x = x1;
 		}
 	}
 	
@@ -683,11 +781,12 @@ public class LeaderboardWindow extends AppWindow
 				        
 			            render(g);
 			            
-			            /*
-			            g.setColor(new Color(255, 255, 255, 100));
-			            g.setFont(g.getFont().deriveFont(150.0f));
-			            g.drawString((int)(1000.0f / renderDiff) + " fps", 5, 300);
-			            //*/
+			            if(SHOW_FPS)
+			            {
+				            g.setColor(new Color(255, 255, 255, 100));
+				            g.setFont(g.getFont().deriveFont(150.0f));
+				            g.drawString((int)(1000.0f / renderDiff) + " fps", 5, 300);
+			            }
 			        }
 					finally
 					{

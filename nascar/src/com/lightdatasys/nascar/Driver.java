@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -233,11 +232,11 @@ public class Driver
 				sPostChase.execute(sqlPostChase);
 				
 				ResultSet rsPostChase = sPostChase.getResultSet();
-				while(rsPreChase.next())
+				while(rsPostChase.next())
 				{
 					Standing standing;
 					
-					int driverId = rsPreChase.getInt("driverId");
+					int driverId = rsPostChase.getInt("driverId");
 					if(standings.containsKey(driverId))
 						standing = standings.get(driverId);
 					else
@@ -247,11 +246,11 @@ public class Driver
 						standings.put(driverId, standing);
 					}
 					
-					standing.starts += rsPreChase.getInt("starts");
-					standing.wins += rsPreChase.getInt("wins");
-					standing.top10s += rsPreChase.getInt("top10s");
-					standing.top5s += rsPreChase.getInt("top5s");
-					standing.points += rsPreChase.getInt("points");
+					standing.starts += rsPostChase.getInt("starts");
+					standing.wins += rsPostChase.getInt("wins");
+					standing.top10s += rsPostChase.getInt("top10s");
+					standing.top5s += rsPostChase.getInt("top5s");
+					standing.points += rsPostChase.getInt("points");
 					
 					standing.points = -1;
 				}

@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Pepsi 500
+track:	California Speedway
+location:	Fontana, CA
+length: 	500
+laps: 	250
+track_length: 	2.0
+scale: 	0.574
+x_offset: 	27
+y_offset: 	17
+tv_network: 	ESPN
+track_image_file: 	california.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	3191
+84	Allmendinger	Toyota	2	A.J.	Allmendinger	1366
+24	J. Gordon	Chevrolet	3	Jeff	Gordon	2951
+9	Kahne	Dodge	4	Kasey	Kahne	2799
+10	Carpentier	Dodge	5	Patrick	Carpentier	1406
+19	E. Sadler	Dodge	6	Elliott	Sadler	2364
+1	Truex Jr.	Chevrolet	7	Martin	Truex Jr.	2592
+22	Blaney	Toyota	8	Dave	Blaney	1825
+2	Kurt Busch	Dodge	9	Kurt	Busch	2442
+8	Almirola	Chevrolet	10	Aric	Almirola	598
+18	Kyle Busch	Toyota	11	Kyle	Busch	3609
+44	Reutimann	Toyota	12	David	Reutimann	2136
+26	McMurray	Ford	13	Jamie	McMurray	2492
+20	Stewart	Toyota	14	Tony	Stewart	3013
+16	Biffle	Ford	15	Greg	Biffle	2984
+5	Mears	Chevrolet	16	Casey	Mears	2219
+12	Newman	Dodge	17	Ryan	Newman	2674
+88	Earnhardt Jr.	Chevrolet	18	Dale	Earnhardt Jr.	3193
+83	Vickers	Toyota	19	Brian	Vickers	2672
+78	Nemechek	Chevrolet	20	Joe	Nemechek	1409
+11	Hamlin	Toyota	21	Denny	Hamlin	2900
+6	Ragan	Ford	22	David	Ragan	2843
+42	Montoya	Dodge	23	Juan Pablo	Montoya	2311
+43	B. Labonte	Dodge	24	Bobby	Labonte	2297
+01	Smith	Chevrolet	25	Regan	Smith	1781
+99	Edwards	Ford	26	Carl	Edwards	3397
+31	J. Burton	Chevrolet	27	Jeff	Burton	3117
+96	Schrader	Toyota	28	Ken	Schrader	398
+15	Menard	Chevrolet	29	Paul	Menard	2089
+55	Waltrip	Toyota	30	Michael	Waltrip	1861
+07	Bowyer	Chevrolet	31	Clint	Bowyer	2855
+77	Hornish Jr.	Dodge	32	Sam	Hornish Jr.	1823
+29	Harvick	Chevrolet	33	Kevin	Harvick	2972
+28	Kvapil	Ford	34	Travis	Kvapil	2286
+00	Skinner	Toyota	35	Mike	Skinner	0
+7	R. Gordon	Dodge	36	Robby	Gordon	1868
+17	Kenseth	Ford	37	Matt	Kenseth	2921
+45	Petty	Dodge	38	Kyle	Petty	610
+66	Riggs	Chevrolet	39	Scott	Riggs	1754
+21	Ambrose	Ford	40	Marcos	Ambrose	333
+41	Sorenson	Dodge	41	Reed	Sorenson	1855
+38	Gilliland	Ford	42	David	Gilliland	2161
+08	J. Sauter	Dodge	43	Johnny	Sauter	155
+</PARTICIPANTS>

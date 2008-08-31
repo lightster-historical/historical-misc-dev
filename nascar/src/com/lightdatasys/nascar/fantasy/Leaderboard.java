@@ -92,14 +92,14 @@ public class Leaderboard extends JPanel
      propParser = null;
      drivers = null;
      race = null;
-     flagState = 0;
+     //flagState = 0;
      header = null;
     /* leaderboardPanel = null;
      trackTopTenPanel = null;
      viewersChoicePanel = null;
      dualDashboardPanel = null;*/
      chasePanel = null;
-     selected = 1;
+     //selected = 1;
      bufferSize = 6000;
      shoutcastSID = "42";
      dataTimeoutValue = 20000;
@@ -116,10 +116,10 @@ public class Leaderboard extends JPanel
      setVisible(true);
  }
 
- public void init()
+ public void init(String propFile, boolean start)
  {
      CommonFunctions.dump("Racecast Version Build Version 2.5.14 09/14/2007");
-     if(initComponents())
+     if(initComponents(propFile) && start)
          initCommunications(host);
  }
 
@@ -128,11 +128,11 @@ public class Leaderboard extends JPanel
      closeCommunications();
  }
 
- private boolean initComponents()
+ private boolean initComponents(String propFile)
  {
      try
      {
-         propertyFileLocation = "Sharpie500_2008.txt";
+         propertyFileLocation = propFile;
          CommonFunctions.dump("Participants File : '" + propertyFileLocation + "'");
          useShoutcast = true;
          System.out.println("shoucast mode: " + useShoutcast);
@@ -219,61 +219,6 @@ public class Leaderboard extends JPanel
          ccSocket = null;
      }
  }
-/*
- public void setPanelMode(int mode)
- {
-     if(flagState != 0 && flagState != 5)
-         switch(mode)
-         {
-         default:
-             break;
-
-         case 0: // '\0'
-             leaderboardPanel.setDoUpdate(true);
-             trackTopTenPanel.setDoUpdate(false);
-             viewersChoicePanel.setDoUpdate(false);
-             dualDashboardPanel.setDoUpdate(false);
-             if(useChaseTab)
-                 chasePanel.setDoUpdate(false);
-             break;
-
-         case 1: // '\001'
-             leaderboardPanel.setDoUpdate(false);
-             trackTopTenPanel.setDoUpdate(true);
-             viewersChoicePanel.setDoUpdate(false);
-             dualDashboardPanel.setDoUpdate(false);
-             if(useChaseTab)
-                 chasePanel.setDoUpdate(false);
-             break;
-
-         case 2: // '\002'
-             leaderboardPanel.setDoUpdate(false);
-             trackTopTenPanel.setDoUpdate(false);
-             viewersChoicePanel.setDoUpdate(true);
-             dualDashboardPanel.setDoUpdate(false);
-             if(useChaseTab)
-                 chasePanel.setDoUpdate(false);
-             break;
-
-         case 3: // '\003'
-             leaderboardPanel.setDoUpdate(false);
-             trackTopTenPanel.setDoUpdate(false);
-             viewersChoicePanel.setDoUpdate(false);
-             dualDashboardPanel.setDoUpdate(true);
-             if(useChaseTab)
-                 chasePanel.setDoUpdate(false);
-             break;
-
-         case 4: // '\004'
-             leaderboardPanel.setDoUpdate(false);
-             trackTopTenPanel.setDoUpdate(false);
-             viewersChoicePanel.setDoUpdate(false);
-             dualDashboardPanel.setDoUpdate(false);
-             if(useChaseTab)
-                 chasePanel.setDoUpdate(true);
-             break;
-         }
- }*/
 
  public void tickerMessageReceived(TickerMessage m, int c)
  {
@@ -281,21 +226,7 @@ public class Leaderboard extends JPanel
      alert.setBounds(200 / 3, 200 / 3, 394, 203);
      alert.show();
  }
-
- /*public void messageReceived(byte message[], int messageType)
- {
-     char type = (char)message[6];
-     if(type == 'S')// && doorsOpened)
-     {
-         trackTopTenPanel.setDoUpdate(true);
-         viewersChoicePanel.setDoUpdate(true);
-         dualDashboardPanel.setDoUpdate(true);
-         if(useChaseTab)
-             chasePanel.setDoUpdate(true);
-         
-         setPanelMode(selected);
-     }
- }*/
+ 
 
  public boolean initCommunications(String host)
  {
@@ -452,10 +383,10 @@ public class Leaderboard extends JPanel
  }
 
 
- public static final int WIDTH = 790;
- public static final int HEIGHT = 490;
- public static final String VERSION = "Build Version 2.5.14 09/14/2007";
- public static final String DEFAULT_SHOUTCAST_HOST = "ultravox.nascar.com";
+ //public static final int WIDTH = 790;
+ //public static final int HEIGHT = 490;
+ //public static final String VERSION = "Build Version 2.5.14 09/14/2007";
+ //public static final String DEFAULT_SHOUTCAST_HOST = "ultravox.nascar.com";
  //private static final String PROPERTY_FILE_PATH = "Sportvision/Racecast/Assets/Config/";
  //private static final String DEFAULT_CC_HOST = "localhost";
  //private static final int HEARTBEAT_WAIT = 20000;
@@ -477,14 +408,14 @@ public class Leaderboard extends JPanel
  private PropertiesParser propParser;
  private Drivers drivers;
  private Race race;
- private int flagState;
+ //private int flagState;
  private RacecastHeader header;
  /*private LeaderboardPanel leaderboardPanel;
  private TrackTopTenPanel trackTopTenPanel;
  private ViewersChoicePanel viewersChoicePanel;
  private DualDashboardPanel dualDashboardPanel;*/
  private ChasePanel chasePanel;
- private int selected;
+ //private int selected;
  private int bufferSize;
  private String shoutcastSID;
  private int dataTimeoutValue;

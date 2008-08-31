@@ -1,14 +1,14 @@
 package com.lightdatasys.nascar.fantasy.gui;
 
+import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
-import java.awt.font.FontRenderContext;
 
+import com.lightdatasys.gui.ColorUtility;
 import com.lightdatasys.gui.FontUtility;
 
 public class CarNoCell extends Cell 
@@ -19,10 +19,17 @@ public class CarNoCell extends Cell
 	private Color background;
 	private Color text;
 	
+	private float opacity;
+	
 	private Font font;
 	
 	
 	public CarNoCell(int w, int h, String carNo, Color text, Color bg, Color border)
+	{
+		this(w, h, carNo, text, bg, border, 1.0f);
+	}
+	
+	public CarNoCell(int w, int h, String carNo, Color text, Color bg, Color border, float opacity)
 	{
 		super(w, h);
 		
@@ -30,7 +37,7 @@ public class CarNoCell extends Cell
 		this.border = border;
 		this.background = bg;
 		this.text = text;
-		
+		this.opacity = opacity;
 
 		int borderWidth = 2;
 		
@@ -40,7 +47,6 @@ public class CarNoCell extends Cell
         font = new Font(null, Font.BOLD, (int)((getHeight() - 10) * dpi / 72f));
 		font = FontUtility.getScaledFont(getWidth() - 2, getHeight() - 2, label, font, g);
 	}
-	
 	
 	public void render(Graphics2D g)
 	{
@@ -59,6 +65,8 @@ public class CarNoCell extends Cell
         //*/
 
         g.setFont(font);
+        
+	    //g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity));
         
 		// border
 		g.setColor(border);

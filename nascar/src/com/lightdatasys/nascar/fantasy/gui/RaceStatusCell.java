@@ -15,8 +15,6 @@ public class RaceStatusCell extends Cell
 	private int width;
 	private int height;
 	
-	protected boolean updated;
-	
 	private Race race;
 	
 	

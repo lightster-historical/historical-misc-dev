@@ -17,10 +17,17 @@ public class FantasyPlayerCell extends Cell
 	private Color background;
 	private Color text;
 	
+	private boolean roundRectangles;
+	
 	private Font font;
 	
 	
 	public FantasyPlayerCell(int w, int h, String label, Color text, Color bg, Color border)
+	{
+		this(w, h, label, text, bg, border, true);
+	}
+	
+	public FantasyPlayerCell(int w, int h, String label, Color text, Color bg, Color border, boolean roundRectangles)
 	{
 		super(w, h);
 		
@@ -32,6 +39,8 @@ public class FantasyPlayerCell extends Cell
 		this.border = border;
 		this.background = bg;
 		this.text = text;
+		
+		this.roundRectangles = roundRectangles;
 		
 
 		int borderWidth = 2;
@@ -64,10 +73,16 @@ public class FantasyPlayerCell extends Cell
         
 		// border
 		g.setColor(border);
-		g.fillRoundRect(0, 0, getWidth(), getHeight(), 25, 25);//, getWidth()/3, getWidth()/3);
+		if(roundRectangles)
+			g.fillRoundRect(0, 0, getWidth(), getHeight(), 25, 25);//, getWidth()/3, getWidth()/3);
+		else
+			g.fillRect(0, 0, getWidth(), getHeight());//, getWidth()/4, getWidth()/4);
 
 		g.setColor(background);
-		g.fillRoundRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth, 25, 25);//, getWidth()/4, getWidth()/4);
+		if(roundRectangles)
+			g.fillRoundRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth, 25, 25);//, getWidth()/4, getWidth()/4);
+		else
+			g.fillRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth);//, getWidth()/4, getWidth()/4);
 
 		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));
 		g.setColor(text);

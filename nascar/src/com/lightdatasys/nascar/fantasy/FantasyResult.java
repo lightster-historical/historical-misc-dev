@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import com.lightdatasys.nascar.Driver;
 import com.lightdatasys.nascar.Race;
 import com.lightdatasys.nascar.Result;
-import com.lightdatasys.nascar.Standing;
 
 public class FantasyResult implements Comparable<FantasyResult>
 {
