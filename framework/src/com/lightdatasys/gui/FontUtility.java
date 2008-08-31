@@ -1,12 +1,10 @@
 package com.lightdatasys.gui;
 
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
 import java.awt.font.FontRenderContext;
-import java.awt.geom.AffineTransform;
 
 public class FontUtility 
 {
