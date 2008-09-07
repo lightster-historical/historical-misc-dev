@@ -24,7 +24,7 @@ public class FullScreenWindow extends AppWindow
 	// number of buffers to use for graphics rendering
 	private final static int GFX_BUFFER_COUNT = 2;
 	
-	private Settings settings;
+	//private Settings settings;
 	
 	private LiveUpdater liveUpdater;
 	
@@ -96,7 +96,7 @@ public class FullScreenWindow extends AppWindow
 		setUndecorated(true);
 		setIgnoreRepaint(true);
 		
-		settings = new Settings();
+		//settings = new Settings();
 		
 		panel = new ClassicScrollerPanel(this);
 
@@ -122,10 +122,10 @@ public class FullScreenWindow extends AppWindow
 		return liveUpdater;
 	}
 	
-	public Settings getSettings()
+	/*public Settings getSettings()
 	{
 		return settings;
-	}
+	}*/
 	
 	public GraphicsDevice getDevice()
 	{

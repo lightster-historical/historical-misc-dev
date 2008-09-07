@@ -95,7 +95,7 @@ public class ClassicScrollerPanel extends LivePanel
 
 		fantasyResults = getRace().getFantasyResults();
 		results = getRace().getResults();
-		settings = getWindow().getSettings();
+		settings = getLiveUpdater().getSettings();
 		
         positionChangeEvents = new ArrayList<PositionChangeEvent>();
         fantasyPositionChangeEvents = new ArrayList<PositionChangeEvent>();

@@ -41,7 +41,7 @@ public class LiveUpdater//extends AppWindow
 	private final static int RACE_ID = 1074;
 	
 	
-	private final static boolean ALLOW_UPDATES = false;
+	private final static boolean ALLOW_UPDATES = true;
 	private final static boolean SHOW_FPS = false;
 	
 	
@@ -171,10 +171,10 @@ public class LiveUpdater//extends AppWindow
 		//WindowUtil.centerWindow(this);
 		//setVisible(true);
 		
-		//settings = new Settings();
-		//Thread test = new Thread(new SettingsServer(settings));
-		//test.start();
-		//System.out.println("settings thread created");
+		settings = new Settings();
+		Thread test = new Thread(new SettingsServer(settings));
+		test.start();
+		System.out.println("settings thread created");
         
         cellMargin = 2;
         
@@ -455,5 +455,10 @@ public class LiveUpdater//extends AppWindow
 	public com.lightdatasys.nascar.Driver[] getDrivers()
 	{
 		return com.lightdatasys.nascar.Driver.getDrivers();
+	}
+	
+	public Settings getSettings()
+	{
+		return settings;
 	}
 }
