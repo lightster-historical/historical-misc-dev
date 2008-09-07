@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Chevy Rock and Roll 400
+track:	Richmond Raceway
+location:	Richmond, VA
+length: 	300
+laps: 	400
+track_length: 	0.75
+scale: 	0.578
+x_offset: 	25
+y_offset: 	15
+tv_network: 	ESPN
+track_image_file: 	richmond.gif
+</RACE>
+<PARTICIPANTS>
+18	Kyle Busch	Toyota	1	Kyle	Busch	3755
+99	Edwards	Ford	2	Carl	Edwards	3547
+48	Johnson	Chevrolet	3	Jimmie	Johnson	3386
+88	Earnhardt Jr.	Chevrolet	4	Dale	Earnhardt Jr.	3323
+31	J. Burton	Chevrolet	5	Jeff	Burton	3234
+16	Biffle	Ford	6	Greg	Biffle	3159
+29	Harvick	Chevrolet	7	Kevin	Harvick	3132
+20	Stewart	Toyota	8	Tony	Stewart	3110
+17	Kenseth	Ford	9	Matt	Kenseth	3081
+24	J. Gordon	Chevrolet	10	Jeff	Gordon	3074
+11	Hamlin	Toyota	11	Denny	Hamlin	3065
+07	Bowyer	Chevrolet	12	Clint	Bowyer	2989
+6	Ragan	Ford	13	David	Ragan	2972
+9	Kahne	Dodge	14	Kasey	Kahne	2941
+83	Vickers	Toyota	15	Brian	Vickers	2799
+12	Newman	Dodge	16	Ryan	Newman	2789
+8	Martin	Chevrolet	17	Mark	Martin	2115
+1	Truex Jr.	Chevrolet	18	Martin	Truex Jr.	2698
+26	McMurray	Ford	19	Jamie	McMurray	2583
+2	Kurt Busch	Dodge	20	Kurt	Busch	2488
+19	E. Sadler	Dodge	21	Elliott	Sadler	2425
+42	Montoya	Dodge	22	Juan Pablo	Montoya	2414
+43	B. Labonte	Dodge	23	Bobby	Labonte	2397
+28	Kvapil	Ford	24	Travis	Kvapil	2365
+5	Mears	Chevrolet	25	Casey	Mears	2304
+38	Gilliland	Ford	26	David	Gilliland	2255
+44	Reutimann	Toyota	27	David	Reutimann	2279
+15	Menard	Chevrolet	28	Paul	Menard	2141
+01	Smith	Chevrolet	29	Regan	Smith	1836
+41	Sorenson	Dodge	30	Reed	Sorenson	1937
+84	Allmendinger	Toyota	31	A.J.	Allmendinger	1492
+22	Blaney	Toyota	32	Dave	Blaney	1901
+66	Riggs	Chevrolet	33	Scott	Riggs	1842
+55	Waltrip	Toyota	34	Michael	Waltrip	1930
+7	R. Gordon	Dodge	35	Robby	Gordon	1911
+77	Hornish Jr.	Dodge	36	Sam	Hornish Jr.	1893
+21	Elliott	Ford	37	Bill	Elliott	790
+00	McDowell	Toyota	38	Michael	McDowell	1200
+10	Carpentier	Dodge	39	Patrick	Carpentier	1515
+96	Schrader	Toyota	40	Ken	Schrader	438
+45	Petty	Dodge	41	Kyle	Petty	659
+78	Nemechek	Chevrolet	42	Joe	Nemechek	1443
+70	J. Sauter	Chevrolet	43	Johnny	Sauter	192
+</PARTICIPANTS>

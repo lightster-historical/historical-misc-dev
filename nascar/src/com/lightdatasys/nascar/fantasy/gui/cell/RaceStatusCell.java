@@ -1,4 +1,4 @@
-package com.lightdatasys.nascar.fantasy.gui;
+package com.lightdatasys.nascar.fantasy.gui.cell;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -20,7 +20,7 @@ public class RaceStatusCell extends Cell
 	
 	public RaceStatusCell(int w, int h, Race race)
 	{
-		super(w, h);
+		super(null, w, h);
 		
 		this.race = race;
 		

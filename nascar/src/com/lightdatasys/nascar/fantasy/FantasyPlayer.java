@@ -197,7 +197,7 @@ public class FantasyPlayer
 		}
 		catch(Exception ex)
 		{
-			System.err.println("The standings for race " + race.getId() + " cannot be determined.");
+			System.err.println("The fantasy standings for race " + race.getId() + " cannot be determined.");
 			ex.printStackTrace();
 		}
 		

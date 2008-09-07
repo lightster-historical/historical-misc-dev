@@ -1,7 +1,8 @@
-package com.lightdatasys.nascar.fantasy.gui;
+package com.lightdatasys.nascar.fantasy.gui.cell;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.GraphicsDevice;
 import java.awt.image.BufferedImage;
 
 public class Cell 
@@ -18,11 +19,14 @@ public class Cell
 		updated = true;
 	}
 	
-	public Cell(int w, int h)
+	public Cell(GraphicsDevice gd, int w, int h)
 	{
 		this();
 		
-		image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+		if(gd != null)
+			image = gd.getDefaultConfiguration().createCompatibleImage(w, h);
+		else
+			image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
 		
 		width = w;
 		height = h;

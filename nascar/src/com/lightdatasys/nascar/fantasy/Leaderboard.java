@@ -22,7 +22,7 @@ import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 
-import com.lightdatasys.nascar.fantasy.gui.LeaderboardWindow;
+import com.lightdatasys.nascar.fantasy.gui.LiveUpdater;
 import com.sportvision.comm.CCSocket;
 import com.sportvision.comm.ControlMessageListener;
 import com.sportvision.comm.RaceStatusListener;
@@ -47,14 +47,14 @@ import com.sportvision.utils.PropertiesParser;
 public class Leaderboard extends JPanel
  implements ControlMessageListener, RaceStatusListener, TickerListener//, RacecastListener
 {
-	private static LeaderboardWindow window;
+	private static LiveUpdater window;
 	private static Leaderboard leaderboard;
 
 	
 	public static void main(String args[])
 	{
 		leaderboard = new Leaderboard();
-		window = new LeaderboardWindow(leaderboard);
+		window = new LiveUpdater(leaderboard);
 		System.out.println("window created");
 		Thread guiThread = new Thread(window);
 		guiThread.start();

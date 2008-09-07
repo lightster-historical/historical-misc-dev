@@ -8,6 +8,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 import com.lightdatasys.nascar.Result;
+import com.lightdatasys.nascar.fantasy.gui.cell.FantasyResultCell;
+import com.lightdatasys.nascar.fantasy.gui.cell.ResultCell;
 
 public class SettingsServer implements Runnable
 {

@@ -1,5 +1,8 @@
 package com.lightdatasys.nascar.fantasy.gui;
 
+import com.lightdatasys.nascar.fantasy.gui.cell.FantasyResultCell;
+import com.lightdatasys.nascar.fantasy.gui.cell.ResultCell;
+
 public class Settings 
 {
 	private float fps;

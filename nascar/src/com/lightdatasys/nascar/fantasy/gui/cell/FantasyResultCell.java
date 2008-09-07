@@ -1,4 +1,4 @@
-package com.lightdatasys.nascar.fantasy.gui;
+package com.lightdatasys.nascar.fantasy.gui.cell;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -30,7 +30,7 @@ public class FantasyResultCell extends Cell
 	
 	public FantasyResultCell(int w, int h, FantasyResult result, Color text, Color bg, Color border)
 	{
-		super(w, h);
+		super(null, w, h);
 		
 		this.result = result;
 		this.border = border;
