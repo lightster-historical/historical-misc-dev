@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
+import java.awt.GraphicsDevice;
 import java.awt.Toolkit;
 
 import com.lightdatasys.gui.FontUtility;
@@ -28,9 +29,9 @@ public class FantasyResultCell extends Cell
 	private String cachedValue;
 	
 	
-	public FantasyResultCell(int w, int h, FantasyResult result, Color text, Color bg, Color border)
+	public FantasyResultCell(GraphicsDevice gd, int w, int h, FantasyResult result, Color text, Color bg, Color border)
 	{
-		super(null, w, h);
+		super(gd, w, h);
 		
 		this.result = result;
 		this.border = border;

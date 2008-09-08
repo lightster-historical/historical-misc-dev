@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
+import java.awt.GraphicsDevice;
 import java.awt.Toolkit;
 import java.text.NumberFormat;
 
@@ -33,9 +34,9 @@ public class ResultCell extends Cell
 	private int cachedLapsDown;
 	
 	
-	public ResultCell(int w, int h, Result result, Color text, Color bg, Color border)
+	public ResultCell(GraphicsDevice gd, int w, int h, Result result, Color text, Color bg, Color border)
 	{
-		super(null, w, h);
+		super(gd, w, h);
 		
 		this.result = result;
 		this.border = border;

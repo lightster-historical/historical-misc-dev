@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
+import java.awt.GraphicsDevice;
 import java.awt.image.BufferedImage;
 
 import com.lightdatasys.gui.FontUtility;
@@ -18,9 +19,9 @@ public class RaceStatusCell extends Cell
 	private Race race;
 	
 	
-	public RaceStatusCell(int w, int h, Race race)
+	public RaceStatusCell(GraphicsDevice gd, int w, int h, Race race)
 	{
-		super(null, w, h);
+		super(gd, w, h);
 		
 		this.race = race;
 		

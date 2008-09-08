@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
+import java.awt.GraphicsDevice;
 import java.awt.RenderingHints;
 import java.awt.Toolkit;
 
@@ -22,14 +23,14 @@ public class FantasyPlayerCell extends Cell
 	private Font font;
 	
 	
-	public FantasyPlayerCell(int w, int h, String label, Color text, Color bg, Color border)
+	public FantasyPlayerCell(GraphicsDevice gd, int w, int h, String label, Color text, Color bg, Color border)
 	{
-		this(w, h, label, text, bg, border, true);
+		this(gd, w, h, label, text, bg, border, true);
 	}
 	
-	public FantasyPlayerCell(int w, int h, String label, Color text, Color bg, Color border, boolean roundRectangles)
+	public FantasyPlayerCell(GraphicsDevice gd, int w, int h, String label, Color text, Color bg, Color border, boolean roundRectangles)
 	{
-		super(null, w, h);
+		super(gd, w, h);
 		
 		String[] temp = label.split(" ");
 		label = temp[0].substring(0, 1) + temp[0].substring(temp[0].length() - 1, temp[0].length());

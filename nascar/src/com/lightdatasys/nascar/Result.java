@@ -18,6 +18,7 @@ public class Result
 	private float behindLeader;
 	private int lapsDown;
 	private float speed;
+	private boolean isCurrent;
 	
 	
 	public Result(Race race, Driver driver, String car, int start, int finish, boolean ledLaps, boolean ledMostLaps, int penalties)
@@ -36,6 +37,7 @@ public class Result
 		this.behindLeader = 0.0f;
 		this.lapsDown = 0;
 		this.speed = 0.0f;
+		this.isCurrent = false;
 	}
 	
 	
@@ -141,6 +143,12 @@ public class Result
 	{
 		return speed;
 	}
+	
+	public boolean isCurrent()
+	{
+		return isCurrent;
+	}
+	
 
 	public void setLapsLed(int lapsLed)
 	{
@@ -193,5 +201,10 @@ public class Result
 	public void setSpeed(float speed)
 	{
 		this.speed = speed;
+	}
+	
+	public void setCurrent(boolean isCurrent)
+	{
+		this.isCurrent = isCurrent;
 	}
 }

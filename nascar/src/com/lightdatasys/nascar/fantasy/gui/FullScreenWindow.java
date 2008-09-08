@@ -15,8 +15,8 @@ import com.lightdatasys.nascar.Driver;
 import com.lightdatasys.nascar.Race;
 import com.lightdatasys.nascar.event.PositionChangeEvent;
 import com.lightdatasys.nascar.fantasy.gui.cell.Cell;
-import com.lightdatasys.nascar.fantasy.gui.panel.ClassicScrollerPanel;
 import com.lightdatasys.nascar.fantasy.gui.panel.LivePanel;
+import com.lightdatasys.nascar.fantasy.gui.panel.SortableScroller;
 
 public class FullScreenWindow extends AppWindow
 	implements QuitHandler
@@ -98,7 +98,7 @@ public class FullScreenWindow extends AppWindow
 		
 		//settings = new Settings();
 		
-		panel = new ClassicScrollerPanel(this);
+		panel = new SortableScroller(this);//new ClassicScrollerPanel(this);
 
         //DisplayMode[] modes = device.getDisplayModes();
         //GraphicsDevice device2 = env.getScreenDevices()[1];

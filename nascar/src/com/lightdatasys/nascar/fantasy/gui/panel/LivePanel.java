@@ -5,9 +5,15 @@ import java.awt.Graphics2D;
 
 import com.lightdatasys.nascar.Driver;
 import com.lightdatasys.nascar.Race;
+import com.lightdatasys.nascar.Result;
+import com.lightdatasys.nascar.fantasy.FantasyResult;
 import com.lightdatasys.nascar.fantasy.gui.FullScreenWindow;
 import com.lightdatasys.nascar.fantasy.gui.LiveUpdater;
 import com.lightdatasys.nascar.fantasy.gui.cell.CarNoCell;
+import com.lightdatasys.nascar.fantasy.gui.cell.FantasyPlayerCell;
+import com.lightdatasys.nascar.fantasy.gui.cell.FantasyResultCell;
+import com.lightdatasys.nascar.fantasy.gui.cell.RaceStatusCell;
+import com.lightdatasys.nascar.fantasy.gui.cell.ResultCell;
 
 public abstract class LivePanel
 {
@@ -56,10 +62,35 @@ public abstract class LivePanel
 	
 	public abstract void update();	
 	public abstract void render(Graphics2D g);	
-	
+
 	
 	public CarNoCell createCarNoCell(int w, int h, String carNo, Color text, Color bg, Color border)
 	{
 		return new CarNoCell(getWindow().getDevice(), w, h, carNo, text, bg, border);
+	}
+	
+	public FantasyPlayerCell createFantasyPlayerCell(int w, int h, String label, Color text, Color bg, Color border)
+	{
+		return new FantasyPlayerCell(getWindow().getDevice(), w, h, label, text,bg, border);
+	}
+	
+	public FantasyPlayerCell createFantasyPlayerCell(int w, int h, String label, Color text, Color bg, Color border, boolean roundRectangles)
+	{
+		return new FantasyPlayerCell(getWindow().getDevice(), w, h, label, text,bg, border, roundRectangles);
+	}
+	
+	public FantasyResultCell createFantasyResultCell(int w, int h, FantasyResult result, Color text, Color bg, Color border)
+	{
+		return new FantasyResultCell(getWindow().getDevice(), w, h, result, text, bg, border);
+	}
+	
+	public RaceStatusCell createRaceStatusCell(int w, int h, Race race)
+	{
+		return new RaceStatusCell(getWindow().getDevice(), w, h, race);
+	}
+	
+	public ResultCell createResultCell(int w, int h, Result result, Color text, Color bg, Color border)
+	{
+		return new ResultCell(getWindow().getDevice(), w, h, result, text, bg, border);
 	}
 }
