@@ -39,7 +39,7 @@ public class SortableScroller extends LivePanel
 	public final static int COL_HEADERS = 3;
 	public final static int ROW_HEADERS = 1 + DRIVER_RESULT_CELLS;
 	
-	public final static Color ROW_ALT_COLOR = new Color(0x12, 0x12, 0x12);
+	private Color rowAltColor = new Color(0x12, 0x12, 0x12);
 	
     float[] colHeaderWeights = {.75f, .75f, .5f};
     float[] rowHeaderWeights = {.8f, .8f, .8f, 1.5f, 1.5f};
@@ -74,6 +74,8 @@ public class SortableScroller extends LivePanel
 	
 	private Cell bgCell;
 	private String leaderCar;
+	
+	private Race.Flag flag;
 	
 	private int width;
 	private int height;
@@ -335,7 +337,7 @@ public class SortableScroller extends LivePanel
 		{
 			public void render(Graphics2D g)
 			{
-				g.setColor(ROW_ALT_COLOR);
+				g.setColor(rowAltColor);
 				g.fillRect(0, 0, getWidth(), getHeight());
 				
 				updated = false;
@@ -432,6 +434,18 @@ public class SortableScroller extends LivePanel
 	
 	public void update()
 	{			
+		if(flag != getRace().getFlag())
+		{
+			if(getRace().getFlag() == Race.Flag.YELLOW)
+				rowAltColor = new Color(0x99, 0x99, 0x00);
+			else if(getRace().getFlag() == Race.Flag.RED)
+				rowAltColor = new Color(0x99, 0x00, 0x00);
+			else
+				rowAltColor = new Color(0x12, 0x12, 0x12);
+			
+			rowBackground.triggerRender();
+		}
+		
 		for(PositionChangeEvent event : positionChangeEvents)
 		{
 			if(event.getOldPosition() - 1 < cells[0].length 
@@ -660,7 +674,7 @@ public class SortableScroller extends LivePanel
 						{
 							Graphics2D g2 = (Graphics2D)img.getGraphics();
 							if(y % 2 == 1)
-								g2.setBackground(ROW_ALT_COLOR);
+								g2.setBackground(rowAltColor);
 							else
 								g2.setBackground(Color.BLACK);
 							g2.clearRect(0, 0, cell.getWidth(), cell.getHeight());

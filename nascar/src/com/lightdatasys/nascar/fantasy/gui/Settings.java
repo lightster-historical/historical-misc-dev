@@ -26,7 +26,7 @@ public class Settings
 		swapPeriod = 500;
 		scrollSpeed = 0.5f;
 
-		resultMode1 = ResultCell.Mode.LOCAL_POINTS_DIFF;
+		resultMode1 = ResultCell.Mode.SEASON_POINTS;
 		resultMode2 = ResultCell.Mode.LOCAL_INTERVAL;
 		fantasyMode1 = FantasyResultCell.Mode.POSITION;
 		fantasyMode2 = FantasyResultCell.Mode.LEADER_DRIVER_DIFF;

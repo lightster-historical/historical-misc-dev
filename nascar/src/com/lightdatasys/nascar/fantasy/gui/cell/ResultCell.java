@@ -34,6 +34,7 @@ public class ResultCell extends Cell
 	private boolean cachedLed;
 	private boolean cachedMostLed;
 	private int cachedLapsDown;
+	private boolean cachedSpeedZero;
 	
 	
 	public ResultCell(GraphicsDevice gd, int w, int h, Result result, Color text, Color bg, Color border)
@@ -198,8 +199,10 @@ public class ResultCell extends Cell
 		return updated
 			|| !cachedValue.equals(getValue())
 			|| cachedLed != result.ledLaps()
-			|| cachedMostLed != result.ledMostLaps();
-		    //|| !cachedValue.equals(result.getLapsDown());
+			|| cachedMostLed != result.ledMostLaps()
+		    || cachedLapsDown != result.getLapsDown();
+		   // || (cachedSpeedZero && result.getSpeed() <= .9f)
+		   // || (!cachedSpeedZero && result.getSpeed() > .9f);
 	}
 	
 	
@@ -212,6 +215,7 @@ public class ResultCell extends Cell
 		cachedLed = result.ledLaps();
 		cachedMostLed = result.ledMostLaps();
 		cachedLapsDown = result.getLapsDown();
+		//cachedSpeedZero = (result.getSpeed() <= .9f);
         
         FontMetrics metrics = g.getFontMetrics(font);
 
