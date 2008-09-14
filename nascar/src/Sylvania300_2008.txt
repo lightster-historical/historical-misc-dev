@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Sylvania 300
+track:	New Hampshire Int'l Spwy
+location:	Loudon, NH
+length: 	317
+laps: 	300
+track_length: 	1.058
+scale: 	0.582
+x_offset: 	25
+y_offset: 	15
+tv_network: 	ABC
+track_image_file: 	new_hampshire.gif
+</RACE>
+<PARTICIPANTS>
+18	Kyle Busch	Toyota	1	Kyle	Busch	5080
+99	Edwards	Ford	2	Carl	Edwards	5050
+48	Johnson	Chevrolet	3	Jimmie	Johnson	5040
+88	Earnhardt Jr.	Chevrolet	4	Dale	Earnhardt Jr.	5010
+07	Bowyer	Chevrolet	5	Clint	Bowyer	5010
+11	Hamlin	Toyota	6	Denny	Hamlin	5010
+31	J. Burton	Chevrolet	7	Jeff	Burton	5010
+20	Stewart	Toyota	8	Tony	Stewart	5000
+16	Biffle	Ford	9	Greg	Biffle	5000
+24	J. Gordon	Chevrolet	10	Jeff	Gordon	5000
+29	Harvick	Chevrolet	11	Kevin	Harvick	5000
+17	Kenseth	Ford	12	Matt	Kenseth	5000
+9	Kahne	Dodge	13	Kasey	Kahne	3047
+6	Ragan	Ford	14	David	Ragan	3039
+8	Almirola	Chevrolet	15	Aric	Almirola	671
+83	Vickers	Toyota	16	Brian	Vickers	2854
+12	Newman	Dodge	17	Ryan	Newman	2853
+1	Truex Jr.	Chevrolet	18	Martin	Truex Jr.	2818
+26	McMurray	Ford	19	Jamie	McMurray	2659
+2	Kurt Busch	Dodge	20	Kurt	Busch	2622
+43	B. Labonte	Dodge	21	Bobby	Labonte	2497
+42	Montoya	Dodge	22	Juan Pablo	Montoya	2487
+19	E. Sadler	Dodge	23	Elliott	Sadler	2477
+28	Kvapil	Ford	24	Travis	Kvapil	2477
+5	Mears	Chevrolet	25	Casey	Mears	2434
+38	Gilliland	Ford	26	David	Gilliland	2364
+44	Reutimann	Toyota	27	David	Reutimann	2427
+15	Menard	Chevrolet	28	Paul	Menard	2202
+01	Smith	Chevrolet	29	Regan	Smith	1930
+41	Sorenson	Dodge	30	Reed	Sorenson	2022
+22	Blaney	Toyota	31	Dave	Blaney	1998
+55	Waltrip	Toyota	32	Michael	Waltrip	2009
+66	Riggs	Chevrolet	33	Scott	Riggs	1912
+84	Allmendinger	Toyota	34	A.J.	Allmendinger	1526
+00	McDowell	Toyota	35	Michael	McDowell	1303
+77	Hornish Jr.	Dodge	36	Sam	Hornish Jr.	1942
+21	Elliott	Ford	37	Bill	Elliott	848
+7	R. Gordon	Dodge	38	Robby	Gordon	1948
+10	Carpentier	Dodge	39	Patrick	Carpentier	1603
+96	Logano	Toyota	40	Joey	Logano	0
+45	McCumbee	Dodge	41	Chad	McCumbee	112
+78	Nemechek	Chevrolet	42	Joe	Nemechek	1486
+70	J. Sauter	Chevrolet	43	Johnny	Sauter	232
+</PARTICIPANTS>
