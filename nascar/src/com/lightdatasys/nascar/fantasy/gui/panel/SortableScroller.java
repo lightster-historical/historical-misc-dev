@@ -9,7 +9,6 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -23,23 +22,31 @@ import com.lightdatasys.nascar.fantasy.FantasyResult;
 import com.lightdatasys.nascar.fantasy.gui.FullScreenWindow;
 import com.lightdatasys.nascar.fantasy.gui.Settings;
 import com.lightdatasys.nascar.fantasy.gui.Swap;
+import com.lightdatasys.nascar.fantasy.gui.cell.CarNoCell;
 import com.lightdatasys.nascar.fantasy.gui.cell.Cell;
 import com.lightdatasys.nascar.fantasy.gui.cell.FantasyPlayerCell;
 import com.lightdatasys.nascar.fantasy.gui.cell.FantasyResultCell;
 import com.lightdatasys.nascar.fantasy.gui.cell.ResultCell;
+import com.lightdatasys.nascar.fantasy.gui.cell.ResultCell.Mode;
 
 public class SortableScroller extends LivePanel
 {
-	public final static int COLUMNS = 13;
-	public final static int ROWS = 45;
+	public final static int COLUMNS = 11;
+	public final static int ROWS = 43;
 	
-	public final static int COL_HEADERS = 2;
-	public final static int ROW_HEADERS = 3;
+	public final static int DRIVER_RESULT_CELLS = 4;
+	
+	public final static int COL_HEADERS = 3;
+	public final static int ROW_HEADERS = 1 + DRIVER_RESULT_CELLS;
+	
+	public final static Color ROW_ALT_COLOR = new Color(0x12, 0x12, 0x12);
+	
+    float[] colHeaderWeights = {.75f, .75f, .5f};
+    float[] rowHeaderWeights = {.8f, .8f, .8f, 1.5f, 1.5f};
 	
 	private Cell raceStatusCell;
-	private AbstractMap<String,Cell> driverHeaderCells;
 	private AbstractMap<String,Cell> driverCells;
-	private AbstractMap<String,Cell> driverResult1Cells;
+	private AbstractMap<String,Cell>[] driverResultCells;
 	private AbstractMap<Integer,Cell> playerHeaderCells;
 	private AbstractMap<Integer,Cell> playerCells;
 	private AbstractMap<Integer,Cell> playerResult1Cells;
@@ -57,6 +64,8 @@ public class SortableScroller extends LivePanel
 	private int[] rowHeaderSize;
 	private int[] colHeaderPosition;
 	private int[] rowHeaderPosition;
+	
+	private Cell rowBackground;
 
 	private Swap[] colSwaps;
 	private Swap[] rowSwaps;	
@@ -73,6 +82,8 @@ public class SortableScroller extends LivePanel
 	private int cellWidth;
 	private int cellHeight;
 	
+	private int renderCounter;
+	
 	private float xScrollOffset;
 
 	private ArrayList<PositionChangeEvent> positionChangeEvents;
@@ -87,6 +98,8 @@ public class SortableScroller extends LivePanel
 	public SortableScroller(FullScreenWindow window)
 	{
 		super(window);
+		
+		renderCounter = 0;
 
 		fantasyResults = getRace().getFantasyResults();
 		results = getRace().getResults();
@@ -126,15 +139,20 @@ public class SortableScroller extends LivePanel
         height = getHeight();
         
         calcDimensions();
-		initGlobalCells(cellWidth*2 + cellMargin);
-		initDriverCells(cellWidth, cellWidth);
-		initPlayerCells(cellWidth, cellWidth);
+        int w = (ROW_HEADERS-1)*cellMargin, h = (COL_HEADERS-1)*cellMargin;
+        for(int i = 0; i < ROW_HEADERS; i++)
+        	w += rowHeaderSize[i];
+        for(int i = 0; i < COL_HEADERS; i++)
+        	h += colHeaderSize[i];
+		initGlobalCells(w, h);
+		initDriverCells(colSize[0], rowSize[0]);
+		initPlayerCells(colSize[0], rowSize[0]);
 		
 
 
 		cells = new Cell[COLUMNS][ROWS];
-		colHeaders = new Cell[COL_HEADERS][ROWS];
-		rowHeaders = new Cell[COLUMNS][ROW_HEADERS];
+		colHeaders = new Cell[COLUMNS][COL_HEADERS];
+		rowHeaders = new Cell[ROW_HEADERS][ROWS];
 		
 		for(int x = 0; x < COLUMNS; x++)
 		{
@@ -164,15 +182,19 @@ public class SortableScroller extends LivePanel
 
 			colHeaders[x][0] = playerResult1Cells.get(player.getPlayerId());
 			colHeaders[x][1] = playerResult2Cells.get(player.getPlayerId());
+			colHeaders[x][2] = playerHeaderCells.get(player.getPlayerId());
 		}
 
 		for(int y = 0; y < ROWS; y++)
 		{
 			Result result = results.get(y + 1);
 			
-			rowHeaders[0][y] = driverHeaderCells.get(result.getCar());
+			rowHeaders[0][y] = driverResultCells[0].get(result.getCar());
 			rowHeaders[1][y] = driverCells.get(result.getCar());
-			rowHeaders[2][y] = driverResult1Cells.get(result.getCar());
+			for(int i = 1; i < DRIVER_RESULT_CELLS; i++)
+			{
+				rowHeaders[i + 1][y] = driverResultCells[i].get(result.getCar());
+			}
 		}
 		
 		colSwaps = new Swap[COLUMNS];
@@ -192,93 +214,87 @@ public class SortableScroller extends LivePanel
 	
 	public void calcDimensions()
 	{
-        float[] colHeaderWeights = {1, 1, .5f};
-        float[] rowHeaderWeights = {1, 1, 2};
-
-        float colWeightTotal = COLUMNS;
         float colHeaderWeightTotal = 0;
         for(int i = 0; i < COL_HEADERS; i++)
         	colHeaderWeightTotal += colHeaderWeights[i];
-        colWeightTotal += colHeaderWeightTotal;
-        
-        float rowWeightTotal = ROWS;
         float rowHeaderWeightTotal = 0;
         for(int i = 0; i < ROW_HEADERS; i++)
         	rowHeaderWeightTotal += rowHeaderWeights[i];
-        rowWeightTotal += rowHeaderWeightTotal;
+        
+        float colWeightTotal = COLUMNS + rowHeaderWeightTotal;
+        float rowWeightTotal = ROWS + colHeaderWeightTotal;
+
+        rowHeaderSize = new int[ROW_HEADERS];
+        rowHeaderPosition = new int[ROW_HEADERS];
+		for(int i = 0; i < ROW_HEADERS; i++)
+		{
+			rowHeaderSize[i] = Math.round(rowHeaderWeights[i] * (getWidth() - cellMargin * (COLUMNS + ROW_HEADERS)) / colWeightTotal);
+			
+			if(i > 0)
+				rowHeaderPosition[i] = rowHeaderPosition[i - 1] + rowHeaderSize[i - 1] + cellMargin;
+			else
+				rowHeaderPosition[i] = 0;
+		}
+
+		colSize = new int[COLUMNS];
+		colPosition = new int[COLUMNS];
+		for(int i = 0; i < COLUMNS; i++)
+		{
+			colSize[i] = Math.round((getWidth() - cellMargin * (COLUMNS + ROW_HEADERS)) / colWeightTotal);
+			
+			if(i > 0)
+				colPosition[i] = colPosition[i - 1] + colSize[i - 1] + cellMargin;
+			else
+				colPosition[i] = rowHeaderPosition[ROW_HEADERS - 1]
+                    + rowHeaderSize[ROW_HEADERS - 1] + cellMargin;
+		}
 
         colHeaderSize = new int[COL_HEADERS];
         colHeaderPosition = new int[COL_HEADERS];
-		colSize = new int[COLUMNS];
-		colPosition = new int[COLUMNS];
 		for(int i = 0; i < COL_HEADERS; i++)
 		{
-			colHeaderSize[i] = Math.round(width / colWeightTotal);
+			colHeaderSize[i] = Math.round(colHeaderWeights[i] * colSize[0]);
 			
 			if(i > 0)
-				colPosition[i] = colPosition[i - 1] + colSize[i - 1] + cellMargin;
+				colHeaderPosition[i] = colHeaderPosition[i - 1] + colHeaderSize[i - 1] + cellMargin;
 			else
-				colPosition[i] = colHeaderPosition[COL_HEADERS - 1]
-                    + colHeaderSize[COL_HEADERS - 1] + cellMargin;	
-		}
-		for(int i = 0; i < COLUMNS; i++)
-		{
-			colSize[i] = Math.round(width / colWeightTotal);
-			
-			if(i > 0)
-				colPosition[i] = colPosition[i - 1] + colSize[i - 1] + cellMargin;
-			else
-				colPosition[i] = colHeaderPosition[COL_HEADERS - 1]
-                    + colHeaderSize[COL_HEADERS - 1] + cellMargin;
-		}
-        
-		cellWidth = cellHeight = ((width - cellMargin) / COLUMNS) - cellMargin;
-		//cellHeight = cellWidth = ((height - cellMargin) / ROWS) - cellMargin;
-		//cellHeight = cellWidth = ((width - cellMargin) / ROWS) - cellMargin;
-		//cellHeight = cellWidth;
-		
-		colSize[0] = cellWidth; colSize[1] = cellWidth;
-		for(int i = 2; i < COLUMNS; i++)
-		{
-			colSize[i] = cellWidth;
-		}
-		colPosition[0] = cellMargin;
-		for(int i = 1; i < COLUMNS; i++)
-		{
-			colPosition[i] = colPosition[i - 1] + colSize[i - 1] + cellMargin;
+				colHeaderPosition[i] = 0;
 		}
 
 		rowSize = new int[ROWS];
 		rowPosition = new int[ROWS];
-		rowSize[0] = cellHeight; rowSize[1] = cellHeight;
-		for(int i = 2; i < ROWS; i++)
+		for(int i = 0; i < ROWS; i++)
 		{
-			rowSize[i] = cellHeight;
-		}
-		rowPosition[0] = cellMargin;
-		for(int i = 1; i < ROWS; i++)
-		{
-			rowPosition[i] = rowPosition[i - 1] + rowSize[i - 1] + cellMargin;
+			rowSize[i] = colSize[0];
+			//rowSize[i] = Math.round((getHeight() - cellMargin * (ROWS + COL_HEADERS)) / rowWeightTotal);
+			
+			if(i > 0)
+				rowPosition[i] = rowPosition[i - 1] + rowSize[i - 1] + cellMargin;
+			else
+				rowPosition[i] = colHeaderPosition[COL_HEADERS - 1]
+                    + colHeaderSize[COL_HEADERS - 1] + cellMargin;
 		}
 	}
 	
 
-	public void initGlobalCells(int dim)
+	public void initGlobalCells(int w, int h)
 	{
-		raceStatusCell = createRaceStatusCell(dim, dim, getRace());
+		raceStatusCell = createRaceStatusCell(w, h, getRace());
 		
 		Result leaderResult = getRace().getResultByFinish(1);
 		Driver leader = leaderResult.getDriver();
-		bgCell = createCarNoCell(getWidth()-dim, getHeight()-dim, leaderResult.getCar(), leader.getFontColor(),
+		bgCell = createCarNoCell(getWidth()-w, getHeight()-h, leaderResult.getCar(), leader.getFontColor(),
 				leader.getBackgroundColor(), leader.getBorderColor());
 		leaderCar = leaderResult.getCar();
 	}
 
-	public void initDriverCells(int dim, int resultWidth)
+	public void initDriverCells(int w, int h)
 	{
-		driverHeaderCells = new HashMap<String,Cell>();
+		//driverHeaderCells = new HashMap<String,Cell>();
 		driverCells = new HashMap<String,Cell>();
-		driverResult1Cells = new HashMap<String,Cell>();
+		//driverResult1Cells = new HashMap<String,Cell>();
+		
+		driverResultCells = new AbstractMap[DRIVER_RESULT_CELLS];
 
 		AbstractMap<Integer,com.lightdatasys.nascar.Result> results = getRace().getResults();
 		
@@ -290,22 +306,44 @@ public class SortableScroller extends LivePanel
 			{
 				Driver driver = result.getDriver();
 				
-				Cell driverHeaderCell = createResultCell(resultWidth, dim, result, 
-						Color.WHITE, Color.BLACK, Color.WHITE);
-				driverHeaderCells.put(result.getCar(), driverHeaderCell);
+				//ResultCell driverHeaderCell = createResultCell((int)(w * rowHeaderWeights[0]), h, result, 
+				//		Color.WHITE, Color.BLACK, Color.WHITE);
+				//driverHeaderCell.setMode(Mode.POSITION);
+				//driverHeaderCells.put(result.getCar(), driverHeaderCell);
 				
-				Cell driverCell = createCarNoCell(dim, dim, result.getCar(), driver.getFontColor(),
+				CarNoCell driverCell = createCarNoCell((int)(w * rowHeaderWeights[1]), h, result.getCar(), driver.getFontColor(),
 						driver.getBackgroundColor(), driver.getBorderColor());
 				driverCells.put(result.getCar(), driverCell);
 				
-				Cell driverResult1Cell = createResultCell(resultWidth, dim, result, 
-						Color.WHITE, Color.BLACK, Color.WHITE);
-				driverResult1Cells.put(result.getCar(), driverResult1Cell);
+				//ResultCell driverResult1Cell = createResultCell((int)(w * rowHeaderWeights[2]), h, result, 
+				//		Color.WHITE, Color.BLACK, Color.WHITE);
+				//driverResult1Cells.put(result.getCar(), driverResult1Cell);
+				
+				for(int i = 0; i < DRIVER_RESULT_CELLS; i++)
+				{
+					if(driverResultCells[i] == null)
+						driverResultCells[i] = new HashMap<String,Cell>();
+					
+					ResultCell resultCell = createResultCell((int)(w * rowHeaderWeights[(i == 0 ? 0 : i + 1)]), h, result, 
+							Color.WHITE, Color.BLACK, Color.WHITE);
+					driverResultCells[i].put(result.getCar(), resultCell);
+				}
 			}
 		}
+		
+		rowBackground = new Cell(getWindow().getDevice(), getWidth(), h)
+		{
+			public void render(Graphics2D g)
+			{
+				g.setColor(ROW_ALT_COLOR);
+				g.fillRect(0, 0, getWidth(), getHeight());
+				
+				updated = false;
+			}
+		};
 	}
 	
-	public void initPlayerCells(int dim, int headerHeight)
+	public void initPlayerCells(int w, int h)
 	{
 		playerHeaderCells = new HashMap<Integer,Cell>();
 		playerCells = new HashMap<Integer,Cell>();
@@ -322,22 +360,22 @@ public class SortableScroller extends LivePanel
 			{
 				FantasyPlayer player = result.getPlayer();
 				
-				FantasyPlayerCell playerHeaderCell = createFantasyPlayerCell(dim, headerHeight, player.toString(), Color.WHITE,
-						player.getBackgroundColor()/*drivers[i].getBackgroundColor()*/, Color.WHITE);
-				playerHeaderCells.put(player.getPlayerId(), playerHeaderCell);
-				
-				FantasyPlayerCell playerCell = createFantasyPlayerCell(dim, dim, player.toString(), Color.WHITE,
+				FantasyPlayerCell playerCell = createFantasyPlayerCell(w, h, player.toString(), Color.WHITE,
 						player.getBackgroundColor()/*drivers[i].getBackgroundColor()*/, Color.WHITE);
 				playerCells.put(player.getPlayerId(), playerCell);
 				
-				FantasyResultCell playerResult1Cell = createFantasyResultCell(dim, dim, result, Color.WHITE,
+				FantasyResultCell playerResult1Cell = createFantasyResultCell(w, (int)(h * colHeaderWeights[0]), result, Color.WHITE,
 						player.getBackgroundColor(), Color.WHITE);
 				playerResult1Cells.put(player.getPlayerId(), playerResult1Cell);
 				
-				FantasyResultCell playerResult2Cell = createFantasyResultCell(dim, dim, result, Color.WHITE,
+				FantasyResultCell playerResult2Cell = createFantasyResultCell(w, (int)(h * colHeaderWeights[1]), result, Color.WHITE,
 						player.getBackgroundColor(), Color.WHITE);
-				playerResult2Cell.setMode(FantasyResultCell.Mode.POSITION_CHANGE);
+				playerResult2Cell.setMode(FantasyResultCell.Mode.DRIVER_RACE_POINTS);
 				playerResult2Cells.put(player.getPlayerId(), playerResult2Cell);
+				
+				FantasyPlayerCell playerHeaderCell = createFantasyPlayerCell(w, (int)(h * colHeaderWeights[2]), player.toString(), Color.WHITE,
+						player.getBackgroundColor()/*drivers[i].getBackgroundColor()*/, Color.WHITE, false);
+				playerHeaderCells.put(player.getPlayerId(), playerHeaderCell);
 			}
 		}
 	}
@@ -393,20 +431,20 @@ public class SortableScroller extends LivePanel
 	
 	
 	public void update()
-	{
+	{			
 		for(PositionChangeEvent event : positionChangeEvents)
 		{
-			if(event.getOldPosition() + 1 < cells.length 
-				&& event.getNewPosition() + 1 < cells.length)
-				moveRow(event.getOldPosition() + 1, event.getNewPosition() + 1);
+			if(event.getOldPosition() - 1 < cells[0].length 
+				&& event.getNewPosition() - 1 < cells[0].length)
+				moveRow(event.getOldPosition() - 1, event.getNewPosition() - 1);
 		}
 		positionChangeEvents.clear();
 		
 		for(PositionChangeEvent event : fantasyPositionChangeEvents)
 		{
-			if(event.getOldPosition() + 1 < cells[0].length 
-				&& event.getNewPosition() + 1 < cells[0].length)
-				moveColumn(event.getOldPosition() + 1, event.getNewPosition() + 1);
+			if(event.getOldPosition() - 1 < cells.length 
+				&& event.getNewPosition() - 1 < cells.length)
+				moveColumn(event.getOldPosition() - 1, event.getNewPosition() - 1);
 		}
 		fantasyPositionChangeEvents.clear();
 
@@ -418,12 +456,15 @@ public class SortableScroller extends LivePanel
 					leader.getBackgroundColor(), leader.getBorderColor());
 			leaderCar = leaderResult.getCar();
 		}
-		
+
 		Cell[][] tempCells = new Cell[COLUMNS][ROWS];
 		for(int x = 0; x < cells.length; x++)
 		{
 			for(int y = 0; y < cells[x].length; y++)
 			{
+				if(rowSwapMap[y] != y && cells[x][y] != null)
+					cells[x][y].triggerRender();
+				
 				tempCells[x][y] = cells[x][y];
 			}
 		}
@@ -431,10 +472,47 @@ public class SortableScroller extends LivePanel
 		for(int x = 0; x < cells.length; x++)
 		{
 			for(int y = 0; y < cells[x].length; y++)
-			{
+			{				
 				cells[x][y] = tempCells[colSwapMap[x]][rowSwapMap[y]];
 			}
 		}
+		
+		Cell[][] tempRowHeaders = new Cell[ROW_HEADERS][ROWS];
+		for(int x = 0; x < rowHeaders.length; x++)
+		{
+			for(int y = 0; y < rowHeaders[x].length; y++)
+			{
+				if(rowSwapMap[y] != y && rowHeaders[x][y] != null)
+					rowHeaders[x][y].triggerRender();
+				
+				tempRowHeaders[x][y] = rowHeaders[x][y];
+			}
+		}
+
+		for(int x = 0; x < rowHeaders.length; x++)
+		{
+			for(int y = 0; y < rowHeaders[x].length; y++)
+			{
+				rowHeaders[x][y] = tempRowHeaders[x][rowSwapMap[y]];
+			}
+		}		
+		
+		Cell[][] tempColHeaders = new Cell[COLUMNS][COL_HEADERS];
+		for(int x = 0; x < colHeaders.length; x++)
+		{
+			for(int y = 0; y < colHeaders[x].length; y++)
+			{
+				tempColHeaders[x][y] = colHeaders[x][y];
+			}
+		}
+
+		for(int x = 0; x < colHeaders.length; x++)
+		{
+			for(int y = 0; y < colHeaders[x].length; y++)
+			{
+				colHeaders[x][y] = tempColHeaders[colSwapMap[x]][y];
+			}
+		}		
 		
 		initSwapMaps();
 	}
@@ -454,22 +532,21 @@ public class SortableScroller extends LivePanel
 		else
 			window.setBackground(Color.BLACK);
 		
-		g.clearRect(0, 0, getWidth(), getHeight());
+		g.clearRect(0, 0, getWidth(), getHeight());;
 		
-		if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.CHECKERED)
+		/*if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.CHECKERED)
 		{
 			AffineTransform oldTransform = g.getTransform();
 			AffineTransform transform = new AffineTransform();
-			transform.translate(colPosition[2], rowPosition[2]);
+			transform.translate(colPosition[0], rowPosition[0]);
 			g.setTransform(transform);
 			
 			bgCell.render(g);
 			
 			g.setTransform(oldTransform);
-		}
+		}*/
 
 		float speed = settings.getScrollSpeed() * .4f;
-		//int distance = colPosition[43] - colPosition[2];
 		if(speed > 10)
 		{
 			xScrollOffset = 0;
@@ -479,12 +556,41 @@ public class SortableScroller extends LivePanel
 			xScrollOffset += 1.0f * speed * ((getLiveUpdater().getLastRenderDelta()));
 		}
 
-		if(xScrollOffset > rowPosition[ROWS-1] + 2*rowSize[ROWS-1] + cellMargin - rowPosition[2])
+		if(xScrollOffset > rowPosition[ROWS-1] + 2*rowSize[ROWS-1] + cellMargin - rowPosition[0])
 		{
-			xScrollOffset -= rowPosition[ROWS-1] + 2*rowSize[ROWS-1] + cellMargin - rowPosition[2];
+			xScrollOffset -= rowPosition[ROWS-1] + 2*rowSize[ROWS-1] + cellMargin - rowPosition[0];
 		}
-		renderCells(g, 0, COLUMNS, 2, ROWS, 0, -xScrollOffset);
-		renderCells(g, 0, COLUMNS, 2, ROWS, 0, -xScrollOffset + rowPosition[ROWS-1] + 2*rowSize[ROWS-1] + cellMargin - rowPosition[2]);
+		
+		for(int y = 0; y < ROWS; y++)
+		{
+			int yPos = rowPosition[y];//cellMargin + y * (cellHeight + cellMargin);
+			if(rowSwaps != null && rowSwaps[y] != null)
+				yPos = rowSwaps[y].getPosition();
+			
+			//yPos += -xScrollOffset;
+			
+			BufferedImage rBgImg = rowBackground.getImage();
+			if(rowBackground.isUpdated())
+			{
+				rowBackground.render((Graphics2D)rBgImg.getGraphics());
+			}
+			
+			if(rowSwapMap[y] % 2 == 1)
+			{
+				g.drawImage((Image)rBgImg, 0, (int)(yPos - xScrollOffset), null);
+				g.drawImage((Image)rBgImg, 0, (int)(yPos - xScrollOffset + rowPosition[ROWS-1] + 2*rowSize[ROWS-1] + cellMargin - rowPosition[0]), null);
+			}
+		}
+		
+		renderCells(g, cells, colPosition, rowPosition, colSwaps, rowSwaps, 0, COLUMNS, 0, ROWS, 0, -xScrollOffset);
+		renderCells(g, cells, colPosition, rowPosition, colSwaps, rowSwaps, 0, COLUMNS, 0, ROWS, 0, -xScrollOffset + rowPosition[ROWS-1] + 2*rowSize[ROWS-1] + cellMargin - rowPosition[0]);
+		
+		renderCells(g, rowHeaders, rowHeaderPosition, rowPosition, null, rowSwaps, 0, ROW_HEADERS, 0, ROWS, 0, -xScrollOffset);
+		renderCells(g, rowHeaders, rowHeaderPosition, rowPosition, null, rowSwaps, 0, ROW_HEADERS, 0, ROWS, 0, -xScrollOffset + rowPosition[ROWS-1] + 2*rowSize[ROWS-1] + cellMargin - rowPosition[0]);
+
+		g.clearRect(colPosition[0], 0, colPosition[COLUMNS-1]+colSize[COLUMNS-1], colHeaderPosition[COL_HEADERS-1]);
+		renderCells(g, colHeaders, colPosition, colHeaderPosition, colSwaps, null, 0, COLUMNS, 0, COL_HEADERS, 0, 0);
+		renderCells(g, colHeaders, colPosition, colHeaderPosition, colSwaps, null, 0, COLUMNS, 0, COL_HEADERS, 0, 0);
 		
 		for(int x = 0; x < COLUMNS; x++)
 		{
@@ -502,23 +608,22 @@ public class SortableScroller extends LivePanel
 			}
 		}
 		
-		g.clearRect(0, 0, width, rowPosition[2]);
-		renderCells(g, 0, COLUMNS, 0, 2, 0, 0);
+		//g.clearRect(0, 0, width, rowPosition[2]);
+		//renderCells(g, 0, COLUMNS, 0, 2, 0, 0);
 		raceStatusCell.render(g);
 	}
 	
-	public void renderCells(Graphics2D g, int x0, int x1, int y0, int y1, float xOffset, float yOffset)
+	public void renderCells(Graphics2D g, Cell[][] cells, int[] colPosition, int[] rowPosition, Swap[] colSwaps, Swap[] rowSwaps,  int x0, int x1, int y0, int y1, float xOffset, float yOffset)
 	{
 		for(int x = x0; x < x1; x++)
 		{
 			float xPos = colPosition[x];//cellMargin + x * (cellWidth + cellMargin);
-			if(colSwaps[x] != null)
+			if(colSwaps != null && colSwaps[x] != null)
 			{
 				xPos = colSwaps[x].getPosition();
 			}
 
-			if(x >= 2)
-				xPos += xOffset;
+			xPos += xOffset;
 			
 			if(xPos <= width && xPos + colSize[x] >= 0)
 			{
@@ -528,16 +633,24 @@ public class SortableScroller extends LivePanel
 					
 					if(cell != null)
 					{		
-						if(cell instanceof ResultCell)
+						if(cell instanceof ResultCell && x == 2)
 						{
-							((ResultCell)cell).setMode(settings.getResultMode());
+							((ResultCell)cell).setMode(ResultCell.Mode.SEASON_RANK);
+						}
+						else if(cell instanceof ResultCell && x == 3)
+						{
+							((ResultCell)cell).setMode(settings.getResultMode1());
+						}
+						else if(cell instanceof ResultCell && x == 4)
+						{
+							((ResultCell)cell).setMode(settings.getResultMode2());
 						}
 						
 						if(cell instanceof FantasyResultCell)
 						{
-							if(x == 0)
+							if(y == 0)
 								((FantasyResultCell)cell).setMode(settings.getFantasyMode1());
-							else if(x == 1)
+							else if(y == 1)
 								((FantasyResultCell)cell).setMode(settings.getFantasyMode2());
 						}
 						
@@ -545,16 +658,23 @@ public class SortableScroller extends LivePanel
 	
 						if(cell.isUpdated())
 						{
-							cell.render((Graphics2D)img.getGraphics());
+							Graphics2D g2 = (Graphics2D)img.getGraphics();
+							if(y % 2 == 1)
+								g2.setBackground(ROW_ALT_COLOR);
+							else
+								g2.setBackground(Color.BLACK);
+							g2.clearRect(0, 0, cell.getWidth(), cell.getHeight());
+							
+							cell.render(g2);
 						}
 						
 						//AffineTransform transform = new AffineTransform();
 	
 						int yPos = rowPosition[y];//cellMargin + y * (cellHeight + cellMargin);
-						if(rowSwaps[y] != null)
+						if(rowSwaps != null && rowSwaps[y] != null)
 							yPos = rowSwaps[y].getPosition();
-						if(y >= 2)
-							yPos += yOffset;
+						
+						yPos += yOffset;
 						
 						//transform.translate(xPos, yPos);
 						
@@ -567,5 +687,6 @@ public class SortableScroller extends LivePanel
 			//else if(!(xPos <= width))
 			//	x = x1;
 		}
+		
 	}
 }

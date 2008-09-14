@@ -1,6 +1,7 @@
 package com.lightdatasys.nascar;
 
 import java.util.AbstractMap;
+import java.util.Comparator;
 
 public class Result
 {
@@ -149,6 +150,16 @@ public class Result
 		return isCurrent;
 	}
 	
+	public Standing getStanding()
+	{
+		return getRace().getStandings().get(driver);
+	}
+	
+	public int getSeasonRank()
+	{
+		return race.getRankByDriver(driver);
+	}
+	
 
 	public void setLapsLed(int lapsLed)
 	{
@@ -206,5 +217,15 @@ public class Result
 	public void setCurrent(boolean isCurrent)
 	{
 		this.isCurrent = isCurrent;
+	}
+	
+	
+	public static class SeasonPointsComparator implements Comparator<Result>
+	{
+		public int compare(Result o1, Result o2)
+		{
+			// TODO Auto-generated method stub
+			return 0;
+		}
 	}
 }

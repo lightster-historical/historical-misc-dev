@@ -63,6 +63,7 @@ public abstract class LivePanel
 	public abstract void update();	
 	public abstract void render(Graphics2D g);	
 
+
 	
 	public CarNoCell createCarNoCell(int w, int h, String carNo, Color text, Color bg, Color border)
 	{

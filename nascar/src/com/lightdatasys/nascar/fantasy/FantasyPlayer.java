@@ -178,7 +178,9 @@ public class FantasyPlayer
 				for(FantasyPlayer player : FantasyPlayer.getPlayers())
 				{
 					FantasyStanding standing = standings.get(player.getUserId());
-					standing.points += r.getFantasyResultByPlayer(player).getRacePoints();
+					FantasyResult result = r.getFantasyResultByPlayer(player);
+					if(result != null)
+						standing.points += result.getRacePoints();
 				}
 			}
 			/*

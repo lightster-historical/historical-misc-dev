@@ -3,6 +3,7 @@ package com.lightdatasys.nascar.fantasy.gui.cell;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
+import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.RenderingHints;
@@ -69,10 +70,22 @@ public class CarNoCell extends Cell
         
 		// border
 		g.setColor(border);
-		g.fillRoundRect(0, 0, getWidth(), getHeight(), 25, 25);
+		g.setPaint(new GradientPaint(
+				getWidth()/2, 0, 
+                border,
+                getWidth()/2,
+                getHeight()*1.1f,
+                Color.BLACK));
+		g.fillRect(0, 0, getWidth(), getHeight());
 
 		g.setColor(background);
-		g.fillRoundRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth, 25, 25);
+		g.setPaint(new GradientPaint(
+				getWidth()/2, getHeight()*.75f, 
+                background,
+                getWidth()/2,
+                getHeight(),
+                Color.BLACK));
+		g.fillRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()*2);
 
 		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));
 		g.setColor(text);

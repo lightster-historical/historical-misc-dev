@@ -3,6 +3,7 @@ package com.lightdatasys.nascar.fantasy.gui.cell;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
+import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.image.BufferedImage;
@@ -35,55 +36,82 @@ public class RaceStatusCell extends Cell
 	
 	
 	public void render(Graphics2D g)
-	{
+	{	
 		if(race != null)
-		{
+		{			
+			long flagDelta = System.currentTimeMillis() - race.getFlagChange();
+			
 			if(race.getFlag() == Race.Flag.PRE_RACE)
 			{
-				g.setColor(Color.BLACK);
+				g.setColor(new Color(0xCC, 0xCC, 0xCC));
 				g.fillRect(0, 0, width, height);
 				
-				g.setColor(Color.WHITE);
+				g.setColor(Color.BLACK);
 			}
 			else if(race.getFlag() == Race.Flag.CHECKERED)
 			{
-				int rows, cols;
-				int squareW, squareH;
+				long cycle = 200;
 				
-				rows = 7;
-				cols = 7;
-
-				squareW = getWidth() / rows;
-				squareH = getHeight() / cols;
-				
-				g.setColor(Color.BLACK);
-				g.fillRect(0, 0, width, height);
-				
-				for(int i = 0; i < rows * cols; i++)
+				if(flagDelta > 5000 || (flagDelta / cycle) % 4 < 3)
 				{
-					int row =  i / cols;
-					int col = i % cols;
+					int rows, cols;
+					int squareW, squareH;
 					
-					if((row % 2 == 0 && col % 2 == 0) ||
-						(row % 2 == 1 && col % 2 == 1))
+					rows = 7;
+					cols = 13;
+	
+					squareW = getWidth() / cols;
+					squareH = getHeight() / rows;
+					
+					g.setColor(Color.BLACK);
+					g.fillRect(0, 0, width, height);
+					
+					for(int x = 0; x < cols; x++)
 					{
-						g.setColor(Color.WHITE);
-						g.fillRect(col * squareW, row * squareH, squareW, squareH);
+						for(int y = 0; y < rows; y++)
+						{
+							if((x % 2 == 0 && y % 2 == 0) ||
+								(x % 2 == 1 && y % 2 == 1))
+							{
+								g.setColor(Color.WHITE);
+								g.fillRect(x * squareW, y * squareH, squareW, squareH);
+							}
+						}
 					}
 				}
-				
-				g.setColor(Color.RED);
+				else
+				{
+					g.setColor(Color.BLACK);	
+					g.fillRect(0, 0, width, height);
+				}
 			}
 			else
 			{
+				long cycle = 200;
+				
 				if(race.getFlag() == Race.Flag.GREEN)
-					g.setColor(new Color(0x00, 0x99, 0x00));
+				{
+					if(flagDelta > 5000 || (flagDelta / cycle) % 2 == 0)
+						g.setColor(new Color(0x00, 0x99, 0x00));
+					else
+						g.setColor(Color.BLACK);
+				}
 				else if(race.getFlag() == Race.Flag.RED)
-					g.setColor(new Color(0xCC, 0x00, 0x00));
+				{
+					if(flagDelta > 5000 || (flagDelta / cycle) % 2 == 0)
+						g.setColor(new Color(0xCC, 0x00, 0x00));
+					else
+						g.setColor(Color.BLACK);
+				}
 				else if(race.getFlag() == Race.Flag.WHITE)
 					g.setColor(Color.WHITE);
 				else if(race.getFlag() == Race.Flag.YELLOW)
-					g.setColor(Color.YELLOW);
+				{					
+					if(flagDelta > 5000 || (flagDelta / cycle) % 2 == 0)
+						g.setColor(Color.YELLOW);
+					else
+						g.setColor(Color.BLACK);
+				}
 				
 				g.fillRect(0, 0, width, height);
 
@@ -94,26 +122,31 @@ public class RaceStatusCell extends Cell
 				else if(race.getFlag() == Race.Flag.WHITE)
 					g.setColor(Color.BLACK);
 				else if(race.getFlag() == Race.Flag.YELLOW)
-					g.setColor(Color.BLACK);
+				{
+					if(flagDelta > 5000 || (flagDelta / cycle) % 2 == 0)
+						g.setColor(Color.BLACK);
+					else
+						g.setColor(Color.WHITE);
+				}
 			}
+			
+			String label = String.format("%d", race.getLapCount() - race.getCurrentLap());
+			
+			Font font = FontUtility.getScaledFont(width, height, label, g.getFont(), g);
+			FontMetrics metrics = g.getFontMetrics(font);
+			g.setFont(font);
+
+			float xOffset = (float)(getWidth() - font.getStringBounds(label, g.getFontRenderContext()).getWidth()) / 2.0f;
+			float yOffset = (getHeight() + metrics.getAscent() - metrics.getDescent()) / 2.0f;
+			
+			if(race.getFlag() != Race.Flag.CHECKERED)
+				g.drawString(label, xOffset, yOffset);
 		}
 		else
 		{
 			g.setColor(Color.BLACK);
 			g.fillRect(0, 0, width, height);
 		}
-		
-		String label = String.format("%d", race.getLapCount() - race.getCurrentLap());
-		
-		Font font = FontUtility.getScaledFont(width, height, label, g.getFont(), g);
-		FontMetrics metrics = g.getFontMetrics(font);
-		g.setFont(font);
-
-		float xOffset = (float)(getWidth() - font.getStringBounds(label, g.getFontRenderContext()).getWidth()) / 2.0f;
-		float yOffset = (getHeight() + metrics.getAscent() - metrics.getDescent()) / 2.0f;
-		
-		if(race.getFlag() != Race.Flag.CHECKERED)
-			g.drawString(label, xOffset, yOffset);
 		
 		//updated = false;
 	}

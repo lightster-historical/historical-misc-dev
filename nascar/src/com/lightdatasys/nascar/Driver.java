@@ -144,8 +144,12 @@ public class Driver
 		return driversById.values().toArray(new Driver[driversById.size()]);
 	}
 	
-
 	public static AbstractMap<Integer,Standing> getStandings(Race race)
+	{
+		return getStandings(race, false);
+	}
+
+	public static AbstractMap<Integer,Standing> getStandings(Race race, boolean inclusive)
 	{
 		AbstractMap<Integer,Standing> standings = new HashMap<Integer,Standing>();
 		Date date = race.getDate();
@@ -173,19 +177,22 @@ public class Driver
 		{
 			String whereChase = "";
 			if(chaseDate != null)
-				whereChase = String.format(" AND ra.date<='%1$tY-%1$tm-%1$td'", chaseDate);
+				whereChase = String.format(" AND DATE(ra.date)<='%1$tY-%1$tm-%1$td'", chaseDate);
 			
 			Statement sPreChase = conn.createStatement();
 			String sqlPreChase = String.format(
 					"SELECT d.driverId, COUNT(ra.raceId) starts, SUM(IF(finish=1,1,0)) wins, " +
 					"SUM(IF(finish<=5,1,0)) top5s, SUM(IF(finish<=10,1,0)) top10s, " +
-					"SUM(IF(finish=1,185,IF(finish<=6, 150+(6-finish)*5,IF(finish<=11, 130+(11-finish)*4,IF(finish<=43, 34+(43-finish)*3,0))))+IF(ledLaps>=1,5,0)+IF(ledMostLaps>=1,5,0)+penalties) AS points " +
+					"SUM(IF(finish=1,185,IF(finish<=6, 150+(6-finish)*5,IF(finish<=11, 130+(11-finish)*4,IF(finish<=43, 34+(43-finish)*3,0))))+IF(ledLaps>=1,5,0)+IF(ledMostLaps>=1,5,0)+penalties) AS points, " +
+					"penalty AS chasePenalties " +
 					"FROM nascarDriver AS d " +
 					"INNER JOIN nascarResult AS re ON d.driverId=re.driverId " +
 					"INNER JOIN nascarRace AS ra ON re.raceId=ra.raceId " +
-					"WHERE ra.seasonId=%1$d AND ra.date<'%2$tY-%2$tm-%2$td'%3$s " +
+					"LEFT JOIN nascarChasePenalty AS cp ON d.driverId=cp.driverId " +
+					"WHERE ra.seasonId=%1$d AND DATE(ra.date)<%4$s'%2$tY-%2$tm-%2$td'%3$s " +
 					"GROUP BY d.driverId ORDER BY points DESC",
-					race.getSeason().getId(), race.getDate(), whereChase);
+					race.getSeason().getId(), race.getDate(), whereChase, (inclusive ? "=" : ""));
+			//System.out.println(race.getId() + " " + inclusive + " " + sqlPreChase);
 			sPreChase.execute(sqlPreChase);
 			
 			ResultSet rsPreChase = sPreChase.getResultSet();
@@ -202,21 +209,27 @@ public class Driver
 				standing.top10s = rsPreChase.getInt("top10s");
 				standing.top5s = rsPreChase.getInt("top5s");
 				standing.points = rsPreChase.getInt("points");
+				standing.chasePenalties = rsPreChase.getInt("chasePenalties");
 			}
 			
-			if(chaseDate != null && date.compareTo(chaseDate) > 0)
+			race.setChaseRace(false);
+			
+			if(chaseDate != null && (date.compareTo(chaseDate) > 0))// || (date.compareTo(chaseDate) >= 0 && inclusive))
 			{
+				if(date.compareTo(chaseDate) > 0)
+					race.setChaseRace(true);
+				
 				ArrayList<Standing> sorted = new ArrayList<Standing>();
 				sorted.addAll(standings.values());
 				Collections.sort(sorted);
 				
 				for(int i = 0; i < 12; i++)
 				{
-					sorted.get(i).points = 5000 + sorted.get(i).wins * 10; 
+					sorted.get(i).points = 5000 + sorted.get(i).wins * 10 - sorted.get(i).chasePenalties; 
 				}
 				
 				if(chaseDate != null)
-					whereChase = String.format(" AND ra.date>'%1$tY-%1$tm-%1$td'", chaseDate);
+					whereChase = String.format(" AND DATE(ra.date)>'%1$tY-%1$tm-%1$td'", chaseDate);
 				
 				Statement sPostChase = conn.createStatement();
 				String sqlPostChase = String.format(
@@ -226,9 +239,9 @@ public class Driver
 						"FROM nascarDriver AS d " +
 						"INNER JOIN nascarResult AS re ON d.driverId=re.driverId " +
 						"INNER JOIN nascarRace AS ra ON re.raceId=ra.raceId " +
-						"WHERE ra.seasonId=%1$d AND ra.date<'%2$tY-%2$tm-%2$td'%3$s " +
+						"WHERE ra.seasonId=%1$d AND DATE(ra.date)<%4$s'%2$tY-%2$tm-%2$td'%3$s " +
 						"GROUP BY d.driverId ORDER BY points DESC",
-						race.getSeason().getId(), race.getDate(), whereChase);
+						race.getSeason().getId(), race.getDate(), whereChase, (inclusive ? "=" : ""));
 				sPostChase.execute(sqlPostChase);
 				
 				ResultSet rsPostChase = sPostChase.getResultSet();
@@ -252,7 +265,7 @@ public class Driver
 					standing.top5s += rsPostChase.getInt("top5s");
 					standing.points += rsPostChase.getInt("points");
 					
-					standing.points = -1;
+					//standing.points = -1;
 				}
 			}
 		}

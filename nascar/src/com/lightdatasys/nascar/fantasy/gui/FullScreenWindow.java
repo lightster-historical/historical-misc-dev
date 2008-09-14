@@ -4,8 +4,6 @@ import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.RenderingHints;
 import java.awt.image.BufferStrategy;
-import java.util.AbstractMap;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
@@ -13,8 +11,7 @@ import com.lightdatasys.gui.AppWindow;
 import com.lightdatasys.gui.QuitHandler;
 import com.lightdatasys.nascar.Driver;
 import com.lightdatasys.nascar.Race;
-import com.lightdatasys.nascar.event.PositionChangeEvent;
-import com.lightdatasys.nascar.fantasy.gui.cell.Cell;
+import com.lightdatasys.nascar.fantasy.gui.panel.ClassicScrollerPanel;
 import com.lightdatasys.nascar.fantasy.gui.panel.LivePanel;
 import com.lightdatasys.nascar.fantasy.gui.panel.SortableScroller;
 
@@ -39,49 +36,6 @@ public class FullScreenWindow extends AppWindow
 	public final static int COLUMNS = 45;
 	public final static int ROWS = 13;
 	
-	private Cell raceStatusCell;
-	//private AbstractMap<String,Cell> driverHeaderCells;
-	private AbstractMap<String,Cell> driverCells;
-	private AbstractMap<String,Cell> driverResult1Cells;
-	private AbstractMap<Integer,Cell> playerHeaderCells;
-	private AbstractMap<Integer,Cell> playerCells;
-	private AbstractMap<Integer,Cell> playerResult1Cells;
-	private AbstractMap<Integer,Cell> playerResult2Cells;
-	
-	private Cell[][] cells;
-	private int[] colSize;
-	private int[] rowSize;
-	private int[] colPosition;
-	private int[] rowPosition;
-	//private Cell[][] tempCells;
-
-	private Swap[] colSwaps;
-	private Swap[] rowSwaps;	
-	private int[] colSwapMap;
-	private int[] rowSwapMap;
-	
-	private Cell bgCell;
-	private String leaderCar;
-	
-	//private Random rand;
-	
-	private int width;
-	private int height;
-	
-	private int cellMargin;
-	private int cellWidth;
-	private int cellHeight;
-
-	//private int colOffsetPos;
-	//private long colOffsetTime;
-	
-	private float xScrollOffset;
-	
-	//private ResultCell.Mode resultMode;
-
-	private ArrayList<PositionChangeEvent> positionChangeEvents;
-	private ArrayList<PositionChangeEvent> fantasyPositionChangeEvents;
-	
 	
 	public FullScreenWindow(LiveUpdater liveUpdater, GraphicsDevice device)
 	{
@@ -98,7 +52,8 @@ public class FullScreenWindow extends AppWindow
 		
 		//settings = new Settings();
 		
-		panel = new SortableScroller(this);//new ClassicScrollerPanel(this);
+		panel = new SortableScroller(this);//
+		//panel = new ClassicScrollerPanel(this);
 
         //DisplayMode[] modes = device.getDisplayModes();
         //GraphicsDevice device2 = env.getScreenDevices()[1];

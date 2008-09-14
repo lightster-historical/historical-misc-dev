@@ -11,8 +11,9 @@ public class Settings
 	private long swapPeriod;
 	
 	private float scrollSpeed;
-	
-	private ResultCell.Mode resultMode;
+
+	private ResultCell.Mode resultMode1;
+	private ResultCell.Mode resultMode2;
 	private FantasyResultCell.Mode fantasyMode1;
 	private FantasyResultCell.Mode fantasyMode2;
 	
@@ -24,10 +25,11 @@ public class Settings
 
 		swapPeriod = 500;
 		scrollSpeed = 0.5f;
-		
-		resultMode = ResultCell.Mode.LOCAL_INTERVAL;
+
+		resultMode1 = ResultCell.Mode.LOCAL_POINTS_DIFF;
+		resultMode2 = ResultCell.Mode.LOCAL_INTERVAL;
 		fantasyMode1 = FantasyResultCell.Mode.POSITION;
-		fantasyMode2 = FantasyResultCell.Mode.DRIVER_RACE_POINTS;
+		fantasyMode2 = FantasyResultCell.Mode.LEADER_DRIVER_DIFF;
 	}
 	
 	
@@ -51,9 +53,14 @@ public class Settings
 		return scrollSpeed;
 	}
 	
-	public synchronized ResultCell.Mode getResultMode()
+	public synchronized ResultCell.Mode getResultMode1()
 	{
-		return resultMode;
+		return resultMode1;
+	}
+	
+	public synchronized ResultCell.Mode getResultMode2()
+	{
+		return resultMode2;
 	}
 	
 	public synchronized FantasyResultCell.Mode getFantasyMode1()
@@ -87,9 +94,14 @@ public class Settings
 		this.scrollSpeed = scrollSpeed;
 	}
 	
-	public synchronized void setResultMode(ResultCell.Mode resultMode)
+	public synchronized void setResultMode1(ResultCell.Mode resultMode)
 	{
-		this.resultMode = resultMode;
+		this.resultMode1 = resultMode;
+	}
+	
+	public synchronized void setResultMode2(ResultCell.Mode resultMode)
+	{
+		this.resultMode2 = resultMode;
 	}
 	
 	public synchronized void setFantasyMode1(FantasyResultCell.Mode fantasyMode1)

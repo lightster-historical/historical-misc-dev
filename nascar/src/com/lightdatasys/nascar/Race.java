@@ -29,6 +29,7 @@ public class Race
 	private AbstractTableModel resultsTableModel;
 	
 	private int raceId;
+	private int raceNo;
 	
 	private Season season;
 	private Track track;
@@ -36,12 +37,14 @@ public class Race
 	private String name;
 	private String nascarComId;
 	private Date date;
+	private boolean chaseRace;
 	
 	private int currentLap;
 	private int lapCount;
 	private int time;
 	
 	private Flag flag;
+	private long flagChange;
 	private int lastFlagChange;
 	private int cautionCount;
 	
@@ -52,6 +55,8 @@ public class Race
 	private AbstractMap<String,Result> resultsByCarNo;
 	private AbstractMap<Driver,Result> resultsByDriver;
 	
+	private AbstractMap<Integer,Integer> rankByDriver;
+	
 	private AbstractMap<Integer,FantasyResult> fantasyResultsByFinish;
 	private AbstractMap<FantasyPlayer,FantasyResult> fantasyResultsByPlayer;
 	
@@ -59,13 +64,22 @@ public class Race
 	private ArrayList<PositionChangeListener> fantasyPositionChangeListeners;
 
 	private AbstractMap<Integer,Standing> standingsByDriver;
+	private AbstractMap<Integer,Standing> standingsBySeasonRank;
 	private AbstractMap<Integer,FantasyStanding> standingsByPlayer;
 
 	
 	public Race()
 	{
+		chaseRace = false;
+		
 		positionChangeListeners = new ArrayList<PositionChangeListener>();
 		fantasyPositionChangeListeners = new ArrayList<PositionChangeListener>();
+
+		resultsByFinish = null;
+		resultsByCarNo = null;
+		resultsByDriver = null;
+		
+		standingsBySeasonRank = null;
 		
 		currentLap = 0;
 		lapCount = 0;
@@ -110,6 +124,11 @@ public class Race
 		return date;
 	}
 	
+	public boolean isChaseRace()
+	{
+		return chaseRace;
+	}
+	
 	public int getCurrentLap()
 	{
 		return currentLap;
@@ -123,6 +142,11 @@ public class Race
 	public Flag getFlag()
 	{
 		return flag;
+	}
+	
+	public long getFlagChange()
+	{
+		return flagChange;
 	}
 	
 	public int getLastFlagChange()
@@ -187,7 +211,7 @@ public class Race
 	
 	public FantasyResult getFantasyResultByPlayer(FantasyPlayer player)
 	{
-		if(fantasyResultsByPlayer.containsKey(player))
+		if(fantasyResultsByPlayer != null && fantasyResultsByPlayer.containsKey(player))
 		{
 			return fantasyResultsByPlayer.get(player);
 		}
@@ -200,12 +224,54 @@ public class Race
 		return standingsByDriver;
 	}
 	
+	public AbstractMap<Integer,Standing> getDriverStandingsByRank()
+	{
+		if(standingsBySeasonRank == null)
+		{
+			calcRanks();
+		}
+		
+		return standingsBySeasonRank;
+	}
+	
+	public int getRankByDriver(Driver driver)
+	{
+		if(rankByDriver == null)
+		{
+			calcRanks();
+		}
+		
+		return rankByDriver.get(driver.getId());
+	}
+	
+	protected void calcRanks()
+	{
+		ArrayList<Standing> sorted = new ArrayList<Standing>();
+		sorted.addAll(Driver.getStandings(this, true).values());
+		Collections.sort(sorted);
+
+		standingsBySeasonRank = new HashMap<Integer,Standing>();
+		rankByDriver = new HashMap<Integer,Integer>();
+		int i = 1;
+		for(Standing s : sorted)
+		{
+			standingsBySeasonRank.put(i, s);
+			rankByDriver.put(s.driver.getId(), i);
+			
+			i++;
+		}
+	}
+	
 	public AbstractMap<Integer,FantasyStanding> getFantasyStandings()
 	{
 		return standingsByPlayer;
 	}
 	
 
+	public void setChaseRace(boolean chaseRace)
+	{
+		this.chaseRace = chaseRace;
+	}
 	
 	public void setCurrentLap(int currentLap)
 	{
@@ -219,6 +285,9 @@ public class Race
 	
 	public void setFlag(Flag flag)
 	{
+		if(this.flag != flag)
+			flagChange = System.currentTimeMillis();
+		
 		this.flag = flag;
 	}
 	
@@ -248,13 +317,19 @@ public class Race
 		{
 			Result result = resultsByCarNo.get(carNo);
 			
-			for(PositionChangeListener listener : positionChangeListeners)
+			if(result.getFinish() != finish)
 			{
-				PositionChangeEvent ev = new PositionChangeEvent(carNo, result.getFinish(), finish);
-				listener.positionChanged(ev);
+				for(PositionChangeListener listener : positionChangeListeners)
+				{
+					PositionChangeEvent ev = new PositionChangeEvent(carNo, result.getFinish(), finish);
+					listener.positionChanged(ev);
+				}
+				
+				resultsByFinish.put(finish, result);
+				
+				standingsBySeasonRank = null;
+				rankByDriver = null;
 			}
-			
-			resultsByFinish.put(finish, result);
 		}
 	}
 	

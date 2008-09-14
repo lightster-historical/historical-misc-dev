@@ -535,7 +535,7 @@ public class ClassicScrollerPanel extends LivePanel
 					{		
 						if(cell instanceof ResultCell)
 						{
-							((ResultCell)cell).setMode(settings.getResultMode());
+							((ResultCell)cell).setMode(settings.getResultMode1());
 						}
 						
 						if(cell instanceof FantasyResultCell)

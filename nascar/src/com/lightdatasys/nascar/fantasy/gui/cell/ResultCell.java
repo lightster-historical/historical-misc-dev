@@ -15,7 +15,9 @@ import com.lightdatasys.nascar.fantasy.gui.cell.FantasyResultCell.Mode;
 public class ResultCell extends Cell 
 {
 	public enum Mode {POSITION, LAPS_LED, LEADER_INTERVAL, LOCAL_INTERVAL, SEASON_POINTS, RACE_POINTS,
-		LAST_LAP_POSITION, POSITION_CHANGE, SPEED};
+		LAST_LAP_POSITION, POSITION_CHANGE, SPEED, SEASON_RANK, LEADER_POINTS_DIFF, LOCAL_POINTS_DIFF};
+		
+	public static final int BORDER_WIDTH = 2;
 	
 	
 	private Result result;
@@ -131,6 +133,40 @@ public class ResultCell extends Cell
 		{
 			return String.format("%d", (int)result.getSpeed());
 		}
+		else if(mode == Mode.SEASON_RANK)
+		{
+			return String.format("%d", (int)result.getSeasonRank());
+		}
+		else if(mode == Mode.LEADER_POINTS_DIFF)
+		{
+			//result.getRace().getDriverStandingsByRank().get(1).points;
+			return String.format("%d", (int)(result.getRace().getDriverStandingsByRank().get(result.getRace().getRankByDriver(result.getDriver())).points - result.getRace().getDriverStandingsByRank().get(1).points));
+		}
+		else if(mode == Mode.LOCAL_POINTS_DIFF)
+		{
+			if(result.getRace().isChaseRace())
+			{
+				if(result.getSeasonRank() <= 12)
+				{
+					return String.format("%d", (int)(result.getRace().getDriverStandingsByRank().get(result.getSeasonRank()).points - result.getRace().getDriverStandingsByRank().get(1).points));
+				}
+				else
+				{
+					return String.format("%d", (int)(result.getRace().getDriverStandingsByRank().get(result.getSeasonRank()).points - result.getRace().getDriverStandingsByRank().get(13).points));
+				}
+			}
+			else
+			{
+				if(result.getSeasonRank() <= 12)
+				{
+					return String.format("+%d", (int)(result.getRace().getDriverStandingsByRank().get(result.getSeasonRank()).points - result.getRace().getDriverStandingsByRank().get(13).points));
+				}
+				else
+				{
+					return String.format("%d", (int)(result.getRace().getDriverStandingsByRank().get(result.getSeasonRank()).points - result.getRace().getDriverStandingsByRank().get(12).points));
+				}
+			}
+		}
 		
 		return (new Integer(result.getFinish())).toString();
 	}
@@ -153,7 +189,7 @@ public class ResultCell extends Cell
 
         int dpi = Toolkit.getDefaultToolkit().getScreenResolution();
         font = new Font(null, Font.BOLD, (int)((getHeight() - 10) * dpi / 72f));
-		font = FontUtility.getScaledFont(getWidth() - 2, getHeight() - 2, getValue(), font, g);		
+		font = FontUtility.getScaledFont(getWidth() - BORDER_WIDTH*3, getHeight() - BORDER_WIDTH*3, getValue(), font, g);		
 	}
 	
 	
@@ -168,9 +204,7 @@ public class ResultCell extends Cell
 	
 	
 	public void render(Graphics2D g)
-	{
-		int borderWidth = 2;
-		
+	{		
 		if(isUpdated())
 			updateFont();
 
@@ -189,48 +223,57 @@ public class ResultCell extends Cell
 
         g.setFont(font);
         
-		// border
-		Color bc = border;
-		
-		/*if(result.getPositionChange() > 0)
-			bc = new Color(0x00, 0xCC, 0x00);
-		else if(result.getPositionChange() < 0)
-			bc = Color.RED;*/
-		if(!(result.getSpeed() > 0.9f))
-			bc = Color.BLACK;
-		g.setColor(bc);
-		
-		/*if(mode == Mode.LAPS_LED)
-			g.setColor(Color.BLUE);
-		else if(mode == Mode.LEADER_INTERVAL)
-			g.setColor(Color.YELLOW);
-		else if(mode == Mode.LOCAL_INTERVAL)
-			g.setColor(Color.BLUE);
-		else if(mode == Mode.POSITION)
-			g.setColor(Color.YELLOW);
-		else if(mode == Mode.RACE_POINTS)
-			g.setColor(Color.BLUE);
-		else if(mode == Mode.SEASON_POINTS)
-			g.setColor(Color.YELLOW);*/
-		g.fillRect(0, 0, getWidth(), getHeight());
+		Color tBorder = border;
+		Color tBackground = background;
+		Color tText = text;
 
-		if(result.getLapsDown() != 0)
-			g.setColor(new Color(0xCC, 0x00, 0x00));
-		else if(result.ledMostLaps())
-			g.setColor(new Color(0x00, 0x99, 0x00));
-		else if(result.ledLaps())
-			g.setColor(new Color(0xFF, 0xFF, 0x00));
-		else
-			g.setColor(background);
-		g.fillRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth);
+		if(mode == Mode.POSITION)
+		{
+			if(result.getSpeed() > 0.9f)
+				tBorder = Color.BLACK;
+			else
+				tBorder = new Color(0xCC, 0x00, 0x00);
 
-		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));
-		if(result.getLapsDown() != 0)
-			g.setColor(Color.WHITE);
-		else if(result.ledLaps() && !result.ledMostLaps())
-			g.setColor(Color.BLACK);
+			if(result.getLapsDown() != 0)
+				tBackground = new Color(0xCC, 0x00, 0x00);
+			else if(result.ledMostLaps())
+				tBackground = new Color(0x00, 0x99, 0x00);
+			else if(result.ledLaps())
+				tBackground = new Color(0xFF, 0xFF, 0x00);
+			else
+				tBackground = Color.BLACK;
+
+			if(result.getLapsDown() != 0)
+				tText = Color.WHITE;
+			else if(result.ledLaps() && !result.ledMostLaps())
+				tText = Color.BLACK;
+		}
+		else if(mode == Mode.LOCAL_POINTS_DIFF && result.getRace().isChaseRace())
+		{
+			if(result.getSeasonRank() <= 12)
+				tBackground = new Color(0xFF, 0xFF, 0x00);
+			else
+				tBackground = Color.BLACK;
+		}
+
+		if(mode == Mode.POSITION)
+		{
+			g.setColor(tBackground);
+			g.fillRect(0, 0, getWidth(), getHeight());
+
+			g.setColor(tBorder);
+			g.fillRect(BORDER_WIDTH, BORDER_WIDTH, getWidth()-2*BORDER_WIDTH, getHeight()-2*BORDER_WIDTH);
+			
+			g.setColor(tBackground);
+			g.fillRect(BORDER_WIDTH*2, BORDER_WIDTH*2, getWidth()-4*BORDER_WIDTH, getHeight()-4*BORDER_WIDTH);
+		}
 		else
-			g.setColor(text);
+		{
+			g.setColor(new Color(0x33, 0x33, 0x33));
+			g.drawRect(BORDER_WIDTH, BORDER_WIDTH, getWidth()-2*BORDER_WIDTH, getHeight()-2*BORDER_WIDTH);
+		}
+		
+		g.setColor(tText);
 		g.drawString(cachedValue, xOffset, yOffset);
 		
 		updated = false;

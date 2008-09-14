@@ -1,7 +1,5 @@
 package com.lightdatasys.nascar.fantasy;
 
-import com.lightdatasys.nascar.Driver;
-import com.lightdatasys.nascar.Standing;
 
 public class FantasyStanding implements Comparable<FantasyStanding>
 {

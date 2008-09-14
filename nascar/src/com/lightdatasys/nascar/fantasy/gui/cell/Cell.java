@@ -52,6 +52,11 @@ public class Cell
 		return updated;
 	}
 	
+	public void triggerRender()
+	{
+		updated = true;
+	}
+	
 	
 	public int getWidth()
 	{

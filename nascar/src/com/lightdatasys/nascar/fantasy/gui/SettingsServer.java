@@ -104,27 +104,38 @@ public class SettingsServer implements Runnable
         							settings.setScrollSpeed(scrollSpeed);
         							done = true;
 	        					}
-	        					else if(word[1].toLowerCase().equals("resultmode") ||
+	        					else if(word[1].toLowerCase().equals("resultmode1") ||
+        							word[1].toLowerCase().equals("resultmode2") ||
         							word[1].toLowerCase().equals("fantasymode1") ||
         							word[1].toLowerCase().equals("fantasymode2"))
 	        					{
 	        						int value = Integer.parseInt(word[2]);
 	        						if(0 <= value && value < 5000)
 	        						{
-	        							if(word[1].toLowerCase().equals("resultmode"))
+	        							if(word[1].toLowerCase().equals("resultmode1") ||
+        									word[1].toLowerCase().equals("resultmode2"))
 	        							{
+	        								ResultCell.Mode mode;
 	        								switch(value)
 	        								{
-		        								case 1: settings.setResultMode(ResultCell.Mode.LAPS_LED); break;
-		        								case 2: settings.setResultMode(ResultCell.Mode.LEADER_INTERVAL); break;
-		        								case 3: settings.setResultMode(ResultCell.Mode.LOCAL_INTERVAL); break;
-		        								case 4: settings.setResultMode(ResultCell.Mode.RACE_POINTS); break;
-		        								case 5: settings.setResultMode(ResultCell.Mode.SEASON_POINTS); break;
-		        								case 6: settings.setResultMode(ResultCell.Mode.LAST_LAP_POSITION); break;
-		        								case 7: settings.setResultMode(ResultCell.Mode.POSITION_CHANGE); break;
-		        								case 8: settings.setResultMode(ResultCell.Mode.SPEED); break;
-		        								default: settings.setResultMode(ResultCell.Mode.POSITION); break;
+		        								case 1: mode = ResultCell.Mode.LAPS_LED; break;
+		        								case 2: mode = ResultCell.Mode.LEADER_INTERVAL; break;
+		        								case 3: mode = ResultCell.Mode.LOCAL_INTERVAL; break;
+		        								case 4: mode = ResultCell.Mode.RACE_POINTS; break;
+		        								case 5: mode = ResultCell.Mode.SEASON_POINTS; break;
+		        								case 6: mode = ResultCell.Mode.LAST_LAP_POSITION; break;
+		        								case 7: mode = ResultCell.Mode.POSITION_CHANGE; break;
+		        								case 8: mode = ResultCell.Mode.SPEED; break;
+		        								case 9: mode = ResultCell.Mode.SEASON_RANK; break;
+		        								case 10: mode = ResultCell.Mode.LEADER_POINTS_DIFF; break;
+		        								case 11: mode = ResultCell.Mode.LOCAL_POINTS_DIFF; break;
+		        								default: mode = ResultCell.Mode.POSITION; break;
 	        								}
+
+	        								if(word[1].toLowerCase().equals("resultmode1"))
+	        									settings.setResultMode1(mode);
+	        								else
+	        									settings.setResultMode2(mode);
 	        							}
 	        							else
 	        							{
@@ -178,10 +189,17 @@ public class SettingsServer implements Runnable
         						out.println(settings.getScrollSpeed());
         						done = true;
         					}
-        					else if(word[1].toLowerCase().equals("resultmode"))
+        					else if(word[1].toLowerCase().equals("resultmode1") ||
+    							word[1].toLowerCase().equals("fantasymode2"))
     						{
+								ResultCell.Mode mode;
+								if(word[1].toLowerCase().equals("resultmode1"))
+									mode = settings.getResultMode1();
+								else
+									mode = settings.getResultMode2();
+								
         						int value = 0;
-								switch(settings.getResultMode())
+								switch(mode)
 								{
     								case LAPS_LED: value = 1; break;
     								case LEADER_INTERVAL: value = 2; break;
@@ -191,6 +209,9 @@ public class SettingsServer implements Runnable
     								case LAST_LAP_POSITION: value = 6; break;
     								case POSITION_CHANGE: value = 7; break;
     								case SPEED: value = 8; break;
+    								case SEASON_RANK: value = 9; break;
+    								case LEADER_POINTS_DIFF: value = 10; break;
+    								case LOCAL_POINTS_DIFF: value = 11; break;
     								default: value = 0; break;
 								}
 								

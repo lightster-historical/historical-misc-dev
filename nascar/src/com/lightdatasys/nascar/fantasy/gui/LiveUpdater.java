@@ -1,47 +1,25 @@
 package com.lightdatasys.nascar.fantasy.gui;
 
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.DisplayMode;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.RenderingHints;
-import java.awt.geom.AffineTransform;
-import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
 import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Vector;
 
-import javax.swing.JFrame;
-
-import com.lightdatasys.gui.AppWindow;
-import com.lightdatasys.gui.QuitHandler;
-import com.lightdatasys.nascar.Driver;
 import com.lightdatasys.nascar.Result;
 import com.lightdatasys.nascar.event.PositionChangeEvent;
-import com.lightdatasys.nascar.event.PositionChangeListener;
-import com.lightdatasys.nascar.fantasy.FantasyPlayer;
 import com.lightdatasys.nascar.fantasy.FantasyResult;
 import com.lightdatasys.nascar.fantasy.Leaderboard;
 import com.lightdatasys.nascar.fantasy.gui.cell.Cell;
-import com.sportvision.model.Drivers;
-import com.sportvision.model.Race;
 
 public class LiveUpdater//extends AppWindow
 	implements Runnable
 {
-	private final static String PROPERTY_FILE = "ChevyRockandRoll400_2008.txt";
-	private final static int RACE_ID = 1074;
+	private final static String PROPERTY_FILE = "Sylvania300_2008.txt";
+	private final static int RACE_ID = 1075;
 	
 	
-	private final static boolean ALLOW_UPDATES = false;
+	private final static boolean ALLOW_UPDATES = true;
 	private final static boolean SHOW_FPS = false;
 	
 	
@@ -57,30 +35,6 @@ public class LiveUpdater//extends AppWindow
 	
 	public final static int COLUMNS = 45;
 	public final static int ROWS = 13;
-	
-	private Cell raceStatusCell;
-	//private AbstractMap<String,Cell> driverHeaderCells;
-	private AbstractMap<String,Cell> driverCells;
-	private AbstractMap<String,Cell> driverResult1Cells;
-	private AbstractMap<Integer,Cell> playerHeaderCells;
-	private AbstractMap<Integer,Cell> playerCells;
-	private AbstractMap<Integer,Cell> playerResult1Cells;
-	private AbstractMap<Integer,Cell> playerResult2Cells;
-	
-	private Cell[][] cells;
-	private int[] colSize;
-	private int[] rowSize;
-	private int[] colPosition;
-	private int[] rowPosition;
-	//private Cell[][] tempCells;
-
-	private Swap[] colSwaps;
-	private Swap[] rowSwaps;	
-	private int[] colSwapMap;
-	private int[] rowSwapMap;
-	
-	private Cell bgCell;
-	private String leaderCar;
 	
 	//private Random rand;
 	

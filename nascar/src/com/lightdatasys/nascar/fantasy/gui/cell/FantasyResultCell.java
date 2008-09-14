@@ -3,6 +3,7 @@ package com.lightdatasys.nascar.fantasy.gui.cell;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
+import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.Toolkit;
@@ -13,7 +14,7 @@ import com.lightdatasys.nascar.fantasy.FantasyResult;
 public class FantasyResultCell extends Cell 
 {
 	public enum Mode {POSITION, SEASON_POINTS, RACE_POINTS, DRIVER_RACE_POINTS,
-		LAST_LAP_POSITION, POSITION_CHANGE};
+		LAST_LAP_POSITION, POSITION_CHANGE, LEADER_DRIVER_DIFF};
 	
 	
 	private FantasyResult result;
@@ -65,6 +66,13 @@ public class FantasyResultCell extends Cell
 		else if(mode == Mode.POSITION_CHANGE)
 		{
 			return String.format("%s", Math.abs(result.getPositionChange()));
+		}
+		else if(mode == Mode.LEADER_DRIVER_DIFF)
+		{
+			if(result.getActualFinish() == 1)
+				return String.format("%d", result.getDriverRacePoints());
+			else
+				return String.format("%d", result.getDriverRacePoints() - result.getRace().getFantasyResults().get(1).getDriverRacePoints());
 		}
 		
 		return (new Integer(result.getActualFinish())).toString();
@@ -118,8 +126,14 @@ public class FantasyResultCell extends Cell
         g.setFont(font);
         
 		// border
-		g.setColor(border);
-		g.fillRect(0, 0, getWidth(), getHeight());
+		//g.setColor(border);
+		g.setPaint(new GradientPaint(getWidth()/2, 0,
+                Color.BLACK,
+                getWidth()/2,
+                getHeight()*3.0f/4,
+                border));
+		if(mode != Mode.POSITION)
+			g.fillRect(0, 0, getWidth(), getHeight());
 
 		Color bg = background;
 		if(mode == Mode.POSITION_CHANGE)
@@ -131,7 +145,14 @@ public class FantasyResultCell extends Cell
 			else
 				bg = Color.RED;
 		}
-		g.setColor(bg);
+		if(mode == Mode.POSITION)
+			g.setColor(Color.BLACK);
+		else
+			g.setPaint(new GradientPaint(getWidth()/2, 0,
+                Color.BLACK,
+                getWidth()/2,
+                getHeight()*3.0f/4,
+                bg));
 		g.fillRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth);
 
 		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));

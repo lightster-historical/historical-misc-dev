@@ -9,6 +9,7 @@ public class Standing implements Comparable<Standing>
 	public int top5s;
 	public int top10s;
 	public int points;
+	public int chasePenalties;
 	
 	
 	public Standing(Driver driver)
@@ -19,6 +20,7 @@ public class Standing implements Comparable<Standing>
 		this.top5s = 0;
 		this.top10s = 0;
 		this.points = 0;
+		this.chasePenalties = 0;
 	}
 	
 	public Standing(Driver driver, int starts, int wins, int top5s, int top10s, int points)
@@ -29,6 +31,7 @@ public class Standing implements Comparable<Standing>
 		this.top5s = top5s;
 		this.top10s = top10s;
 		this.points = points;
+		this.chasePenalties = 0;
 	}
 
 	
@@ -37,7 +40,14 @@ public class Standing implements Comparable<Standing>
  		if(points < obj.points)
  			return 1;
  		else if(points == obj.points)
- 			return 0;
+ 		{
+ 			if(wins < obj.wins)
+ 				return 1;
+ 			else if(wins == obj.wins)
+ 				return 0;
+ 			else
+ 				return -1;
+ 		}
  		else
  			return -1;
  	}
