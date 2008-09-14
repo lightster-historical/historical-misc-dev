@@ -88,6 +88,12 @@ public class FullScreenWindow extends AppWindow
 	}
 	
 	
+	public void setPanel(LivePanel panel)
+	{
+		this.panel = panel;
+	}
+	
+	
 	public void update()
 	{
 		if(panel != null)

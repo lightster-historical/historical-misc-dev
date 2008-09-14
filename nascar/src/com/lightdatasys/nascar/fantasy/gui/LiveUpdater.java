@@ -10,7 +10,9 @@ import com.lightdatasys.nascar.Result;
 import com.lightdatasys.nascar.event.PositionChangeEvent;
 import com.lightdatasys.nascar.fantasy.FantasyResult;
 import com.lightdatasys.nascar.fantasy.Leaderboard;
-import com.lightdatasys.nascar.fantasy.gui.cell.Cell;
+import com.lightdatasys.nascar.fantasy.gui.panel.ClassicScrollerPanel;
+import com.lightdatasys.nascar.fantasy.gui.panel.LivePanel;
+import com.lightdatasys.nascar.fantasy.gui.panel.SortableScroller;
 
 public class LiveUpdater//extends AppWindow
 	implements Runnable
@@ -151,8 +153,17 @@ public class LiveUpdater//extends AppWindow
 		
 		windows = new ArrayList<FullScreenWindow>();
 		GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		int i = 0;
 		for(GraphicsDevice device : env.getScreenDevices())
-			windows.add(new FullScreenWindow(this, device));
+		{
+			FullScreenWindow window = new FullScreenWindow(this, device);
+			windows.add(window);
+			
+			if(i % 2 == 1)
+				window.setPanel(new ClassicScrollerPanel(window));
+			
+			i++;
+		}
 		
 		/*
 		race.addPositionChangeListener
