@@ -236,7 +236,7 @@ public class ResultCell extends Cell
 			if(result.getSpeed() > 0.9f)
 				tBorder = Color.BLACK;
 			else
-				tBorder = new Color(0xCC, 0x00, 0x00);
+				tBorder = new Color(0xFF, 0xFF, 0xFF);
 
 			if(result.getLapsDown() != 0)
 				tBackground = new Color(0xCC, 0x00, 0x00);

@@ -649,7 +649,7 @@ public class SortableScroller extends LivePanel
 					{		
 						if(cell instanceof ResultCell && x == 2)
 						{
-							((ResultCell)cell).setMode(ResultCell.Mode.SEASON_RANK);
+							((ResultCell)cell).setMode(ResultCell.Mode.LAPS_LED);
 						}
 						else if(cell instanceof ResultCell && x == 3)
 						{
