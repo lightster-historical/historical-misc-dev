@@ -209,7 +209,7 @@ public class ResultCell extends Cell
 			|| cachedLed != result.ledLaps()
 			|| cachedMostLed != result.ledMostLaps()
 		    || cachedLapsDown != result.getLapsDown()
-		    || System.currentTimeMillis() - lastRenderTime > 5000;
+		    ;//|| System.currentTimeMillis() - lastRenderTime > 5000;
 		   // || (cachedSpeedZero && result.getSpeed() <= .9f)
 		   // || (!cachedSpeedZero && result.getSpeed() > .9f);
 	}
