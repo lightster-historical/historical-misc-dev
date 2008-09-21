@@ -148,7 +148,7 @@ public class SortableScroller extends LivePanel
         	h += colHeaderSize[i];
 		initGlobalCells(w, h);
 		initDriverCells(colSize[0], rowSize[0]);
-		initPlayerCells(colSize[0], rowSize[0]);
+		initPlayerCells(colSize[0], rowSize[0], colSize[0]);
 		
 
 
@@ -267,7 +267,7 @@ public class SortableScroller extends LivePanel
 		rowPosition = new int[ROWS];
 		for(int i = 0; i < ROWS; i++)
 		{
-			rowSize[i] = colSize[0];
+			rowSize[i] = Math.round(5.0f * colSize[0] / 8);
 			//rowSize[i] = Math.round((getHeight() - cellMargin * (ROWS + COL_HEADERS)) / rowWeightTotal);
 			
 			if(i > 0)
@@ -345,7 +345,7 @@ public class SortableScroller extends LivePanel
 		};
 	}
 	
-	public void initPlayerCells(int w, int h)
+	public void initPlayerCells(int w, int h, int hHeader)
 	{
 		playerHeaderCells = new HashMap<Integer,Cell>();
 		playerCells = new HashMap<Integer,Cell>();
@@ -366,16 +366,16 @@ public class SortableScroller extends LivePanel
 						player.getBackgroundColor()/*drivers[i].getBackgroundColor()*/, Color.WHITE);
 				playerCells.put(player.getPlayerId(), playerCell);
 				
-				FantasyResultCell playerResult1Cell = createFantasyResultCell(w, (int)(h * colHeaderWeights[0]), result, Color.WHITE,
+				FantasyResultCell playerResult1Cell = createFantasyResultCell(w, (int)(hHeader * colHeaderWeights[0]), result, Color.WHITE,
 						player.getBackgroundColor(), Color.WHITE);
 				playerResult1Cells.put(player.getPlayerId(), playerResult1Cell);
 				
-				FantasyResultCell playerResult2Cell = createFantasyResultCell(w, (int)(h * colHeaderWeights[1]), result, Color.WHITE,
+				FantasyResultCell playerResult2Cell = createFantasyResultCell(w, (int)(hHeader * colHeaderWeights[1]), result, Color.WHITE,
 						player.getBackgroundColor(), Color.WHITE);
 				playerResult2Cell.setMode(FantasyResultCell.Mode.DRIVER_RACE_POINTS);
 				playerResult2Cells.put(player.getPlayerId(), playerResult2Cell);
 				
-				FantasyPlayerCell playerHeaderCell = createFantasyPlayerCell(w, (int)(h * colHeaderWeights[2]), player.toString(), Color.WHITE,
+				FantasyPlayerCell playerHeaderCell = createFantasyPlayerCell(w, (int)(hHeader * colHeaderWeights[2]), player.toString(), Color.WHITE,
 						player.getBackgroundColor()/*drivers[i].getBackgroundColor()*/, Color.WHITE, false);
 				playerHeaderCells.put(player.getPlayerId(), playerHeaderCell);
 			}

@@ -163,8 +163,6 @@ public class LiveUpdater//extends AppWindow
 				window.setPanel(new ClassicScrollerPanel(window));
 			
 			i++;
-			
-			break;
 		}
 		
 		/*
