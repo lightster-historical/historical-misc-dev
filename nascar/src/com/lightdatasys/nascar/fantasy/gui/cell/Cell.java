@@ -11,12 +11,15 @@ public class Cell
 	private int width;
 	private int height;
 	
+	private Color background;
+	
 	protected boolean updated;
 	
 
 	private Cell()
 	{
 		updated = true;
+		background = Color.BLACK;
 	}
 	
 	public Cell(GraphicsDevice gd, int w, int h)
@@ -41,9 +44,13 @@ public class Cell
 		updated = false;
 	}
 	
-	public BufferedImage getImage()
+	
+	public void setBackground(Color color)
 	{
-		return image;
+		if(!background.equals(color))
+			updated = true;
+		
+		background = color;
 	}
 	
 	
@@ -66,5 +73,15 @@ public class Cell
 	public int getHeight()
 	{
 		return height;
+	}
+	
+	public BufferedImage getImage()
+	{
+		return image;
+	}
+	
+	public Color getBackground()
+	{
+		return background;
 	}
 }

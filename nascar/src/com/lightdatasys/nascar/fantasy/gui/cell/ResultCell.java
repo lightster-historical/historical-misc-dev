@@ -25,7 +25,6 @@ public class ResultCell extends Cell
 	private Mode mode;
 	
 	private Color border;
-	private Color background;
 	private Color text;
 	
 	private Font font;
@@ -36,6 +35,8 @@ public class ResultCell extends Cell
 	private int cachedLapsDown;
 	private boolean cachedSpeedZero;
 	
+	private long lastRenderTime;
+	
 	
 	public ResultCell(GraphicsDevice gd, int w, int h, Result result, Color text, Color bg, Color border)
 	{
@@ -43,7 +44,7 @@ public class ResultCell extends Cell
 		
 		this.result = result;
 		this.border = border;
-		this.background = bg;
+		setBackground(bg);
 		this.text = text;
 		
 		cachedValue = "";
@@ -207,7 +208,8 @@ public class ResultCell extends Cell
 			|| !cachedValue.equals(getValue())
 			|| cachedLed != result.ledLaps()
 			|| cachedMostLed != result.ledMostLaps()
-		    || cachedLapsDown != result.getLapsDown();
+		    || cachedLapsDown != result.getLapsDown()
+		    || System.currentTimeMillis() - lastRenderTime > 5000;
 		   // || (cachedSpeedZero && result.getSpeed() <= .9f)
 		   // || (!cachedSpeedZero && result.getSpeed() > .9f);
 	}
@@ -217,12 +219,17 @@ public class ResultCell extends Cell
 	{		
 		if(isUpdated())
 			updateFont();
+		
+		g.setBackground(getBackground());
+		g.clearRect(0, 0, getWidth(), getHeight());
 
 		cachedValue = getValue();
 		cachedLed = result.ledLaps();
 		cachedMostLed = result.ledMostLaps();
 		cachedLapsDown = result.getLapsDown();
 		//cachedSpeedZero = (result.getSpeed() <= .9f);
+		
+		lastRenderTime = System.currentTimeMillis();
         
         FontMetrics metrics = g.getFontMetrics(font);
 
@@ -235,7 +242,7 @@ public class ResultCell extends Cell
         g.setFont(font);
         
 		Color tBorder = border;
-		Color tBackground = background;
+		Color tBackground = getBackground();
 		Color tText = text;
 
 		if(mode == Mode.POSITION)
