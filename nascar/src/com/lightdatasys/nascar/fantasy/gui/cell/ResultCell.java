@@ -219,9 +219,6 @@ public class ResultCell extends Cell
 	{		
 		if(isUpdated())
 			updateFont();
-		
-		g.setBackground(getBackground());
-		g.clearRect(0, 0, getWidth(), getHeight());
 
 		cachedValue = getValue();
 		cachedLed = result.ledLaps();

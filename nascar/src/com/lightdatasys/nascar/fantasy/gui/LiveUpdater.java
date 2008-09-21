@@ -21,7 +21,7 @@ public class LiveUpdater//extends AppWindow
 	private final static int RACE_ID = 1076;
 	
 	
-	private final static boolean ALLOW_UPDATES = true;
+	private final static boolean ALLOW_UPDATES = false;
 	private final static boolean SHOW_FPS = false;
 	
 	
@@ -278,8 +278,8 @@ public class LiveUpdater//extends AppWindow
 					mostLapsLed = Math.max(mostLapsLed, result.getLapsLed());
 					result.setSpeed(d.speed);
 				}
-				//else
-				//	result.setFinish(startPos);
+				else
+					result.setFinish(startPos);
 			}
 			else
 			{

@@ -678,6 +678,10 @@ public class SortableScroller extends LivePanel
 						if(cell.isUpdated())
 						{
 							Graphics2D g2 = (Graphics2D)img.getGraphics();
+							if(y % 2 == 1)
+								g2.setBackground(rowAltColor);
+							else
+								g2.setBackground(Color.BLACK);
 							g2.clearRect(0, 0, cell.getWidth(), cell.getHeight());
 							
 							cell.render(g2);
