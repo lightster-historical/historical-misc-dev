@@ -250,7 +250,7 @@ public class LiveUpdater//extends AppWindow
 		race.setLeaderCount(getSportvisionRace().numberOfLeaders);
 		
 		boolean raceStarted = false;
-		if(race.getCurrentLap() > 0)
+		if(getSportvisionRace().flag != com.sportvision.model.Race.PRE_RACE)
 			raceStarted = true;
 		
 		Vector<?> drivers = getSportvisionDrivers().getSortedList();
