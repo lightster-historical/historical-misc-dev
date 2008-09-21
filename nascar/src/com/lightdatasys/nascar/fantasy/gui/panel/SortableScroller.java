@@ -631,7 +631,7 @@ public class SortableScroller extends LivePanel
 	{
 		for(int x = x0; x < x1; x++)
 		{
-			float xPos = colPosition[x];//cellMargin + x * (cellWidth + cellMargin);
+			float xPos = colPosition[x];
 			if(colSwaps != null && colSwaps[x] != null)
 			{
 				xPos = colSwaps[x].getPosition();
@@ -649,7 +649,7 @@ public class SortableScroller extends LivePanel
 					{		
 						if(cell instanceof ResultCell && x == 2)
 						{
-							((ResultCell)cell).setMode(ResultCell.Mode.LAPS_LED);
+							((ResultCell)cell).setMode(ResultCell.Mode.SEASON_RANK);
 						}
 						else if(cell instanceof ResultCell && x == 3)
 						{
@@ -681,26 +681,18 @@ public class SortableScroller extends LivePanel
 							
 							cell.render(g2);
 						}
-						
-						//AffineTransform transform = new AffineTransform();
-	
-						int yPos = rowPosition[y];//cellMargin + y * (cellHeight + cellMargin);
+
+						int yPos = rowPosition[y];
 						if(rowSwaps != null && rowSwaps[y] != null)
 							yPos = rowSwaps[y].getPosition();
 						
 						yPos += yOffset;
 						
-						//transform.translate(xPos, yPos);
-						
 						g.drawImage((Image)img, (int)xPos, (int)yPos, null);
-						//g.drawRenderedImage(img, transform);
 						img = null;
 					}
 				}
 			}
-			//else if(!(xPos <= width))
-			//	x = x1;
 		}
-		
 	}
 }

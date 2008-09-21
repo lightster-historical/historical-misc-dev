@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Camping World RV 400
+track:	Dover International Speedway
+location:	Dover, DE
+length: 	400
+laps: 	400
+track_length: 	1.0
+scale: 	0.574
+x_offset: 	28
+y_offset: 	18
+tv_network: 	ABC
+track_image_file: 	dover.gif
+</RACE>
+<PARTICIPANTS>
+24	J. Gordon	Chevrolet	1	Jeff	Gordon	5121
+8	Martin	Chevrolet	2	Mark	Martin	2270
+11	Hamlin	Toyota	3	Denny	Hamlin	5148
+2	Kurt Busch	Dodge	4	Kurt	Busch	2772
+16	Biffle	Ford	5	Greg	Biffle	5190
+07	Bowyer	Chevrolet	6	Clint	Bowyer	5137
+38	Gilliland	Ford	7	David	Gilliland	2404
+17	Kenseth	Ford	8	Matt	Kenseth	5043
+26	McMurray	Ford	9	Jamie	McMurray	2705
+88	Earnhardt Jr.	Chevrolet	10	Dale	Earnhardt Jr.	5170
+18	Kyle Busch	Toyota	11	Kyle	Busch	5146
+19	E. Sadler	Dodge	12	Elliott	Sadler	2568
+70	Raines	Chevrolet	13	Tony	Raines	334
+44	Reutimann	Toyota	14	David	Reutimann	2545
+28	Kvapil	Ford	15	Travis	Kvapil	2592
+1	Truex Jr.	Chevrolet	16	Martin	Truex Jr.	2964
+10	Carpentier	Dodge	17	Patrick	Carpentier	1673
+83	Vickers	Toyota	18	Brian	Vickers	2917
+12	Newman	Dodge	19	Ryan	Newman	2908
+48	Johnson	Chevrolet	20	Jimmie	Johnson	5220
+31	J. Burton	Chevrolet	21	Jeff	Burton	5170
+99	Edwards	Ford	22	Carl	Edwards	5220
+6	Ragan	Ford	23	David	Ragan	3118
+29	Harvick	Chevrolet	24	Kevin	Harvick	5134
+77	Hornish Jr.	Dodge	25	Sam	Hornish Jr.	2015
+01	Smith	Chevrolet	26	Regan	Smith	2024
+78	Nemechek	Chevrolet	27	Joe	Nemechek	1520
+00	McDowell	Toyota	28	Michael	McDowell	1390
+21	Ambrose	Ford	29	Marcos	Ambrose	400
+84	Allmendinger	Toyota	30	A.J.	Allmendinger	1575
+5	Mears	Chevrolet	31	Casey	Mears	2486
+66	Riggs	Chevrolet	32	Scott	Riggs	2018
+20	Stewart	Toyota	33	Tony	Stewart	5147
+15	Menard	Chevrolet	34	Paul	Menard	2302
+42	Montoya	Dodge	35	Juan Pablo	Montoya	2599
+9	Kahne	Dodge	36	Kasey	Kahne	3177
+22	Blaney	Toyota	37	Dave	Blaney	2062
+45	Petty	Dodge	38	Kyle	Petty	750
+41	Sorenson	Dodge	39	Reed	Sorenson	2119
+55	Waltrip	Toyota	40	Michael	Waltrip	2097
+7	R. Gordon	Dodge	41	Robby	Gordon	2033
+43	B. Labonte	Dodge	42	Bobby	Labonte	2621
+96	Schrader	Toyota	43	Ken	Schrader	520
+</PARTICIPANTS>

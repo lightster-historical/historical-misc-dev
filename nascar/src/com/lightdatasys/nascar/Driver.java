@@ -212,6 +212,14 @@ public class Driver
 				standing.chasePenalties = rsPreChase.getInt("chasePenalties");
 			}
 			
+			for(Driver d : driversById.values())
+			{
+				if(!standings.containsKey(d.getId()))
+				{
+					standings.put(d.driverId, new Standing(d, 0, 0, 0, 0, 0));
+				}
+			}
+			
 			race.setChaseRace(false);
 			
 			if(chaseDate != null && (date.compareTo(chaseDate) > 0))// || (date.compareTo(chaseDate) >= 0 && inclusive))

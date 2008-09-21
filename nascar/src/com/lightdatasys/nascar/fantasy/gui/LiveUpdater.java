@@ -17,8 +17,8 @@ import com.lightdatasys.nascar.fantasy.gui.panel.SortableScroller;
 public class LiveUpdater//extends AppWindow
 	implements Runnable
 {
-	private final static String PROPERTY_FILE = "Sylvania300_2008.txt";
-	private final static int RACE_ID = 1075;
+	private final static String PROPERTY_FILE = "CampingWorldRV400_2008.txt";
+	private final static int RACE_ID = 1076;
 	
 	
 	private final static boolean ALLOW_UPDATES = true;
@@ -276,8 +276,8 @@ public class LiveUpdater//extends AppWindow
 					mostLapsLed = Math.max(mostLapsLed, result.getLapsLed());
 					result.setSpeed(d.speed);
 				}
-				else
-					result.setFinish(startPos);
+				//else
+				//	result.setFinish(startPos);
 			}
 			else
 			{

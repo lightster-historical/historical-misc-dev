@@ -157,7 +157,7 @@ public class Result
 	
 	public int getSeasonRank()
 	{
-		return race.getRankByDriver(driver);
+		return getRace().getRankByDriver(driver);
 	}
 	
 
@@ -222,10 +222,14 @@ public class Result
 	
 	public static class SeasonPointsComparator implements Comparator<Result>
 	{
-		public int compare(Result o1, Result o2)
+		public int compare(Result r1, Result r2)
 		{
-			// TODO Auto-generated method stub
-			return 0;
+			if(r1.getSeasonPoints() > r2.getSeasonPoints())
+				return 1;
+			else if(r1.getSeasonPoints() == r2.getSeasonPoints())
+				return 0;
+			else
+				return -1;
 		}
 	}
 }

@@ -140,31 +140,38 @@ public class ResultCell extends Cell
 		}
 		else if(mode == Mode.LEADER_POINTS_DIFF)
 		{
+			Result leaderResult = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(1));
 			//result.getRace().getDriverStandingsByRank().get(1).points;
-			return String.format("%d", (int)(result.getRace().getDriverStandingsByRank().get(result.getRace().getRankByDriver(result.getDriver())).points - result.getRace().getDriverStandingsByRank().get(1).points));
+			return String.format("%d", (int)(result.getSeasonPoints() - leaderResult.getSeasonPoints()));
 		}
 		else if(mode == Mode.LOCAL_POINTS_DIFF)
 		{
 			if(result.getRace().isChaseRace())
 			{
+				Result leaderResult = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(1));
+				Result rank13Result = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(13));
+				
 				if(result.getSeasonRank() <= 12)
 				{
-					return String.format("%d", (int)(result.getRace().getDriverStandingsByRank().get(result.getSeasonRank()).points - result.getRace().getDriverStandingsByRank().get(1).points));
+					return String.format("%d", (int)(result.getSeasonPoints() - leaderResult.getSeasonPoints()));
 				}
 				else
 				{
-					return String.format("%d", (int)(result.getRace().getDriverStandingsByRank().get(result.getSeasonRank()).points - result.getRace().getDriverStandingsByRank().get(13).points));
+					return String.format("%d", (int)(result.getSeasonPoints() - rank13Result.getSeasonPoints()));
 				}
 			}
 			else
 			{
+				Result rank12Result = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(12));
+				Result rank13Result = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(13));
+				
 				if(result.getSeasonRank() <= 12)
 				{
-					return String.format("+%d", (int)(result.getRace().getDriverStandingsByRank().get(result.getSeasonRank()).points - result.getRace().getDriverStandingsByRank().get(13).points));
+					return String.format("%d", (int)(result.getSeasonPoints() - rank13Result.getSeasonPoints()));
 				}
 				else
 				{
-					return String.format("%d", (int)(result.getRace().getDriverStandingsByRank().get(result.getSeasonRank()).points - result.getRace().getDriverStandingsByRank().get(12).points));
+					return String.format("%d", (int)(result.getSeasonPoints() - rank12Result.getSeasonPoints()));
 				}
 			}
 		}

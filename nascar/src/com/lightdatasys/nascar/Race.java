@@ -64,7 +64,7 @@ public class Race
 	private ArrayList<PositionChangeListener> fantasyPositionChangeListeners;
 
 	private AbstractMap<Integer,Standing> standingsByDriver;
-	private AbstractMap<Integer,Standing> standingsBySeasonRank;
+	private AbstractMap<Integer,Driver> driverBySeasonRank;
 	private AbstractMap<Integer,FantasyStanding> standingsByPlayer;
 
 	
@@ -79,7 +79,7 @@ public class Race
 		resultsByCarNo = null;
 		resultsByDriver = null;
 		
-		standingsBySeasonRank = null;
+		driverBySeasonRank = null;
 		
 		currentLap = 0;
 		lapCount = 0;
@@ -224,14 +224,14 @@ public class Race
 		return standingsByDriver;
 	}
 	
-	public AbstractMap<Integer,Standing> getDriverStandingsByRank()
+	public AbstractMap<Integer,Driver> getDriverByRank()
 	{
-		if(standingsBySeasonRank == null)
+		if(driverBySeasonRank == null)
 		{
 			calcRanks();
 		}
 		
-		return standingsBySeasonRank;
+		return driverBySeasonRank;
 	}
 	
 	public int getRankByDriver(Driver driver)
@@ -247,16 +247,31 @@ public class Race
 	protected void calcRanks()
 	{
 		ArrayList<Standing> sorted = new ArrayList<Standing>();
-		sorted.addAll(Driver.getStandings(this, true).values());
+		ArrayList<Standing> unsorted = new ArrayList<Standing>(standingsByDriver.values());
+		for(Standing s : unsorted)
+		{
+			Standing s2 = new Standing(s.driver);
+			if(resultsByDriver.get(s.driver) != null)
+				s2.points = resultsByDriver.get(s.driver).getSeasonPoints();
+			else
+				s2.points = s.points;
+			
+			sorted.add(s2);
+		}
 		Collections.sort(sorted);
+		
+		//System.out.println("updated standings");
 
-		standingsBySeasonRank = new HashMap<Integer,Standing>();
+		driverBySeasonRank = new HashMap<Integer,Driver>();
 		rankByDriver = new HashMap<Integer,Integer>();
 		int i = 1;
 		for(Standing s : sorted)
 		{
-			standingsBySeasonRank.put(i, s);
+			driverBySeasonRank.put(i, s.driver);
 			rankByDriver.put(s.driver.getId(), i);
+			
+			//if(i == 1)
+			//	System.out.println(s.driver.getLastName() + " " + s.points);
 			
 			i++;
 		}
@@ -327,7 +342,7 @@ public class Race
 				
 				resultsByFinish.put(finish, result);
 				
-				standingsBySeasonRank = null;
+				driverBySeasonRank = null;
 				rankByDriver = null;
 			}
 		}
