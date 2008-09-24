@@ -6,11 +6,9 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.Toolkit;
-import java.text.NumberFormat;
 
 import com.lightdatasys.gui.FontUtility;
 import com.lightdatasys.nascar.Result;
-import com.lightdatasys.nascar.fantasy.gui.cell.FantasyResultCell.Mode;
 
 public class ResultCell extends Cell 
 {
@@ -209,7 +207,7 @@ public class ResultCell extends Cell
 			|| cachedLed != result.ledLaps()
 			|| cachedMostLed != result.ledMostLaps()
 		    || cachedLapsDown != result.getLapsDown()
-		    ;//|| System.currentTimeMillis() - lastRenderTime > 5000;
+		    || System.currentTimeMillis() - lastRenderTime > 5000;
 		   // || (cachedSpeedZero && result.getSpeed() <= .9f)
 		   // || (!cachedSpeedZero && result.getSpeed() > .9f);
 	}
@@ -238,7 +236,7 @@ public class ResultCell extends Cell
 
         g.setFont(font);
         
-		Color tBorder = border;
+		Color tBorder = new Color(0x33, 0x33, 0x33);
 		Color tBackground = getBackground();
 		Color tText = text;
 
@@ -263,12 +261,32 @@ public class ResultCell extends Cell
 			else if(result.ledLaps() && !result.ledMostLaps())
 				tText = Color.BLACK;
 		}
-		else if(mode == Mode.LOCAL_POINTS_DIFF && result.getRace().isChaseRace())
+		else if(mode == Mode.SEASON_RANK && result.getRace().isChaseRace())
 		{
-			if(result.getSeasonRank() <= 12)
-				tBackground = new Color(0xFF, 0xFF, 0x00);
+			int rank = result.getSeasonRank();
+			if(rank <= 12)
+			{
+				if(rank == 1)
+					tBackground = new Color(0x00, 0xCC, 0x00);
+				else
+					tBackground = new Color(0xFF, 0xFF, 0x00);
+ 
+				tText = Color.BLACK;
+			}
+			else if(rank <= 16)
+			{
+				if(rank == 13)
+					tBackground = new Color(0xFF, 0x00, 0x00);
+				else
+					tBackground = new Color(0x00, 0x00, 0xFF);
+				
+				tText = Color.WHITE;
+			}
 			else
+			{
 				tBackground = Color.BLACK;
+				tText = Color.WHITE;
+			}
 		}
 
 		if(mode == Mode.POSITION)
@@ -282,10 +300,18 @@ public class ResultCell extends Cell
 			g.setColor(tBackground);
 			g.fillRect(BORDER_WIDTH*2, BORDER_WIDTH*2, getWidth()-4*BORDER_WIDTH, getHeight()-4*BORDER_WIDTH);
 		}
+		else if(mode == Mode.SEASON_RANK)
+		{
+			g.setColor(tBackground);
+			g.fillRect(0, 0, getWidth(), getHeight());
+		}
 		else
 		{
-			g.setColor(new Color(0x33, 0x33, 0x33));
-			g.drawRect(BORDER_WIDTH, BORDER_WIDTH, getWidth()-2*BORDER_WIDTH, getHeight()-2*BORDER_WIDTH);
+			g.setColor(tBorder);
+			g.fillRect(BORDER_WIDTH, BORDER_WIDTH, getWidth()-2*BORDER_WIDTH, getHeight()-2*BORDER_WIDTH);
+			
+			g.setColor(tBackground);
+			g.fillRect(BORDER_WIDTH*2, BORDER_WIDTH*2, getWidth()-4*BORDER_WIDTH, getHeight()-4*BORDER_WIDTH);
 		}
 		
 		g.setColor(tText);

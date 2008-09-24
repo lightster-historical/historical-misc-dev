@@ -159,8 +159,8 @@ public class LiveUpdater//extends AppWindow
 			FullScreenWindow window = new FullScreenWindow(this, device);
 			windows.add(window);
 			
-			if(i % 2 == 1)
-				window.setPanel(new ClassicScrollerPanel(window));
+			//if(i % 2 == 1)
+			//	window.setPanel(new ClassicScrollerPanel(window));
 			
 			i++;
 		}
