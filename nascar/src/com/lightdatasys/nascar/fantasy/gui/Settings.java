@@ -24,7 +24,7 @@ public class Settings
 		ups = 2.0f;
 
 		swapPeriod = 500;
-		scrollSpeed = 0;//.5f;
+		scrollSpeed = 0.5f;
 
 		resultMode1 = ResultCell.Mode.LOCAL_POINTS_DIFF;
 		resultMode2 = ResultCell.Mode.LOCAL_INTERVAL;

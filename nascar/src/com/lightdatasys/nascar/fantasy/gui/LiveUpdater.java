@@ -17,8 +17,8 @@ import com.lightdatasys.nascar.fantasy.gui.panel.SortableScroller;
 public class LiveUpdater//extends AppWindow
 	implements Runnable
 {
-	private final static String PROPERTY_FILE = "CampingWorldRV400_2008.txt";
-	private final static int RACE_ID = 1076;
+	private final static String PROPERTY_FILE = "CampingWorldRV400_2008_2.txt";
+	private final static int RACE_ID = 1077;
 	
 	
 	private final static boolean ALLOW_UPDATES = false;

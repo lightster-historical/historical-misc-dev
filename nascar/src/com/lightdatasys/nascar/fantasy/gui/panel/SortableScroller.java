@@ -267,8 +267,8 @@ public class SortableScroller extends LivePanel
 		rowPosition = new int[ROWS];
 		for(int i = 0; i < ROWS; i++)
 		{
-			//rowSize[i] = Math.round(5.0f * colSize[0] / 8);
-			rowSize[i] = Math.round((getHeight() - cellMargin * (ROWS)) / (rowWeightTotal + colHeaderWeightTotal));
+			rowSize[i] = Math.round(5.0f * colSize[0] / 8);
+			//rowSize[i] = Math.round((getHeight() - cellMargin * (ROWS)) / (rowWeightTotal + colHeaderWeightTotal));
 			
 			if(i > 0)
 				rowPosition[i] = rowPosition[i - 1] + rowSize[i - 1] + cellMargin;

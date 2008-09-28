@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Camping World RV 400
+track:	Kansas Speedway
+location:	Kansas City, KS
+length: 	400
+laps: 	267
+track_length: 	1.5
+scale: 	0.575
+x_offset: 	21
+y_offset: 	19
+tv_network: 	ABC
+track_image_file: 	kansas.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	5380
+8	Martin	Chevrolet	2	Mark	Martin	2430
+17	Kenseth	Ford	3	Matt	Kenseth	5223
+19	E. Sadler	Dodge	4	Elliott	Sadler	2650
+1	Truex Jr.	Chevrolet	5	Martin	Truex Jr.	3067
+15	Menard	Chevrolet	6	Paul	Menard	2402
+21	Elliott	Ford	7	Bill	Elliott	924
+9	Kahne	Dodge	8	Kasey	Kahne	3262
+83	Vickers	Toyota	9	Brian	Vickers	2987
+5	Mears	Chevrolet	10	Casey	Mears	2604
+88	Earnhardt Jr.	Chevrolet	11	Dale	Earnhardt Jr.	5261
+6	Ragan	Ford	12	David	Ragan	3227
+24	J. Gordon	Chevrolet	13	Jeff	Gordon	5272
+84	Allmendinger	Toyota	14	A.J.	Allmendinger	1690
+12	Newman	Dodge	15	Ryan	Newman	3032
+26	McMurray	Ford	16	Jamie	McMurray	2765
+41	Sorenson	Dodge	17	Reed	Sorenson	2192
+16	Biffle	Ford	18	Greg	Biffle	5380
+10	Carpentier	Dodge	19	Patrick	Carpentier	1713
+47	Ambrose	Ford	20	Marcos	Ambrose	467
+43	B. Labonte	Dodge	21	Bobby	Labonte	2742
+45	Petty	Dodge	22	Kyle	Petty	793
+77	Hornish Jr.	Dodge	23	Sam	Hornish Jr.	2052
+07	Bowyer	Chevrolet	24	Clint	Bowyer	5284
+70	Raines	Chevrolet	25	Tony	Raines	413
+22	Blaney	Toyota	26	Dave	Blaney	2189
+18	Kyle Busch	Toyota	27	Kyle	Busch	5180
+96	Logano	Toyota	28	Joey	Logano	67
+55	Waltrip	Toyota	29	Michael	Waltrip	2236
+11	Hamlin	Toyota	30	Denny	Hamlin	5197
+2	Kurt Busch	Dodge	31	Kurt	Busch	2833
+38	Gilliland	Ford	32	David	Gilliland	2510
+28	Kvapil	Ford	33	Travis	Kvapil	2686
+99	Edwards	Ford	34	Carl	Edwards	5390
+01	Smith	Chevrolet	35	Regan	Smith	2076
+29	Harvick	Chevrolet	36	Kevin	Harvick	5289
+31	J. Burton	Chevrolet	37	Jeff	Burton	5308
+66	Riggs	Chevrolet	38	Scott	Riggs	2106
+7	R. Gordon	Dodge	39	Robby	Gordon	2130
+44	Reutimann	Toyota	40	David	Reutimann	2657
+20	Stewart	Toyota	41	Tony	Stewart	5277
+42	Montoya	Dodge	42	Juan Pablo	Montoya	2645
+78	Nemechek	Chevrolet	43	Joe	Nemechek	1578
+</PARTICIPANTS>
