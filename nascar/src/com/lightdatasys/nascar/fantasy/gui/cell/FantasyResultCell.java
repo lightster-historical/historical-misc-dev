@@ -96,7 +96,7 @@ public class FantasyResultCell extends Cell
 
         int dpi = Toolkit.getDefaultToolkit().getScreenResolution();
         font = new Font(null, Font.BOLD, (int)((getHeight() - 10) * dpi / 72f));
-		font = FontUtility.getScaledFont(getWidth() - 2, getHeight() - 2, getValue(), font, g);		
+		font = FontUtility.getScaledFont(getWidth() - 10, getHeight() - 10, getValue(), font, g);		
 	}
 	
 	

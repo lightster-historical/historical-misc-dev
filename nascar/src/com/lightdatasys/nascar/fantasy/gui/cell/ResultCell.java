@@ -196,7 +196,7 @@ public class ResultCell extends Cell
 
         int dpi = Toolkit.getDefaultToolkit().getScreenResolution();
         font = new Font(null, Font.BOLD, (int)((getHeight() - 10) * dpi / 72f));
-		font = FontUtility.getScaledFont(getWidth() - BORDER_WIDTH*3, getHeight() - BORDER_WIDTH*3, getValue(), font, g);		
+		font = FontUtility.getScaledFont(getWidth() - BORDER_WIDTH*5, getHeight() - BORDER_WIDTH*5, getValue(), font, g);		
 	}
 	
 	

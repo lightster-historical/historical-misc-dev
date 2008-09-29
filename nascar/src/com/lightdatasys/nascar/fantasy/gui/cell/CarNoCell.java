@@ -45,7 +45,7 @@ public class CarNoCell extends Cell
 		
         int dpi = Toolkit.getDefaultToolkit().getScreenResolution();
         font = new Font(null, Font.BOLD, (int)((getHeight() - 10) * dpi / 72f));
-		font = FontUtility.getScaledFont(getWidth() - 2, getHeight() - 2, label, font, g);
+		font = FontUtility.getScaledFont(getWidth() - 10, getHeight() - 10, label, font, g);
 	}
 	
 	public void render(Graphics2D g)
