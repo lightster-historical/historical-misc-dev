@@ -578,12 +578,16 @@ public class SortableScroller extends LivePanel
 
 		float speed = settings.getScrollSpeed() * .4f;
 		float time = (float)rowSize[0] / speed;
+
+		boolean scrollType = false;
+		
+		int extraRows = 0;
 		
 		if(speed > 10)
 		{
 			xScrollOffset = 0;
 		}
-		else
+		else if(scrollType)
 		{
 			long delta = System.currentTimeMillis() - lastScrollTime;
 			if(delta > time * (maxRows + 2))
@@ -602,19 +606,14 @@ public class SortableScroller extends LivePanel
 				float scrollSpeed = ((float)maxRows * (rowSize[0] + cellMargin)) / (time * 2);
 				xScrollOffset += 1.0f * scrollSpeed * (delta - time * maxRows);
 			}
-		}
-		
-		
-		/*if(speed > 10)
-		{
-			xScrollOffset = 0;
+			
+			extraRows = maxRows + 1 - (43 % maxRows);
 		}
 		else
 		{
 			xScrollOffset += 1.0f * speed * ((getLiveUpdater().getLastRenderDelta()));
-		}*/
-		
-		int extraRows = maxRows + 1 - (43 % maxRows);
+			extraRows = 2;
+		}
 
 		if(xScrollOffset > rowPosition[ROWS-1] + extraRows*rowSize[ROWS-1] + cellMargin - rowPosition[0])
 		{
