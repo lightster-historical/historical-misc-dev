@@ -1,5 +1,6 @@
-package com.mephex.grapher;
+ package com.mephex.grapher;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class Graph
@@ -14,8 +15,10 @@ public class Graph
 	
 	public Graph(GraphDataModel model)
 	{
-		if(this.model == null)
+		if(model == null)
 			throw new NullPointerException();
+		
+		this.model = model;
 		
 		updated = true;
 		
@@ -25,13 +28,14 @@ public class Graph
 	
 	
 	public void update()
-	{
-		
+	{		
+		updated = false;
 	}
 	
 	public void render(Graphics2D g)
 	{
-		
+		g.setColor(Color.black);
+		g.fillRect(0, 0, getWidth(), getHeight());
 	}
 	
 	
