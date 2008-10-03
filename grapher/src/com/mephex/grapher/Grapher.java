@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 public class Grapher
 {
 	protected Graph graph;
+	protected GraphPanel graphPanel;
 	
 	public Grapher()
 	{
@@ -16,16 +17,8 @@ public class Grapher
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);      
 		window.setSize(800, 600);
 		
-		graph = new Graph(new DefaultGraphDataModel());
-		
-		JPanel panel = new JPanel()
-		{
-			public void paintComponent(Graphics g)
-			{
-				graph.render((Graphics2D)g);
-			}
-		};
-		window.add(panel);
+		graphPanel = new GraphPanel(new DefaultGraphDataModel());
+		window.add(graphPanel);
 		
 		window.setVisible(true);
 	}
