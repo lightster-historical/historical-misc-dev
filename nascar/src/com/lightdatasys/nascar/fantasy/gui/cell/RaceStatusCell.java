@@ -132,7 +132,7 @@ public class RaceStatusCell extends Cell
 			
 			String label = String.format("%d", race.getLapCount() - race.getCurrentLap());
 			
-			Font font = FontUtility.getScaledFont(width, height, label, g.getFont(), g);
+			Font font = FontUtility.getScaledFont(width, height - 25, label, g.getFont(), g);
 			FontMetrics metrics = g.getFontMetrics(font);
 			g.setFont(font);
 

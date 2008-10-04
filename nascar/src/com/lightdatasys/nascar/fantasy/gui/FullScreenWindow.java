@@ -52,7 +52,7 @@ public class FullScreenWindow extends AppWindow
 		
 		//settings = new Settings();
 		
-		panel = new SortableScroller(this);//
+		panel = new SortableScroller(this, 1, 43, true);//
 		//panel = new ClassicScrollerPanel(this);
 
         //DisplayMode[] modes = device.getDisplayModes();

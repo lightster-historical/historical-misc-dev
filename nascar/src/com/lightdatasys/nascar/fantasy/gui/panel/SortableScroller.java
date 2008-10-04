@@ -89,6 +89,10 @@ public class SortableScroller extends LivePanel
 	private int cellWidth;
 	private int cellHeight;
 	
+	private int posMin;
+	private int posMax;
+	private boolean showHeader;
+	
 	private int renderCounter;
 	
 	private long lastScrollTime;
@@ -104,9 +108,13 @@ public class SortableScroller extends LivePanel
 	private Settings settings;
 	
 	
-	public SortableScroller(FullScreenWindow window)
+	public SortableScroller(FullScreenWindow window, int posMin, int posMax, boolean showHeader)
 	{
 		super(window);
+		
+		this.posMin = posMin;
+		this.posMax = posMax;
+		this.showHeader = showHeader;
 		
 		renderCounter = 0;
 
@@ -228,14 +236,17 @@ public class SortableScroller extends LivePanel
 	public void calcDimensions()
 	{
         float colHeaderWeightTotal = 0;
-        for(int i = 0; i < COL_HEADERS; i++)
-        	colHeaderWeightTotal += colHeaderWeights[i];
+        //if(showHeader)
+        //{
+	        for(int i = 0; i < COL_HEADERS; i++)
+	        	colHeaderWeightTotal += colHeaderWeights[i];
+        //}
         float rowHeaderWeightTotal = 0;
         for(int i = 0; i < ROW_HEADERS; i++)
         	rowHeaderWeightTotal += rowHeaderWeights[i];
         
         float colWeightTotal = COLUMNS + rowHeaderWeightTotal;
-        float rowWeightTotal = ROWS + colHeaderWeightTotal;
+        float rowWeightTotal = (posMax - posMin + 1) + colHeaderWeightTotal;
         
         totalColHeaderSize = 0;
         totalRowHeaderSize = 0;
@@ -283,8 +294,8 @@ public class SortableScroller extends LivePanel
 		rowPosition = new int[ROWS];
 		for(int i = 0; i < ROWS; i++)
 		{
-			rowSize[i] = Math.round(5.0f * colSize[0] / 8);
-			//rowSize[i] = Math.round((getHeight() - cellMargin * (ROWS)) / (rowWeightTotal + colHeaderWeightTotal));
+			//rowSize[i] = Math.round(5.0f * colSize[0] / 8);
+			rowSize[i] = Math.round((getHeight() - cellMargin * (posMax - posMin + 1)) / (rowWeightTotal + colHeaderWeightTotal));
 			
 			if(i > 0)
 				rowPosition[i] = rowPosition[i - 1] + rowSize[i - 1] + cellMargin;
@@ -614,10 +625,16 @@ public class SortableScroller extends LivePanel
 			xScrollOffset += 1.0f * speed * ((getLiveUpdater().getLastRenderDelta()));
 			extraRows = 2;
 		}
-
-		if(xScrollOffset > rowPosition[ROWS-1] + extraRows*rowSize[ROWS-1] + cellMargin - rowPosition[0])
+		
+		int yOffset = rowPosition[0] - rowPosition[posMin - 1];
+		if(showHeader)
 		{
-			xScrollOffset -= rowPosition[ROWS-1] + extraRows*rowSize[ROWS-1] + cellMargin - rowPosition[0];
+			yOffset -= rowPosition[0];
+		}
+		
+		if(xScrollOffset > rowPosition[ROWS-1] + extraRows*rowSize[ROWS-1] + cellMargin - rowPosition[0] + yOffset)
+		{
+			xScrollOffset -= rowPosition[ROWS-1] + extraRows*rowSize[ROWS-1] + cellMargin - rowPosition[0] + yOffset;
 		}
 		
 		for(int y = 0; y < ROWS; y++)
@@ -636,20 +653,23 @@ public class SortableScroller extends LivePanel
 			
 			if(rowSwapMap[y] % 2 == 1)
 			{
-				g.drawImage((Image)rBgImg, 0, (int)(yPos - xScrollOffset), null);
-				g.drawImage((Image)rBgImg, 0, (int)(yPos - xScrollOffset + rowPosition[ROWS-1] + extraRows*rowSize[ROWS-1] + cellMargin - rowPosition[0]), null);
+				g.drawImage((Image)rBgImg, 0, (int)(yPos - xScrollOffset) + yOffset, null);
+				g.drawImage((Image)rBgImg, 0, (int)(yPos - xScrollOffset + rowPosition[ROWS-1] + extraRows*rowSize[ROWS-1] + cellMargin - rowPosition[0]) + yOffset, null);
 			}
 		}
 		
-		renderCells(g, cells, colPosition, rowPosition, colSwaps, rowSwaps, 0, COLUMNS, 0, ROWS, 0, -xScrollOffset);
-		renderCells(g, cells, colPosition, rowPosition, colSwaps, rowSwaps, 0, COLUMNS, 0, ROWS, 0, -xScrollOffset + rowPosition[ROWS-1] + extraRows*(rowSize[ROWS-1] + cellMargin) - rowPosition[0]);
+		renderCells(g, cells, colPosition, rowPosition, colSwaps, rowSwaps, 0, COLUMNS, 0, ROWS, 0, -xScrollOffset + yOffset);
+		//renderCells(g, cells, colPosition, rowPosition, colSwaps, rowSwaps, 0, COLUMNS, 0, ROWS, 0, -xScrollOffset + rowPosition[ROWS-1] + extraRows*(rowSize[ROWS-1] + cellMargin) - rowPosition[0]);
 		
-		renderCells(g, rowHeaders, rowHeaderPosition, rowPosition, null, rowSwaps, 0, ROW_HEADERS, 0, ROWS, 0, -xScrollOffset);
-		renderCells(g, rowHeaders, rowHeaderPosition, rowPosition, null, rowSwaps, 0, ROW_HEADERS, 0, ROWS, 0, -xScrollOffset + rowPosition[ROWS-1] + extraRows*(rowSize[ROWS-1] + cellMargin) - rowPosition[0]);
+		renderCells(g, rowHeaders, rowHeaderPosition, rowPosition, null, rowSwaps, 0, ROW_HEADERS, 0, ROWS, 0, -xScrollOffset + yOffset);
+		//renderCells(g, rowHeaders, rowHeaderPosition, rowPosition, null, rowSwaps, 0, ROW_HEADERS, 0, ROWS, 0, -xScrollOffset + rowPosition[ROWS-1] + extraRows*(rowSize[ROWS-1] + cellMargin) - rowPosition[0]);
 
-		g.clearRect(colPosition[0], 0, colPosition[COLUMNS-1]+colSize[COLUMNS-1], colHeaderPosition[COL_HEADERS-1]);
-		renderCells(g, colHeaders, colPosition, colHeaderPosition, colSwaps, null, 0, COLUMNS, 0, COL_HEADERS, 0, 0);
-		renderCells(g, colHeaders, colPosition, colHeaderPosition, colSwaps, null, 0, COLUMNS, 0, COL_HEADERS, 0, 0);
+		if(showHeader)
+		{
+			g.clearRect(colPosition[0], 0, colPosition[COLUMNS-1]+colSize[COLUMNS-1], colHeaderPosition[COL_HEADERS-1]);
+			renderCells(g, colHeaders, colPosition, colHeaderPosition, colSwaps, null, 0, COLUMNS, 0, COL_HEADERS, 0, 0);
+		}
+		//renderCells(g, colHeaders, colPosition, colHeaderPosition, colSwaps, null, 0, COLUMNS, 0, COL_HEADERS, 0, 0);
 		
 		for(int x = 0; x < COLUMNS; x++)
 		{
@@ -669,7 +689,10 @@ public class SortableScroller extends LivePanel
 		
 		//g.clearRect(0, 0, width, rowPosition[2]);
 		//renderCells(g, 0, COLUMNS, 0, 2, 0, 0);
-		raceStatusCell.render(g);
+		if(showHeader)
+		{
+			raceStatusCell.render(g);
+		}
 	}
 	
 	public void renderCells(Graphics2D g, Cell[][] cells, int[] colPosition, int[] rowPosition, Swap[] colSwaps, Swap[] rowSwaps,  int x0, int x1, int y0, int y1, float xOffset, float yOffset)
