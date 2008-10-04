@@ -697,72 +697,75 @@ public class SortableScroller extends LivePanel
 	
 	public void renderCells(Graphics2D g, Cell[][] cells, int[] colPosition, int[] rowPosition, Swap[] colSwaps, Swap[] rowSwaps,  int x0, int x1, int y0, int y1, float xOffset, float yOffset)
 	{
-		for(int x = x0; x < x1; x++)
+		for(int y = y0; y < y1; y++)
 		{
-			float xPos = colPosition[x];
-			if(colSwaps != null && colSwaps[x] != null)
-			{
-				xPos = colSwaps[x].getPosition();
-			}
-
-			xPos += xOffset;
+			int yPos = rowPosition[y];
+			if(rowSwaps != null && rowSwaps[y] != null)
+				yPos = rowSwaps[y].getPosition();
 			
-			if(xPos <= width && xPos + colSize[x] >= 0)
+			yPos += yOffset;
+			
+			if(0 <= yPos && yPos <= getHeight())
 			{
-				for(int y = y0; y < y1; y++)
+				for(int x = x0; x < x1; x++)
 				{
-					Cell cell = cells[x][y];
+					float xPos = colPosition[x];
+					if(colSwaps != null && colSwaps[x] != null)
+					{
+						xPos = colSwaps[x].getPosition();
+					}
+		
+					xPos += xOffset;
 					
-					if(cell != null)
-					{		
-						if(cell instanceof ResultCell && x == 2)
-						{
-							((ResultCell)cell).setMode(ResultCell.Mode.SEASON_RANK);
-						}
-						else if(cell instanceof ResultCell && x == 3)
-						{
-							((ResultCell)cell).setMode(settings.getResultMode1());
-						}
-						else if(cell instanceof ResultCell && x == 4)
-						{
-							((ResultCell)cell).setMode(settings.getResultMode2());
-						}
+					if(xPos <= width && xPos + colSize[x] >= 0)
+					{
+						Cell cell = cells[x][y];
 						
-						if(cell instanceof FantasyResultCell)
-						{
-							if(y == 0)
-								((FantasyResultCell)cell).setMode(settings.getFantasyMode1());
-							else if(y == 1)
-								((FantasyResultCell)cell).setMode(settings.getFantasyMode2());
-						}
-						
-						BufferedImage img = cell.getImage();
-						
-						/*if(y % 2 == 1)
-							cell.setBackground(rowAltColor);
-						else
-							cell.setBackground(Color.BLACK);*/
-	
-						if(cell.isUpdated())
-						{
-							Graphics2D g2 = (Graphics2D)img.getGraphics();
-							/*if(y % 2 == 1)
-								g2.setBackground(rowAltColor);
-							else
-								g2.setBackground(Color.BLACK);*/
-							g2.clearRect(0, 0, cell.getWidth(), cell.getHeight());
+						if(cell != null)
+						{		
+							if(cell instanceof ResultCell && x == 2)
+							{
+								((ResultCell)cell).setMode(ResultCell.Mode.SEASON_RANK);
+							}
+							else if(cell instanceof ResultCell && x == 3)
+							{
+								((ResultCell)cell).setMode(settings.getResultMode1());
+							}
+							else if(cell instanceof ResultCell && x == 4)
+							{
+								((ResultCell)cell).setMode(settings.getResultMode2());
+							}
 							
-							cell.render(g2);
+							if(cell instanceof FantasyResultCell)
+							{
+								if(y == 0)
+									((FantasyResultCell)cell).setMode(settings.getFantasyMode1());
+								else if(y == 1)
+									((FantasyResultCell)cell).setMode(settings.getFantasyMode2());
+							}
+							
+							BufferedImage img = cell.getImage();
+							
+							/*if(y % 2 == 1)
+								cell.setBackground(rowAltColor);
+							else
+								cell.setBackground(Color.BLACK);*/
+		
+							if(cell.isUpdated())
+							{
+								Graphics2D g2 = (Graphics2D)img.getGraphics();
+								/*if(y % 2 == 1)
+									g2.setBackground(rowAltColor);
+								else
+									g2.setBackground(Color.BLACK);*/
+								g2.clearRect(0, 0, cell.getWidth(), cell.getHeight());
+								
+								cell.render(g2);
+							}
+							
+							g.drawImage((Image)img, (int)xPos, (int)yPos, null);
+							img = null;
 						}
-
-						int yPos = rowPosition[y];
-						if(rowSwaps != null && rowSwaps[y] != null)
-							yPos = rowSwaps[y].getPosition();
-						
-						yPos += yOffset;
-						
-						g.drawImage((Image)img, (int)xPos, (int)yPos, null);
-						img = null;
 					}
 				}
 			}
