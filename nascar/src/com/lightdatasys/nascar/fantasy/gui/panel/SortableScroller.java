@@ -236,11 +236,11 @@ public class SortableScroller extends LivePanel
 	public void calcDimensions()
 	{
         float colHeaderWeightTotal = 0;
-        //if(showHeader)
-        //{
+        if(showHeader)
+        {
 	        for(int i = 0; i < COL_HEADERS; i++)
 	        	colHeaderWeightTotal += colHeaderWeights[i];
-        //}
+        }
         float rowHeaderWeightTotal = 0;
         for(int i = 0; i < ROW_HEADERS; i++)
         	rowHeaderWeightTotal += rowHeaderWeights[i];
@@ -627,7 +627,7 @@ public class SortableScroller extends LivePanel
 		}
 		
 		int yOffset = rowPosition[0] - rowPosition[posMin - 1];
-		if(showHeader)
+		if(!showHeader)
 		{
 			yOffset -= rowPosition[0];
 		}

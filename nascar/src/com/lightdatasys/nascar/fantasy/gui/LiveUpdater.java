@@ -160,7 +160,7 @@ public class LiveUpdater//extends AppWindow
 			windows.add(window);
 			
 			if(i % 2 == 0)
-				window.setPanel(new SortableScroller(window, 1, 13, true));
+				window.setPanel(new SortableScroller(window, 1, 12, true));
 			else if(i % 2 == 1)
 				window.setPanel(new SortableScroller(window, 13, 43, false));
 			
