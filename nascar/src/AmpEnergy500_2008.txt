@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Amp Energy 500
+track:	Talladega Superspeedway
+location:	Talladega, AL
+length: 	500
+laps: 	188
+track_length: 	2.6600000858306885
+scale: 	0.617
+x_offset: 	14
+y_offset: 	11
+tv_network: 	ABC
+track_image_file: 	talladega.gif
+</RACE>
+<PARTICIPANTS>
+28	Kvapil	Ford	1	Travis	Kvapil	2747
+5	Mears	Chevrolet	2	Casey	Mears	2730
+8	Almirola	Chevrolet	3	Aric	Almirola	780
+01	Smith	Chevrolet	4	Regan	Smith	2143
+15	Menard	Chevrolet	5	Paul	Menard	2484
+33	M. Wallace	Chevrolet	6	Mike	Wallace	0
+78	Nemechek	Chevrolet	7	Joe	Nemechek	1627
+70	Raines	Chevrolet	8	Tony	Raines	507
+83	Vickers	Toyota	9	Brian	Vickers	3105
+1	Truex Jr.	Chevrolet	10	Martin	Truex Jr.	3106
+66	Riggs	Chevrolet	11	Scott	Riggs	2143
+99	Edwards	Ford	12	Carl	Edwards	5565
+42	Montoya	Dodge	13	Juan Pablo	Montoya	2748
+00	K. Wallace	Toyota	14	Kenny	Wallace	34
+88	Earnhardt Jr.	Chevrolet	15	Dale	Earnhardt Jr.	5385
+6	Ragan	Ford	16	David	Ragan	3369
+31	J. Burton	Chevrolet	17	Jeff	Burton	5454
+09	Marlin	Chevrolet	18	Sterling	Marlin	302
+44	Reutimann	Toyota	19	David	Reutimann	2768
+48	Johnson	Chevrolet	20	Jimmie	Johnson	5575
+84	Skinner	Toyota	21	Mike	Skinner	618
+16	Biffle	Ford	22	Greg	Biffle	5545
+45	T. Labonte	Dodge	23	Terry	Labonte	699
+12	Newman	Dodge	24	Ryan	Newman	3147
+55	Waltrip	Toyota	25	Michael	Waltrip	2299
+24	J. Gordon	Chevrolet	26	Jeff	Gordon	5432
+21	Wood	Ford	27	Jon	Wood	119
+26	McMurray	Ford	28	Jamie	McMurray	2877
+22	Blaney	Toyota	29	Dave	Blaney	2259
+41	Sorenson	Dodge	30	Reed	Sorenson	2277
+17	Kenseth	Ford	31	Matt	Kenseth	5383
+43	B. Labonte	Dodge	32	Bobby	Labonte	2833
+2	Kurt Busch	Dodge	33	Kurt	Busch	2906
+20	Stewart	Toyota	34	Tony	Stewart	5320
+07	Bowyer	Chevrolet	35	Clint	Bowyer	5411
+11	Hamlin	Toyota	36	Denny	Hamlin	5332
+18	Kyle Busch	Toyota	37	Kyle	Busch	5264
+9	Kahne	Dodge	38	Kasey	Kahne	3362
+29	Harvick	Chevrolet	39	Kevin	Harvick	5439
+19	E. Sadler	Dodge	40	Elliott	Sadler	2784
+38	Gilliland	Ford	41	David	Gilliland	2607
+7	R. Gordon	Dodge	42	Robby	Gordon	2182
+96	Schrader	Toyota	43	Ken	Schrader	584
+</PARTICIPANTS>
