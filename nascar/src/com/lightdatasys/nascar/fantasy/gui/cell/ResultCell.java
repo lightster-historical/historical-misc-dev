@@ -94,10 +94,11 @@ public class ResultCell extends Cell
 			{
 				if(result.getLapsDown() != 0)
 				{
-					int diff = Math.abs(result.getLapsDown() -
-							otherResult.getLapsDown());
+					//int diff = Math.abs(result.getLapsDown() -
+					//		otherResult.getLapsDown());
 					
-					return String.format("%d", diff);
+					//return String.format("%d", diff);
+					return String.format("%d", -result.getLapsDown());
 				}
 				else
 				{
