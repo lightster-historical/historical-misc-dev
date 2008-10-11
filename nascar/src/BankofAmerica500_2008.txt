@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Bank of America 500
+track:	Lowes Motor Swy
+location:	Concord, NC
+length: 	501
+laps: 	334
+track_length: 	1.5
+scale: 	0.618
+x_offset: 	14
+y_offset: 	9
+tv_network: 	ABC
+track_image_file: 	lowes.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	5718
+99	Edwards	Ford	2	Carl	Edwards	5646
+16	Biffle	Ford	3	Greg	Biffle	5641
+31	J. Burton	Chevrolet	4	Jeff	Burton	5619
+07	Bowyer	Chevrolet	5	Clint	Bowyer	5566
+29	Harvick	Chevrolet	6	Kevin	Harvick	5547
+20	Stewart	Toyota	7	Tony	Stewart	5515
+24	J. Gordon	Chevrolet	8	Jeff	Gordon	5486
+17	Kenseth	Ford	9	Matt	Kenseth	5473
+88	Earnhardt Jr.	Chevrolet	10	Dale	Earnhardt Jr.	5469
+18	Kyle Busch	Toyota	11	Kyle	Busch	5387
+11	Hamlin	Toyota	12	Denny	Hamlin	5383
+6	Ragan	Ford	13	David	Ragan	3539
+8	Martin	Chevrolet	14	Mark	Martin	2539
+9	Kahne	Dodge	15	Kasey	Kahne	3422
+12	Newman	Dodge	16	Ryan	Newman	3181
+83	Vickers	Toyota	17	Brian	Vickers	3168
+1	Truex Jr.	Chevrolet	18	Martin	Truex Jr.	3151
+2	Kurt Busch	Dodge	19	Kurt	Busch	3011
+43	B. Labonte	Dodge	20	Bobby	Labonte	2983
+26	McMurray	Ford	21	Jamie	McMurray	2949
+19	E. Sadler	Dodge	22	Elliott	Sadler	2923
+5	Mears	Chevrolet	23	Casey	Mears	2856
+42	Montoya	Dodge	24	Juan Pablo	Montoya	2841
+28	Kvapil	Ford	25	Travis	Kvapil	2834
+44	Reutimann	Toyota	26	David	Reutimann	2820
+15	Menard	Chevrolet	27	Paul	Menard	2659
+38	Gilliland	Ford	28	David	Gilliland	2650
+01	Smith	Chevrolet	29	Regan	Smith	2252
+41	Sorenson	Dodge	30	Reed	Sorenson	2376
+55	Waltrip	Toyota	31	Michael	Waltrip	2410
+22	Blaney	Toyota	32	Dave	Blaney	2356
+66	Riggs	Chevrolet	33	Scott	Riggs	2294
+84	Skinner	Toyota	34	Mike	Skinner	688
+7	R. Gordon	Dodge	35	Robby	Gordon	2324
+77	Hornish Jr.	Dodge	36	Sam	Hornish Jr.	2116
+21	Elliott	Ford	37	Bill	Elliott	1012
+00	Allmendinger	Toyota	38	A.J.	Allmendinger	1828
+96	Schrader	Toyota	39	Ken	Schrader	699
+10	M. Wallace	Dodge	40	Mike	Wallace	73
+45	McCumbee	Dodge	41	Chad	McCumbee	149
+78	Nemechek	Chevrolet	42	Joe	Nemechek	1762
+70	Raines	Chevrolet	43	Tony	Raines	568
+</PARTICIPANTS>
