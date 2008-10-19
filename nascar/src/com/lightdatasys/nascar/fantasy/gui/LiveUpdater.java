@@ -17,8 +17,8 @@ import com.lightdatasys.nascar.fantasy.gui.panel.SortableScroller;
 public class LiveUpdater//extends AppWindow
 	implements Runnable
 {
-	private final static String PROPERTY_FILE = "BankofAmerica500_2008.txt.txt";
-	private final static int RACE_ID = 1079;
+	private final static String PROPERTY_FILE = "TUMSQuikPak500_2008.txt";
+	private final static int RACE_ID = 1080;
 	
 	
 	private final static boolean ALLOW_UPDATES = false;

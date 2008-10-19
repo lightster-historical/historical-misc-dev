@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	TUMS QuikPak 500
+track:	Martinsville Speedway
+location:	Martinsville, VA
+length: 	263
+laps: 	500
+track_length: 	0.5260000228881836
+scale: 	0.590
+x_offset: 	21
+y_offset: 	7
+tv_network: 	ABC
+track_image_file: 	martinsville.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	5878
+31	J. Burton	Chevrolet	2	Jeff	Burton	5809
+16	Biffle	Ford	3	Greg	Biffle	5792
+99	Edwards	Ford	4	Carl	Edwards	5710
+07	Bowyer	Chevrolet	5	Clint	Bowyer	5693
+29	Harvick	Chevrolet	6	Kevin	Harvick	5671
+20	Stewart	Toyota	7	Tony	Stewart	5650
+24	J. Gordon	Chevrolet	8	Jeff	Gordon	5633
+18	Kyle Busch	Toyota	9	Kyle	Busch	5552
+88	Earnhardt Jr.	Chevrolet	10	Dale	Earnhardt Jr.	5524
+17	Kenseth	Ford	11	Matt	Kenseth	5518
+11	Hamlin	Toyota	12	Denny	Hamlin	5498
+6	Ragan	Ford	13	David	Ragan	3678
+9	Kahne	Dodge	14	Kasey	Kahne	3592
+8	Almirola	Chevrolet	15	Aric	Almirola	909
+12	Newman	Dodge	16	Ryan	Newman	3286
+83	Vickers	Toyota	17	Brian	Vickers	3282
+1	Truex Jr.	Chevrolet	18	Martin	Truex Jr.	3277
+2	Kurt Busch	Dodge	19	Kurt	Busch	3176
+26	McMurray	Ford	20	Jamie	McMurray	3104
+43	B. Labonte	Dodge	21	Bobby	Labonte	3095
+19	E. Sadler	Dodge	22	Elliott	Sadler	3026
+5	Mears	Chevrolet	23	Casey	Mears	2932
+42	Montoya	Dodge	24	Juan Pablo	Montoya	2902
+28	Kvapil	Ford	25	Travis	Kvapil	2871
+44	Reutimann	Toyota	26	David	Reutimann	2892
+15	Menard	Chevrolet	27	Paul	Menard	2744
+38	Gilliland	Ford	28	David	Gilliland	2738
+41	Sorenson	Dodge	29	Reed	Sorenson	2499
+01	Smith	Chevrolet	30	Regan	Smith	2346
+55	Waltrip	Toyota	31	Michael	Waltrip	2506
+66	Riggs	Chevrolet	32	Scott	Riggs	2400
+22	Blaney	Toyota	33	Dave	Blaney	2438
+7	R. Gordon	Dodge	34	Robby	Gordon	2402
+84	Speed	Toyota	35	Scott	Speed	0
+77	Hornish Jr.	Dodge	36	Sam	Hornish Jr.	2213
+21	Elliott	Ford	37	Bill	Elliott	1091
+00	Bliss	Toyota	38	Mike	Bliss	0
+10	Allmendinger	Dodge	39	A.J.	Allmendinger	1867
+96	Schrader	Toyota	40	Ken	Schrader	748
+45	McCumbee	Dodge	41	Chad	McCumbee	207
+78	Nemechek	Chevrolet	42	Joe	Nemechek	1814
+70	Raines	Chevrolet	43	Tony	Raines	611
+</PARTICIPANTS>
