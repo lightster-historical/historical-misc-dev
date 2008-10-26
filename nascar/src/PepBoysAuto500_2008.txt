@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Pep Boys Auto 500
+track:	Atlanta Motor Speedway
+location:	Hampton, GA
+length: 	500.5
+laps: 	325
+track_length: 	1.54
+scale: 	0.576
+x_offset: 	31
+y_offset: 	15
+tv_network: 	ABC
+track_image_file: 	atlanta.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	6073
+16	Biffle	Ford	2	Greg	Biffle	5924
+31	J. Burton	Chevrolet	3	Jeff	Burton	5921
+99	Edwards	Ford	4	Carl	Edwards	5875
+07	Bowyer	Chevrolet	5	Clint	Bowyer	5831
+29	Harvick	Chevrolet	6	Kevin	Harvick	5817
+24	J. Gordon	Chevrolet	7	Jeff	Gordon	5798
+20	Stewart	Toyota	8	Tony	Stewart	5735
+88	Earnhardt Jr.	Chevrolet	9	Dale	Earnhardt Jr.	5694
+17	Kenseth	Ford	10	Matt	Kenseth	5665
+11	Hamlin	Toyota	11	Denny	Hamlin	5653
+18	Kyle Busch	Toyota	12	Kyle	Busch	5628
+6	Ragan	Ford	13	David	Ragan	3802
+8	Martin	Chevrolet	14	Mark	Martin	2677
+9	Kahne	Dodge	15	Kasey	Kahne	3656
+1	Truex Jr.	Chevrolet	16	Martin	Truex Jr.	3411
+12	Newman	Dodge	17	Ryan	Newman	3380
+83	Vickers	Toyota	18	Brian	Vickers	3262
+2	Kurt Busch	Dodge	19	Kurt	Busch	3231
+26	McMurray	Ford	20	Jamie	McMurray	3158
+43	B. Labonte	Dodge	21	Bobby	Labonte	3147
+5	Mears	Chevrolet	22	Casey	Mears	3082
+19	E. Sadler	Dodge	23	Elliott	Sadler	3066
+42	Montoya	Dodge	24	Juan Pablo	Montoya	3023
+28	Kvapil	Ford	25	Travis	Kvapil	2977
+44	Reutimann	Toyota	26	David	Reutimann	2983
+15	Menard	Chevrolet	27	Paul	Menard	2826
+38	Gilliland	Ford	28	David	Gilliland	2805
+55	Waltrip	Toyota	29	Michael	Waltrip	2615
+41	Sorenson	Dodge	30	Reed	Sorenson	2557
+66	Riggs	Chevrolet	31	Scott	Riggs	2505
+01	Smith	Chevrolet	32	Regan	Smith	2383
+22	Blaney	Toyota	33	Dave	Blaney	2535
+84	Speed	Toyota	34	Scott	Speed	0
+7	R. Gordon	Dodge	35	Robby	Gordon	2445
+77	Hornish Jr.	Dodge	36	Sam	Hornish Jr.	2274
+21	Elliott	Ford	37	Bill	Elliott	1206
+47	Ambrose	Ford	38	Marcos	Ambrose	522
+10	Allmendinger	Dodge	39	A.J.	Allmendinger	1985
+96	Schrader	Toyota	40	Ken	Schrader	827
+45	McCumbee	Dodge	41	Chad	McCumbee	295
+78	Nemechek	Chevrolet	42	Joe	Nemechek	1848
+70	Raines	Chevrolet	43	Tony	Raines	681
+</PARTICIPANTS>

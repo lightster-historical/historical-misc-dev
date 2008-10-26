@@ -312,8 +312,8 @@ public class SortableScroller extends LivePanel
 		
 		Result leaderResult = getRace().getResultByFinish(1);
 		Driver leader = leaderResult.getDriver();
-		bgCell = createCarNoCell(getWidth()-w, getHeight()-h, leaderResult.getCar(), leader.getFontColor(),
-				leader.getBackgroundColor(), leader.getBorderColor());
+		//bgCell = createCarNoCell(getWidth()-w, getHeight()-h, leaderResult.getCar(), leader.getFontColor(),
+		//		leader.getBackgroundColor(), leader.getBorderColor());
 		leaderCar = leaderResult.getCar();
 	}
 
@@ -493,8 +493,8 @@ public class SortableScroller extends LivePanel
 		if(leaderCar != leaderResult.getCar())
 		{
 			Driver leader = leaderResult.getDriver();
-			bgCell = createCarNoCell(getWidth()-colSize[0]-colSize[1]-cellMargin, getHeight()-rowSize[0]-rowSize[1]-cellMargin, leaderResult.getCar(), leader.getFontColor(),
-					leader.getBackgroundColor(), leader.getBorderColor());
+			//bgCell = createCarNoCell(getWidth()-colSize[0]-colSize[1]-cellMargin, getHeight()-rowSize[0]-rowSize[1]-cellMargin, leaderResult.getCar(), leader.getFontColor(),
+			//		leader.getBackgroundColor(), leader.getBorderColor());
 			leaderCar = leaderResult.getCar();
 		}
 
