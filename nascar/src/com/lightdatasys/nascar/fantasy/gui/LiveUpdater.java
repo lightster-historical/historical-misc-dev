@@ -17,11 +17,11 @@ import com.lightdatasys.nascar.fantasy.gui.panel.SortableScroller;
 public class LiveUpdater//extends AppWindow
 	implements Runnable
 {
-	private final static String PROPERTY_FILE = "PepBoysAuto500_2008.txt";
-	private final static int RACE_ID = 1081;
+	private final static String PROPERTY_FILE = "Dickies500_2008.txt";
+	private final static int RACE_ID = 1082;
 	
 	
-	private final static boolean ALLOW_UPDATES = false;
+	private final static boolean ALLOW_UPDATES = true;
 	private final static boolean SHOW_FPS = false;
 	
 	

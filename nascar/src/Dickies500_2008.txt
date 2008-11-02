@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Dickies 500
+track:	Texas Motor Spdwy
+location:	Fort Worth, TX
+length: 	500
+laps: 	334
+track_length: 	1.5
+scale: 	0.576
+x_offset: 	27
+y_offset: 	15
+tv_network: 	ABC
+track_image_file: 	texas.gif
+</RACE>
+<PARTICIPANTS>
+24	J. Gordon	Chevrolet	1	Jeff	Gordon	5936
+1	Truex Jr.	Chevrolet	2	Martin	Truex Jr.	3529
+07	Bowyer	Chevrolet	3	Clint	Bowyer	5934
+26	McMurray	Ford	4	Jamie	McMurray	3304
+88	Earnhardt Jr.	Chevrolet	5	Dale	Earnhardt Jr.	5829
+17	Kenseth	Ford	6	Matt	Kenseth	5835
+48	Johnson	Chevrolet	7	Jimmie	Johnson	6248
+20	Stewart	Toyota	8	Tony	Stewart	5847
+41	Sorenson	Dodge	9	Reed	Sorenson	2603
+66	Riggs	Chevrolet	10	Scott	Riggs	2539
+15	Menard	Chevrolet	11	Paul	Menard	2896
+44	Reutimann	Toyota	12	David	Reutimann	3062
+83	Vickers	Toyota	13	Brian	Vickers	3362
+5	Mears	Chevrolet	14	Casey	Mears	3209
+55	Waltrip	Toyota	15	Michael	Waltrip	2667
+99	Edwards	Ford	16	Carl	Edwards	6065
+11	Hamlin	Toyota	17	Denny	Hamlin	5823
+6	Ragan	Ford	18	David	Ragan	3944
+16	Biffle	Ford	19	Greg	Biffle	6063
+8	Martin	Chevrolet	20	Mark	Martin	2774
+77	Hornish Jr.	Dodge	21	Sam	Hornish Jr.	2365
+7	R. Gordon	Dodge	22	Robby	Gordon	2551
+29	Harvick	Chevrolet	23	Kevin	Harvick	5941
+47	Ambrose	Ford	24	Marcos	Ambrose	598
+01	Smith	Chevrolet	25	Regan	Smith	2456
+42	Montoya	Dodge	26	Juan Pablo	Montoya	3066
+78	Nemechek	Chevrolet	27	Joe	Nemechek	1885
+9	Kahne	Dodge	28	Kasey	Kahne	3720
+18	Kyle Busch	Toyota	29	Kyle	Busch	5783
+19	E. Sadler	Dodge	30	Elliott	Sadler	3154
+12	Newman	Dodge	31	Ryan	Newman	3495
+96	Schrader	Toyota	32	Ken	Schrader	885
+84	Speed	Toyota	33	Scott	Speed	139
+38	Gilliland	Ford	34	David	Gilliland	2887
+43	B. Labonte	Dodge	35	Bobby	Labonte	3232
+10	Allmendinger	Dodge	36	A.J.	Allmendinger	2106
+25	Keselowski	Chevrolet	37	Brad	Keselowski	0
+31	J. Burton	Chevrolet	38	Jeff	Burton	6030
+21	Elliott	Ford	39	Bill	Elliott	1255
+2	Kurt Busch	Dodge	40	Kurt	Busch	3386
+22	Blaney	Toyota	41	Dave	Blaney	2575
+28	Kvapil	Ford	42	Travis	Kvapil	3071
+02	Logano	Toyota	43	Joey	Logano	113
+</PARTICIPANTS>
