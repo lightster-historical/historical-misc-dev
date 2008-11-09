@@ -24,13 +24,13 @@ public class NASCARData
 	{
 		if(conn == null)
 		{
-			return loadSQLConnection();
+			return openSQLConnection();
 		}
 		else
 			return conn;
 	}
 	
-	public static Connection loadSQLConnection()
+	protected static Connection openSQLConnection()
 	{
         try 
         {

@@ -17,8 +17,8 @@ import com.lightdatasys.nascar.fantasy.gui.panel.SortableScroller;
 public class LiveUpdater//extends AppWindow
 	implements Runnable
 {
-	private final static String PROPERTY_FILE = "Dickies500_2008.txt";
-	private final static int RACE_ID = 1082;
+	private final static String PROPERTY_FILE = "CheckerOReillyAutoParts500_2008.txt";
+	private final static int RACE_ID = 1083;
 	
 	
 	private final static boolean ALLOW_UPDATES = true;

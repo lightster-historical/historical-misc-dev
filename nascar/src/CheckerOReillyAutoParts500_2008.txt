@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Checker O'Reilly Auto Parts 500
+track:	Phoenix Int'l Raceway
+location:	Phoenix, AZ
+length: 	312
+laps: 	312
+track_length: 	1.0
+scale: 	0.598
+x_offset: 	23
+y_offset: 	9
+tv_network: 	ABC
+track_image_file: 	phoenix.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	6366
+26	McMurray	Ford	2	Jamie	McMurray	3474
+2	Kurt Busch	Dodge	3	Kurt	Busch	3426
+44	Reutimann	Toyota	4	David	Reutimann	3201
+88	Earnhardt Jr.	Chevrolet	5	Dale	Earnhardt Jr.	5937
+12	Newman	Dodge	6	Ryan	Newman	3574
+24	J. Gordon	Chevrolet	7	Jeff	Gordon	6111
+11	Hamlin	Toyota	8	Denny	Hamlin	5935
+15	Menard	Chevrolet	9	Paul	Menard	2993
+8	Martin	Chevrolet	10	Mark	Martin	2901
+9	Kahne	Dodge	11	Kasey	Kahne	3811
+41	Sorenson	Dodge	12	Reed	Sorenson	2655
+10	Allmendinger	Dodge	13	A.J.	Allmendinger	2191
+18	Kyle Busch	Toyota	14	Kyle	Busch	5938
+99	Edwards	Ford	15	Carl	Edwards	6260
+5	Mears	Chevrolet	16	Casey	Mears	3330
+66	Riggs	Chevrolet	17	Scott	Riggs	2627
+47	Ambrose	Toyota	18	Marcos	Ambrose	698
+29	Harvick	Chevrolet	19	Kevin	Harvick	6087
+1	Truex Jr.	Chevrolet	20	Martin	Truex Jr.	3671
+01	Smith	Chevrolet	21	Regan	Smith	2517
+19	E. Sadler	Dodge	22	Elliott	Sadler	3212
+22	Blaney	Toyota	23	Dave	Blaney	2651
+31	J. Burton	Chevrolet	24	Jeff	Burton	6154
+55	Waltrip	Toyota	25	Michael	Waltrip	2749
+42	Montoya	Dodge	26	Juan Pablo	Montoya	3100
+7	R. Gordon	Dodge	27	Robby	Gordon	2606
+07	Bowyer	Chevrolet	28	Clint	Bowyer	6099
+20	Stewart	Toyota	29	Tony	Stewart	5962
+6	Ragan	Ford	30	David	Ragan	4074
+16	Biffle	Ford	31	Greg	Biffle	6223
+96	Schrader	Toyota	32	Ken	Schrader	958
+77	Hornish Jr.	Dodge	33	Sam	Hornish Jr.	2459
+17	Kenseth	Ford	34	Matt	Kenseth	5973
+45	Petty	Dodge	35	Kyle	Petty	833
+83	Vickers	Toyota	36	Brian	Vickers	3476
+09	Marlin	Chevrolet	37	Sterling	Marlin	339
+84	Speed	Toyota	38	Scott	Speed	203
+21	Elliott	Ford	39	Bill	Elliott	1325
+28	Kvapil	Ford	40	Travis	Kvapil	3138
+43	B. Labonte	Dodge	41	Bobby	Labonte	3278
+38	Gilliland	Ford	42	David	Gilliland	2924
+70	J. Sauter	Chevrolet	43	Johnny	Sauter	335
+</PARTICIPANTS>
