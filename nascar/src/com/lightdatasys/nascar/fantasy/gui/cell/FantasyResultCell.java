@@ -51,11 +51,12 @@ public class FantasyResultCell extends Cell
 		if(mode == Mode.SEASON_POINTS)
 		{
 			FantasyPlayer leader = result.getRace().getFantasyStandingsLeader();
+			FantasyResult leaderResult = result.getRace().getFantasyResultByPlayer(leader);
 			
-			if(result.getPlayer().equals(leader))
+			if(result.getSeasonPoints() == leaderResult.getSeasonPoints())
 				return String.format("%s", result.getSeasonPoints());
 			else
-				return String.format("%s", result.getSeasonPoints() - result.getRace().getFantasyResultByPlayer(leader).getSeasonPoints());
+				return String.format("%s", result.getSeasonPoints() - leaderResult.getSeasonPoints());
 		}
 		else if(mode == Mode.RACE_POINTS)
 		{
