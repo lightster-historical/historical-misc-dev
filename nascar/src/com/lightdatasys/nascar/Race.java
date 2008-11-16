@@ -282,6 +282,22 @@ public class Race
 		return standingsByPlayer;
 	}
 	
+	public FantasyPlayer getFantasyStandingsLeader()
+	{
+		int max = 0;
+		FantasyPlayer leader = null;
+		for(FantasyStanding s : getFantasyStandings().values())
+		{
+			if(s.points > max)
+			{
+				max = s.points;
+				leader = s.player;
+			}
+		}
+		
+		return leader;
+	}
+	
 
 	public void setChaseRace(boolean chaseRace)
 	{

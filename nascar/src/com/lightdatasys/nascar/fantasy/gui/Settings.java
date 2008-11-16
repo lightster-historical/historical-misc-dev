@@ -28,7 +28,7 @@ public class Settings
 
 		resultMode1 = ResultCell.Mode.LOCAL_POINTS_DIFF;
 		resultMode2 = ResultCell.Mode.LOCAL_INTERVAL;
-		fantasyMode1 = FantasyResultCell.Mode.POSITION;
+		fantasyMode1 = FantasyResultCell.Mode.SEASON_POINTS;
 		fantasyMode2 = FantasyResultCell.Mode.LEADER_DRIVER_DIFF;
 	}
 	

@@ -9,6 +9,7 @@ import java.awt.GraphicsDevice;
 import java.awt.Toolkit;
 
 import com.lightdatasys.gui.FontUtility;
+import com.lightdatasys.nascar.fantasy.FantasyPlayer;
 import com.lightdatasys.nascar.fantasy.FantasyResult;
 
 public class FantasyResultCell extends Cell 
@@ -49,7 +50,12 @@ public class FantasyResultCell extends Cell
 	{
 		if(mode == Mode.SEASON_POINTS)
 		{
-			return String.format("%s", result.getSeasonPoints());
+			FantasyPlayer leader = result.getRace().getFantasyStandingsLeader();
+			
+			if(result.getPlayer().equals(leader))
+				return String.format("%s", result.getSeasonPoints());
+			else
+				return String.format("%s", result.getSeasonPoints() - result.getRace().getFantasyResultByPlayer(leader).getSeasonPoints());
 		}
 		else if(mode == Mode.RACE_POINTS)
 		{

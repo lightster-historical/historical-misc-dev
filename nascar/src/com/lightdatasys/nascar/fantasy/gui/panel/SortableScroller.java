@@ -395,6 +395,7 @@ public class SortableScroller extends LivePanel
 				
 				FantasyResultCell playerResult1Cell = createFantasyResultCell(w, (int)(hHeader * colHeaderWeights[0]), result, Color.WHITE,
 						player.getBackgroundColor(), Color.WHITE);
+				playerResult1Cell.setMode(FantasyResultCell.Mode.SEASON_POINTS);
 				playerResult1Cells.put(player.getPlayerId(), playerResult1Cell);
 				
 				FantasyResultCell playerResult2Cell = createFantasyResultCell(w, (int)(hHeader * colHeaderWeights[1]), result, Color.WHITE,
