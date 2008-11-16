@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Ford 400
+track:	Homestead-Miami
+location:	Homestead, FL
+length: 	400
+laps: 	267
+track_length: 	1.5
+scale: 	0.648
+x_offset: 	5
+y_offset: 	1
+tv_network: 	ABC
+track_image_file: 	homestead.gif
+</RACE>
+<PARTICIPANTS>
+44	Reutimann	Toyota	1	David	Reutimann	3289
+83	Speed	Toyota	2	Scott	Speed	251
+17	Kenseth	Ford	3	Matt	Kenseth	6091
+99	Edwards	Ford	4	Carl	Edwards	6420
+29	Harvick	Chevrolet	5	Kevin	Harvick	6233
+6	Ragan	Ford	6	David	Ragan	4208
+26	McMurray	Ford	7	Jamie	McMurray	3644
+18	Kyle Busch	Toyota	8	Kyle	Busch	6080
+41	Sorenson	Dodge	9	Reed	Sorenson	2725
+1	Truex Jr.	Chevrolet	10	Martin	Truex Jr.	3705
+42	Montoya	Dodge	11	Juan Pablo	Montoya	3212
+5	Mears	Chevrolet	12	Casey	Mears	3385
+20	Stewart	Toyota	13	Tony	Stewart	6059
+7	R. Gordon	Dodge	14	Robby	Gordon	2685
+21	Elliott	Ford	15	Bill	Elliott	1401
+78	Nemechek	Chevrolet	16	Joe	Nemechek	1934
+31	J. Burton	Chevrolet	17	Jeff	Burton	6292
+9	Kahne	Dodge	18	Kasey	Kahne	3935
+28	Kvapil	Ford	19	Travis	Kvapil	3238
+84	Vickers	Toyota	20	Brian	Vickers	3513
+09	Marlin	Chevrolet	21	Sterling	Marlin	406
+88	Earnhardt Jr.	Chevrolet	22	Dale	Earnhardt Jr.	6087
+16	Biffle	Ford	23	Greg	Biffle	6358
+19	E. Sadler	Dodge	24	Elliott	Sadler	3285
+11	Hamlin	Toyota	25	Denny	Hamlin	6090
+01	Smith	Chevrolet	26	Regan	Smith	2611
+07	Bowyer	Chevrolet	27	Clint	Bowyer	6226
+45	McCumbee	Dodge	28	Chad	McCumbee	350
+12	Newman	Dodge	29	Ryan	Newman	3635
+48	Johnson	Chevrolet	30	Jimmie	Johnson	6561
+25	Keselowski	Chevrolet	31	Brad	Keselowski	106
+70	Raines	Chevrolet	32	Tony	Raines	748
+22	Blaney	Toyota	33	Dave	Blaney	2754
+38	Gilliland	Ford	34	David	Gilliland	2982
+43	B. Labonte	Dodge	35	Bobby	Labonte	3384
+15	Menard	Chevrolet	36	Paul	Menard	3078
+24	J. Gordon	Chevrolet	37	Jeff	Gordon	6151
+2	Kurt Busch	Dodge	38	Kurt	Busch	3601
+66	Riggs	Chevrolet	39	Scott	Riggs	2676
+8	Almirola	Chevrolet	40	Aric	Almirola	1017
+47	Ambrose	Toyota	41	Marcos	Ambrose	807
+55	Waltrip	Toyota	42	Michael	Waltrip	2840
+10	Allmendinger	Dodge	43	A.J.	Allmendinger	2306
+</PARTICIPANTS>
