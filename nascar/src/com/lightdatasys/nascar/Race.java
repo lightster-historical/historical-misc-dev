@@ -289,7 +289,7 @@ public class Race
 		for(FantasyStanding s : getFantasyStandings().values())
 		{
 			FantasyResult fResult = getFantasyResultByPlayer(s.player);
-			if(fResult.getSeasonPoints() > max)
+			if(fResult != null && fResult.getSeasonPoints() > max)
 			{
 				max = fResult.getSeasonPoints();
 				leader = s.player;

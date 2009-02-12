@@ -1,0 +1,47 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Budweiser Shootout
+track:	Daytona Int'l Speedway
+location:	Daytona Beach, FL
+length: 	187.5
+laps: 	75
+track_length: 	2.5
+scale: 	0.637
+x_offset: 	9
+y_offset: 	6
+tv_network: 	FOX
+track_image_file: 	daytona.gif
+</RACE>
+<PARTICIPANTS>
+98	Menard	Ford	1	Paul	Menard	0
+19	E. Sadler	Dodge	2	Elliott	Sadler	0
+43	Sorenson	Dodge	3	Reed	Sorenson	0
+82	Speed	Toyota	4	Scott	Speed	0
+11	Hamlin	Toyota	5	Denny	Hamlin	0
+14	Stewart	Chevrolet	6	Tony	Stewart	0
+83	Vickers	Toyota	7	Brian	Vickers	0
+96	B. Labonte	Ford	8	Bobby	Labonte	0
+88	Earnhardt Jr.	Chevrolet	9	Dale	Earnhardt Jr.	0
+18	Kyle Busch	Toyota	10	Kyle	Busch	0
+99	Edwards	Ford	11	Carl	Edwards	0
+2	Kurt Busch	Dodge	12	Kurt	Busch	0
+7	R. Gordon	Dodge	13	Robby	Gordon	0
+9	Kahne	Dodge	14	Kasey	Kahne	0
+26	McMurray	Ford	15	Jamie	McMurray	0
+6	Ragan	Ford	16	David	Ragan	0
+55	Waltrip	Toyota	17	Michael	Waltrip	0
+44	Allmendinger	Toyota	18	A.J.	Allmendinger	0
+20	Logano	Toyota	19	Joey	Logano	0
+12	Stremme	Dodge	20	David	Stremme	0
+48	Johnson	Chevrolet	21	Jimmie	Johnson	0
+00	Reutimann	Toyota	22	David	Reutimann	0
+31	J. Burton	Chevrolet	23	Jeff	Burton	0
+07	Mears	Chevrolet	24	Casey	Mears	0
+17	Kenseth	Ford	25	Matt	Kenseth	0
+16	Biffle	Ford	26	Greg	Biffle	0
+29	Harvick	Chevrolet	27	Kevin	Harvick	0
+24	J. Gordon	Chevrolet	28	Jeff	Gordon	0
+</PARTICIPANTS>

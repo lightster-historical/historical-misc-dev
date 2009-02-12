@@ -17,8 +17,8 @@ import com.lightdatasys.nascar.fantasy.gui.panel.SortableScroller;
 public class LiveUpdater//extends AppWindow
 	implements Runnable
 {
-	private final static String PROPERTY_FILE = "Ford400_2008.txt";
-	private final static int RACE_ID = 1084;
+	private final static String PROPERTY_FILE = "GatoradeDuel1_2009.txt";
+	private final static int RACE_ID = 1086;
 	
 	
 	private final static boolean ALLOW_UPDATES = true;
@@ -129,7 +129,7 @@ public class LiveUpdater//extends AppWindow
 		
 		settings = new Settings();
 		Thread test = new Thread(new SettingsServer(settings));
-		test.start();
+		//test.start();
 		System.out.println("settings thread created");
         
         cellMargin = 2;

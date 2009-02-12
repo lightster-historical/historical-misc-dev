@@ -1,3 +1,5 @@
+//http://www.nfl.com/liveupdate/scores/scoresPage.json
+
 package com.lightdatasys.nascar.fantasy.gui.panel;
 
 import java.awt.Color;
@@ -31,8 +33,8 @@ import com.lightdatasys.nascar.fantasy.gui.cell.ResultCell.Mode;
 
 public class SortableScroller extends LivePanel
 {
-	public final static int COLUMNS = 11;
-	public final static int ROWS = 43;
+	public final static int COLUMNS = 5;
+	public final static int ROWS = 28;
 	
 	public final static int DRIVER_RESULT_CELLS = 4;
 	
