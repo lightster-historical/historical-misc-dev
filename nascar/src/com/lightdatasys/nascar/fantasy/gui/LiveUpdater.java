@@ -17,8 +17,8 @@ import com.lightdatasys.nascar.fantasy.gui.panel.SortableScroller;
 public class LiveUpdater//extends AppWindow
 	implements Runnable
 {
-	private final static String PROPERTY_FILE = "GatoradeDuel1_2009.txt";
-	private final static int RACE_ID = 1086;
+	private final static String PROPERTY_FILE = "GatoradeDuel2_2009.txt";
+	private final static int RACE_ID = 1087;
 	
 	
 	private final static boolean ALLOW_UPDATES = true;
@@ -355,7 +355,15 @@ public class LiveUpdater//extends AppWindow
 			            g.dispose();
 					}
 		            bufferStrategy.show();*/
-	        		render();
+	        		try
+	        		{
+	        			render();
+	        		}
+	        		catch(Exception ex)
+	        		{
+	        			System.out.println("Error in render loop");
+	        			ex.printStackTrace();
+	        		}
 		         
 		            lastRenderTime = System.currentTimeMillis();
 	        	}
@@ -363,7 +371,15 @@ public class LiveUpdater//extends AppWindow
 				long updateDiff = (getLastUpdateDelta());
 				if(updateDiff >= updateInterval)
 				{
-					update();
+	        		try
+	        		{
+						update();
+	        		}
+	        		catch(Exception ex)
+	        		{
+	        			System.out.println("Error in update loop");
+	        			ex.printStackTrace();
+	        		}
 
 		            lastUpdateTime = System.currentTimeMillis();
 				}

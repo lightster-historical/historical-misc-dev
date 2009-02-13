@@ -146,10 +146,18 @@ public class ResultCell extends Cell
 		}
 		else if(mode == Mode.LOCAL_POINTS_DIFF)
 		{
+			if(result == null)
+				System.out.println("result is null");
+			
 			if(result.getRace().isChaseRace())
 			{
 				Result leaderResult = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(1));
 				Result rank13Result = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(13));
+
+				if(leaderResult == null)
+					System.out.println("leaderResult is null");
+				if(rank13Result == null)
+					System.out.println("rank13Result is null");
 				
 				if(result.getSeasonRank() <= 12)
 				{
@@ -164,6 +172,11 @@ public class ResultCell extends Cell
 			{
 				Result rank12Result = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(12));
 				Result rank13Result = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(13));
+
+				if(rank12Result == null)
+					System.out.println("rank12Result is null, driver12 is " + result.getRace().getDriverByRank().get(12));
+				if(rank13Result == null)
+					System.out.println("rank13Result is null, driver13 is " + result.getRace().getDriverByRank().get(13));
 				
 				if(result.getSeasonRank() <= 12)
 				{

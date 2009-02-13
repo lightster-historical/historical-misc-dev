@@ -1,0 +1,47 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Gatorade Duel 2
+track:	Daytona Int'l Speedway
+location:	Daytona Beach, FL
+length: 	150
+laps: 	60
+track_length: 	2.5
+scale: 	0.637
+x_offset: 	9
+y_offset: 	6
+tv_network: 	SPEED
+track_image_file: 	daytona.gif
+</RACE>
+<PARTICIPANTS>
+5	Martin	Chevrolet	1	Mark	Martin	0
+39	Newman	Chevrolet	2	Ryan	Newman	0
+42	Montoya	Chevrolet	3	Juan Pablo	Montoya	0
+28	Kvapil	Ford	4	Travis	Kvapil	0
+96	B. Labonte	Ford	5	Bobby	Labonte	0
+88	Earnhardt Jr.	Chevrolet	6	Dale	Earnhardt Jr.	0
+78	Smith	Chevrolet	7	Regan	Smith	0
+18	Kyle Busch	Toyota	8	Kyle	Busch	0
+82	Speed	Toyota	9	Scott	Speed	0
+00	Reutimann	Toyota	10	David	Reutimann	0
+08	Said	Ford	11	Boris	Said	0
+33	Bowyer	Chevrolet	12	Clint	Bowyer	0
+11	Hamlin	Toyota	13	Denny	Hamlin	0
+99	Edwards	Ford	14	Carl	Edwards	0
+43	Sorenson	Dodge	15	Reed	Sorenson	0
+19	E. Sadler	Dodge	16	Elliott	Sadler	0
+31	J. Burton	Chevrolet	17	Jeff	Burton	0
+83	Vickers	Toyota	18	Brian	Vickers	0
+44	Allmendinger	Dodge	19	A.J.	Allmendinger	0
+12	Stremme	Dodge	20	David	Stremme	0
+41	Mayfield	Toyota	21	Jeremy	Mayfield	0
+71	M. Wallace	Chevrolet	22	Mike	Wallace	0
+73	Garvey	Dodge	23	Mike	Garvey	0
+29	Harvick	Chevrolet	24	Kevin	Harvick	0
+75	Cope	Dodge	25	Derrike	Cope	0
+51	Bires	Dodge	26	Kelly	Bires	0
+64	G. Bodine	Toyota	27	Geoffrey	Bodine	0
+57	Benning	Chevrolet	28	Norm	Benning	0
+</PARTICIPANTS>
