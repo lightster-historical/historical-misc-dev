@@ -333,4 +333,10 @@ public class ResultCell extends Cell
 		
 		updated = false;
 	}
+	
+	public void setBackground(Color background)
+	{
+		super.setBackground(background);
+		updated = true;
+	}
 }

@@ -159,7 +159,7 @@ public class FantasyPlayer
 			    "GROUP BY r.raceId, fp.userId " +
 			    "ORDER BY points DESC",*/
 				String.format(
-				"SELECT raceId FROM nascarRace WHERE seasonId=%1$d AND date<\'%2$tY-%2$tm-%2$td\' ORDER BY date ASC",
+				"SELECT raceId FROM nascarRace WHERE seasonId=%1$d AND date<\'%2$tY-%2$tm-%2$td\' AND forPoints=1 ORDER BY date ASC",
 				race.getSeason().getId(), race.getDate());
 			sStandings.execute(sqlStandings);
 			

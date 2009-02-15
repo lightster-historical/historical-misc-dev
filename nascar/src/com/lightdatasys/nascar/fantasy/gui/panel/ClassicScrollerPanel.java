@@ -180,12 +180,16 @@ public class ClassicScrollerPanel extends LivePanel
 					if(x == 0 || x == 1)
 					{
 						FantasyResult result = fantasyResults.get(y - 1);
-						FantasyPlayer player = result.getPlayer();
-						/*FantasyResultCell cell = new FantasyResultCell(colSize[x], rowSize[y], result, Color.WHITE,
-								player.getBackgroundColor(), Color.WHITE);
-								*/
-						//cell.setMode(FantasyResultCell.Mode.POSITION);
-						cells[x][y] = playerResult1Cells.get(player.getPlayerId());
+						
+						if(result != null)
+						{
+							FantasyPlayer player = result.getPlayer();
+							/*FantasyResultCell cell = new FantasyResultCell(colSize[x], rowSize[y], result, Color.WHITE,
+									player.getBackgroundColor(), Color.WHITE);
+									*/
+							//cell.setMode(FantasyResultCell.Mode.POSITION);
+							cells[x][y] = playerResult1Cells.get(player.getPlayerId());
+						}
 					}
 					else if(x == 45)
 					{
@@ -194,10 +198,13 @@ public class ClassicScrollerPanel extends LivePanel
 						else
 						{
 							FantasyResult result = fantasyResults.get(y - 1);
-							FantasyResultCell cell = createFantasyResultCell(colSize[x], rowSize[y], result,
-								Color.WHITE, Color.BLACK, Color.WHITE);
-							cell.setMode(FantasyResultCell.Mode.POSITION_CHANGE);
-							cells[x][y] = cell;
+							if(result != null)
+							{
+								FantasyResultCell cell = createFantasyResultCell(colSize[x], rowSize[y], result,
+									Color.WHITE, Color.BLACK, Color.WHITE);
+								cell.setMode(FantasyResultCell.Mode.POSITION_CHANGE);
+								cells[x][y] = cell;
+							}
 						}
 					}
 					else if(y == 0)
@@ -231,7 +238,7 @@ public class ClassicScrollerPanel extends LivePanel
 						{
 							FantasyResult fantasyResult = fantasyResults.get(y - 1);
 							
-							if(fantasyResult.getPicks().contains(result.getCar()))
+							if(fantasyResult != null && fantasyResult.getPicks().contains(result.getCar()))
 							{
 								FantasyPlayer player = fantasyResult.getPlayer();
 

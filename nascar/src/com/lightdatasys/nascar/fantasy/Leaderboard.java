@@ -45,7 +45,7 @@ import com.sportvision.utils.PropertiesParser;
 //         CardPanel
 
 public class Leaderboard extends JPanel
- implements ControlMessageListener, RaceStatusListener, TickerListener//, RacecastListener
+	implements ControlMessageListener, RaceStatusListener, TickerListener//, RacecastListener
 {
 	private static LiveUpdater window;
 	private static Leaderboard leaderboard;
@@ -92,14 +92,8 @@ public class Leaderboard extends JPanel
      propParser = null;
      drivers = null;
      race = null;
-     //flagState = 0;
      header = null;
-    /* leaderboardPanel = null;
-     trackTopTenPanel = null;
-     viewersChoicePanel = null;
-     dualDashboardPanel = null;*/
      chasePanel = null;
-     //selected = 1;
      bufferSize = 6000;
      shoutcastSID = "42";
      dataTimeoutValue = 20000;
@@ -373,29 +367,16 @@ public class Leaderboard extends JPanel
      //messageParser.addRacecastDiagnosticsListener(viewersChoicePanel.trackPanel);
      messageParser.addTickerListener(this);
      header.reinit(race, drivers);
-     /*leaderboardPanel.reinit(drivers);
-     trackTopTenPanel.reinit(race, drivers);
-     viewersChoicePanel.reinit(race, drivers);
-     dualDashboardPanel.reinit(race, drivers);*/
      if(useChaseTab)
          chasePanel.reinit(race, drivers);
      restartCommunications();
  }
 
 
- //public static final int WIDTH = 790;
- //public static final int HEIGHT = 490;
- //public static final String VERSION = "Build Version 2.5.14 09/14/2007";
- //public static final String DEFAULT_SHOUTCAST_HOST = "ultravox.nascar.com";
- //private static final String PROPERTY_FILE_PATH = "Sportvision/Racecast/Assets/Config/";
- //private static final String DEFAULT_CC_HOST = "localhost";
- //private static final int HEARTBEAT_WAIT = 20000;
  public String propertyFileLocation;
  private String host;
- //private String shoutcastHost;
  private String alternateShoutcastHost;
  private String portList;
- //private boolean hilite;
  private String trackFile;
  private CCSocket ccSocket;
  private ShoutcastSocketv2 shoutcastSocket;

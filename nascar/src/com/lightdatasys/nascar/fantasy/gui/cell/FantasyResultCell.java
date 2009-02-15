@@ -132,16 +132,6 @@ public class FantasyResultCell extends Cell
 
         g.setFont(font);
         
-		// border
-		//g.setColor(border);
-		g.setPaint(new GradientPaint(getWidth()/2, 0,
-                Color.BLACK,
-                getWidth()/2,
-                getHeight()*3.0f/4,
-                border));
-		if(mode != Mode.POSITION)
-			g.fillRect(0, 0, getWidth(), getHeight());
-
 		Color bg = background;
 		if(mode == Mode.POSITION_CHANGE)
 		{
@@ -152,14 +142,26 @@ public class FantasyResultCell extends Cell
 			else
 				bg = Color.RED;
 		}
-		if(mode == Mode.POSITION)
-			g.setColor(Color.BLACK);
-		else
-			g.setPaint(new GradientPaint(getWidth()/2, 0,
-                Color.BLACK,
+        
+		// border
+		//g.setColor(border);
+		/*g.setPaint(new GradientPaint(getWidth()/2, getHeight()*.8f,
+                border,
                 getWidth()/2,
-                getHeight()*3.0f/4,
-                bg));
+                getHeight(),
+                bg.darker().darker().darker()));*/
+		g.setColor(border);
+		if(mode != Mode.POSITION)
+			g.fillRect(0, 0, getWidth(), getHeight());
+
+		//if(mode == Mode.POSITION)
+		//	g.setColor(Color.BLACK);
+		//else
+			g.setPaint(new GradientPaint(getWidth()/2, getHeight()*.8f,
+				bg,
+                getWidth()/2,
+                getHeight(),
+                bg.darker().darker().darker()));
 		g.fillRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth);
 
 		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));

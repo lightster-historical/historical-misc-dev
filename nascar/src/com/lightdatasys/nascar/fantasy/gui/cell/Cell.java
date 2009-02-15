@@ -3,6 +3,7 @@ package com.lightdatasys.nascar.fantasy.gui.cell;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 public class Cell 
@@ -83,5 +84,19 @@ public class Cell
 	public Color getBackground()
 	{
 		return background;
+	}
+	
+
+	public void renderTo(Graphics2D g, int x, int y)
+	{
+		if(isUpdated())
+		{
+			Graphics2D g2 = (Graphics2D)image.getGraphics();
+			g2.clearRect(0, 0, getWidth(), getHeight());
+			render(g2);
+			g2 = null;
+		}
+		
+		g.drawImage((Image)image, x, y, null);
 	}
 }

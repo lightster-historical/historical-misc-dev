@@ -10,9 +10,7 @@ import com.lightdatasys.nascar.Result;
 import com.lightdatasys.nascar.event.PositionChangeEvent;
 import com.lightdatasys.nascar.fantasy.FantasyResult;
 import com.lightdatasys.nascar.fantasy.Leaderboard;
-import com.lightdatasys.nascar.fantasy.gui.panel.ClassicScrollerPanel;
-import com.lightdatasys.nascar.fantasy.gui.panel.LivePanel;
-import com.lightdatasys.nascar.fantasy.gui.panel.SortableScroller;
+import com.lightdatasys.nascar.fantasy.gui.panel.SortableTable;
 
 public class LiveUpdater//extends AppWindow
 	implements Runnable
@@ -21,7 +19,7 @@ public class LiveUpdater//extends AppWindow
 	private final static int RACE_ID = 1087;
 	
 	
-	private final static boolean ALLOW_UPDATES = true;
+	private final static boolean ALLOW_UPDATES = false;
 	private final static boolean SHOW_FPS = false;
 	
 	
@@ -160,9 +158,9 @@ public class LiveUpdater//extends AppWindow
 			windows.add(window);
 			
 			if(i % 2 == 0)
-				window.setPanel(new SortableScroller(window, 1, 12, true));
+				window.setPanel(new SortableTable(window, 1, 12, true));
 			else if(i % 2 == 1)
-				window.setPanel(new SortableScroller(window, 13, 43, false));
+				window.setPanel(new SortableTable(window, 13, 43, false));
 			
 			i++;
 		}
@@ -331,7 +329,8 @@ public class LiveUpdater//extends AppWindow
 				long renderDiff = (getLastRenderDelta());
 	        	if(renderDiff >= renderInterval)
 	        	{
-					/*Graphics2D g = null;
+					/*
+	        		Graphics2D g = null;
 					try
 					{
 						g = (Graphics2D)bufferStrategy.getDrawGraphics();
@@ -354,7 +353,8 @@ public class LiveUpdater//extends AppWindow
 					{
 			            g.dispose();
 					}
-		            bufferStrategy.show();*/
+		            bufferStrategy.show();
+		            //*/
 	        		try
 	        		{
 	        			render();

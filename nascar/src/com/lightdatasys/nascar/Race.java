@@ -189,6 +189,16 @@ public class Race
 		return null;
 	}
 	
+	public FantasyResult getFantasyResultByFinish(int finish)
+	{
+		if(fantasyResultsByFinish.containsKey(finish))
+		{
+			return fantasyResultsByFinish.get(finish);
+		}
+		
+		return null;
+	}
+	
 	public Result getResultByCarNo(String carNo)
 	{
 		if(resultsByCarNo.containsKey(carNo))

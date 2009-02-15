@@ -50,7 +50,7 @@ public class CarNoCell extends Cell
 	
 	public void render(Graphics2D g)
 	{
-		int borderWidth = 2;
+		int borderWidth = 5;
         
         FontMetrics metrics = g.getFontMetrics(font);
         
@@ -70,22 +70,22 @@ public class CarNoCell extends Cell
         
 		// border
 		g.setColor(border);
-		g.setPaint(new GradientPaint(
+		/*g.setPaint(new GradientPaint(
 				getWidth()/2, 0, 
                 border,
                 getWidth()/2,
                 getHeight()*1.1f,
-                Color.BLACK));
+                Color.BLACK));*/
 		g.fillRect(0, 0, getWidth(), getHeight());
 
 		g.setColor(background);
 		g.setPaint(new GradientPaint(
-				getWidth()/2, getHeight()*.75f, 
+				getWidth()/2, getHeight()*.80f, 
                 background,
                 getWidth()/2,
                 getHeight(),
-                Color.BLACK));
-		g.fillRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()*2);
+                background.darker().darker().darker()));
+		g.fillRect(borderWidth, borderWidth, getWidth()-2*borderWidth, getHeight()-2*borderWidth);
 
 		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));
 		g.setColor(text);
