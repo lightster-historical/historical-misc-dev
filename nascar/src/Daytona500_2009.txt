@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Daytona 500
+track:	Daytona Int'l Speedway
+location:	Daytona Beach, FL
+length: 	500
+laps: 	200
+track_length: 	2.5
+scale: 	0.637
+x_offset: 	9
+y_offset: 	6
+tv_network: 	FOX
+track_image_file: 	daytona.gif
+</RACE>
+<PARTICIPANTS>
+1	Truex Jr.	Chevrolet	1	Martin	Truex Jr.	0
+5	Martin	Chevrolet	2	Mark	Martin	0
+24	J. Gordon	Chevrolet	3	Jeff	Gordon	0
+18	Kyle Busch	Toyota	4	Kyle	Busch	0
+14	Stewart	Chevrolet	5	Tony	Stewart	0
+83	Vickers	Toyota	6	Brian	Vickers	0
+48	Johnson	Chevrolet	7	Jimmie	Johnson	0
+42	Montoya	Chevrolet	8	Juan Pablo	Montoya	0
+20	Logano	Toyota	9	Joey	Logano	0
+11	Hamlin	Toyota	10	Denny	Hamlin	0
+8	Almirola	Chevrolet	11	Aric	Almirola	0
+96	B. Labonte	Ford	12	Bobby	Labonte	0
+2	Kurt Busch	Dodge	13	Kurt	Busch	0
+88	Earnhardt Jr.	Chevrolet	14	Dale	Earnhardt Jr.	0
+9	Kahne	Dodge	15	Kasey	Kahne	0
+99	Edwards	Ford	16	Carl	Edwards	0
+36	Riggs	Toyota	17	Scott	Riggs	0
+41	Mayfield	Toyota	18	Jeremy	Mayfield	0
+98	Menard	Ford	19	Paul	Menard	0
+44	Allmendinger	Dodge	20	A.J.	Allmendinger	0
+26	McMurray	Ford	21	Jamie	McMurray	0
+33	Bowyer	Chevrolet	22	Clint	Bowyer	0
+47	Ambrose	Toyota	23	Marcos	Ambrose	0
+12	Stremme	Dodge	24	David	Stremme	0
+07	Mears	Chevrolet	25	Casey	Mears	0
+31	J. Burton	Chevrolet	26	Jeff	Burton	0
+55	Waltrip	Toyota	27	Michael	Waltrip	0
+00	Reutimann	Toyota	28	David	Reutimann	0
+77	Hornish Jr.	Dodge	29	Sam	Hornish Jr.	0
+19	E. Sadler	Dodge	30	Elliott	Sadler	0
+7	R. Gordon	Toyota	31	Robby	Gordon	0
+29	Harvick	Chevrolet	32	Kevin	Harvick	0
+6	Ragan	Ford	33	David	Ragan	0
+43	Sorenson	Dodge	34	Reed	Sorenson	0
+16	Biffle	Ford	35	Greg	Biffle	0
+39	Newman	Chevrolet	36	Ryan	Newman	0
+34	Andretti	Chevrolet	37	John	Andretti	0
+82	Speed	Toyota	38	Scott	Speed	0
+17	Kenseth	Ford	39	Matt	Kenseth	0
+21	Elliott	Ford	40	Bill	Elliott	0
+28	Kvapil	Ford	41	Travis	Kvapil	0
+78	Smith	Chevrolet	42	Regan	Smith	0
+66	T. Labonte	Toyota	43	Terry	Labonte	0
+</PARTICIPANTS>
