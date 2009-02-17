@@ -1,4 +1,4 @@
-package com.lightdatasys.nascar.fantasy.gui;
+package com.lightdatasys.nascar.live.gui;
 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
@@ -10,7 +10,7 @@ import com.lightdatasys.nascar.Result;
 import com.lightdatasys.nascar.event.PositionChangeEvent;
 import com.lightdatasys.nascar.fantasy.FantasyResult;
 import com.lightdatasys.nascar.fantasy.Leaderboard;
-import com.lightdatasys.nascar.fantasy.gui.panel.SortableScroller;
+import com.lightdatasys.nascar.live.gui.panel.SortableTable;
 
 public class LiveUpdater//extends AppWindow
 	implements Runnable
@@ -19,7 +19,7 @@ public class LiveUpdater//extends AppWindow
 	private final static int RACE_ID = 1090;
 	
 	
-	private final static boolean ALLOW_UPDATES = true;
+	private final static boolean ALLOW_UPDATES = false;
 	private final static boolean SHOW_FPS = false;
 	
 	
@@ -62,6 +62,8 @@ public class LiveUpdater//extends AppWindow
 	private long lastRenderTime;  // and last render
 	private long updateInterval;  // number of milliseconds between each update
 	private long renderInterval;  // and each render
+	
+	protected double trackLength;
 	
 	private Settings settings;
 	
@@ -158,9 +160,9 @@ public class LiveUpdater//extends AppWindow
 			windows.add(window);
 			
 			if(i % 2 == 0)
-				window.setPanel(new SortableScroller(window, 1, 12, true));
+				window.setPanel(new SortableTable(window, 1, 12, true));
 			else if(i % 2 == 1)
-				window.setPanel(new SortableScroller(window, 13, 43, false));
+				window.setPanel(new SortableTable(window, 13, 43, false));
 			
 			i++;
 		}
@@ -188,19 +190,14 @@ public class LiveUpdater//extends AppWindow
 		);
 		*/
 		
-		AbstractMap<Integer,com.lightdatasys.nascar.Result> results = race.getResults();
-		AbstractMap<Integer,FantasyResult> fantasyResults = race.getFantasyResults();
-
 		com.lightdatasys.nascar.Driver.loadAllFromDatabase();
-		com.lightdatasys.nascar.Driver[] drivers = com.lightdatasys.nascar.Driver.getDrivers(); 
-		
-		com.lightdatasys.nascar.fantasy.FantasyPlayer.loadAllFromDatabase();
-		com.lightdatasys.nascar.fantasy.FantasyPlayer[] players = com.lightdatasys.nascar.fantasy.FantasyPlayer.getPlayers(); 
+		com.lightdatasys.nascar.fantasy.FantasyPlayer.loadAllFromDatabase(); 
 
 		//cellWidth = 75;
 		//cellHeight = 75;
 		
-
+		trackLength = 1;
+		
         //rand = new Random();
 	}
 	
@@ -240,12 +237,14 @@ public class LiveUpdater//extends AppWindow
 			race.updateLastLapPositions();			
 			race.setLapCount(getSportvisionRace().lapCount);
 		}
+		race.setLapCount(getSportvisionRace().lapCount);
 		race.setCurrentLap(getSportvisionRace().currentLap);
 		race.setFlag(flag);
 		race.setLastFlagChange(getSportvisionRace().flagChangeLap);
 		race.setCautionCount(getSportvisionRace().numberOfCautions);
 		race.setLeadChangeCount(getSportvisionRace().numberOfLeadChanges);
 		race.setLeaderCount(getSportvisionRace().numberOfLeaders);
+		trackLength = getSportvisionRace().trackLength;
 		
 		boolean raceStarted = false;
 		if(getSportvisionRace().flag != com.sportvision.model.Race.PRE_RACE)
@@ -275,9 +274,11 @@ public class LiveUpdater//extends AppWindow
 					result.setLedLaps(result.getLapsLed() > 0);
 					mostLapsLed = Math.max(mostLapsLed, result.getLapsLed());
 					result.setSpeed(d.speed);
+					result.setLastLapSpeed(3600 * trackLength / d.lastLapTime);
+					//d.getTimeOffLeaderLastLap();
 				}
-				else
-					result.setFinish(startPos);
+				//else
+				//	result.setFinish(startPos);
 			}
 			else
 			{

@@ -189,7 +189,7 @@ public class Driver
 					"INNER JOIN nascarResult AS re ON d.driverId=re.driverId " +
 					"INNER JOIN nascarRace AS ra ON re.raceId=ra.raceId " +
 					"LEFT JOIN nascarChasePenalty AS cp ON ra.seasonId=cp.seasonId AND d.driverId=cp.driverId " +
-					"WHERE ra.seasonId=%1$d AND DATE(ra.date)<=%4$s'%2$tY-%2$tm-%2$td'%3$s " +
+					"WHERE ra.seasonId=%1$d AND DATE(ra.date)<%4$s'%2$tY-%2$tm-%2$td'%3$s " +
 					"AND ra.forPoints=1 GROUP BY d.driverId ORDER BY points DESC",
 					race.getSeason().getId(), race.getDate(), whereChase, (inclusive ? "=" : ""));
 			//System.out.println(race.getId() + " " + inclusive + " " + sqlPreChase);
@@ -247,7 +247,7 @@ public class Driver
 						"FROM nascarDriver AS d " +
 						"INNER JOIN nascarResult AS re ON d.driverId=re.driverId " +
 						"INNER JOIN nascarRace AS ra ON re.raceId=ra.raceId " +
-						"WHERE ra.seasonId=%1$d AND DATE(ra.date)<=%4$s'%2$tY-%2$tm-%2$td'%3$s " +
+						"WHERE ra.seasonId=%1$d AND DATE(ra.date)<%4$s'%2$tY-%2$tm-%2$td'%3$s " +
 						"AND ra.forPoints=1 GROUP BY d.driverId ORDER BY points DESC",
 						race.getSeason().getId(), race.getDate(), whereChase, (inclusive ? "=" : ""));
 				sPostChase.execute(sqlPostChase);

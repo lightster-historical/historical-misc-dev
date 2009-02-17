@@ -1,4 +1,4 @@
-package com.lightdatasys.nascar.fantasy.gui.cell;
+package com.lightdatasys.nascar.live.gui.cell;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -15,7 +15,7 @@ public class ResultCell extends Cell
 	public enum Mode {POSITION, LAPS_LED, LEADER_INTERVAL, LOCAL_INTERVAL, SEASON_POINTS, RACE_POINTS,
 		LAST_LAP_POSITION, POSITION_CHANGE, SPEED, SEASON_RANK, LEADER_POINTS_DIFF, LOCAL_POINTS_DIFF};
 		
-	public static final int BORDER_WIDTH = 2;
+	public static final int BORDER_WIDTH = 3;
 	
 	
 	private Result result;
@@ -56,6 +56,7 @@ public class ResultCell extends Cell
 	
 	private String getValue()
 	{
+		updated = true;
 		if(mode == Mode.LAPS_LED)
 		{
 			return (new Integer(result.getLapsLed())).toString();
@@ -84,33 +85,37 @@ public class ResultCell extends Cell
 		}
 		else if(mode == Mode.LOCAL_INTERVAL)
 		{
-			Result otherResult = result.getRace().getResultByFinish(result.getFinish()-1);
 
 			if(result.getFinish() == 1)
 			{
 				return "";
 			}
-			else if(otherResult != null)
+			else
 			{
-				if(result.getLapsDown() != 0)
+				Result otherResult = result.getRace().getResultByFinish(result.getFinish()-1);
+				
+				if(otherResult != null)
 				{
-					//int diff = Math.abs(result.getLapsDown() -
-					//		otherResult.getLapsDown());
-					
-					//return String.format("%d", diff);
-					return String.format("%d", -result.getLapsDown());
-				}
-				else
-				{
-					float interval = Math.abs(result.getBehindLeader() -
-							otherResult.getBehindLeader());
-	
-					if(interval >= 10)
-						return String.format("%.1f", interval);
-					else if(interval >= 1)
-						return String.format("%.2f", interval);					
+					if(result.getLapsDown() != 0)
+					{
+						//int diff = Math.abs(result.getLapsDown() -
+						//		otherResult.getLapsDown());
+						
+						//return String.format("%d", diff);
+						return String.format("%d", -result.getLapsDown());
+					}
 					else
-						return String.format(".%03d", (int)(interval*1000));
+					{
+						float interval = Math.abs(result.getBehindLeader() -
+								otherResult.getBehindLeader());
+		
+						if(interval >= 10)
+							return String.format("%.1f", interval);
+						else if(interval >= 1)
+							return String.format("%.2f", interval);					
+						else
+							return String.format(".%03d", (int)(interval*1000));
+					}
 				}
 			}
 		}
@@ -191,6 +196,66 @@ public class ResultCell extends Cell
 		
 		return (new Integer(result.getFinish())).toString();
 	}
+	
+	protected long getDistance(float interval, float speed)
+	{
+		// (inches per mile / seconds per hour)
+		double conversion = 17.6;
+		interval = Math.abs(interval);
+		return (long)(speed * interval * conversion);
+	}
+	
+	protected Color getColorUsingDistance(long distance, boolean fontColor)
+	{
+		float carLength = 200;
+		float[] ranges = {carLength, carLength * 3, carLength * 10};
+		Color color = null;
+		
+		if(distance <= ranges[0])
+		{
+			if(fontColor)
+				color = Color.BLACK;
+			else
+			{
+				float percent = Math.max(0, Math.min(1, distance / ranges[0]));
+				color = new Color(percent, 1, 0);
+			}
+		}
+		else if(distance <= ranges[1])
+		{
+			if(fontColor)
+				color = Color.BLACK;
+			else
+			{
+				float percent = Math.max(0, Math.min(1, (distance - ranges[0]) / ranges[1]));
+				color = new Color(1, 1, percent);
+			}
+		}
+		else if(distance <= ranges[2])
+		{
+			float percent = 1 - Math.max(0, Math.min(1, (distance - ranges[1]) / ranges[2]));
+			if(fontColor)
+			{
+				if(percent < .5)
+					color = Color.WHITE;
+				else
+					color = Color.BLACK;					
+			}
+			else
+				color = new Color(percent, percent, percent);
+		}
+		else
+		{
+			if(fontColor)
+				color = Color.WHITE;
+			else
+				color = Color.BLACK;
+		}
+		
+		return color;
+	}
+	
+	
 	
 	public void setMode(Mode mode)
 	{
@@ -302,8 +367,36 @@ public class ResultCell extends Cell
 				tText = Color.WHITE;
 			}
 		}
+		else if(mode == Mode.LEADER_INTERVAL || mode == Mode.LOCAL_INTERVAL)
+		{
+			float interval = -1;
+			if(mode == Mode.LEADER_INTERVAL)
+				interval = Math.abs(result.getBehindLeader());
+			else
+			{
+				Result otherResult = result.getRace().getResultByFinish(result.getFinish()-1);
+				
+				if(otherResult != null)
+				{
+					if(result.getLapsDown() == 0)
+					{
+						interval = Math.abs(result.getBehindLeader() -
+								otherResult.getBehindLeader());
+					}
+				}
+			}
 
-		if(mode == Mode.POSITION)
+			float speed = result.getSpeed();
+			if(interval >= 0 && speed > 0)
+			{
+				long dist = getDistance(interval, speed);
+								
+				tBackground = getColorUsingDistance(dist, false);
+				tText = getColorUsingDistance(dist, true);
+			}
+		}
+
+		if(mode == Mode.POSITION || mode == Mode.LEADER_INTERVAL || mode == Mode.LOCAL_INTERVAL)
 		{
 			g.setColor(tBackground);
 			g.fillRect(0, 0, getWidth(), getHeight());
@@ -322,10 +415,10 @@ public class ResultCell extends Cell
 		else
 		{
 			g.setColor(tBorder);
-			g.fillRect(BORDER_WIDTH, BORDER_WIDTH, getWidth()-2*BORDER_WIDTH, getHeight()-2*BORDER_WIDTH);
+			g.fillRect(0, 0, getWidth(), getHeight());
 			
 			g.setColor(tBackground);
-			g.fillRect(BORDER_WIDTH*2, BORDER_WIDTH*2, getWidth()-4*BORDER_WIDTH, getHeight()-4*BORDER_WIDTH);
+			g.fillRect(BORDER_WIDTH, BORDER_WIDTH, getWidth()-2*BORDER_WIDTH, getHeight()-2*BORDER_WIDTH);
 		}
 		
 		g.setColor(tText);

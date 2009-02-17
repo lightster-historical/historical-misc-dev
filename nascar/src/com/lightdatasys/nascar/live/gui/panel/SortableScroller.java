@@ -1,6 +1,6 @@
 //http://www.nfl.com/liveupdate/scores/scoresPage.json
 
-package com.lightdatasys.nascar.fantasy.gui.panel;
+package com.lightdatasys.nascar.live.gui.panel;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -21,15 +21,15 @@ import com.lightdatasys.nascar.event.PositionChangeEvent;
 import com.lightdatasys.nascar.event.PositionChangeListener;
 import com.lightdatasys.nascar.fantasy.FantasyPlayer;
 import com.lightdatasys.nascar.fantasy.FantasyResult;
-import com.lightdatasys.nascar.fantasy.gui.FullScreenWindow;
-import com.lightdatasys.nascar.fantasy.gui.Settings;
-import com.lightdatasys.nascar.fantasy.gui.Swap;
-import com.lightdatasys.nascar.fantasy.gui.cell.CarNoCell;
-import com.lightdatasys.nascar.fantasy.gui.cell.Cell;
-import com.lightdatasys.nascar.fantasy.gui.cell.FantasyPlayerCell;
-import com.lightdatasys.nascar.fantasy.gui.cell.FantasyResultCell;
-import com.lightdatasys.nascar.fantasy.gui.cell.ResultCell;
-import com.lightdatasys.nascar.fantasy.gui.cell.ResultCell.Mode;
+import com.lightdatasys.nascar.live.gui.FullScreenWindow;
+import com.lightdatasys.nascar.live.gui.Settings;
+import com.lightdatasys.nascar.live.gui.Swap;
+import com.lightdatasys.nascar.live.gui.cell.CarNoCell;
+import com.lightdatasys.nascar.live.gui.cell.Cell;
+import com.lightdatasys.nascar.live.gui.cell.FantasyPlayerCell;
+import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell;
+import com.lightdatasys.nascar.live.gui.cell.ResultCell;
+import com.lightdatasys.nascar.live.gui.cell.ResultCell.Mode;
 
 public class SortableScroller extends LivePanel
 {
@@ -473,7 +473,7 @@ public class SortableScroller extends LivePanel
 			else
 				rowAltColor = new Color(0x12, 0x12, 0x12);
 			
-			rowBackground.triggerRender();
+			rowBackground.triggerUpdate();
 		}
 		
 		for(PositionChangeEvent event : positionChangeEvents)
@@ -507,7 +507,7 @@ public class SortableScroller extends LivePanel
 			for(int y = 0; y < cells[x].length; y++)
 			{
 				if(rowSwapMap[y] != y && cells[x][y] != null)
-					cells[x][y].triggerRender();
+					cells[x][y].triggerUpdate();
 				
 				tempCells[x][y] = cells[x][y];
 			}
@@ -527,7 +527,7 @@ public class SortableScroller extends LivePanel
 			for(int y = 0; y < rowHeaders[x].length; y++)
 			{
 				if(rowSwapMap[y] != y && rowHeaders[x][y] != null)
-					rowHeaders[x][y].triggerRender();
+					rowHeaders[x][y].triggerUpdate();
 				
 				tempRowHeaders[x][y] = rowHeaders[x][y];
 			}

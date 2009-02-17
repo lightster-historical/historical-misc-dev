@@ -1,0 +1,543 @@
+//http://www.nfl.com/liveupdate/scores/scoresPage.json
+
+package com.lightdatasys.nascar.live.gui.panel;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import com.lightdatasys.nascar.Driver;
+import com.lightdatasys.nascar.Race;
+import com.lightdatasys.nascar.Result;
+import com.lightdatasys.nascar.fantasy.FantasyPlayer;
+import com.lightdatasys.nascar.fantasy.FantasyResult;
+import com.lightdatasys.nascar.live.gui.FullScreenWindow;
+import com.lightdatasys.nascar.live.gui.Settings;
+import com.lightdatasys.nascar.live.gui.cell.Cell;
+import com.lightdatasys.nascar.live.gui.cell.FantasyPlayerCell;
+import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell;
+import com.lightdatasys.nascar.live.gui.cell.PlayerCellSet;
+import com.lightdatasys.nascar.live.gui.cell.ResultCell;
+import com.lightdatasys.nascar.live.table.gui.DriverRow;
+import com.lightdatasys.nascar.live.table.gui.FantasyResultHeaderRow;
+import com.lightdatasys.nascar.live.table.gui.PlayerHeaderRow;
+import com.lightdatasys.nascar.live.table.gui.TableRow;
+
+public class SortableTable extends LivePanel
+{	
+	private Color rowAltColor = new Color(0x12, 0x12, 0x12);
+	
+    protected float[] topHeaderWeights = {1, 1, .6f};
+    protected float[] leftHeaderWeights = {1.5f, .8f, 1.5f, .8f, .8f};
+
+    protected FantasyResultCell.Mode[] topHeaderModes = 
+    {
+    	FantasyResultCell.Mode.LEADER_DRIVER_DIFF,
+    	FantasyResultCell.Mode.SEASON_POINTS
+    };
+    protected ResultCell.Mode[] leftHeaderModes = 
+    {
+		ResultCell.Mode.LEADER_POINTS_DIFF,
+		ResultCell.Mode.SEASON_RANK,
+		ResultCell.Mode.LEADER_INTERVAL,
+		ResultCell.Mode.POSITION
+    };
+    
+    private Dimension cellDimension;
+    private int[] topHeaderHeight;
+    private int[] leftHeaderWidth;
+    private int totalTopHeaderHeight;
+    private int totalLeftHeaderWidth;
+
+	private Cell raceStatusCell;
+	
+    private ArrayList<TableRow> topHeaderRows;
+    private ArrayList<DriverRow> rows;
+    
+	private AbstractMap<String,DriverRow> rowsByCarNo;
+	private AbstractMap<String,Integer> orderingByCarNo;
+	
+	private ArrayList<PlayerCellSet> playerCells;
+	private AbstractMap<Integer,Integer> orderingByPlayerId;
+
+	
+	private int totalColHeaderSize;
+	
+	private Cell rowBackground;
+	
+	private int topRow;
+	private int maxRows;
+	
+	private Cell bgCell;
+	private String leaderCar;
+	
+	private Race.Flag flag;
+	
+	private int width;
+	private int height;
+	
+	private int cellMargin;
+	
+	private int posMin;
+	private int posMax;
+	private boolean showHeader;
+	
+
+	private Settings settings;
+	
+	
+	public SortableTable(FullScreenWindow window, int posMin, int posMax, boolean showHeader)
+	{
+		super(window);
+		
+		this.posMin = posMin;
+		this.posMax = posMax;
+		this.showHeader = showHeader;
+		
+		settings = getLiveUpdater().getSettings();
+		
+        cellMargin = 1;
+        
+        //resultMode = ResultCell.Mode.POSITION;
+
+        width = getWidth();
+        height = getHeight();
+        
+        calcDimensions();
+        int w = (leftHeaderWidth.length - 1) * cellMargin, h = (topHeaderHeight.length - 1) * cellMargin;
+        for(int i = 0; i < leftHeaderWidth.length; i++)
+        	w += leftHeaderWidth[i];
+        for(int i = 0; i < topHeaderHeight.length; i++)
+        	h += topHeaderHeight[i];
+		initGlobalCells(w, h);
+		
+		maxRows = (height - totalColHeaderSize) / cellDimension.height;
+		
+		topRow = 0;
+        
+        getWindow().setBackground(Color.BLACK);
+
+        initPlayerCells();
+        initTopHeaderRows();
+        initRows();
+	}
+	
+	
+	public void calcDimensions()
+	{
+        float topHeaderWeightTotal = 0;
+        if(showHeader)
+        {
+	        for(int i = 0; i < topHeaderWeights.length; i++)
+	        	topHeaderWeightTotal += topHeaderWeights[i];
+        }
+        float leftHeaderWeightTotal = 0;
+        for(int i = 0; i < leftHeaderWeights.length; i++)
+        	leftHeaderWeightTotal += leftHeaderWeights[i];
+        
+        float colWeightTotal = getPlayerCount() + leftHeaderWeightTotal;
+        float rowWeightTotal = getDriverCount() + topHeaderWeightTotal;
+        
+        leftHeaderWidth = new int[leftHeaderWeights.length];
+        for(int i = 0; i < leftHeaderWeights.length; i++)
+        {
+			leftHeaderWidth[i] = (int)Math.floor(leftHeaderWeights[i] * (getWidth() - getCellMargin() * (getColumnCount())) / colWeightTotal);
+			totalLeftHeaderWidth += leftHeaderWidth[i] + getCellMargin();
+		}
+        
+        topHeaderHeight = new int[topHeaderWeights.length];
+        totalTopHeaderHeight = 0; 
+		for(int i = 0; i < topHeaderWeights.length; i++)
+		{
+			topHeaderHeight[i] = (int)Math.floor(topHeaderWeights[i] * (getHeight() - getCellMargin() * (2 + getRowCount())) / rowWeightTotal);
+			totalTopHeaderHeight += topHeaderHeight[i] + getCellMargin();
+		}
+
+        int cellWidth = (int)Math.floor((getWidth() - getCellMargin() * (getColumnCount() + 1)) / colWeightTotal);
+		int cellHeight = (int)Math.floor((getHeight() - getCellMargin() * (getDriverCount() + 1)) / (rowWeightTotal));
+		
+		cellDimension = new Dimension(cellWidth, cellHeight);
+	}
+	
+
+	public void initGlobalCells(int w, int h)
+	{
+		raceStatusCell = createRaceStatusCell(w, h, getRace());
+		
+		Result leaderResult = getRace().getResultByFinish(1);
+		Driver leader = leaderResult.getDriver();
+		leaderCar = leaderResult.getCar();
+	}
+	
+	
+	public void moveColumn(PlayerCellSet playerCellSet, int newPosition)
+	{
+		int playerCount = playerCells.size();
+		int oldPosition = orderingByPlayerId.get(playerCellSet.getPlayer().getPlayerId());
+		
+		if(1 <= oldPosition && oldPosition <= playerCount &&
+			1 <= newPosition && newPosition <= playerCount &&
+			oldPosition != newPosition)
+		{			
+			orderingByPlayerId.put(playerCellSet.getPlayer().getPlayerId(), newPosition);
+
+			int newX = getColumnPosition(newPosition);
+
+			for(int i = 0; i < playerCellSet.getResultCellCount(); i++)
+				playerCellSet.getResultCell(i).moveToX(newX, settings.getSwapPeriod());
+			playerCellSet.getPlayerHeaderCell().moveToX(newX, settings.getSwapPeriod());
+			playerCellSet.getPlayerCell().moveToX(newX, settings.getSwapPeriod());
+		}
+	}
+
+	public void moveRow(DriverRow row, int newPosition)
+	{
+		int driverCount = getRace().getResults().size();
+		int oldPosition = orderingByCarNo.get(row.getResult().getCar());
+		
+		if(1 <= oldPosition && oldPosition <= driverCount &&
+			1 <= newPosition && newPosition <= driverCount &&
+			oldPosition != newPosition)
+		{			
+			orderingByCarNo.put(row.getResult().getCar(), newPosition);
+
+			int newY = getRowPosition(newPosition);
+			row.moveToY(newY, settings.getSwapPeriod());
+		}
+	}
+	
+	
+	public void update()
+	{			
+		if(flag != getRace().getFlag())
+		{
+			if(getRace().getFlag() == Race.Flag.YELLOW)
+				rowAltColor = new Color(0x99, 0x99, 0x00);
+			else if(getRace().getFlag() == Race.Flag.RED)
+				rowAltColor = new Color(0x99, 0x00, 0x00);
+			else
+				rowAltColor = new Color(0x12, 0x12, 0x12);
+			
+			//rowBackground.triggerRender();
+		}
+
+		updateRowOrdering();
+		updateColumnOrdering();
+
+		Result leaderResult = getRace().getResultByFinish(1);
+		if(!leaderCar.equals(leaderResult.getCar()))
+		{
+			Driver leader = leaderResult.getDriver();
+			//bgCell = createCarNoCell(getWidth() - getLeftHeaderTotalWidth(), getHeight() - getTopHeaderTotalHeight(), leaderResult.getCar(), leader.getFontColor(),
+			//	leader.getBackgroundColor(), leader.getBorderColor());
+			leaderCar = leaderResult.getCar();
+		}
+	}
+
+	
+	public void render(Graphics2D g)
+	{
+		FullScreenWindow window = getWindow();
+		Race race = getRace();
+		
+		if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.YELLOW)
+			window.setBackground(Color.YELLOW);
+		else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.RED)
+			window.setBackground(new Color(0xCC, 0x00, 0x00));
+		else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.WHITE)
+			window.setBackground(Color.WHITE);
+		else
+			window.setBackground(Color.BLACK);
+		
+		g.clearRect(0, 0, getWidth(), getHeight());
+
+		renderRows(g);
+		renderTopHeaderRows(g, 0, 0);
+		
+		if(showHeader)
+		{
+			raceStatusCell.render(g);
+		}
+	}
+
+	
+	public int getTopHeaderTotalHeight()
+	{
+		return totalTopHeaderHeight;
+	}
+	
+	public int getLeftHeaderTotalWidth()
+	{
+		return totalLeftHeaderWidth;
+	}
+	
+	public int getLeftHeaderCount()
+	{
+		return leftHeaderWeights.length;
+	}
+	
+	public int getTopHeaderCount()
+	{
+		return topHeaderWeights.length;
+	}
+	
+	public int getPlayerCount()
+	{
+		return getRace().getFantasyResults().size();
+	}
+	
+	public int getDriverCount()
+	{
+		return posMax - posMin + 1;
+	}
+	
+	public int getColumnCount()
+	{
+		return getPlayerCount() + getLeftHeaderCount();
+	}
+	
+	public int getRowCount()
+	{
+		return getDriverCount() + 3;
+	}
+	
+	public Dimension[] getTopHeaderCellDimensions(int rowNum)
+	{
+		int colCount = getColumnCount();
+		int leftHeaderCount = getLeftHeaderCount();
+		
+		Dimension[] dimensions = new Dimension[colCount];
+		for(int i = 0; i < colCount; i++)
+		{
+			if(i < leftHeaderCount)
+				dimensions[i] = new Dimension(leftHeaderWidth[i], topHeaderHeight[rowNum]);
+			else
+				dimensions[i] = new Dimension(cellDimension.width, topHeaderHeight[rowNum]);
+		}
+			
+		return dimensions;
+	}
+	
+	public Dimension[] getRowCellDimensions()
+	{
+		int colCount = getColumnCount();
+		int leftHeaderCount = getLeftHeaderCount();
+		
+		Dimension[] dimensions = new Dimension[colCount];
+		for(int i = 0; i < colCount; i++)
+		{
+			if(i < leftHeaderCount)
+				dimensions[i] = new Dimension(leftHeaderWidth[i], cellDimension.height);
+			else
+				dimensions[i] = new Dimension(cellDimension.width, cellDimension.height);
+		}
+			
+		return dimensions;
+	}
+	
+	public ResultCell.Mode[] getDefaultResultModes()
+	{
+		return leftHeaderModes;
+	}
+	
+	public int getCellMargin()
+	{
+		return cellMargin;
+	}
+	
+	public int getMinPosition()
+	{
+		return posMin;
+	}
+	
+	public int getMaxPosition()
+	{
+		return posMax;
+	}
+	
+	
+	public void updateRowOrdering()
+	{
+		Collections.sort(rows, 
+			new Comparator<DriverRow>()
+			{
+				public int compare(DriverRow o1, DriverRow o2)
+				{
+					Result r1 = o1.getResult();
+					Result r2 = o2.getResult();
+					
+					if(r1.getSeasonRank() < r2.getSeasonRank())
+						return -1;
+					else if(r1.getSeasonRank() > r2.getSeasonRank())
+						return 1;
+					
+					return 0;
+				}
+			}
+		);
+		
+		for(int i = 0; i < rows.size(); i++)
+		{
+			moveRow(rows.get(i), i + 1);
+		}
+	}
+	
+	public void updateColumnOrdering()
+	{
+		Collections.sort(playerCells, 
+			new Comparator<PlayerCellSet>()
+			{
+				public int compare(PlayerCellSet o1, PlayerCellSet o2)
+				{
+					FantasyResult r1 = o1.getResult();
+					FantasyResult r2 = o2.getResult();
+					
+					if(r1.getFinish() < r2.getFinish())
+						return -1;
+					else if(r1.getFinish() > r2.getFinish())
+						return 1;
+					
+					return 0;
+				}
+			}
+		);
+		
+		for(int i = 0; i < playerCells.size(); i++)
+		{
+			moveColumn(playerCells.get(i), i + 1);
+		}
+	}
+	
+	
+	public void initPlayerCells()
+	{	
+		playerCells = new ArrayList<PlayerCellSet>();
+		orderingByPlayerId = new HashMap<Integer,Integer>();
+		
+		int count = 1;
+		AbstractMap<Integer,FantasyResult> fantasyResults = getRace().getFantasyResults();
+		Iterator<Integer> it = fantasyResults.keySet().iterator();
+		while(it.hasNext())
+		{
+			FantasyResult result = fantasyResults.get(it.next());
+			if(result != null)
+			{
+				FantasyPlayer player = result.getPlayer();
+				
+				FantasyResultCell[] resultCells = new FantasyResultCell[topHeaderModes.length];
+				for(int i = 0; i < topHeaderModes.length; i++)
+				{
+					resultCells[i] = createFantasyResultCell(cellDimension.width, topHeaderHeight[i]
+                        , result, Color.WHITE, player.getBackgroundColor(), Color.WHITE);
+					resultCells[i].setMode(topHeaderModes[i]);
+				}
+				
+				FantasyPlayerCell playerHeaderCell = createFantasyPlayerCell(
+					cellDimension.width, topHeaderHeight[topHeaderHeight.length - 1]
+                    , player.toString(), Color.WHITE, player.getBackgroundColor(), Color.WHITE, false);
+				
+				FantasyPlayerCell playerCell = createFantasyPlayerCell(cellDimension.width, cellDimension.height
+					, player.toString(), Color.WHITE, player.getBackgroundColor(), Color.WHITE);
+				
+				playerCells.add(new PlayerCellSet(result, resultCells, playerHeaderCell, playerCell));	
+				orderingByPlayerId.put(player.getPlayerId(), count);
+				
+				count++;
+			}
+		}
+	}
+	
+	public void initTopHeaderRows()
+	{
+		topHeaderRows = new ArrayList<TableRow>();
+		
+		Dimension[] cellDimensions;
+		
+		int i = 0;
+		for(i = 0; i < topHeaderModes.length; i++)
+		{
+			cellDimensions = getTopHeaderCellDimensions(i);
+			topHeaderRows.add(new FantasyResultHeaderRow(this, cellDimensions, cellMargin, getRace()
+				, topHeaderModes[i], i, playerCells));
+		}
+		cellDimensions = getTopHeaderCellDimensions(i);
+		topHeaderRows.add(new PlayerHeaderRow(this, cellDimensions, cellMargin, getRace(), playerCells));
+	}
+	
+	public void initRows()
+	{
+		rows = new ArrayList<DriverRow>();
+		rowsByCarNo = new HashMap<String,DriverRow>();
+		orderingByCarNo = new HashMap<String,Integer>();
+		
+		Dimension[] cellDimensions = getRowCellDimensions();
+		ResultCell.Mode[] resultModes = getDefaultResultModes();
+		int cellMargin = getCellMargin();
+		
+		int position = 1;
+		AbstractMap<Integer, Result> results = getRace().getResults();
+		Iterator<Result> it = results.values().iterator();
+		while(it.hasNext())
+		{
+			Result result = it.next();
+			
+			DriverRow row = new DriverRow(this, cellDimensions, cellMargin, result, resultModes, playerCells);
+			row.setYOffset(getRowPosition(position));
+			
+			rowsByCarNo.put(result.getCar(), row);
+			rows.add(row);
+			
+			orderingByCarNo.put(result.getCar(), position);
+			position++;
+		}
+	}
+	
+	
+	public void renderTopHeaderRows(Graphics2D g, int xOffset, int yOffset)
+	{
+		int y = yOffset;
+		for(TableRow row : topHeaderRows)
+		{
+			row.renderTo(g, xOffset, y);
+			
+			y += row.getHeight() + getCellMargin();
+		}
+	}
+	
+	public void renderRows(Graphics2D g)
+	{
+		int rowCount = 1;
+		for(int i = rows.size() - 1; i >= 0; i--)
+		{
+			DriverRow row = rows.get(i);
+			if(row.getYOffset() + row.getHeight() > 0 && row.getYOffset() < getHeight())
+			{
+				row.renderTo(g, 0, row.getYOffset());
+			}
+			
+			rowCount++;
+		}
+	}
+	
+	public int getRowPosition(int position)
+	{
+		int y = getTopHeaderTotalHeight() + getCellMargin();
+		y += (position - getMinPosition()) * (cellDimension.height + getCellMargin());
+			
+		return y;
+	}
+	
+	public int getColumnPosition(int position)
+	{
+		int x = getLeftHeaderTotalWidth() + getCellMargin();
+		x += (position - 1) * (cellDimension.width + getCellMargin());
+			
+		return x;
+	}	
+}

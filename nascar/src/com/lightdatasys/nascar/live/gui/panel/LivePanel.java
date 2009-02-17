@@ -1,4 +1,4 @@
-package com.lightdatasys.nascar.fantasy.gui.panel;
+package com.lightdatasys.nascar.live.gui.panel;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
@@ -7,13 +7,13 @@ import com.lightdatasys.nascar.Driver;
 import com.lightdatasys.nascar.Race;
 import com.lightdatasys.nascar.Result;
 import com.lightdatasys.nascar.fantasy.FantasyResult;
-import com.lightdatasys.nascar.fantasy.gui.FullScreenWindow;
-import com.lightdatasys.nascar.fantasy.gui.LiveUpdater;
-import com.lightdatasys.nascar.fantasy.gui.cell.CarNoCell;
-import com.lightdatasys.nascar.fantasy.gui.cell.FantasyPlayerCell;
-import com.lightdatasys.nascar.fantasy.gui.cell.FantasyResultCell;
-import com.lightdatasys.nascar.fantasy.gui.cell.RaceStatusCell;
-import com.lightdatasys.nascar.fantasy.gui.cell.ResultCell;
+import com.lightdatasys.nascar.live.gui.FullScreenWindow;
+import com.lightdatasys.nascar.live.gui.LiveUpdater;
+import com.lightdatasys.nascar.live.gui.cell.CarNoCell;
+import com.lightdatasys.nascar.live.gui.cell.FantasyPlayerCell;
+import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell;
+import com.lightdatasys.nascar.live.gui.cell.RaceStatusCell;
+import com.lightdatasys.nascar.live.gui.cell.ResultCell;
 
 public abstract class LivePanel
 {

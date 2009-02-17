@@ -1,7 +1,7 @@
-package com.lightdatasys.nascar.fantasy.gui;
+package com.lightdatasys.nascar.live.gui;
 
-import com.lightdatasys.nascar.fantasy.gui.cell.FantasyResultCell;
-import com.lightdatasys.nascar.fantasy.gui.cell.ResultCell;
+import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell;
+import com.lightdatasys.nascar.live.gui.cell.ResultCell;
 
 public class Settings 
 {

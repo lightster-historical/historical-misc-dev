@@ -19,6 +19,7 @@ public class Result
 	private float behindLeader;
 	private int lapsDown;
 	private float speed;
+	private double lastLapSpeed;
 	private boolean isCurrent;
 	
 	
@@ -38,6 +39,7 @@ public class Result
 		this.behindLeader = 0.0f;
 		this.lapsDown = 0;
 		this.speed = 0.0f;
+		this.lastLapSpeed = 0.0d;
 		this.isCurrent = false;
 	}
 	
@@ -145,6 +147,11 @@ public class Result
 		return speed;
 	}
 	
+	public double getLastLapSpeed()
+	{
+		return lastLapSpeed;
+	}
+	
 	public boolean isCurrent()
 	{
 		return isCurrent;
@@ -212,6 +219,11 @@ public class Result
 	public void setSpeed(float speed)
 	{
 		this.speed = speed;
+	}
+	
+	public void setLastLapSpeed(double speed)
+	{
+		this.lastLapSpeed = speed;
 	}
 	
 	public void setCurrent(boolean isCurrent)

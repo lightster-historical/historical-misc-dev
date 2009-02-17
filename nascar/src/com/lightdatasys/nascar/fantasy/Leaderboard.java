@@ -22,7 +22,7 @@ import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 
-import com.lightdatasys.nascar.fantasy.gui.LiveUpdater;
+import com.lightdatasys.nascar.live.gui.LiveUpdater;
 import com.sportvision.comm.CCSocket;
 import com.sportvision.comm.ControlMessageListener;
 import com.sportvision.comm.RaceStatusListener;
@@ -218,7 +218,7 @@ public class Leaderboard extends JPanel
  {
      AlertDialog alert = new AlertDialog(m);
      alert.setBounds(200 / 3, 200 / 3, 394, 203);
-     alert.show();
+     alert.setVisible(true);
  }
  
 

@@ -10,8 +10,6 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 
-import javax.swing.table.AbstractTableModel;
-
 import com.lightdatasys.nascar.event.PositionChangeEvent;
 import com.lightdatasys.nascar.event.PositionChangeListener;
 import com.lightdatasys.nascar.fantasy.FantasyPlayer;
@@ -25,11 +23,8 @@ public class Race
 	
 	private static AbstractMap<Integer,Race> racesById = new HashMap<Integer,Race>();
 	
-	
-	private AbstractTableModel resultsTableModel;
-	
+		
 	private int raceId;
-	private int raceNo;
 	
 	private Season season;
 	private Track track;

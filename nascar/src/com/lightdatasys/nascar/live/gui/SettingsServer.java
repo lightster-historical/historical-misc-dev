@@ -1,4 +1,4 @@
-package com.lightdatasys.nascar.fantasy.gui;
+package com.lightdatasys.nascar.live.gui;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,9 +7,8 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import com.lightdatasys.nascar.Result;
-import com.lightdatasys.nascar.fantasy.gui.cell.FantasyResultCell;
-import com.lightdatasys.nascar.fantasy.gui.cell.ResultCell;
+import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell;
+import com.lightdatasys.nascar.live.gui.cell.ResultCell;
 
 public class SettingsServer implements Runnable
 {

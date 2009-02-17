@@ -1,4 +1,4 @@
-package com.lightdatasys.nascar.fantasy.gui;
+package com.lightdatasys.nascar.live.gui;
 
 import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
@@ -11,9 +11,7 @@ import com.lightdatasys.gui.AppWindow;
 import com.lightdatasys.gui.QuitHandler;
 import com.lightdatasys.nascar.Driver;
 import com.lightdatasys.nascar.Race;
-import com.lightdatasys.nascar.fantasy.gui.panel.ClassicScrollerPanel;
-import com.lightdatasys.nascar.fantasy.gui.panel.LivePanel;
-import com.lightdatasys.nascar.fantasy.gui.panel.SortableScroller;
+import com.lightdatasys.nascar.live.gui.panel.LivePanel;
 
 public class FullScreenWindow extends AppWindow
 	implements QuitHandler
@@ -50,24 +48,9 @@ public class FullScreenWindow extends AppWindow
 		setUndecorated(true);
 		setIgnoreRepaint(true);
 		
-		//settings = new Settings();
-		
-		panel = new SortableScroller(this, 1, 43, true);//
-		//panel = new ClassicScrollerPanel(this);
-
-        //DisplayMode[] modes = device.getDisplayModes();
-        //GraphicsDevice device2 = env.getScreenDevices()[1];
-        //System.out.println(device.getType() + " " + device.getIDstring() + " " + device.toString());
-        //System.out.println(device2.getType() + " " + device2.getIDstring() + " " + device2.toString());
-    	//System.out.println(((float)device.getDisplayMode().getWidth() / device.getDisplayMode().getHeight()) + " " + device.getDisplayMode().getWidth() + " " + device.getDisplayMode().getHeight() + " " + device.getDisplayMode().getRefreshRate() + " " + device.getDisplayMode().getBitDepth());
-        
-        //for(int i = 0; i < modes.length; i++)
-        //	System.out.println(i + " " + ((float)modes[i].getWidth() / modes[i].getHeight()) + " " + modes[i].getWidth() + " " + modes[i].getHeight() + " " + modes[i].getRefreshRate() + " " + modes[i].getBitDepth());
-
         device.setFullScreenWindow(this);
 
         createBufferStrategy(GFX_BUFFER_COUNT);
-        //bufferStrategy = getBufferStrategy();
         System.out.println("Page flipping: " + getBufferStrategy().getCapabilities().isPageFlipping());
 	}
 	
