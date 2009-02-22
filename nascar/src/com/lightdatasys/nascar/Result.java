@@ -12,15 +12,22 @@ public class Result
 	private int finish;
 	private int finishLast;
 	private int finishChange;
+	private int currentLap;
 	private int lapsLed;
 	private boolean ledLaps;
 	private boolean ledMostLaps;
 	private int penalties;
 	private float behindLeader;
 	private int lapsDown;
-	private float speed;
 	private double lastLapSpeed;
+	private float speed;
+	private double throttle;
+	private double brake;
 	private boolean isCurrent;
+	
+	private int lastUpdatedLap;
+	
+	private short rowNumber;
 	
 	
 	public Result(Race race, Driver driver, String car, int start, int finish, boolean ledLaps, boolean ledMostLaps, int penalties)
@@ -32,6 +39,7 @@ public class Result
 		this.finish = finish;
 		this.finishLast = finish;
 		this.finishChange = 0;
+		this.currentLap = 0;
 		this.lapsLed = 0;
 		this.ledLaps = ledLaps;
 		this.ledMostLaps = ledMostLaps;
@@ -39,8 +47,14 @@ public class Result
 		this.behindLeader = 0.0f;
 		this.lapsDown = 0;
 		this.speed = 0.0f;
+		this.throttle = 0;
+		this.brake = 0;
 		this.lastLapSpeed = 0.0d;
 		this.isCurrent = false;
+		
+		lastUpdatedLap = -1;
+		
+		this.rowNumber = 0;
 	}
 	
 	
@@ -77,6 +91,11 @@ public class Result
 	public int getPositionChange()
 	{
 		return finishChange;
+	}
+	
+	public int getCurrentLap()
+	{
+		return currentLap;
 	}
 	
 	public int getLapsLed()
@@ -147,6 +166,16 @@ public class Result
 		return speed;
 	}
 	
+	public double getThrottle()
+	{
+		return throttle;
+	}
+	
+	public double getBrake()
+	{
+		return brake;
+	}
+	
 	public double getLastLapSpeed()
 	{
 		return lastLapSpeed;
@@ -154,7 +183,7 @@ public class Result
 	
 	public boolean isCurrent()
 	{
-		return isCurrent;
+		return (lastUpdatedLap == getRace().getCurrentLap());
 	}
 	
 	public Standing getStanding()
@@ -167,7 +196,21 @@ public class Result
 		return getRace().getRankByDriver(driver);
 	}
 	
+	public short getRowNumber()
+	{
+		return rowNumber;
+	}
+	
 
+	public void setCurrentLap(int lap)
+	{
+		if(lap != this.currentLap)
+		{
+			this.currentLap = lap;
+			this.lastUpdatedLap = this.getRace().getCurrentLap();
+		}
+	}
+	
 	public void setLapsLed(int lapsLed)
 	{
 		this.lapsLed = lapsLed;
@@ -221,14 +264,24 @@ public class Result
 		this.speed = speed;
 	}
 	
+	public void setThrottle(double throttle)
+	{
+		this.throttle = throttle;
+	}
+	
+	public void setBrake(double brake)
+	{
+		this.brake = brake;
+	}
+	
 	public void setLastLapSpeed(double speed)
 	{
 		this.lastLapSpeed = speed;
 	}
 	
-	public void setCurrent(boolean isCurrent)
+	public void setRowNumber(short rowNumber)
 	{
-		this.isCurrent = isCurrent;
+		this.rowNumber = rowNumber;
 	}
 	
 	

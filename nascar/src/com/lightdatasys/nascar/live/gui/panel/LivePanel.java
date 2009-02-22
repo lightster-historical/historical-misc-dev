@@ -62,6 +62,13 @@ public abstract class LivePanel
 	
 	public abstract void update();	
 	public abstract void render(Graphics2D g);	
+	
+	
+	public void renderFPS(Graphics2D g)
+	{
+        g.setColor(new Color(255, 255, 255, 200));
+        g.drawString(getLiveUpdater().getFPS() + " fps", 5, 150);		
+	}
 
 
 	

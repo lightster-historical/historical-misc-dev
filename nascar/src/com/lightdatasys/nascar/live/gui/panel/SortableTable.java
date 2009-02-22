@@ -19,6 +19,7 @@ import com.lightdatasys.nascar.fantasy.FantasyPlayer;
 import com.lightdatasys.nascar.fantasy.FantasyResult;
 import com.lightdatasys.nascar.live.gui.FullScreenWindow;
 import com.lightdatasys.nascar.live.gui.Settings;
+import com.lightdatasys.nascar.live.gui.Swap;
 import com.lightdatasys.nascar.live.gui.cell.Cell;
 import com.lightdatasys.nascar.live.gui.cell.FantasyPlayerCell;
 import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell;
@@ -34,7 +35,7 @@ public class SortableTable extends LivePanel
 	private Color rowAltColor = new Color(0x12, 0x12, 0x12);
 	
     protected float[] topHeaderWeights = {1, 1, .6f};
-    protected float[] leftHeaderWeights = {1.5f, .8f, 1.5f, .8f, .8f};
+    protected float[] leftHeaderWeights = {.8f, 1.3f, 1.3f, 1.3f, .8f, .8f};
 
     protected FantasyResultCell.Mode[] topHeaderModes = 
     {
@@ -43,8 +44,9 @@ public class SortableTable extends LivePanel
     };
     protected ResultCell.Mode[] leftHeaderModes = 
     {
+    		ResultCell.Mode.SEASON_RANK,
 		ResultCell.Mode.LEADER_POINTS_DIFF,
-		ResultCell.Mode.SEASON_RANK,
+		ResultCell.Mode.SPEED,
 		ResultCell.Mode.LEADER_INTERVAL,
 		ResultCell.Mode.POSITION
     };
@@ -124,7 +126,8 @@ public class SortableTable extends LivePanel
         getWindow().setBackground(Color.BLACK);
 
         initPlayerCells();
-        initTopHeaderRows();
+		if(showHeader)
+			initTopHeaderRows();
         initRows();
 	}
 	
@@ -156,7 +159,8 @@ public class SortableTable extends LivePanel
 		for(int i = 0; i < topHeaderWeights.length; i++)
 		{
 			topHeaderHeight[i] = (int)Math.floor(topHeaderWeights[i] * (getHeight() - getCellMargin() * (2 + getRowCount())) / rowWeightTotal);
-			totalTopHeaderHeight += topHeaderHeight[i] + getCellMargin();
+	        if(showHeader)
+	        	totalTopHeaderHeight += topHeaderHeight[i] + getCellMargin();
 		}
 
         int cellWidth = (int)Math.floor((getWidth() - getCellMargin() * (getColumnCount() + 1)) / colWeightTotal);
@@ -206,6 +210,7 @@ public class SortableTable extends LivePanel
 			oldPosition != newPosition)
 		{			
 			orderingByCarNo.put(row.getResult().getCar(), newPosition);
+			row.getResult().setRowNumber((short)newPosition);
 
 			int newY = getRowPosition(newPosition);
 			row.moveToY(newY, settings.getSwapPeriod());
@@ -245,25 +250,28 @@ public class SortableTable extends LivePanel
 	{
 		FullScreenWindow window = getWindow();
 		Race race = getRace();
+		Swap.incrementCacheIndex();
 		
-		if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.YELLOW)
+		//if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.YELLOW)
 			window.setBackground(Color.YELLOW);
-		else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.RED)
+		/*else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.RED)
 			window.setBackground(new Color(0xCC, 0x00, 0x00));
 		else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.WHITE)
 			window.setBackground(Color.WHITE);
 		else
-			window.setBackground(Color.BLACK);
+			window.setBackground(Color.BLACK);*/
 		
 		g.clearRect(0, 0, getWidth(), getHeight());
 
 		renderRows(g);
-		renderTopHeaderRows(g, 0, 0);
 		
 		if(showHeader)
 		{
+			renderTopHeaderRows(g, 0, 0);
 			raceStatusCell.render(g);
 		}
+		
+		//renderFPS(g);
 	}
 
 	
@@ -364,27 +372,20 @@ public class SortableTable extends LivePanel
 	
 	public void updateRowOrdering()
 	{
-		Collections.sort(rows, 
-			new Comparator<DriverRow>()
-			{
-				public int compare(DriverRow o1, DriverRow o2)
-				{
-					Result r1 = o1.getResult();
-					Result r2 = o2.getResult();
-					
-					if(r1.getSeasonRank() < r2.getSeasonRank())
-						return -1;
-					else if(r1.getSeasonRank() > r2.getSeasonRank())
-						return 1;
-					
-					return 0;
-				}
-			}
-		);
+		Collections.sort(rows, new DriverRow.FinishComparator());
 		
 		for(int i = 0; i < rows.size(); i++)
 		{
-			moveRow(rows.get(i), i + 1);
+			DriverRow row = rows.get(i);
+			moveRow(row, i + 1);
+			
+			Result result = row.getResult();			
+			/*
+			if(result.isCurrent())
+				row.setBackground(new Color(.1f, .1f, .1f));
+			else
+			//*/
+				row.setBackground(getWindow().getBackground());
 		}
 	}
 	
@@ -513,16 +514,20 @@ public class SortableTable extends LivePanel
 	public void renderRows(Graphics2D g)
 	{
 		int rowCount = 1;
+		int windowH = getHeight();
 		for(int i = rows.size() - 1; i >= 0; i--)
 		{
 			DriverRow row = rows.get(i);
-			if(row.getYOffset() + row.getHeight() > 0 && row.getYOffset() < getHeight())
+			int rowY = row.getYOffset();
+			int rowH = row.getHeight();
+			if(rowY + rowH > 0 && rowY < windowH)
 			{
-				row.renderTo(g, 0, row.getYOffset());
+				row.renderTo(g, 0, rowY);
 			}
 			
 			rowCount++;
 		}
+		//System.out.println();
 	}
 	
 	public int getRowPosition(int position)

@@ -14,8 +14,6 @@ public class Cell extends GraphicsPanel
 	private int width;
 	private int height;
 	
-	private Color background;
-	
 	protected boolean updated;
 	
 	
@@ -24,7 +22,6 @@ public class Cell extends GraphicsPanel
 		super(gd);
 		
 		updated = true;
-		background = Color.BLACK;
 		
 		width = w;
 		height = h;
@@ -33,8 +30,8 @@ public class Cell extends GraphicsPanel
 	
 	public void render(Graphics2D g)
 	{
-		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, getWidth(), getHeight());
+		//g.setColor(Color.BLACK);
+		//g.fillRect(0, 0, getWidth(), getHeight());
 		
 		updated = false;
 	}
@@ -48,19 +45,5 @@ public class Cell extends GraphicsPanel
 	public int getHeight()
 	{
 		return height;
-	}
-	
-	
-	public void setBackground(Color color)
-	{
-		if(!background.equals(color))
-			updated = true;
-		
-		background = color;
-	}
-	
-	public Color getBackground()
-	{
-		return background;
 	}
 }

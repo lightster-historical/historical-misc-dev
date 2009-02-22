@@ -13,7 +13,8 @@ import com.lightdatasys.nascar.Result;
 public class ResultCell extends Cell 
 {
 	public enum Mode {POSITION, LAPS_LED, LEADER_INTERVAL, LOCAL_INTERVAL, SEASON_POINTS, RACE_POINTS,
-		LAST_LAP_POSITION, POSITION_CHANGE, SPEED, SEASON_RANK, LEADER_POINTS_DIFF, LOCAL_POINTS_DIFF};
+		LAST_LAP_POSITION, POSITION_CHANGE, SPEED, SEASON_RANK, LEADER_POINTS_DIFF, LOCAL_POINTS_DIFF,
+		ROW_NUMBER};
 		
 	public static final int BORDER_WIDTH = 3;
 	
@@ -193,6 +194,10 @@ public class ResultCell extends Cell
 				}
 			}
 		}
+		else if(mode == Mode.ROW_NUMBER)
+		{
+			return String.format("%d", result.getRowNumber());
+		}
 		
 		return (new Integer(result.getFinish())).toString();
 	}
@@ -316,8 +321,8 @@ public class ResultCell extends Cell
         g.setFont(font);
         
 		Color tBorder = new Color(0x33, 0x33, 0x33);
-		Color tBackground = getBackground();
-		Color tText = text;
+		Color tBackground = Color.BLACK;
+		Color tText = Color.WHITE;
 
 		if(mode == Mode.POSITION)
 		{
@@ -395,8 +400,29 @@ public class ResultCell extends Cell
 				tText = getColorUsingDistance(dist, true);
 			}
 		}
+		else if(mode == Mode.SPEED)
+		{
+			double throttle = result.getThrottle();
+			double brake = result.getBrake();
+			
+			if(0 < brake && brake <= 1)
+			{
+				tBackground = new Color((float)brake, 0, 0);
+				tText = Color.WHITE;
+			}
+			else if(0 < throttle && throttle <= 1)
+			{
+				tBackground = new Color(0, (float)throttle, 0);
+				
+				if(throttle > .85)
+					tText = Color.BLACK;
+				else
+					tText = Color.WHITE;
+			}
+		}
 
-		if(mode == Mode.POSITION || mode == Mode.LEADER_INTERVAL || mode == Mode.LOCAL_INTERVAL)
+		if(mode == Mode.POSITION || mode == Mode.LEADER_INTERVAL || mode == Mode.LOCAL_INTERVAL
+			|| mode == Mode.SPEED)
 		{
 			g.setColor(tBackground);
 			g.fillRect(0, 0, getWidth(), getHeight());
@@ -425,11 +451,5 @@ public class ResultCell extends Cell
 		g.drawString(cachedValue, xOffset, yOffset);
 		
 		updated = false;
-	}
-	
-	public void setBackground(Color background)
-	{
-		super.setBackground(background);
-		updated = true;
 	}
 }

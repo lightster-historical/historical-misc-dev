@@ -70,6 +70,7 @@ public class FantasyPlayerCell extends Cell
             RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         //*/
 
+        //*
         g.setFont(font);
         
 		// border
@@ -88,6 +89,7 @@ public class FantasyPlayerCell extends Cell
 		//g.setFont(g.getFont().deriveFont(36.0f).deriveFont(Font.BOLD));
 		g.setColor(text);
 		g.drawString(label, xOffset, yOffset);
+		//*/
 		
 		updated = false;
 	}

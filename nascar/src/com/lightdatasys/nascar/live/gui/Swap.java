@@ -2,10 +2,16 @@ package com.lightdatasys.nascar.live.gui;
 
 public class Swap
 {
+	private static int currentCacheIndex = 1;
+	
 	private int startPos;
 	private int endPos;
 	private long maxDelta;
 	private long start;
+	
+	private int cacheIndex;
+	private int cachedPosition;
+	private long lastUpdated;
 	
 	
 	public Swap(int startPos, int endPos, long maxDelta)
@@ -14,6 +20,9 @@ public class Swap
 		this.endPos = endPos;
 		this.maxDelta = maxDelta;
 		this.start = System.currentTimeMillis();
+		
+		this.cacheIndex = 0;
+		this.cachedPosition = startPos;
 	}
 	
 	
@@ -29,6 +38,9 @@ public class Swap
 	
 	public int getPosition()
 	{
+		if(cacheIndex == currentCacheIndex)
+			return cachedPosition;
+		
 		int displacement = 0;
 		
 		int distance = endPos - startPos;
@@ -54,11 +66,20 @@ public class Swap
 			displacement = Math.round(.5f * accel * getDelta() * getDelta());
 		}
 		
-		return startPos + displacement;
+		cacheIndex = currentCacheIndex;
+		cachedPosition = startPos + displacement;
+		
+		return cachedPosition;
 	}
 	
 	public boolean isDone()
 	{
-		return (getDelta() >= maxDelta);
+		return (getDelta() >= getMaxDelta());
+	}
+	
+	
+	public static void incrementCacheIndex()
+	{
+		currentCacheIndex = (currentCacheIndex + 1) % 5;
 	}
 }

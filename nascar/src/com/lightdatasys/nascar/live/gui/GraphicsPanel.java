@@ -1,5 +1,6 @@
 package com.lightdatasys.nascar.live.gui;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.Image;
@@ -17,6 +18,8 @@ public abstract class GraphicsPanel
 	protected Swap xSwap;
 	protected Swap ySwap;
 	
+	protected Color background;
+	
 
 	public GraphicsPanel()
 	{
@@ -32,6 +35,8 @@ public abstract class GraphicsPanel
 		this.yOffset = 0;
 		this.xSwap = null;
 		this.ySwap = null;
+		
+		this.background = null;
 	}
 	
 	
@@ -70,7 +75,12 @@ public abstract class GraphicsPanel
 	public void render()
 	{
 		Graphics2D g2 = (Graphics2D)getImage().getGraphics();
-		g2.clearRect(0, 0, getWidth(), getHeight());
+		
+		if(getBackground() != null)
+		{
+			g2.setColor(getBackground());
+			g2.fillRect(0, 0, getWidth(), getHeight());
+		}
 		
 		render(g2);
 		
@@ -122,7 +132,17 @@ public abstract class GraphicsPanel
 	public int getXOffset(boolean start)
 	{
 		if(xSwap != null && !start)
-			return xSwap.getPosition();
+		{
+			if(xSwap.isDone())
+			{
+				xOffset = xSwap.getPosition();
+				xSwap = null;
+				
+				return xOffset;
+			}
+			else	
+				return xSwap.getPosition();
+		}
 		else
 			return xOffset;
 	}
@@ -135,8 +155,33 @@ public abstract class GraphicsPanel
 	public int getYOffset(boolean start)
 	{
 		if(ySwap != null && !start)
-			return ySwap.getPosition();
+		{
+			if(ySwap.isDone())
+			{
+				yOffset = ySwap.getPosition();
+				ySwap = null;
+				
+				return yOffset;
+			}
+			else	
+				return ySwap.getPosition();
+		}
 		else
 			return yOffset;
+	}
+	
+	
+	public void setBackground(Color background)
+	{
+		if(this.background == null || !this.background.equals(background))
+		{
+			this.background = background;
+			triggerUpdate();
+		}
+	}
+	
+	public Color getBackground()
+	{
+		return background;
 	}
 }

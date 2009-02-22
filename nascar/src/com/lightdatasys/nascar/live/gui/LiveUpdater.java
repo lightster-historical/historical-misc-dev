@@ -67,6 +67,28 @@ public class LiveUpdater//extends AppWindow
 	
 	private Settings settings;
 	
+	private final int TICK_LENGTH = 100;
+	private int tickIndex = 0;
+	private int tickSum = 0;
+	private int[] tickList;
+
+	public double getFPS()
+	{
+		int newTick = (int)getLastRenderDelta();
+		if(tickList == null)
+			tickList = new int[TICK_LENGTH];
+		
+	    tickSum-=tickList[tickIndex];  /* subtract value falling off */
+	    tickSum+=newTick;              /* add new value */
+	    tickList[tickIndex]=newTick;   /* save new value so it can be subtracted later */
+	    if(++tickIndex==TICK_LENGTH)    /* inc buffer index */
+	    	tickIndex=0;
+
+	    /* return average */
+	    return((double)tickSum/TICK_LENGTH);
+	}
+
+	
 	
 	private ArrayList<FullScreenWindow> windows;
 	
@@ -275,6 +297,9 @@ public class LiveUpdater//extends AppWindow
 					mostLapsLed = Math.max(mostLapsLed, result.getLapsLed());
 					result.setSpeed(d.speed);
 					result.setLastLapSpeed(3600 * trackLength / d.lastLapTime);
+					result.setBrake(d.brake);
+					result.setThrottle(d.throttle);
+					result.setCurrentLap((int)d.currentLap);
 					//d.getTimeOffLeaderLastLap();
 				}
 				//else

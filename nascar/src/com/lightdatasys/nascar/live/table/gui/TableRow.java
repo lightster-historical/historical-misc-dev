@@ -51,6 +51,7 @@ public abstract class TableRow extends GraphicsPanel
 			
 			if(cell != null)
 			{
+				cell.setBackground(getBackground());
 				cell.renderTo(g, cell.getXOffset(), 0);
 				cell = null;
 			}
