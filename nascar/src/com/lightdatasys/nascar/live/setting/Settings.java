@@ -1,10 +1,14 @@
-package com.lightdatasys.nascar.live.gui;
+package com.lightdatasys.nascar.live.setting;
+
+import java.util.AbstractMap;
 
 import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell;
 import com.lightdatasys.nascar.live.gui.cell.ResultCell;
 
 public class Settings 
 {
+	protected AbstractMap<String,Setting> settings;
+	
 	private float fps;
 	private float ups;
 	

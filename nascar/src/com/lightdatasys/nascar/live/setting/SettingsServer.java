@@ -1,4 +1,4 @@
-package com.lightdatasys.nascar.live.gui;
+package com.lightdatasys.nascar.live.setting;
 
 import java.io.BufferedReader;
 import java.io.IOException;

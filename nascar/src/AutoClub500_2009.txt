@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Auto Club 500
+track:	California Speedway
+location:	Fontana, CA
+length: 	500
+laps: 	250
+track_length: 	2.0
+scale: 	0.574
+x_offset: 	27
+y_offset: 	17
+tv_network: 	FOX
+track_image_file: 	california.gif
+</RACE>
+<PARTICIPANTS>
+83	Vickers	Toyota	1	Brian	Vickers	46
+48	Johnson	Chevrolet	2	Jimmie	Johnson	70
+26	McMurray	Ford	3	Jamie	McMurray	52
+2	Kurt Busch	Dodge	4	Kurt	Busch	134
+16	Biffle	Ford	5	Greg	Biffle	103
+24	J. Gordon	Chevrolet	6	Jeff	Gordon	129
+00	Reutimann	Toyota	7	David	Reutimann	127
+44	Allmendinger	Dodge	8	A.J.	Allmendinger	165
+82	Speed	Toyota	9	Scott	Speed	58
+18	Kyle Busch	Toyota	10	Kyle	Busch	50
+14	Stewart	Chevrolet	11	Tony	Stewart	147
+7	R. Gordon	Toyota	12	Robby	Gordon	61
+6	Ragan	Ford	13	David	Ragan	150
+47	Ambrose	Toyota	14	Marcos	Ambrose	112
+42	Montoya	Chevrolet	15	Juan Pablo	Montoya	121
+96	B. Labonte	Ford	16	Bobby	Labonte	102
+43	Sorenson	Dodge	17	Reed	Sorenson	138
+5	Martin	Chevrolet	18	Mark	Martin	120
+29	Harvick	Chevrolet	19	Kevin	Harvick	170
+19	E. Sadler	Dodge	20	Elliott	Sadler	160
+33	Bowyer	Chevrolet	21	Clint	Bowyer	160
+9	Kahne	Dodge	22	Kasey	Kahne	76
+11	Hamlin	Toyota	23	Denny	Hamlin	85
+17	Kenseth	Ford	24	Matt	Kenseth	190
+99	Edwards	Ford	25	Carl	Edwards	109
+77	Hornish Jr.	Dodge	26	Sam	Hornish Jr.	67
+98	Menard	Ford	27	Paul	Menard	49
+39	Newman	Chevrolet	28	Ryan	Newman	55
+07	Mears	Chevrolet	29	Casey	Mears	118
+66	Blaney	Toyota	30	Dave	Blaney	0
+8	Almirola	Chevrolet	31	Aric	Almirola	73
+71	Gilliland	Chevrolet	32	David	Gilliland	0
+1	Truex Jr.	Chevrolet	33	Martin	Truex Jr.	135
+20	Logano	Toyota	34	Joey	Logano	34
+88	Earnhardt Jr.	Chevrolet	35	Dale	Earnhardt Jr.	87
+36	Riggs	Toyota	36	Scott	Riggs	88
+28	Kvapil	Ford	37	Travis	Kvapil	37
+12	Stremme	Dodge	38	David	Stremme	64
+41	Mayfield	Toyota	39	Jeremy	Mayfield	43
+34	Andretti	Chevrolet	40	John	Andretti	106
+31	J. Burton	Chevrolet	41	Jeff	Burton	79
+55	Waltrip	Toyota	42	Michael	Waltrip	146
+87	Nemechek	Toyota	43	Joe	Nemechek	0
+</PARTICIPANTS>

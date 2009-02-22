@@ -18,13 +18,13 @@ import com.lightdatasys.nascar.Result;
 import com.lightdatasys.nascar.fantasy.FantasyPlayer;
 import com.lightdatasys.nascar.fantasy.FantasyResult;
 import com.lightdatasys.nascar.live.gui.FullScreenWindow;
-import com.lightdatasys.nascar.live.gui.Settings;
 import com.lightdatasys.nascar.live.gui.Swap;
 import com.lightdatasys.nascar.live.gui.cell.Cell;
 import com.lightdatasys.nascar.live.gui.cell.FantasyPlayerCell;
 import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell;
 import com.lightdatasys.nascar.live.gui.cell.PlayerCellSet;
 import com.lightdatasys.nascar.live.gui.cell.ResultCell;
+import com.lightdatasys.nascar.live.setting.Settings;
 import com.lightdatasys.nascar.live.table.gui.DriverRow;
 import com.lightdatasys.nascar.live.table.gui.FantasyResultHeaderRow;
 import com.lightdatasys.nascar.live.table.gui.PlayerHeaderRow;
@@ -252,14 +252,14 @@ public class SortableTable extends LivePanel
 		Race race = getRace();
 		Swap.incrementCacheIndex();
 		
-		//if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.YELLOW)
+		if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.YELLOW)
 			window.setBackground(Color.YELLOW);
-		/*else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.RED)
+		else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.RED)
 			window.setBackground(new Color(0xCC, 0x00, 0x00));
 		else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.WHITE)
 			window.setBackground(Color.WHITE);
 		else
-			window.setBackground(Color.BLACK);*/
+			window.setBackground(Color.BLACK);
 		
 		g.clearRect(0, 0, getWidth(), getHeight());
 

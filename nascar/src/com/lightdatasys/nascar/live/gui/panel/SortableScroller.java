@@ -22,7 +22,6 @@ import com.lightdatasys.nascar.event.PositionChangeListener;
 import com.lightdatasys.nascar.fantasy.FantasyPlayer;
 import com.lightdatasys.nascar.fantasy.FantasyResult;
 import com.lightdatasys.nascar.live.gui.FullScreenWindow;
-import com.lightdatasys.nascar.live.gui.Settings;
 import com.lightdatasys.nascar.live.gui.Swap;
 import com.lightdatasys.nascar.live.gui.cell.CarNoCell;
 import com.lightdatasys.nascar.live.gui.cell.Cell;
@@ -30,6 +29,7 @@ import com.lightdatasys.nascar.live.gui.cell.FantasyPlayerCell;
 import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell;
 import com.lightdatasys.nascar.live.gui.cell.ResultCell;
 import com.lightdatasys.nascar.live.gui.cell.ResultCell.Mode;
+import com.lightdatasys.nascar.live.setting.Settings;
 
 public class SortableScroller extends LivePanel
 {

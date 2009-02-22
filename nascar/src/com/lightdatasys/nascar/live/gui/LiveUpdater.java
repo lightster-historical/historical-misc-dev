@@ -11,12 +11,14 @@ import com.lightdatasys.nascar.event.PositionChangeEvent;
 import com.lightdatasys.nascar.fantasy.FantasyResult;
 import com.lightdatasys.nascar.fantasy.Leaderboard;
 import com.lightdatasys.nascar.live.gui.panel.SortableTable;
+import com.lightdatasys.nascar.live.setting.Settings;
+import com.lightdatasys.nascar.live.setting.SettingsServer;
 
 public class LiveUpdater//extends AppWindow
 	implements Runnable
 {
-	private final static String PROPERTY_FILE = "Daytona500_2009.txt";
-	private final static int RACE_ID = 1090;
+	private final static String PROPERTY_FILE = "AutoClub500_2009.txt";
+	private final static int RACE_ID = 1091;
 	
 	
 	private final static boolean ALLOW_UPDATES = false;
