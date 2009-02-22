@@ -21,7 +21,7 @@ public class LiveUpdater//extends AppWindow
 	private final static int RACE_ID = 1091;
 	
 	
-	private final static boolean ALLOW_UPDATES = false;
+	private final static boolean ALLOW_UPDATES = true;
 	private final static boolean SHOW_FPS = false;
 	
 	

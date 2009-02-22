@@ -561,7 +561,7 @@ public class Race
 			fantasyResultsByPlayer = new HashMap<FantasyPlayer,FantasyResult>();
 			
 			Statement sPicks = NASCARData.getSQLConnection().createStatement();
-			sPicks.execute("SELECT raceId, userId, driverId FROM nascarFantPick WHERE raceId=" + raceId);
+			sPicks.execute("SELECT raceId, userId, driverId FROM nascarFantPick WHERE deletedTime IS NULL AND raceId=" + raceId);
 			
 			ResultSet rsPicks = sPicks.getResultSet();
 			

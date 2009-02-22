@@ -65,7 +65,7 @@ public class FantasyPlayer
 		{
 			Statement sPlayer = conn.createStatement();
 			sPlayer.execute("SELECT pu.userId FROM player_user AS pu " +
-					"INNER JOIN nascarFantPick AS nf ON pu.userId=nf.userId " +
+					"INNER JOIN nascarFantPick AS nf ON pu.userId=nf.userId AND nf.deletedTime IS NULL " +
 					"INNER JOIN nascarRace AS nra ON nf.raceId=nra.raceId " +
 					"WHERE nra.seasonId=2 " +
 					"GROUP BY pu.userId");
