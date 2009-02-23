@@ -405,14 +405,14 @@ public class ResultCell extends Cell
 			double throttle = result.getThrottle();
 			double brake = result.getBrake();
 			
-			if(0 < brake && brake <= 1)
+			if(0 < brake && brake <= 100)
 			{
-				tBackground = new Color((float)brake, 0, 0);
+				tBackground = new Color((float)(brake / 100), 0, 0);
 				tText = Color.WHITE;
 			}
-			else if(0 < throttle && throttle <= 1)
+			else if(0 < throttle && throttle <= 100)
 			{
-				tBackground = new Color(0, (float)throttle, 0);
+				tBackground = new Color(0, (float)(throttle / 100), 0);
 				
 				if(throttle > .85)
 					tText = Color.BLACK;

@@ -44,10 +44,10 @@ public class SortableTable extends LivePanel
     };
     protected ResultCell.Mode[] leftHeaderModes = 
     {
-    		ResultCell.Mode.SEASON_RANK,
+    	ResultCell.Mode.SEASON_RANK,
 		ResultCell.Mode.LEADER_POINTS_DIFF,
 		ResultCell.Mode.SPEED,
-		ResultCell.Mode.LEADER_INTERVAL,
+		ResultCell.Mode.LOCAL_INTERVAL,
 		ResultCell.Mode.POSITION
     };
     
