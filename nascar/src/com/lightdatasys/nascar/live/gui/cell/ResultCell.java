@@ -11,11 +11,7 @@ import com.lightdatasys.gui.FontUtility;
 import com.lightdatasys.nascar.Result;
 
 public class ResultCell extends Cell 
-{
-	public enum Mode {POSITION, LAPS_LED, LEADER_INTERVAL, LOCAL_INTERVAL, SEASON_POINTS, RACE_POINTS,
-		LAST_LAP_POSITION, POSITION_CHANGE, SPEED, SEASON_RANK, LEADER_POINTS_DIFF, LOCAL_POINTS_DIFF,
-		ROW_NUMBER};
-		
+{		
 	public static final int BORDER_WIDTH = 3;
 	
 	
@@ -268,7 +264,7 @@ public class ResultCell extends Cell
 		{
 			this.mode = mode;
 			
-			updated = true;
+			triggerUpdate();
 			
 			updateFont();
 		}
@@ -452,4 +448,59 @@ public class ResultCell extends Cell
 		
 		updated = false;
 	}
+	
+	
+	
+
+	public enum Mode
+	{
+		POSITION("Position"),
+		LAPS_LED("Laps Led"),
+		LEADER_INTERVAL("Leader Interval"), 
+		LOCAL_INTERVAL("Local Interval"), 
+		SEASON_POINTS("Season Points"),
+		RACE_POINTS("Race Points"),
+		LAST_LAP_POSITION("Last Lap Position"), 
+		POSITION_CHANGE("Position Change"),
+		SPEED("Speed"), 
+		SEASON_RANK("Season Rank"), 
+		LEADER_POINTS_DIFF("Leader Points Diff"), 
+		LOCAL_POINTS_DIFF("Local Points Diff"),
+		ROW_NUMBER("Row Number");
+		
+		
+		protected final String displayValue;
+		
+		private Mode(String displayValue)
+		{
+			this.displayValue = displayValue;
+		}
+		
+		public String getStringIndex()
+		{
+			return (new Integer(ordinal())).toString();
+		}
+		
+		public String toString()
+		{
+			return displayValue;
+		}
+		
+		
+		public Mode getValueUsingIndex(String index)
+		{
+			try
+			{
+				int i = Integer.parseInt(index);
+				
+				if(0 <= i && i < Mode.values().length)
+					return Mode.values()[i];
+			}
+			catch(Exception ex)
+			{
+			}
+			
+			return Mode.values()[0];
+		}
+	};
 }

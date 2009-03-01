@@ -11,7 +11,6 @@ public class Swap
 	
 	private int cacheIndex;
 	private int cachedPosition;
-	private long lastUpdated;
 	
 	
 	public Swap(int startPos, int endPos, long maxDelta)
@@ -38,7 +37,9 @@ public class Swap
 	
 	public int getPosition()
 	{
-		if(cacheIndex == currentCacheIndex)
+		if(maxDelta == 0)
+			return endPos;
+		else if(cacheIndex == currentCacheIndex)
 			return cachedPosition;
 		
 		int displacement = 0;

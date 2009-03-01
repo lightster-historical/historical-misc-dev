@@ -24,6 +24,8 @@ import com.lightdatasys.nascar.live.gui.cell.FantasyPlayerCell;
 import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell;
 import com.lightdatasys.nascar.live.gui.cell.PlayerCellSet;
 import com.lightdatasys.nascar.live.gui.cell.ResultCell;
+import com.lightdatasys.nascar.live.setting.ResultModeSetting;
+import com.lightdatasys.nascar.live.setting.Setting;
 import com.lightdatasys.nascar.live.setting.Settings;
 import com.lightdatasys.nascar.live.table.gui.DriverRow;
 import com.lightdatasys.nascar.live.table.gui.FantasyResultHeaderRow;
@@ -103,6 +105,7 @@ public class SortableTable extends LivePanel
 		this.showHeader = showHeader;
 		
 		settings = getLiveUpdater().getSettings();
+		initResultModes();
 		
         cellMargin = 1;
         
@@ -123,7 +126,7 @@ public class SortableTable extends LivePanel
 		
 		topRow = 0;
         
-        getWindow().setBackground(Color.BLACK);
+        getWindow().setBackground(new Color(0x33, 0x33, 0x33));
 
         initPlayerCells();
 		if(showHeader)
@@ -194,9 +197,9 @@ public class SortableTable extends LivePanel
 			int newX = getColumnPosition(newPosition);
 
 			for(int i = 0; i < playerCellSet.getResultCellCount(); i++)
-				playerCellSet.getResultCell(i).moveToX(newX, settings.getSwapPeriod());
-			playerCellSet.getPlayerHeaderCell().moveToX(newX, settings.getSwapPeriod());
-			playerCellSet.getPlayerCell().moveToX(newX, settings.getSwapPeriod());
+				playerCellSet.getResultCell(i).moveToX(newX, settings.getLongValue("swapPeriod"));
+			playerCellSet.getPlayerHeaderCell().moveToX(newX, settings.getLongValue("swapPeriod"));
+			playerCellSet.getPlayerCell().moveToX(newX, settings.getLongValue("swapPeriod"));
 		}
 	}
 
@@ -213,13 +216,19 @@ public class SortableTable extends LivePanel
 			row.getResult().setRowNumber((short)newPosition);
 
 			int newY = getRowPosition(newPosition);
-			row.moveToY(newY, settings.getSwapPeriod());
+			row.moveToY(newY, settings.getLongValue("swapPeriod"));
 		}
 	}
 	
 	
 	public void update()
 	{			
+		ResultCell.Mode[] modes = getResultModes();
+		for(int i = 0; i < rows.size(); i++)
+		{
+			rows.get(i).setResultModes(modes);
+		}
+			
 		if(flag != getRace().getFlag())
 		{
 			if(getRace().getFlag() == Race.Flag.YELLOW)
@@ -259,7 +268,7 @@ public class SortableTable extends LivePanel
 		else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.WHITE)
 			window.setBackground(Color.WHITE);
 		else
-			window.setBackground(Color.BLACK);
+			window.setBackground(new Color(0x33, 0x33, 0x33));
 		
 		g.clearRect(0, 0, getWidth(), getHeight());
 
@@ -354,6 +363,24 @@ public class SortableTable extends LivePanel
 		return leftHeaderModes;
 	}
 	
+	public ResultCell.Mode[] getResultModes()
+	{
+		int count = getDefaultResultModes().length;
+		ResultCell.Mode[] modes = new ResultCell.Mode[count];
+		
+		for(int i = 1; i <= count; i++)
+		{
+			Object value = settings.getValue("resultMode" + i);
+			
+			if(value instanceof ResultCell.Mode)
+				modes[i - 1] = (ResultCell.Mode)value;
+			else
+				modes[i - 1] = getDefaultResultModes()[i - 1];			
+		}
+		
+		return modes;
+	}
+	
 	public int getCellMargin()
 	{
 		return cellMargin;
@@ -380,12 +407,11 @@ public class SortableTable extends LivePanel
 			moveRow(row, i + 1);
 			
 			Result result = row.getResult();			
-			/*
-			if(result.isCurrent())
-				row.setBackground(new Color(.1f, .1f, .1f));
-			else
-			//*/
+			
+			if(!result.isCurrent() || !settings.getBooleanValue("highlightActives").booleanValue())
 				row.setBackground(getWindow().getBackground());
+			else
+				row.setBackground(getWindow().getBackground().darker());
 		}
 	}
 	
@@ -415,6 +441,22 @@ public class SortableTable extends LivePanel
 		}
 	}
 	
+	
+	public void initResultModes()
+	{
+		int count = getDefaultResultModes().length;
+		
+		for(int i = 1; i <= count; i++)
+		{
+			Setting<?> setting = settings.get("resultMode" + i);
+			
+			if(setting instanceof ResultModeSetting)
+			{
+				ResultModeSetting modeSetting = (ResultModeSetting)setting;
+				modeSetting.setValue(getDefaultResultModes()[i - 1]);
+			}
+		}
+	}
 	
 	public void initPlayerCells()
 	{	
@@ -478,7 +520,7 @@ public class SortableTable extends LivePanel
 		orderingByCarNo = new HashMap<String,Integer>();
 		
 		Dimension[] cellDimensions = getRowCellDimensions();
-		ResultCell.Mode[] resultModes = getDefaultResultModes();
+		ResultCell.Mode[] resultModes = getResultModes();
 		int cellMargin = getCellMargin();
 		
 		int position = 1;

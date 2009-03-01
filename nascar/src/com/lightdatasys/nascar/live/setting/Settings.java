@@ -1,120 +1,135 @@
 package com.lightdatasys.nascar.live.setting;
 
 import java.util.AbstractMap;
+import java.util.HashMap;
 
 import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell;
 import com.lightdatasys.nascar.live.gui.cell.ResultCell;
 
 public class Settings 
 {
-	protected AbstractMap<String,Setting> settings;
-	
-	private float fps;
-	private float ups;
-	
-	private long swapPeriod;
-	
-	private float scrollSpeed;
-
-	private ResultCell.Mode resultMode1;
-	private ResultCell.Mode resultMode2;
-	private FantasyResultCell.Mode fantasyMode1;
-	private FantasyResultCell.Mode fantasyMode2;
+	protected AbstractMap<String,Setting<?>> settings;
 	
 	
 	public Settings()
 	{
-		fps = 75.0f;
-		ups = 2.0f;
-
-		swapPeriod = 500;
-		scrollSpeed = 0.0f;
-
-		resultMode1 = ResultCell.Mode.LOCAL_POINTS_DIFF;
-		resultMode2 = ResultCell.Mode.LOCAL_INTERVAL;
-		fantasyMode1 = FantasyResultCell.Mode.SEASON_POINTS;
-		fantasyMode2 = FantasyResultCell.Mode.LEADER_DRIVER_DIFF;
+		settings = new HashMap<String,Setting<?>>();
+		
+		{
+			RangeSetting setting;		
+			setting = new RangeSetting("targetFPS", "Target FPS", 75, .1, 120);
+			setting.addOption("45", 45.0);
+			setting.addOption("55", 55.0);
+			setting.addOption("65", 65.0);
+			setting.addOption("75", 75.0);
+			setting.addOption("85", 85.0);
+			
+			add(setting);
+		}
+		
+		{
+			RangeSetting setting;		
+			setting = new RangeSetting("targetUPS", "Target UPS", 2, .1, 120);
+			setting.addOption(".25", .25);
+			setting.addOption(".5", .5);
+			setting.addOption("1", 1.0);
+			setting.addOption("2", 2.0);
+			setting.addOption("5", 5.0);
+			setting.addOption("10", 10.0);
+			
+			add(setting);
+		}
+		
+		{
+			RangeSetting setting;		
+			setting = new RangeSetting("swapPeriod", "Swap Period", 500, 0, 5000);
+			setting.addOption(".25", 250.0);
+			setting.addOption(".5", 500.0);
+			setting.addOption("1", 1000.0);
+			setting.addOption("2", 2000.0);
+			
+			add(setting);
+		}
+		
+		for(int i = 1; i <= 5; i++)
+		{
+			add(new ResultModeSetting(i));
+		}
+		
+		for(int i = 1; i <= 2; i++)
+		{	
+			add(new FantasyResultModeSetting(i));
+		}
+		
+		{
+			add(new BooleanSetting("highlightActives", "Highlight Actives", true, "Yes", "No"));
+		}
 	}
 	
 	
-	public synchronized float getFPS()
+	public void add(Setting<?> setting)
 	{
-		return fps;
+		settings.put(setting.getKeyname(), setting);
 	}
 	
-	public synchronized float getUPS()
+	public Setting<?> get(String key)
 	{
-		return ups;
-	}
-
-	public synchronized long getSwapPeriod()
-	{
-		return swapPeriod;
-	}
-	
-	public synchronized float getScrollSpeed()
-	{
-		return scrollSpeed;
-	}
-	
-	public synchronized ResultCell.Mode getResultMode1()
-	{
-		return resultMode1;
-	}
-	
-	public synchronized ResultCell.Mode getResultMode2()
-	{
-		return resultMode2;
-	}
-	
-	public synchronized FantasyResultCell.Mode getFantasyMode1()
-	{
-		return fantasyMode1;
-	}
-	
-	public synchronized FantasyResultCell.Mode getFantasyMode2()
-	{
-		return fantasyMode2;
+		return settings.get(key);
 	}
 	
 	
-	public synchronized void setFPS(float fps)
+	public Object getValue(String key)
 	{
-		this.fps = fps;
+		Setting<?> setting = settings.get(key);
+		if(setting != null)
+		{
+			return setting.getValue();
+		}
+		
+		return null;
 	}
 	
-	public synchronized void setUPS(float ups)
+	public Boolean getBooleanValue(String key)
 	{
-		this.ups = ups;
+		Object value = getValue(key);
+		
+		if(value instanceof Boolean)
+			return (Boolean)value;
+		
+		return null;
 	}
 	
-	public synchronized void setSwapPeriod(long swapPeriod)
+	public Double getDoubleValue(String keyname)
 	{
-		this.swapPeriod = swapPeriod;
+		Object value = getValue(keyname);
+		
+		if(value instanceof Double)
+			return (Double)value;
+		
+		return null;
 	}
 	
-	public synchronized void setScrollSpeed(float scrollSpeed)
+	public Long getLongValue(String keyname)
 	{
-		this.scrollSpeed = scrollSpeed;
+		Object value = getValue(keyname);
+		
+		if(value instanceof Long)
+			return (Long)value;
+		else if(value instanceof Double)
+			return ((Double)value).longValue();
+		
+		return null;
 	}
 	
-	public synchronized void setResultMode1(ResultCell.Mode resultMode)
-	{
-		this.resultMode1 = resultMode;
-	}
 	
-	public synchronized void setResultMode2(ResultCell.Mode resultMode)
+	public boolean setValueUsingKey(String settingKey, String valueKey)
 	{
-		this.resultMode2 = resultMode;
-	}
-	
-	public synchronized void setFantasyMode1(FantasyResultCell.Mode fantasyMode1)
-	{
-		this.fantasyMode1 = fantasyMode1;
-	}
-	
-	public synchronized void setFantasyMode2(FantasyResultCell.Mode fantasyMode2)
-	{
-		this.fantasyMode2 = fantasyMode2;
+		Setting<?> setting = settings.get(settingKey);
+		if(setting != null)
+		{
+			setting.setValueUsingKey(valueKey);
+		}
+		
+		return false;
 	}
 }

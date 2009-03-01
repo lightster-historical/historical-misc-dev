@@ -39,7 +39,7 @@ public class Result
 		this.finish = finish;
 		this.finishLast = finish;
 		this.finishChange = 0;
-		this.currentLap = 0;
+		this.currentLap = -1;
 		this.lapsLed = 0;
 		this.ledLaps = ledLaps;
 		this.ledMostLaps = ledMostLaps;

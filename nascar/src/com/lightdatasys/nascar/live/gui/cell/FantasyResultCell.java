@@ -11,11 +11,55 @@ import java.awt.Toolkit;
 import com.lightdatasys.gui.FontUtility;
 import com.lightdatasys.nascar.fantasy.FantasyPlayer;
 import com.lightdatasys.nascar.fantasy.FantasyResult;
+import com.lightdatasys.nascar.live.gui.cell.ResultCell.Mode;
 
 public class FantasyResultCell extends Cell 
 {
-	public enum Mode {POSITION, SEASON_POINTS, RACE_POINTS, DRIVER_RACE_POINTS,
-		LAST_LAP_POSITION, POSITION_CHANGE, LEADER_DRIVER_DIFF};
+	public enum Mode 
+	{
+		POSITION("Position"), 
+		SEASON_POINTS("Season Points"),
+		RACE_POINTS("Race Points"),
+		DRIVER_RACE_POINTS("Driver Race Points"),
+		LAST_LAP_POSITION("Last Lap Position"), 
+		POSITION_CHANGE("Position Change"), 
+		LEADER_DRIVER_DIFF("Leader Driver Diff");
+		
+		
+		protected final String displayValue;
+		
+		private Mode(String displayValue)
+		{
+			this.displayValue = displayValue;
+		}
+		
+		public String getStringIndex()
+		{
+			return (new Integer(ordinal())).toString();
+		}
+		
+		public String toString()
+		{
+			return displayValue;
+		}
+		
+		
+		public Mode getValueUsingIndex(String index)
+		{
+			try
+			{
+				int i = Integer.parseInt(index);
+				
+				if(0 <= i && i < Mode.values().length)
+					return Mode.values()[i];
+			}
+			catch(Exception ex)
+			{
+			}
+			
+			return Mode.values()[0];
+		}
+	};
 	
 	
 	private FantasyResult result;

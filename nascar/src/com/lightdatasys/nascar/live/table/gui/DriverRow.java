@@ -25,6 +25,7 @@ public class DriverRow extends TableRow
 	protected Result result;
 	
 	protected Cell[] cells;
+	protected ResultCell[] resultCells;
 	
 	protected int yOffset;
 	protected Swap swap;
@@ -44,19 +45,21 @@ public class DriverRow extends TableRow
 	}
 	
 	
-	@Override
-	public void render(Graphics2D g)
-	{
-		super.render(g);
-	}
-	
-	
 	public void setResultMode(int i, ResultCell.Mode mode)
 	{
 		if(0 <= i && i < cells.length && cells[i] instanceof ResultCell)
 		{
 			((ResultCell)cells[i]).setMode(mode);
-			triggerUpdate();
+		}
+	}
+	
+	public void setResultModes(ResultCell.Mode[] modes)
+	{
+		int count = Math.min(modes.length, resultCells.length);
+		
+		for(int i = 0; i < count; i++)
+		{
+			setResultMode(i, modes[i]);
 		}
 	}
 	
@@ -81,6 +84,7 @@ public class DriverRow extends TableRow
 		, ArrayList<PlayerCellSet> playerCellSets)
 	{
 		cells = new Cell[cellDimensions.length];
+		resultCells = new ResultCell[resultModes.length];
 		Race race = result.getRace();
 		
 		int playerCount = 0;
@@ -94,6 +98,7 @@ public class DriverRow extends TableRow
 					, Color.WHITE, Color.BLACK, Color.BLACK);
 				cell.setMode(resultModes[i]);
 				cells[i] = cell;
+				resultCells[i] = cell;
 			}
 			else if(i == resultModes.length)
 			{

@@ -2,17 +2,14 @@ package com.lightdatasys.nascar.live.gui;
 
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Vector;
 
 import com.lightdatasys.nascar.Result;
 import com.lightdatasys.nascar.event.PositionChangeEvent;
-import com.lightdatasys.nascar.fantasy.FantasyResult;
 import com.lightdatasys.nascar.fantasy.Leaderboard;
 import com.lightdatasys.nascar.live.gui.panel.SortableTable;
 import com.lightdatasys.nascar.live.setting.Settings;
-import com.lightdatasys.nascar.live.setting.SettingsServer;
 
 public class LiveUpdater//extends AppWindow
 	implements Runnable
@@ -21,7 +18,7 @@ public class LiveUpdater//extends AppWindow
 	private final static int RACE_ID = 1091;
 	
 	
-	private final static boolean ALLOW_UPDATES = true;
+	private final static boolean ALLOW_UPDATES = false;
 	private final static boolean SHOW_FPS = false;
 	
 	
@@ -152,9 +149,9 @@ public class LiveUpdater//extends AppWindow
 		//setVisible(true);
 		
 		settings = new Settings();
-		Thread test = new Thread(new SettingsServer(settings));
+		//Thread test = new Thread(new SettingsServer(settings));
 		//test.start();
-		System.out.println("settings thread created");
+		//System.out.println("settings thread created");
         
         cellMargin = 2;
         
@@ -342,8 +339,8 @@ public class LiveUpdater//extends AppWindow
 		lastUpdateTime = System.currentTimeMillis();
 		lastRenderTime = System.currentTimeMillis();
 		
-		updateInterval = Math.round(1000.0d / settings.getUPS()); 
-		renderInterval = Math.round(1000.0d / settings.getFPS());
+		updateInterval = Math.round(1000.0d / settings.getDoubleValue("targetUPS")); 
+		renderInterval = Math.round(1000.0d / settings.getDoubleValue("targetFPS"));
 	}
 	
 	public void run()

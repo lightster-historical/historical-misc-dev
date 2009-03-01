@@ -1,5 +1,6 @@
 package com.lightdatasys.nascar.live.table.gui;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
@@ -34,6 +35,8 @@ public abstract class TableRow extends GraphicsPanel
 		
 		this.cellMargin = cellMargin;
 		this.cellDimensions = cellDimensions;
+		
+		setBackground(Color.BLACK);
 	}
 	
 	
