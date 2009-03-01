@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Shelby 427
+track:	Las Vegas Motor Speedway
+location:	Las Vegas, NV
+length: 	427
+laps: 	285
+track_length: 	1.5
+scale: 	0.585
+x_offset: 	21
+y_offset: 	17
+tv_network: 	FOX
+track_image_file: 	las_vegas.gif
+</RACE>
+<PARTICIPANTS>
+18	Kyle Busch	Toyota	1	Kyle	Busch	215
+2	Kurt Busch	Dodge	2	Kurt	Busch	294
+48	Johnson	Chevrolet	3	Jimmie	Johnson	213
+00	Reutimann	Toyota	4	David	Reutimann	248
+47	Ambrose	Toyota	5	Marcos	Ambrose	209
+39	Newman	Chevrolet	6	Ryan	Newman	134
+9	Kahne	Dodge	7	Kasey	Kahne	203
+5	Martin	Chevrolet	8	Mark	Martin	168
+29	Harvick	Chevrolet	9	Kevin	Harvick	219
+14	Stewart	Chevrolet	10	Tony	Stewart	294
+12	Stremme	Dodge	11	David	Stremme	193
+77	Hornish Jr.	Dodge	12	Sam	Hornish Jr.	161
+25	Keselowski	Chevrolet	13	Brad	Keselowski	0
+31	J. Burton	Chevrolet	14	Jeff	Burton	146
+55	Waltrip	Toyota	15	Michael	Waltrip	264
+99	Edwards	Ford	16	Carl	Edwards	260
+96	B. Labonte	Ford	17	Bobby	Labonte	205
+78	Smith	Chevrolet	18	Regan	Smith	100
+44	Allmendinger	Dodge	19	A.J.	Allmendinger	241
+20	Logano	Toyota	20	Joey	Logano	119
+83	Vickers	Toyota	21	Brian	Vickers	180
+87	Nemechek	Toyota	22	Joe	Nemechek	34
+42	Montoya	Chevrolet	23	Juan Pablo	Montoya	256
+16	Biffle	Ford	24	Greg	Biffle	268
+1	Truex Jr.	Chevrolet	25	Martin	Truex Jr.	217
+13	Papis	Toyota	26	Max	Papis	0
+8	Almirola	Chevrolet	27	Aric	Almirola	131
+24	J. Gordon	Chevrolet	28	Jeff	Gordon	304
+34	Andretti	Chevrolet	29	John	Andretti	181
+71	Gilliland	Chevrolet	30	David	Gilliland	64
+88	Earnhardt Jr.	Chevrolet	31	Dale	Earnhardt Jr.	133
+7	R. Gordon	Toyota	32	Robby	Gordon	134
+19	E. Sadler	Dodge	33	Elliott	Sadler	248
+11	Hamlin	Toyota	34	Denny	Hamlin	235
+6	Ragan	Ford	35	David	Ragan	262
+98	Menard	Ford	36	Paul	Menard	101
+33	Bowyer	Chevrolet	37	Clint	Bowyer	266
+26	McMurray	Ford	38	Jamie	McMurray	167
+43	Sorenson	Dodge	39	Reed	Sorenson	238
+17	Kenseth	Ford	40	Matt	Kenseth	385
+07	Mears	Chevrolet	41	Casey	Mears	209
+82	Speed	Toyota	42	Scott	Speed	98
+64	T. Bodine	Toyota	43	Todd	Bodine	0
+</PARTICIPANTS>

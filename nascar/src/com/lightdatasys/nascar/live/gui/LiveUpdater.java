@@ -14,11 +14,11 @@ import com.lightdatasys.nascar.live.setting.Settings;
 public class LiveUpdater//extends AppWindow
 	implements Runnable
 {
-	private final static String PROPERTY_FILE = "AutoClub500_2009.txt";
-	private final static int RACE_ID = 1091;
+	private final static String PROPERTY_FILE = "Shelby427_2009.txt";
+	private final static int RACE_ID = 1094;
 	
 	
-	private final static boolean ALLOW_UPDATES = false;
+	private final static boolean ALLOW_UPDATES = true;
 	private final static boolean SHOW_FPS = false;
 	
 	

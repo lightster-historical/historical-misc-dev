@@ -124,8 +124,6 @@ public class FullScreenWindow extends AppWindow
 			
 			this.setting = setting;
 			this.option = option;
-			
-			System.out.println("+" + setting);
 		}
 		
 		public Setting.Option<?> getOption()
