@@ -3,15 +3,26 @@ package com.lightdatasys.nascar.live.gui;
 import java.awt.Graphics2D;
 import java.awt.GraphicsDevice;
 import java.awt.RenderingHints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JPopupMenu;
+import javax.swing.JRadioButtonMenuItem;
 
 import com.lightdatasys.gui.AppWindow;
 import com.lightdatasys.gui.QuitHandler;
 import com.lightdatasys.nascar.Driver;
 import com.lightdatasys.nascar.Race;
 import com.lightdatasys.nascar.live.gui.panel.LivePanel;
+import com.lightdatasys.nascar.live.setting.Setting;
+import com.lightdatasys.nascar.live.setting.Settings;
 
 public class FullScreenWindow extends AppWindow
 	implements QuitHandler
@@ -33,7 +44,9 @@ public class FullScreenWindow extends AppWindow
 	
 	public final static int COLUMNS = 45;
 	public final static int ROWS = 13;
-	
+
+    JPopupMenu popup;
+    SettingMenuItem menuItem;
 	
 	public FullScreenWindow(LiveUpdater liveUpdater, GraphicsDevice device)
 	{
@@ -52,7 +65,101 @@ public class FullScreenWindow extends AppWindow
 
         createBufferStrategy(GFX_BUFFER_COUNT);
         System.out.println("Page flipping: " + getBufferStrategy().getCapabilities().isPageFlipping());
+        
+
+        //...where the GUI is constructed:
+        //Create the popup menu.
+        popup = new JPopupMenu();
+        Settings settings = getLiveUpdater().getSettings();
+        ArrayList<Setting<?>> settingsList = settings.getSettingsList();
+        for(Setting<?> setting : settingsList)
+        {
+            menuItem = new SettingMenuItem(setting);
+            //menuItem.add(new SettingValue)
+            //menuItem.addActionListener(this);	
+            popup.add(menuItem);
+        }
+    
+        this.addMouseListener(new PopupListener());
 	}
+	
+	protected class SettingMenuItem extends JMenu implements ActionListener
+	{
+		protected Setting<?> setting;
+		protected ButtonGroup group;
+		
+		public SettingMenuItem(Setting<?> setting)
+		{
+			super(setting.getTitle());
+			
+			this.setting = setting;
+			
+			group = new ButtonGroup();
+			Setting.Option<?>[] options = setting.getValueSet();
+			for(Setting.Option<?> option : options)
+			{
+				SettingValueMenuItem item = new SettingValueMenuItem(setting, option);
+				item.addActionListener(this);
+				this.add(item);
+				group.add(item);
+			}
+		}
+
+		public void actionPerformed(ActionEvent e)
+		{
+			SettingValueMenuItem item = (SettingValueMenuItem)e.getSource();
+			Setting.Option<?> option = item.getOption();
+			setting.setValueUsingKey(option.key);
+		}
+	}
+	
+	protected class SettingValueMenuItem extends JRadioButtonMenuItem
+	{
+		protected Setting<?> setting;
+		protected Setting.Option<?> option;
+		
+		public SettingValueMenuItem(Setting<?> setting, Setting.Option<?> option)
+		{
+			super(option.value.toString());
+			
+			this.setting = setting;
+			this.option = option;
+			
+			System.out.println("+" + setting);
+		}
+		
+		public Setting.Option<?> getOption()
+		{
+			return option;
+		}
+		
+		public boolean isSelected()
+		{
+			if(setting == null || option == null)
+				return false; 
+			
+			return option.value.equals(setting.getValue());
+		}
+	}
+	
+	
+    class PopupListener extends MouseAdapter {
+        public void mousePressed(MouseEvent e) {
+            maybeShowPopup(e);
+        }
+
+        public void mouseReleased(MouseEvent e) {
+            maybeShowPopup(e);
+        }
+
+        private void maybeShowPopup(MouseEvent e) 
+        {
+            if(e.isPopupTrigger()) 
+            {
+                popup.show(e.getComponent(), e.getX(), e.getY());
+            }
+        }
+    }
 	
 	
 	public LiveUpdater getLiveUpdater()

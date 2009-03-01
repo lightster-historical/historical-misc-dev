@@ -83,6 +83,12 @@ public class Setting<ValueType>
 	}
 	
 	
+	public String toString()
+	{
+		return title;
+	}
+	
+	
 	public static class Option<ValueType>
 	{
 		public String key;
