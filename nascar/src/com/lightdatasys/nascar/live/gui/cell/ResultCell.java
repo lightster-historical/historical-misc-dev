@@ -132,6 +132,10 @@ public class ResultCell extends Cell
 		{
 			return String.format("%s", result.getPositionChange());
 		}
+		else if(mode == Mode.LAST_LAP_SPEED)
+		{
+			return String.format("%d", (int)result.getLastLapSpeed());
+		}
 		else if(mode == Mode.SPEED)
 		{
 			return String.format("%d", (int)result.getSpeed());
@@ -466,7 +470,8 @@ public class ResultCell extends Cell
 		SEASON_RANK("Season Rank"), 
 		LEADER_POINTS_DIFF("Leader Points Diff"), 
 		LOCAL_POINTS_DIFF("Local Points Diff"),
-		ROW_NUMBER("Row Number");
+		ROW_NUMBER("Row Number"),
+		LAST_LAP_SPEED("Last Lap Speed");
 		
 		
 		protected final String displayValue;
