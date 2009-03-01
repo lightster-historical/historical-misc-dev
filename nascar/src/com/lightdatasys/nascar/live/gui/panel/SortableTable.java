@@ -268,7 +268,7 @@ public class SortableTable extends LivePanel
 		else if(race.getFlag() == com.lightdatasys.nascar.Race.Flag.WHITE)
 			window.setBackground(Color.WHITE);
 		else
-			window.setBackground(new Color(0x33, 0x33, 0x33));
+			window.setBackground(new Color(0x55, 0x55, 0x55));
 		
 		g.clearRect(0, 0, getWidth(), getHeight());
 
@@ -411,7 +411,7 @@ public class SortableTable extends LivePanel
 			if(!result.isCurrent() || !settings.getBooleanValue("highlightActives").booleanValue())
 				row.setBackground(getWindow().getBackground());
 			else
-				row.setBackground(getWindow().getBackground().darker());
+				row.setBackground(getWindow().getBackground().darker().darker());
 		}
 	}
 	

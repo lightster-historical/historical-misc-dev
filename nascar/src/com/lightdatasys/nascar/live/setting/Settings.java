@@ -4,6 +4,8 @@ import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.lightdatasys.nascar.live.table.gui.DriverRow;
+
 public class Settings 
 {
 	protected AbstractMap<String,Setting<?>> settings;
@@ -58,9 +60,19 @@ public class Settings
 		{	
 			add(new FantasyResultModeSetting(i));
 		}
-		
+
 		{
 			add(new BooleanSetting("highlightActives", "Highlight Actives", true, "Yes", "No"));
+		}
+		
+		{
+			DriverRow.DefaultComparator comparator = new DriverRow.FinishComparator();
+			Setting<DriverRow.DefaultComparator> setting;
+			setting = new Setting<DriverRow.DefaultComparator>("resultOrder", "Result Order", comparator);
+			setting.addOption("finish", comparator);
+			setting.addOption("lastLapSpeed", new DriverRow.LastLapSpeedComparator());
+			
+			add(setting);
 		}
 	}
 	
