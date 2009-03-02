@@ -62,13 +62,13 @@ public class Settings
 		}
 
 		{
-			add(new BooleanSetting("highlightActives", "Highlight Actives", true, "Yes", "No"));
+			add(new BooleanSetting("highlightActives", "Highlight Actives", false, "Yes", "No"));
 		}
 		
 		{
 			DriverRow.DefaultComparator comparator = new DriverRow.FinishComparator();
 			Setting<DriverRow.DefaultComparator> setting;
-			setting = new Setting<DriverRow.DefaultComparator>("resultOrder", "Result Order", comparator);
+			setting = new Setting<DriverRow.DefaultComparator>("rowOrder", "Row Order", comparator);
 			setting.addOption("finish", comparator);
 			setting.addOption("lastLapSpeed", new DriverRow.LastLapSpeedComparator());
 			

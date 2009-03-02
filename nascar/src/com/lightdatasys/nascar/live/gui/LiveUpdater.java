@@ -295,10 +295,9 @@ public class LiveUpdater//extends AppWindow
 					result.setLedLaps(result.getLapsLed() > 0);
 					mostLapsLed = Math.max(mostLapsLed, result.getLapsLed());
 					result.setSpeed(d.speed);
-					result.setLastLapSpeed(3600.0 * trackLength / d.lastLapTime);
+					result.setLastLapSpeed(d.lastLapTime);
 					result.setBrake(d.brake);
 					result.setThrottle(d.throttle);
-					result.setCurrentLap((int)d.currentLap);
 					//d.getTimeOffLeaderLastLap();
 				}
 				//else

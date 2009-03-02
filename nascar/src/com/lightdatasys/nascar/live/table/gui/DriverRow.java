@@ -157,6 +157,11 @@ public class DriverRow extends TableRow
 			
 			return 0;
 		}
+		
+		public String toString()
+		{
+			return "Finish";
+		}
 	}
  
 	public static class LastLapSpeedComparator extends DefaultComparator
@@ -179,6 +184,11 @@ public class DriverRow extends TableRow
 			}
 			else
 				return compareSuper;
+		}
+		
+		public String toString()
+		{
+			return "Last Lap Speed";
 		}
 	}
 }

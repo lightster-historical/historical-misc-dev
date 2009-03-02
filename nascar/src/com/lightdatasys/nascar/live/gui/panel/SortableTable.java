@@ -399,7 +399,15 @@ public class SortableTable extends LivePanel
 	
 	public void updateRowOrdering()
 	{
-		Collections.sort(rows, new DriverRow.FinishComparator());
+		Object objComp = settings.getValue("rowOrder");
+		if(objComp instanceof DriverRow.DefaultComparator)
+		{
+			DriverRow.DefaultComparator comparator 
+				= (DriverRow.DefaultComparator)objComp;
+			Collections.sort(rows, comparator);
+		}
+		else
+			Collections.sort(rows, new DriverRow.FinishComparator());
 		
 		for(int i = 0; i < rows.size(); i++)
 		{
