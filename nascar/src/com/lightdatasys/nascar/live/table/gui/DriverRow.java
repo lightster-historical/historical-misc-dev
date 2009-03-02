@@ -142,53 +142,116 @@ public class DriverRow extends TableRow
 				return 1;
 		}
 	}
+	
+	
  
-	public static class FinishComparator extends DefaultComparator
+	public static class ResultNumericComparator extends DefaultComparator
 	{
+		protected ResultNumericRetriever retriever;
+		
+		public ResultNumericComparator(ResultNumericRetriever obj)
+		{
+			retriever = obj;
+		}
+		
 		public int compare(DriverRow o1, DriverRow o2)
 		{
 			Result r1 = o1.getResult();
 			Result r2 = o2.getResult();
 			
-			if(r1.getFinish() < r2.getFinish())
-				return -1;
-			else if(r1.getFinish() > r2.getFinish())
-				return 1;
+			if(retriever.isAscending())
+			{
+				if(retriever.getValue(r1) < retriever.getValue(r2))
+					return -1;
+				else if(retriever.getValue(r1) > retriever.getValue(r2))
+					return 1;
+			}
+			else
+			{
+				if(retriever.getValue(r1) < retriever.getValue(r2))
+					return 1;
+				else if(retriever.getValue(r1) > retriever.getValue(r2))
+					return -1;
+			}
 			
 			return 0;
 		}
 		
 		public String toString()
 		{
-			return "Finish";
+			return retriever.toString();
 		}
+	}
+	
+	public static interface ResultNumericRetriever
+	{
+		public double getValue(Result result);
+		public boolean isAscending();
+		public String toString();
 	}
  
-	public static class LastLapSpeedComparator extends DefaultComparator
-	{
-		public int compare(DriverRow o1, DriverRow o2)
-		{
-			int compareSuper = super.compare(o1, o2);
-			
-			if(compareSuper == 0)
-			{
-				Result r1 = o1.getResult();
-				Result r2 = o2.getResult();
-				
-				if(r1.getLastLapSpeed() < r2.getLastLapSpeed())
-					return 1;
-				else if(r1.getLastLapSpeed() > r2.getLastLapSpeed())
-					return -1;
-				
-				return 0;
-			}
-			else
-				return compareSuper;
-		}
-		
+	public static class FinishRetriever implements ResultNumericRetriever
+	{		
+		public double getValue(Result result)
+			{return result.getFinish();}
+		public boolean isAscending()
+			{return true;}
 		public String toString()
-		{
-			return "Last Lap Speed";
-		}
+			{return "Finish";}
 	}
+ 
+	public static class DriverStandingsRetriever implements ResultNumericRetriever
+	{		
+		public double getValue(Result result)
+			{return result.getSeasonRank();}
+		public boolean isAscending()
+			{return true;}
+		public String toString()
+			{return "Driver Standings";}
+	}
+ 
+	public static class LapsLedRetriever implements ResultNumericRetriever
+	{		
+		public double getValue(Result result)
+			{return result.getLapsLed();}
+		public boolean isAscending()
+			{return false;}
+		public String toString()
+			{return "Laps Led";}
+	}
+ 
+	public static class RacePointsRetriever implements ResultNumericRetriever
+	{		
+		public double getValue(Result result)
+			{return result.getRacePoints();}
+		public boolean isAscending()
+			{return false;}
+		public String toString()
+			{return "Race Points";}
+	}
+ 
+	public static class SpeedRetriever implements ResultNumericRetriever
+	{		
+		public double getValue(Result result)
+			{return result.getSpeed();}
+		public boolean isAscending()
+			{return false;}
+		public String toString()
+			{return "Speed";}
+	}
+ 
+	public static class LastLapSpeedRetriever implements ResultNumericRetriever
+	{		
+		public double getValue(Result result)
+			{return result.getLastLapSpeed();}
+		public boolean isAscending()
+			{return false;}
+		public String toString()
+			{return "Last Lap Speed";}
+	}
+
+	/*
+	LOCAL_INTERVAL("Local Interval"), 
+	LOCAL_POINTS_DIFF("Local Points Diff")
+	*/
 }

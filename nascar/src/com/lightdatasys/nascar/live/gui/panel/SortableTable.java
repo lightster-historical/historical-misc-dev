@@ -407,7 +407,7 @@ public class SortableTable extends LivePanel
 			Collections.sort(rows, comparator);
 		}
 		else
-			Collections.sort(rows, new DriverRow.FinishComparator());
+			Collections.sort(rows, new DriverRow.ResultNumericComparator(new DriverRow.FinishRetriever()));
 		
 		for(int i = 0; i < rows.size(); i++)
 		{

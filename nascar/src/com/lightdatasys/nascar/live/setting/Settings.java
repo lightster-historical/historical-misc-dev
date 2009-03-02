@@ -4,7 +4,9 @@ import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.lightdatasys.nascar.Result;
 import com.lightdatasys.nascar.live.table.gui.DriverRow;
+import com.lightdatasys.nascar.live.table.gui.DriverRow.ResultNumericRetriever;
 
 public class Settings 
 {
@@ -66,12 +68,17 @@ public class Settings
 		}
 		
 		{
-			DriverRow.DefaultComparator comparator = new DriverRow.FinishComparator();
+			DriverRow.DefaultComparator comparator = new DriverRow.ResultNumericComparator(new DriverRow.FinishRetriever());
 			Setting<DriverRow.DefaultComparator> setting;
 			setting = new Setting<DriverRow.DefaultComparator>("rowOrder", "Row Order", comparator);
 			setting.addOption("finish", comparator);
-			setting.addOption("lastLapSpeed", new DriverRow.LastLapSpeedComparator());
-			
+			//setting.addOption("lastLapSpeed", new DriverRow.ResultNumericComparator(new DriverRow.LastLapSpeedComparator()));
+			setting.addOption("driverStandings", new DriverRow.ResultNumericComparator(new DriverRow.DriverStandingsRetriever()));
+			setting.addOption("lapsLed", new DriverRow.ResultNumericComparator(new DriverRow.LapsLedRetriever()));
+			setting.addOption("racePoints", new DriverRow.ResultNumericComparator(new DriverRow.RacePointsRetriever()));
+			setting.addOption("speed", new DriverRow.ResultNumericComparator(new DriverRow.SpeedRetriever()));
+			setting.addOption("lastLapSpeed", new DriverRow.ResultNumericComparator(new DriverRow.LastLapSpeedRetriever()));
+
 			add(setting);
 		}
 	}

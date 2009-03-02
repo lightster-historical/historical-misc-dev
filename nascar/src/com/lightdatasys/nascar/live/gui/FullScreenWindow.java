@@ -9,6 +9,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JFrame;
@@ -66,12 +69,20 @@ public class FullScreenWindow extends AppWindow
         createBufferStrategy(GFX_BUFFER_COUNT);
         System.out.println("Page flipping: " + getBufferStrategy().getCapabilities().isPageFlipping());
         
-
         //...where the GUI is constructed:
         //Create the popup menu.
         popup = new JPopupMenu();
         Settings settings = getLiveUpdater().getSettings();
         ArrayList<Setting<?>> settingsList = settings.getSettingsList();
+        Collections.sort(settingsList, 
+    		new Comparator<Setting<?>>()
+			{
+				public int compare(Setting<?> o1, Setting<?> o2)
+				{
+					return o1.toString().compareTo(o2.toString());
+				}
+			}
+        );
         for(Setting<?> setting : settingsList)
         {
             menuItem = new SettingMenuItem(setting);
@@ -96,6 +107,15 @@ public class FullScreenWindow extends AppWindow
 			
 			group = new ButtonGroup();
 			Setting.Option<?>[] options = setting.getValueSet();
+	        Arrays.sort(options, 
+        		new Comparator<Setting.Option<?>>()
+    			{
+    				public int compare(Setting.Option<?> o1, Setting.Option<?> o2)
+    				{
+    					return o1.value.toString().compareTo(o2.value.toString());
+    				}
+    			}
+            );
 			for(Setting.Option<?> option : options)
 			{
 				SettingValueMenuItem item = new SettingValueMenuItem(setting, option);
