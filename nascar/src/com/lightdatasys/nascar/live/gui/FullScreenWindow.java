@@ -26,6 +26,7 @@ import com.lightdatasys.nascar.Race;
 import com.lightdatasys.nascar.live.gui.panel.LivePanel;
 import com.lightdatasys.nascar.live.setting.Setting;
 import com.lightdatasys.nascar.live.setting.Settings;
+import com.lightdatasys.nascar.live.setting.SettingsMode;
 
 public class FullScreenWindow extends AppWindow
 	implements QuitHandler
@@ -83,15 +84,38 @@ public class FullScreenWindow extends AppWindow
 				}
 			}
         );
+        JMenu topMenu;
+        
+        topMenu = new JMenu("Individual Settings");
         for(Setting<?> setting : settingsList)
         {
             menuItem = new SettingMenuItem(setting);
             //menuItem.add(new SettingValue)
-            //menuItem.addActionListener(this);	
-            popup.add(menuItem);
+            //menuItem.addActionListener(this);
+            topMenu.add(menuItem);
         }
+        popup.add(topMenu);
     
         this.addMouseListener(new PopupListener());
+	}
+	
+	protected class SettingsModeItem extends JRadioButtonMenuItem implements ActionListener
+	{
+		protected SettingsMode settingsMode;
+		protected Settings settings;
+		
+		public SettingsModeItem(SettingsMode settingsMode, Settings settings)
+		{
+			super(settingsMode.toString());
+			
+			this.settingsMode = settingsMode;
+			this.settings = settings;
+		}
+		
+		public void actionPerformed(ActionEvent e)
+		{
+			settingsMode.setSettings(settings);
+		}
 	}
 	
 	protected class SettingMenuItem extends JMenu implements ActionListener

@@ -34,6 +34,8 @@ public class Settings
 			setting.addOption(".5", .5);
 			setting.addOption("1", 1.0);
 			setting.addOption("2", 2.0);
+			setting.addOption("3", 3.0);
+			setting.addOption("4", 4.0);
 			setting.addOption("5", 5.0);
 			setting.addOption("10", 10.0);
 			

@@ -332,7 +332,14 @@ public class ResultCell extends Cell
 				tBorder = new Color(0xFF, 0xFF, 0xFF);
 
 			if(result.getLapsDown() != 0)
-				tBackground = new Color(0xCC, 0x00, 0x00);
+			{
+				if(result.ledMostLaps())
+					tBackground = new Color(0x66, 0x33, 0x00);
+				else if(result.ledLaps())
+					tBackground = new Color(0xFF, 0x99, 0x00);
+				else
+					tBackground = new Color(0xCC, 0x00, 0x00);
+			}
 			else if(result.ledMostLaps())
 				tBackground = new Color(0x00, 0x99, 0x00);
 			else if(result.ledLaps())
