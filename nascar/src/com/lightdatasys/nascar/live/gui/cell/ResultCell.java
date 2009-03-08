@@ -134,7 +134,7 @@ public class ResultCell extends Cell
 		}
 		else if(mode == Mode.LAST_LAP_SPEED)
 		{
-			return String.format("%d", (int)result.getLastLapSpeed());
+			return String.format("%.2f", result.getLastLapSpeed());
 		}
 		else if(mode == Mode.SPEED)
 		{

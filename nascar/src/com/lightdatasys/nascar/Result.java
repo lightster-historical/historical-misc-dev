@@ -283,6 +283,9 @@ public class Result
 	{
 		if(speed != lastLapSpeed)
 		{
+			if(getFinish() == 1)
+				incrementGlobalCurrentIndex();
+			
 			this.lastLapSpeed = speed;
 			this.currentIndex = getGlobalCurrentIndex();
 		}
