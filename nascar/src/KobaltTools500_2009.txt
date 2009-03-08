@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Kobalt Tools 500
+track:	Atlanta Motor Speedway
+location:	Hampton, GA
+length: 	500
+laps: 	325
+track_length: 	1.54
+scale: 	0.576
+x_offset: 	31
+y_offset: 	15
+tv_network: 	FOX
+track_image_file: 	atlanta.gif
+</RACE>
+<PARTICIPANTS>
+5	Martin	Chevrolet	1	Mark	Martin	211
+2	Kurt Busch	Dodge	2	Kurt	Busch	393
+26	McMurray	Ford	3	Jamie	McMurray	305
+42	Montoya	Chevrolet	4	Juan Pablo	Montoya	326
+16	Biffle	Ford	5	Greg	Biffle	419
+11	Hamlin	Toyota	6	Denny	Hamlin	332
+48	Johnson	Chevrolet	7	Jimmie	Johnson	314
+87	Nemechek	Toyota	8	Joe	Nemechek	74
+18	Kyle Busch	Toyota	9	Kyle	Busch	405
+29	Harvick	Chevrolet	10	Kevin	Harvick	351
+14	Stewart	Chevrolet	11	Tony	Stewart	379
+39	Newman	Chevrolet	12	Ryan	Newman	222
+9	Kahne	Dodge	13	Kasey	Kahne	338
+19	E. Sadler	Dodge	14	Elliott	Sadler	324
+31	J. Burton	Chevrolet	15	Jeff	Burton	316
+24	J. Gordon	Chevrolet	16	Jeff	Gordon	459
+83	Vickers	Toyota	17	Brian	Vickers	322
+00	Reutimann	Toyota	18	David	Reutimann	408
+7	R. Gordon	Toyota	19	Robby	Gordon	257
+88	Earnhardt Jr.	Chevrolet	20	Dale	Earnhardt Jr.	267
+33	Bowyer	Chevrolet	21	Clint	Bowyer	441
+28	Kvapil	Ford	22	Travis	Kvapil	146
+1	Truex Jr.	Chevrolet	23	Martin	Truex Jr.	284
+55	Waltrip	Toyota	24	Michael	Waltrip	346
+07	Mears	Chevrolet	25	Casey	Mears	282
+82	Speed	Toyota	26	Scott	Speed	198
+66	Blaney	Toyota	27	Dave	Blaney	37
+12	Stremme	Dodge	28	David	Stremme	302
+99	Edwards	Ford	29	Carl	Edwards	377
+17	Kenseth	Ford	30	Matt	Kenseth	419
+71	Gilliland	Chevrolet	31	David	Gilliland	185
+43	Sorenson	Dodge	32	Reed	Sorenson	299
+98	Menard	Ford	33	Paul	Menard	159
+47	Ambrose	Toyota	34	Marcos	Ambrose	312
+21	Elliott	Ford	35	Bill	Elliott	94
+77	Hornish Jr.	Dodge	36	Sam	Hornish Jr.	276
+8	Almirola	Chevrolet	37	Aric	Almirola	177
+44	Allmendinger	Dodge	38	A.J.	Allmendinger	305
+6	Ragan	Ford	39	David	Ragan	299
+96	B. Labonte	Ford	40	Bobby	Labonte	360
+34	Andretti	Chevrolet	41	John	Andretti	260
+20	Logano	Toyota	42	Joey	Logano	248
+09	Bliss	Dodge	43	Mike	Bliss	0
+</PARTICIPANTS>

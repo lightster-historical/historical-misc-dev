@@ -5,6 +5,10 @@ import java.util.Comparator;
 
 public class Result
 {
+	private static int globalCurrentIndex = -1;
+
+	private int currentIndex = 0;
+	
 	private Race race;
 	private Driver driver;
 	private String car;
@@ -24,6 +28,7 @@ public class Result
 	private double throttle;
 	private double brake;
 	private boolean isCurrent;
+	
 	
 	private int lastUpdatedLap;
 	
@@ -183,7 +188,7 @@ public class Result
 	
 	public boolean isCurrent()
 	{
-		return (lastUpdatedLap == getRace().getCurrentLap());
+		return (getGlobalCurrentIndex() == getCurrentIndex());
 	}
 	
 	public Standing getStanding()
@@ -276,12 +281,32 @@ public class Result
 	
 	public void setLastLapSpeed(double speed)
 	{
-		this.lastLapSpeed = speed;
+		if(speed != lastLapSpeed)
+		{
+			this.lastLapSpeed = speed;
+			this.currentIndex = getGlobalCurrentIndex();
+		}
 	}
 	
 	public void setRowNumber(short rowNumber)
 	{
 		this.rowNumber = rowNumber;
+	}
+	
+	
+	protected int getCurrentIndex()
+	{
+		return currentIndex;
+	}
+	
+	public static int getGlobalCurrentIndex()
+	{
+		return globalCurrentIndex;
+	}
+	
+	public static void incrementGlobalCurrentIndex()
+	{
+		globalCurrentIndex++;
 	}
 	
 	

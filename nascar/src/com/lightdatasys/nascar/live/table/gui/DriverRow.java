@@ -2,9 +2,7 @@ package com.lightdatasys.nascar.live.table.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics2D;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 import com.lightdatasys.nascar.Driver;
@@ -18,6 +16,7 @@ import com.lightdatasys.nascar.live.gui.cell.Cell;
 import com.lightdatasys.nascar.live.gui.cell.PlayerCellSet;
 import com.lightdatasys.nascar.live.gui.cell.ResultCell;
 import com.lightdatasys.nascar.live.gui.panel.LivePanel;
+import com.lightdatasys.nascar.live.setting.Settings;
 
 
 public class DriverRow extends TableRow
@@ -148,30 +147,39 @@ public class DriverRow extends TableRow
 	public static class ResultNumericComparator extends DefaultComparator
 	{
 		protected ResultNumericRetriever retriever;
+		protected Settings setting;
 		
-		public ResultNumericComparator(ResultNumericRetriever obj)
+		public ResultNumericComparator(ResultNumericRetriever obj, Settings setting)
 		{
 			retriever = obj;
+			this.setting = setting;
 		}
 		
 		public int compare(DriverRow o1, DriverRow o2)
 		{
-			Result r1 = o1.getResult();
-			Result r2 = o2.getResult();
-			
-			if(retriever.isAscending())
-			{
-				if(retriever.getValue(r1) < retriever.getValue(r2))
-					return -1;
-				else if(retriever.getValue(r1) > retriever.getValue(r2))
-					return 1;
-			}
+			int comp = super.compare(o1, o2);
+				
+			if(setting.getBooleanValue("activesOnTop") && comp != 0)
+				return comp;
 			else
 			{
-				if(retriever.getValue(r1) < retriever.getValue(r2))
-					return 1;
-				else if(retriever.getValue(r1) > retriever.getValue(r2))
-					return -1;
+				Result r1 = o1.getResult();
+				Result r2 = o2.getResult();
+				
+				if(retriever.isAscending())
+				{
+					if(retriever.getValue(r1) < retriever.getValue(r2))
+						return -1;
+					else if(retriever.getValue(r1) > retriever.getValue(r2))
+						return 1;
+				}
+				else
+				{
+					if(retriever.getValue(r1) < retriever.getValue(r2))
+						return 1;
+					else if(retriever.getValue(r1) > retriever.getValue(r2))
+						return -1;
+				}
 			}
 			
 			return 0;
