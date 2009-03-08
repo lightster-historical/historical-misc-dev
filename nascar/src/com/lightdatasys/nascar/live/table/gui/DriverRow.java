@@ -133,12 +133,19 @@ public class DriverRow extends TableRow
 			Result r1 = o1.getResult();
 			Result r2 = o2.getResult();
 			
-			if(r1.isCurrent() == r2.isCurrent())
-				return 0;
-			else if(r1.isCurrent())
-				return -1;
-			else
+			if((r1.getSpeed() > 0.9f) == (r2.getSpeed() > 0.9f))
+			{
+				if(r1.isCurrent() == r2.isCurrent())
+					return 0;
+				else if(r1.isCurrent())
+					return -1;
+				else
+					return 1;
+			}
+			else if(r1.getSpeed() > 0.9f)
 				return 1;
+			else
+				return -1;
 		}
 	}
 	
