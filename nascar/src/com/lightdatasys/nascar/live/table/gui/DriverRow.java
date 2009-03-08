@@ -143,9 +143,9 @@ public class DriverRow extends TableRow
 					return 1;
 			}
 			else if(r1.getSpeed() > 0.9f)
-				return 1;
-			else
 				return -1;
+			else
+				return 1;
 		}
 	}
 	
