@@ -24,6 +24,7 @@ public class Result
 	private float behindLeader;
 	private int lapsDown;
 	private double lastLapSpeed;
+	private double lastLapTime;
 	private float speed;
 	private double throttle;
 	private double brake;
@@ -55,6 +56,7 @@ public class Result
 		this.throttle = 0;
 		this.brake = 0;
 		this.lastLapSpeed = 0.0d;
+		this.lastLapTime = 0.0d;
 		this.isCurrent = false;
 		
 		lastUpdatedLap = -1;
@@ -186,6 +188,11 @@ public class Result
 		return lastLapSpeed;
 	}
 	
+	public double getLastLapTime()
+	{
+		return lastLapTime;
+	}
+	
 	public boolean isCurrent()
 	{
 		return (getGlobalCurrentIndex() == getCurrentIndex());
@@ -288,6 +295,7 @@ public class Result
 			
 			this.lastLapSpeed = speed;
 			this.currentIndex = getGlobalCurrentIndex();
+			this.lastLapTime = race.getTrack().getLength() * 3600 / speed;
 		}
 	}
 	

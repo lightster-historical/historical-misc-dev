@@ -136,6 +136,10 @@ public class ResultCell extends Cell
 		{
 			return String.format("%.2f", result.getLastLapSpeed());
 		}
+		else if(mode == Mode.LAST_LAP_TIME)
+		{
+			return String.format("%.2f", result.getLastLapTime());
+		}
 		else if(mode == Mode.SPEED)
 		{
 			return String.format("%d", (int)result.getSpeed());
@@ -478,7 +482,8 @@ public class ResultCell extends Cell
 		LEADER_POINTS_DIFF("Leader Points Diff"), 
 		LOCAL_POINTS_DIFF("Local Points Diff"),
 		ROW_NUMBER("Row Number"),
-		LAST_LAP_SPEED("Last Lap Speed");
+		LAST_LAP_SPEED("Last Lap Speed"),
+		LAST_LAP_TIME("Last Lap Time");
 		
 		
 		protected final String displayValue;
