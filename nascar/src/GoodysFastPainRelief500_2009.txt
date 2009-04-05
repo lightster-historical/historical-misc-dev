@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Goody's Fast Pain Relief 500
+track:	Martinsville Speedway
+location:	Martinsville, VA
+length: 	263
+laps: 	500
+track_length: 	0.526
+scale: 	0.590
+x_offset: 	21
+y_offset: 	7
+tv_network: 	FOX
+track_image_file: 	martinsville.gif
+</RACE>
+<PARTICIPANTS>
+24	J. Gordon	Chevrolet	1	Jeff	Gordon	794
+2	Kurt Busch	Dodge	2	Kurt	Busch	718
+33	Bowyer	Chevrolet	3	Clint	Bowyer	715
+18	Kyle Busch	Toyota	4	Kyle	Busch	709
+99	Edwards	Ford	5	Carl	Edwards	665
+9	Kahne	Dodge	6	Kasey	Kahne	639
+14	Stewart	Chevrolet	7	Tony	Stewart	633
+11	Hamlin	Toyota	8	Denny	Hamlin	631
+48	Johnson	Chevrolet	9	Jimmie	Johnson	627
+17	Kenseth	Ford	10	Matt	Kenseth	610
+00	Reutimann	Toyota	11	David	Reutimann	607
+29	Harvick	Chevrolet	12	Kevin	Harvick	584
+31	J. Burton	Chevrolet	13	Jeff	Burton	579
+83	Vickers	Toyota	14	Brian	Vickers	553
+42	Montoya	Chevrolet	15	Juan Pablo	Montoya	546
+44	Allmendinger	Dodge	16	A.J.	Allmendinger	532
+19	E. Sadler	Dodge	17	Elliott	Sadler	530
+16	Biffle	Ford	18	Greg	Biffle	526
+88	Earnhardt Jr.	Chevrolet	19	Dale	Earnhardt Jr.	518
+1	Truex Jr.	Chevrolet	20	Martin	Truex Jr.	508
+55	Waltrip	Toyota	21	Michael	Waltrip	506
+12	Stremme	Dodge	22	David	Stremme	502
+96	B. Labonte	Ford	23	Bobby	Labonte	500
+47	Ambrose	Toyota	24	Marcos	Ambrose	495
+07	Mears	Chevrolet	25	Casey	Mears	488
+6	Ragan	Ford	26	David	Ragan	487
+39	Newman	Chevrolet	27	Ryan	Newman	475
+26	McMurray	Ford	28	Jamie	McMurray	475
+43	Sorenson	Dodge	29	Reed	Sorenson	457
+7	R. Gordon	Toyota	30	Robby	Gordon	442
+5	Martin	Chevrolet	31	Mark	Martin	441
+77	Hornish Jr.	Dodge	32	Sam	Hornish Jr.	398
+34	Andretti	Chevrolet	33	John	Andretti	397
+20	Logano	Toyota	34	Joey	Logano	370
+71	Gilliland	Chevrolet	35	David	Gilliland	331
+82	Speed	Toyota	36	Scott	Speed	335
+8	Almirola	Chevrolet	37	Aric	Almirola	335
+98	Menard	Ford	38	Paul	Menard	326
+66	Blaney	Toyota	39	Dave	Blaney	111
+36	Riggs	Toyota	40	Scott	Riggs	143
+87	Nemechek	Toyota	41	Joe	Nemechek	165
+41	Mayfield	Toyota	42	Jeremy	Mayfield	104
+64	T. Bodine	Toyota	43	Todd	Bodine	89
+</PARTICIPANTS>

@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Samsung 500
+track:	Texas Motor Spdwy
+location:	Fort Worth, TX
+length: 	501
+laps: 	334
+track_length: 	1.5
+scale: 	0.576
+x_offset: 	27
+y_offset: 	15
+tv_network: 	FOX
+track_image_file: 	texas.gif
+</RACE>
+<PARTICIPANTS>
+00	Reutimann	Toyota	1	David	Reutimann	710
+24	J. Gordon	Chevrolet	2	Jeff	Gordon	959
+17	Kenseth	Ford	3	Matt	Kenseth	704
+6	Ragan	Ford	4	David	Ragan	569
+98	Menard	Ford	5	Paul	Menard	414
+9	Kahne	Dodge	6	Kasey	Kahne	745
+14	Stewart	Chevrolet	7	Tony	Stewart	798
+18	Kyle Busch	Toyota	8	Kyle	Busch	800
+48	Johnson	Chevrolet	9	Jimmie	Johnson	817
+20	Logano	Toyota	10	Joey	Logano	437
+47	Ambrose	Toyota	11	Marcos	Ambrose	616
+77	Hornish Jr.	Dodge	12	Sam	Hornish Jr.	459
+99	Edwards	Ford	13	Carl	Edwards	750
+16	Biffle	Ford	14	Greg	Biffle	605
+31	J. Burton	Chevrolet	15	Jeff	Burton	697
+42	Montoya	Chevrolet	16	Juan Pablo	Montoya	673
+29	Harvick	Chevrolet	17	Kevin	Harvick	714
+83	Vickers	Toyota	18	Brian	Vickers	617
+33	Bowyer	Chevrolet	19	Clint	Bowyer	870
+88	Earnhardt Jr.	Chevrolet	20	Dale	Earnhardt Jr.	660
+39	Newman	Chevrolet	21	Ryan	Newman	625
+11	Hamlin	Toyota	22	Denny	Hamlin	811
+5	Martin	Chevrolet	23	Mark	Martin	587
+96	B. Labonte	Ford	24	Bobby	Labonte	620
+44	Allmendinger	Dodge	25	A.J.	Allmendinger	670
+34	Andretti	Chevrolet	26	John	Andretti	455
+09	Bliss	Dodge	27	Mike	Bliss	34
+2	Kurt Busch	Dodge	28	Kurt	Busch	827
+7	R. Gordon	Toyota	29	Robby	Gordon	485
+71	Gilliland	Chevrolet	30	David	Gilliland	386
+1	Truex Jr.	Chevrolet	31	Martin	Truex Jr.	584
+12	Stremme	Dodge	32	David	Stremme	599
+78	Smith	Chevrolet	33	Regan	Smith	206
+55	Waltrip	Toyota	34	Michael	Waltrip	630
+07	Mears	Chevrolet	35	Casey	Mears	588
+26	McMurray	Ford	36	Jamie	McMurray	609
+21	Elliott	Ford	37	Bill	Elliott	149
+43	Sorenson	Dodge	38	Reed	Sorenson	569
+13	Papis	Toyota	39	Max	Papis	55
+25	Keselowski	Chevrolet	40	Brad	Keselowski	49
+8	Almirola	Chevrolet	41	Aric	Almirola	387
+19	E. Sadler	Dodge	42	Elliott	Sadler	600
+66	Blaney	Toyota	43	Dave	Blaney	153
+</PARTICIPANTS>

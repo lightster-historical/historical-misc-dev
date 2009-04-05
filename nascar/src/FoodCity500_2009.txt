@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Food City 500
+track:	Bristol Motor Speedway
+location:	Bristol, TN
+length: 	266.5
+laps: 	500
+track_length: 	0.533
+scale: 	0.573
+x_offset: 	25
+y_offset: 	16
+tv_network: 	FOX
+track_image_file: 	bristol.gif
+</RACE>
+<PARTICIPANTS>
+5	Martin	Chevrolet	1	Mark	Martin	286
+39	Newman	Chevrolet	2	Ryan	Newman	324
+48	Johnson	Chevrolet	3	Jimmie	Johnson	457
+16	Biffle	Ford	4	Greg	Biffle	480
+9	Kahne	Dodge	5	Kasey	Kahne	484
+00	Reutimann	Toyota	6	David	Reutimann	475
+43	Sorenson	Dodge	7	Reed	Sorenson	363
+66	Blaney	Toyota	8	Dave	Blaney	77
+26	McMurray	Ford	9	Jamie	McMurray	423
+24	J. Gordon	Chevrolet	10	Jeff	Gordon	634
+82	Speed	Toyota	11	Scott	Speed	256
+42	Montoya	Chevrolet	12	Juan Pablo	Montoya	408
+47	Ambrose	Toyota	13	Marcos	Ambrose	361
+71	Gilliland	Chevrolet	14	David	Gilliland	276
+14	Stewart	Chevrolet	15	Tony	Stewart	521
+64	T. Bodine	Toyota	16	Todd	Bodine	52
+28	Kvapil	Ford	17	Travis	Kvapil	183
+8	Almirola	Chevrolet	18	Aric	Almirola	277
+18	Kyle Busch	Toyota	19	Kyle	Busch	514
+1	Truex Jr.	Chevrolet	20	Martin	Truex Jr.	423
+55	Waltrip	Toyota	21	Michael	Waltrip	434
+19	E. Sadler	Dodge	22	Elliott	Sadler	427
+20	Logano	Toyota	23	Joey	Logano	321
+11	Hamlin	Toyota	24	Denny	Hamlin	456
+77	Hornish Jr.	Dodge	25	Sam	Hornish Jr.	328
+44	Allmendinger	Dodge	26	A.J.	Allmendinger	417
+83	Vickers	Toyota	27	Brian	Vickers	477
+87	Nemechek	Toyota	28	Joe	Nemechek	125
+12	Stremme	Dodge	29	David	Stremme	396
+29	Harvick	Chevrolet	30	Kevin	Harvick	511
+33	Bowyer	Chevrolet	31	Clint	Bowyer	591
+2	Kurt Busch	Dodge	32	Kurt	Busch	588
+17	Kenseth	Ford	33	Matt	Kenseth	546
+88	Earnhardt Jr.	Chevrolet	34	Dale	Earnhardt Jr.	397
+7	R. Gordon	Toyota	35	Robby	Gordon	342
+96	B. Labonte	Ford	36	Bobby	Labonte	403
+07	Mears	Chevrolet	37	Casey	Mears	397
+99	Edwards	Ford	38	Carl	Edwards	547
+34	Andretti	Chevrolet	39	John	Andretti	336
+31	J. Burton	Chevrolet	40	Jeff	Burton	437
+6	Ragan	Ford	41	David	Ragan	405
+98	Menard	Ford	42	Paul	Menard	238
+09	Marlin	Dodge	43	Sterling	Marlin	0
+</PARTICIPANTS>
