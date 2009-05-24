@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Crown Royal presents the Russ Friedman 400
+track:	Richmond Int'l Raceway
+location:	Richmond, VA
+length: 	300
+laps: 	400
+track_length: 	0.75
+scale: 	0.578
+x_offset: 	25
+y_offset: 	15
+tv_network: 	FOX
+track_image_file: 	richmond.gif
+</RACE>
+<PARTICIPANTS>
+83	Vickers	Toyota	1	Brian	Vickers	995
+24	J. Gordon	Chevrolet	2	Jeff	Gordon	1294
+11	Hamlin	Toyota	3	Denny	Hamlin	1190
+1	Truex Jr.	Chevrolet	4	Martin	Truex Jr.	887
+31	J. Burton	Chevrolet	5	Jeff	Burton	1092
+09	Bliss	Chevrolet	6	Mike	Bliss	71
+5	Martin	Chevrolet	7	Mark	Martin	971
+82	Speed	Toyota	8	Scott	Speed	607
+00	Reutimann	Toyota	9	David	Reutimann	1077
+39	Newman	Chevrolet	10	Ryan	Newman	1033
+12	Stremme	Dodge	11	David	Stremme	899
+33	Bowyer	Chevrolet	12	Clint	Bowyer	1098
+20	Logano	Toyota	13	Joey	Logano	753
+18	Kyle Busch	Toyota	14	Kyle	Busch	1124
+48	Johnson	Chevrolet	15	Jimmie	Johnson	1235
+14	Stewart	Chevrolet	16	Tony	Stewart	1232
+2	Kurt Busch	Dodge	17	Kurt	Busch	1299
+9	Kahne	Dodge	18	Kasey	Kahne	1030
+29	Harvick	Chevrolet	19	Kevin	Harvick	918
+16	Biffle	Ford	20	Greg	Biffle	1081
+47	Ambrose	Toyota	21	Marcos	Ambrose	937
+6	Ragan	Ford	22	David	Ragan	855
+43	Sorenson	Dodge	23	Reed	Sorenson	881
+87	Nemechek	Toyota	24	Joe	Nemechek	371
+88	Earnhardt Jr.	Chevrolet	25	Dale	Earnhardt Jr.	1018
+66	Blaney	Toyota	26	Dave	Blaney	224
+26	McMurray	Ford	27	Jamie	McMurray	825
+77	Hornish Jr.	Dodge	28	Sam	Hornish Jr.	775
+42	Montoya	Chevrolet	29	Juan Pablo	Montoya	1018
+55	Waltrip	Toyota	30	Michael	Waltrip	883
+44	Allmendinger	Dodge	31	A.J.	Allmendinger	847
+19	E. Sadler	Dodge	32	Elliott	Sadler	845
+98	Menard	Ford	33	Paul	Menard	766
+71	Gilliland	Chevrolet	34	David	Gilliland	569
+17	Kenseth	Ford	35	Matt	Kenseth	1063
+7	R. Gordon	Toyota	36	Robby	Gordon	653
+99	Edwards	Ford	37	Carl	Edwards	1119
+41	Mayfield	Toyota	38	Jeremy	Mayfield	230
+36	Riggs	Toyota	39	Scott	Riggs	311
+96	B. Labonte	Ford	40	Bobby	Labonte	823
+07	Mears	Chevrolet	41	Casey	Mears	911
+34	Andretti	Chevrolet	42	John	Andretti	676
+37	Raines	Chevrolet	43	Tony	Raines	34
+</PARTICIPANTS>

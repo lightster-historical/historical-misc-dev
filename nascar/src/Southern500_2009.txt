@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Southern 500
+track:	Darlington
+location:	Darlington, SC
+length: 	501
+laps: 	367
+track_length: 	1.366
+scale: 	0.588
+x_offset: 	26
+y_offset: 	6
+tv_network: 	FOX
+track_image_file: 	darlington.gif
+</RACE>
+<PARTICIPANTS>
+17	Kenseth	Ford	1	Matt	Kenseth	1187
+24	J. Gordon	Chevrolet	2	Jeff	Gordon	1441
+39	Newman	Chevrolet	3	Ryan	Newman	1198
+77	Hornish Jr.	Dodge	4	Sam	Hornish Jr.	925
+20	Logano	Toyota	5	Joey	Logano	859
+31	J. Burton	Chevrolet	6	Jeff	Burton	1257
+9	Kahne	Dodge	7	Kasey	Kahne	1106
+2	Kurt Busch	Dodge	8	Kurt	Busch	1431
+99	Edwards	Ford	9	Carl	Edwards	1204
+47	Ambrose	Toyota	10	Marcos	Ambrose	1067
+16	Biffle	Ford	11	Greg	Biffle	1193
+5	Martin	Chevrolet	12	Mark	Martin	1126
+07	Mears	Chevrolet	13	Casey	Mears	1049
+18	Kyle Busch	Toyota	14	Kyle	Busch	1314
+6	Ragan	Ford	15	David	Ragan	949
+1	Truex Jr.	Chevrolet	16	Martin	Truex Jr.	989
+33	Bowyer	Chevrolet	17	Clint	Bowyer	1212
+14	Stewart	Chevrolet	18	Tony	Stewart	1402
+19	E. Sadler	Dodge	19	Elliott	Sadler	933
+26	McMurray	Ford	20	Jamie	McMurray	971
+00	Reutimann	Toyota	21	David	Reutimann	1156
+13	Papis	Toyota	22	Max	Papis	222
+11	Hamlin	Toyota	23	Denny	Hamlin	1321
+29	Harvick	Chevrolet	24	Kevin	Harvick	979
+42	Montoya	Chevrolet	25	Juan Pablo	Montoya	1152
+88	Earnhardt Jr.	Chevrolet	26	Dale	Earnhardt Jr.	1100
+96	B. Labonte	Ford	27	Bobby	Labonte	893
+7	R. Gordon	Toyota	28	Robby	Gordon	768
+78	Smith	Chevrolet	29	Regan	Smith	473
+71	Gilliland	Chevrolet	30	David	Gilliland	615
+25	Keselowski	Chevrolet	31	Brad	Keselowski	333
+87	Speed	Toyota	32	Scott	Speed	671
+66	Blaney	Toyota	33	Dave	Blaney	258
+12	Stremme	Dodge	34	David	Stremme	948
+83	Vickers	Toyota	35	Brian	Vickers	1118
+55	Waltrip	Toyota	36	Michael	Waltrip	974
+36	Riggs	Toyota	37	Scott	Riggs	348
+44	Allmendinger	Dodge	38	A.J.	Allmendinger	947
+34	Raines	Chevrolet	39	Tony	Raines	34
+98	Menard	Ford	40	Paul	Menard	839
+43	Sorenson	Dodge	41	Reed	Sorenson	984
+48	Johnson	Chevrolet	42	Jimmie	Johnson	1290
+09	Marlin	Dodge	43	Sterling	Marlin	86
+</PARTICIPANTS>

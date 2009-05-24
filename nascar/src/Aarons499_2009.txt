@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Aaron's 499
+track:	Talladega Superspeedway
+location:	Talladega, AL
+length: 	500
+laps: 	188
+track_length: 	2.66
+scale: 	0.617
+x_offset: 	14
+y_offset: 	11
+tv_network: 	FOX
+track_image_file: 	talladega.gif
+</RACE>
+<PARTICIPANTS>
+42	Montoya	Chevrolet	1	Juan Pablo	Montoya	910
+16	Biffle	Ford	2	Greg	Biffle	930
+1	Truex Jr.	Chevrolet	3	Martin	Truex Jr.	818
+77	Hornish Jr.	Dodge	4	Sam	Hornish Jr.	709
+33	Bowyer	Chevrolet	5	Clint	Bowyer	1052
+78	Smith	Chevrolet	6	Regan	Smith	355
+5	Martin	Chevrolet	7	Mark	Martin	937
+82	Speed	Toyota	8	Scott	Speed	447
+09	Keselowski	Chevrolet	9	Brad	Keselowski	143
+6	Ragan	Ford	10	David	Ragan	723
+88	Earnhardt Jr.	Chevrolet	11	Dale	Earnhardt Jr.	843
+96	B. Labonte	Ford	12	Bobby	Labonte	744
+17	Kenseth	Ford	13	Matt	Kenseth	946
+24	J. Gordon	Chevrolet	14	Jeff	Gordon	1242
+07	Mears	Chevrolet	15	Casey	Mears	791
+99	Edwards	Ford	16	Carl	Edwards	1023
+87	Nemechek	Toyota	17	Joe	Nemechek	245
+11	Hamlin	Toyota	18	Denny	Hamlin	1088
+29	Harvick	Chevrolet	19	Kevin	Harvick	869
+31	J. Burton	Chevrolet	20	Jeff	Burton	953
+36	Riggs	Toyota	21	Scott	Riggs	271
+20	Logano	Toyota	22	Joey	Logano	610
+18	Kyle Busch	Toyota	23	Kyle	Busch	1026
+98	Menard	Ford	24	Paul	Menard	637
+39	Newman	Chevrolet	25	Ryan	Newman	863
+71	Gilliland	Chevrolet	26	David	Gilliland	526
+41	Mayfield	Toyota	27	Jeremy	Mayfield	158
+2	Kurt Busch	Dodge	28	Kurt	Busch	1144
+14	Stewart	Chevrolet	29	Tony	Stewart	1138
+83	Vickers	Toyota	30	Brian	Vickers	848
+55	Waltrip	Toyota	31	Michael	Waltrip	778
+26	McMurray	Ford	32	Jamie	McMurray	788
+00	Reutimann	Toyota	33	David	Reutimann	992
+47	Ambrose	Toyota	34	Marcos	Ambrose	777
+9	Kahne	Dodge	35	Kasey	Kahne	975
+48	Johnson	Chevrolet	36	Jimmie	Johnson	1157
+12	Stremme	Dodge	37	David	Stremme	829
+44	Allmendinger	Dodge	38	A.J.	Allmendinger	789
+19	E. Sadler	Dodge	39	Elliott	Sadler	734
+34	Andretti	Chevrolet	40	John	Andretti	589
+43	Sorenson	Dodge	41	Reed	Sorenson	751
+7	R. Gordon	Toyota	42	Robby	Gordon	577
+13	Papis	Toyota	43	Max	Papis	113
+</PARTICIPANTS>

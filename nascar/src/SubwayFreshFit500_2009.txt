@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Subway Fresh Fit 500
+track:	Phoenix Int'l Raceway
+location:	Phoenix, AZ
+length: 	312
+laps: 	312
+track_length: 	1.0
+scale: 	0.598
+x_offset: 	23
+y_offset: 	9
+tv_network: 	FOX
+track_image_file: 	phoenix.gif
+</RACE>
+<PARTICIPANTS>
+5	Martin	Chevrolet	1	Mark	Martin	742
+18	Kyle Busch	Toyota	2	Kyle	Busch	914
+2	Kurt Busch	Dodge	3	Kurt	Busch	974
+24	J. Gordon	Chevrolet	4	Jeff	Gordon	1154
+83	Vickers	Toyota	5	Brian	Vickers	737
+14	Stewart	Chevrolet	6	Tony	Stewart	963
+98	Menard	Ford	7	Paul	Menard	543
+00	Reutimann	Toyota	8	David	Reutimann	845
+78	Smith	Chevrolet	9	Regan	Smith	276
+48	Johnson	Chevrolet	10	Jimmie	Johnson	992
+99	Edwards	Ford	11	Carl	Edwards	889
+11	Hamlin	Toyota	12	Denny	Hamlin	938
+16	Biffle	Ford	13	Greg	Biffle	775
+6	Ragan	Ford	14	David	Ragan	626
+88	Earnhardt Jr.	Chevrolet	15	Dale	Earnhardt Jr.	768
+31	J. Burton	Chevrolet	16	Jeff	Burton	835
+17	Kenseth	Ford	17	Matt	Kenseth	864
+82	Speed	Toyota	18	Scott	Speed	386
+12	Stremme	Dodge	19	David	Stremme	720
+42	Montoya	Chevrolet	20	Juan Pablo	Montoya	819
+9	Kahne	Dodge	21	Kasey	Kahne	851
+87	Nemechek	Toyota	22	Joe	Nemechek	205
+7	R. Gordon	Toyota	23	Robby	Gordon	531
+33	Bowyer	Chevrolet	24	Clint	Bowyer	967
+44	Allmendinger	Dodge	25	A.J.	Allmendinger	731
+1	Truex Jr.	Chevrolet	26	Martin	Truex Jr.	672
+71	Gilliland	Chevrolet	27	David	Gilliland	462
+26	McMurray	Ford	28	Jamie	McMurray	658
+47	Ambrose	Toyota	29	Marcos	Ambrose	656
+39	Newman	Chevrolet	30	Ryan	Newman	743
+20	Logano	Toyota	31	Joey	Logano	510
+55	Waltrip	Toyota	32	Michael	Waltrip	721
+29	Harvick	Chevrolet	33	Kevin	Harvick	796
+66	Blaney	Toyota	34	Dave	Blaney	187
+77	Hornish Jr.	Dodge	35	Sam	Hornish Jr.	571
+43	Sorenson	Dodge	36	Reed	Sorenson	624
+36	Riggs	Toyota	37	Scott	Riggs	216
+07	Mears	Chevrolet	38	Casey	Mears	688
+09	Marlin	Dodge	39	Sterling	Marlin	43
+19	E. Sadler	Dodge	40	Elliott	Sadler	667
+34	Andretti	Chevrolet	41	John	Andretti	540
+96	B. Labonte	Ford	42	Bobby	Labonte	663
+73	Raines	Dodge	43	Tony	Raines	0
+</PARTICIPANTS>

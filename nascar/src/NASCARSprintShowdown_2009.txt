@@ -1,0 +1,54 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	NASCAR Sprint Showdown
+track:	Lowes Motor Swy
+location:	Concord, NC
+length: 	60
+laps: 	40
+track_length: 	1.5
+scale: 	0.618
+x_offset: 	14
+y_offset: 	9
+tv_network: 	SPEED
+track_image_file: 	lowes.gif
+</RACE>
+<PARTICIPANTS>
+12	Stremme	Dodge	1	David	Stremme	1039
+66	Blaney	Toyota	2	Dave	Blaney	298
+36	Riggs	Toyota	3	Scott	Riggs	394
+1	Truex Jr.	Chevrolet	4	Martin	Truex Jr.	1144
+6	Ragan	Ford	5	David	Ragan	998
+77	Hornish Jr.	Dodge	6	Sam	Hornish Jr.	998
+13	Papis	Toyota	7	Max	Papis	280
+44	Allmendinger	Dodge	8	A.J.	Allmendinger	1059
+42	Montoya	Chevrolet	9	Juan Pablo	Montoya	1255
+37	M. Wallace	Chevrolet	10	Mike	Wallace	0
+00	Reutimann	Toyota	11	David	Reutimann	1232
+47	Ambrose	Toyota	12	Marcos	Ambrose	1131
+51	Bean	Dodge	13	Dexter	Bean	0
+21	Elliott	Ford	14	Bill	Elliott	228
+75	Cope	Dodge	15	Derrike	Cope	0
+57	Benning	Chevrolet	16	Norm	Benning	0
+20	Logano	Toyota	17	Joey	Logano	1002
+82	Speed	Toyota	18	Scott	Speed	756
+87	Nemechek	Toyota	19	Joe	Nemechek	414
+71	Gilliland	Chevrolet	20	David	Gilliland	649
+07	Mears	Chevrolet	21	Casey	Mears	1104
+98	Menard	Ford	22	Paul	Menard	957
+73	Garvey	Dodge	23	Mike	Garvey	0
+64	T. Bodine	Toyota	24	Todd	Bodine	123
+19	E. Sadler	Dodge	25	Elliott	Sadler	1059
+55	Waltrip	Toyota	26	Michael	Waltrip	1017
+06	Starr	Dodge	27	David	Starr	0
+26	McMurray	Ford	28	Jamie	McMurray	1068
+83	Vickers	Toyota	29	Brian	Vickers	1182
+7	R. Gordon	Toyota	30	Robby	Gordon	847
+41	Yeley	Toyota	31	J.J.	Yeley	0
+43	Sorenson	Dodge	32	Reed	Sorenson	1090
+34	Raines	Chevrolet	33	Tony	Raines	122
+46	Long	Dodge	34	Carl	Long	0
+27	Shelmerdine	Toyota	35	Kirk	Shelmerdine	0
+</PARTICIPANTS>

@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Coca-Cola 600
+track:	Lowe's Motor Swy
+location:	Concord, NC
+length: 	600
+laps: 	400
+track_length: 	1.5
+scale: 	0.618
+x_offset: 	14
+y_offset: 	9
+tv_network: 	FOX
+track_image_file: 	lowes.gif
+</RACE>
+<PARTICIPANTS>
+39	Newman	Chevrolet	1	Ryan	Newman	1363
+18	Kyle Busch	Toyota	2	Kyle	Busch	1380
+24	J. Gordon	Chevrolet	3	Jeff	Gordon	1601
+5	Martin	Chevrolet	4	Mark	Martin	1316
+48	Johnson	Chevrolet	5	Jimmie	Johnson	1465
+9	Kahne	Dodge	6	Kasey	Kahne	1205
+09	Bliss	Dodge	7	Mike	Bliss	123
+83	Vickers	Toyota	8	Brian	Vickers	1188
+42	Montoya	Chevrolet	9	Juan Pablo	Montoya	1255
+21	Elliott	Ford	10	Bill	Elliott	228
+87	Nemechek	Toyota	11	Joe	Nemechek	414
+1	Truex Jr.	Chevrolet	12	Martin	Truex Jr.	1144
+11	Hamlin	Toyota	13	Denny	Hamlin	1445
+20	Logano	Toyota	14	Joey	Logano	1002
+19	E. Sadler	Dodge	15	Elliott	Sadler	1059
+16	Biffle	Ford	16	Greg	Biffle	1345
+2	Kurt Busch	Dodge	17	Kurt	Busch	1546
+82	Speed	Toyota	18	Scott	Speed	756
+99	Edwards	Ford	19	Carl	Edwards	1271
+96	B. Labonte	Ford	20	Bobby	Labonte	1007
+00	Reutimann	Toyota	21	David	Reutimann	1232
+29	Harvick	Chevrolet	22	Kevin	Harvick	1109
+47	Ambrose	Toyota	23	Marcos	Ambrose	1131
+33	Bowyer	Chevrolet	24	Clint	Bowyer	1264
+66	Blaney	Toyota	25	Dave	Blaney	298
+77	Hornish Jr.	Dodge	26	Sam	Hornish Jr.	998
+88	Earnhardt Jr.	Chevrolet	27	Dale	Earnhardt Jr.	1182
+14	Stewart	Chevrolet	28	Tony	Stewart	1572
+71	Gilliland	Chevrolet	29	David	Gilliland	649
+17	Kenseth	Ford	30	Matt	Kenseth	1326
+98	Menard	Ford	31	Paul	Menard	957
+13	Papis	Toyota	32	Max	Papis	280
+26	McMurray	Ford	33	Jamie	McMurray	1068
+6	Ragan	Ford	34	David	Ragan	998
+12	Stremme	Dodge	35	David	Stremme	1039
+07	Mears	Chevrolet	36	Casey	Mears	1104
+7	R. Gordon	Toyota	37	Robby	Gordon	847
+44	Allmendinger	Dodge	38	A.J.	Allmendinger	1059
+55	Waltrip	Toyota	39	Michael	Waltrip	1017
+31	J. Burton	Chevrolet	40	Jeff	Burton	1384
+34	Raines	Chevrolet	41	Tony	Raines	122
+43	Sorenson	Dodge	42	Reed	Sorenson	1090
+36	Riggs	Toyota	43	Scott	Riggs	394
+</PARTICIPANTS>
