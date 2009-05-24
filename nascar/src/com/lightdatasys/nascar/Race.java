@@ -323,7 +323,10 @@ public class Race
 	public void setFlag(Flag flag)
 	{
 		if(this.flag != flag)
+		{
 			flagChange = System.currentTimeMillis();
+			System.out.println(flag);
+		}
 		
 		this.flag = flag;
 	}

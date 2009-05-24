@@ -152,6 +152,8 @@ public class ResultCell extends Cell
 		{
 			Result leaderResult = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(1));
 			//result.getRace().getDriverStandingsByRank().get(1).points;
+			if(leaderResult == null)
+				return "--";
 			return String.format("%d", (int)(result.getSeasonPoints() - leaderResult.getSeasonPoints()));
 		}
 		else if(mode == Mode.LOCAL_POINTS_DIFF)
