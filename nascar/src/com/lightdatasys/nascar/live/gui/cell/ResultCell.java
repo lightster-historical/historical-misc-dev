@@ -415,10 +415,10 @@ public class ResultCell extends Cell
 			}
 			
 			Result leaderResult = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(1));
-			double tilLapDown = leaderInterval - leaderResult.getLastLapTime();
+			double tilLapDown = leaderResult.getLastLapTime() - leaderInterval;
 			if(0 <= tilLapDown && tilLapDown <= 5)
 			{
-				tBackground = new Color((float)(.8f * ((leaderInterval - leaderResult.getLastLapTime()) / 5)), 0.0f, 0.0f);
+				tBackground = new Color((float)(.8f * (1 - ((leaderResult.getLastLapTime() - leaderInterval) / 5))), 0.0f, 0.0f);
 				tText = Color.WHITE;
 			}
 		}
