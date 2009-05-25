@@ -64,11 +64,11 @@ public class Settings
 		}
 
 		{
-			add(new BooleanSetting("highlightActives", "Highlight Actives", true, "Yes", "No"));
+			add(new BooleanSetting("highlightActives", "Highlight Actives", true, "On", "Off"));
 		}
 
 		{
-			add(new BooleanSetting("activesOnTop", "Actives On Top", false, "Yes", "No"));
+			add(new BooleanSetting("activesOnTop", "Actives On Top", false, "On", "Off"));
 		}
 		
 		{
@@ -85,6 +85,18 @@ public class Settings
 
 			add(setting);
 		}
+		
+		/*
+		{
+			Setting<Boolean> setting;
+			setting = new Setting<Boolean>("updateFantasyLastLapPos", "Fantasy Lap Positions", true);
+			setting.addOption("auto", null);
+			setting.addOption("on", true);
+			setting.addOption("off", false);
+			
+			add(setting);
+		}
+		*/
 	}
 	
 	

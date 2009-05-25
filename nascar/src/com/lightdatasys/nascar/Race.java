@@ -34,6 +34,8 @@ public class Race
 	private Date date;
 	private boolean chaseRace;
 	
+	private boolean updatedFantasyLastLapUnderCaution;
+	
 	private int currentLap;
 	private int lapCount;
 	private int time;
@@ -83,6 +85,8 @@ public class Race
 		flag = Flag.PRE_RACE;
 		lastFlagChange = 0;
 		cautionCount = 0;
+		
+		updatedFantasyLastLapUnderCaution = false;
 		
 		leadChangeCount = 0;
 		leaderCount = 0;
@@ -423,12 +427,21 @@ public class Race
 	
 	public void updateLastLapPositions()
 	{
-		ArrayList<Result> results = new ArrayList<Result>();
-		results.addAll(resultsByDriver.values());
-		for(int i = 0; i < results.size(); i++)
+		if(flag != Flag.YELLOW
+			|| !updatedFantasyLastLapUnderCaution)
 		{
-			results.get(i).setPositionChange(results.get(i).getLastFinish()-results.get(i).getFinish());
-			results.get(i).setLastFinish(results.get(i).getFinish());
+			ArrayList<Result> results = new ArrayList<Result>();
+			results.addAll(resultsByDriver.values());
+			for(int i = 0; i < results.size(); i++)
+			{
+				results.get(i).setPositionChange(results.get(i).getLastFinish()-results.get(i).getFinish());
+				results.get(i).setLastFinish(results.get(i).getFinish());
+			}
+			
+			if(flag == Flag.YELLOW)
+				updatedFantasyLastLapUnderCaution = true;
+			else
+				updatedFantasyLastLapUnderCaution = false;
 		}
 	}
 
