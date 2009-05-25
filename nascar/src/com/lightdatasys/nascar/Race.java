@@ -33,8 +33,9 @@ public class Race
 	private String nascarComId;
 	private Date date;
 	private boolean chaseRace;
-	
+
 	private boolean updatedFantasyLastLapUnderCaution;
+	private boolean updatedLastLapUnderCaution;
 	
 	private int currentLap;
 	private int lapCount;
@@ -85,7 +86,8 @@ public class Race
 		flag = Flag.PRE_RACE;
 		lastFlagChange = 0;
 		cautionCount = 0;
-		
+
+		updatedLastLapUnderCaution = false;
 		updatedFantasyLastLapUnderCaution = false;
 		
 		leadChangeCount = 0;
@@ -415,12 +417,21 @@ public class Race
 	
 	public void updateFantasyLastLapPositions()
 	{
-		ArrayList<FantasyResult> results = new ArrayList<FantasyResult>();
-		results.addAll(fantasyResultsByPlayer.values());
-		for(int i = 0; i < results.size(); i++)
+		if(flag != Flag.YELLOW
+				|| !updatedFantasyLastLapUnderCaution)
 		{
-			results.get(i).setPositionChange(results.get(i).getLastActualFinish()-results.get(i).getActualFinish());
-			results.get(i).setLastActualFinish(results.get(i).getActualFinish());
+			ArrayList<FantasyResult> results = new ArrayList<FantasyResult>();
+			results.addAll(fantasyResultsByPlayer.values());
+			for(int i = 0; i < results.size(); i++)
+			{
+				results.get(i).setPositionChange(results.get(i).getLastActualFinish()-results.get(i).getActualFinish());
+				results.get(i).setLastActualFinish(results.get(i).getActualFinish());
+			}
+			
+			if(flag == Flag.YELLOW)
+				updatedFantasyLastLapUnderCaution = true;
+			else
+				updatedFantasyLastLapUnderCaution = false;
 		}
 	}
 	
@@ -428,7 +439,7 @@ public class Race
 	public void updateLastLapPositions()
 	{
 		if(flag != Flag.YELLOW
-			|| !updatedFantasyLastLapUnderCaution)
+			|| !updatedLastLapUnderCaution)
 		{
 			ArrayList<Result> results = new ArrayList<Result>();
 			results.addAll(resultsByDriver.values());
@@ -439,9 +450,9 @@ public class Race
 			}
 			
 			if(flag == Flag.YELLOW)
-				updatedFantasyLastLapUnderCaution = true;
+				updatedLastLapUnderCaution = true;
 			else
-				updatedFantasyLastLapUnderCaution = false;
+				updatedLastLapUnderCaution = false;
 		}
 	}
 

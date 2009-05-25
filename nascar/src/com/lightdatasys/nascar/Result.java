@@ -97,7 +97,7 @@ public class Result
 	
 	public int getPositionChange()
 	{
-		return finishChange;
+		return getLastFinish() - getFinish();
 	}
 	
 	public int getCurrentLap()
