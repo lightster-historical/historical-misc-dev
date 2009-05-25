@@ -388,8 +388,9 @@ public class ResultCell extends Cell
 		else if(mode == Mode.LEADER_INTERVAL || mode == Mode.LOCAL_INTERVAL)
 		{
 			float interval = -1;
+			float leaderInterval = Math.abs(result.getBehindLeader());
 			if(mode == Mode.LEADER_INTERVAL)
-				interval = Math.abs(result.getBehindLeader());
+				interval = leaderInterval;
 			else
 			{
 				Result otherResult = result.getRace().getResultByFinish(result.getFinish()-1);
@@ -411,6 +412,14 @@ public class ResultCell extends Cell
 								
 				tBackground = getColorUsingDistance(dist, false);
 				tText = getColorUsingDistance(dist, true);
+			}
+			
+			Result leaderResult = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(1));
+			double tilLapDown = leaderInterval - leaderResult.getLastLapTime();
+			if(0 <= tilLapDown && tilLapDown <= 5)
+			{
+				tBackground = new Color((float)(.8f * (1 - ((leaderInterval - leaderResult.getLastLapTime()) / 5))), 0.0f, 0.0f);
+				tText = Color.WHITE;
 			}
 		}
 		else if(mode == Mode.SPEED)
