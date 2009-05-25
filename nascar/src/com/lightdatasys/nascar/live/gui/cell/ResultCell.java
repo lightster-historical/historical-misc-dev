@@ -418,7 +418,7 @@ public class ResultCell extends Cell
 			double tilLapDown = leaderInterval - leaderResult.getLastLapTime();
 			if(0 <= tilLapDown && tilLapDown <= 5)
 			{
-				tBackground = new Color((float)(.8f * (1 - ((leaderInterval - leaderResult.getLastLapTime()) / 5))), 0.0f, 0.0f);
+				tBackground = new Color((float)(.8f * ((leaderInterval - leaderResult.getLastLapTime()) / 5)), 0.0f, 0.0f);
 				tText = Color.WHITE;
 			}
 		}
