@@ -24,6 +24,7 @@ import com.lightdatasys.nascar.live.gui.cell.FantasyPlayerCell;
 import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell;
 import com.lightdatasys.nascar.live.gui.cell.PlayerCellSet;
 import com.lightdatasys.nascar.live.gui.cell.ResultCell;
+import com.lightdatasys.nascar.live.setting.FantasyResultModeSetting;
 import com.lightdatasys.nascar.live.setting.ResultModeSetting;
 import com.lightdatasys.nascar.live.setting.Setting;
 import com.lightdatasys.nascar.live.setting.Settings;
@@ -47,7 +48,7 @@ public class SortableTable extends LivePanel
     protected ResultCell.Mode[] leftHeaderModes = 
     {
     	ResultCell.Mode.SEASON_RANK,
-		ResultCell.Mode.LEADER_POINTS_DIFF,
+		ResultCell.Mode.LAST_LAP_SPEED,
 		ResultCell.Mode.SPEED,
 		ResultCell.Mode.LOCAL_INTERVAL,
 		ResultCell.Mode.POSITION
@@ -106,6 +107,7 @@ public class SortableTable extends LivePanel
 		
 		settings = getLiveUpdater().getSettings();
 		initResultModes();
+		initFantasyResultModes();
 		
         cellMargin = 1;
         
@@ -227,6 +229,17 @@ public class SortableTable extends LivePanel
 		for(int i = 0; i < rows.size(); i++)
 		{
 			rows.get(i).setResultModes(modes);
+		}
+		
+		FantasyResultCell.Mode[] fantasyModes = getFantasyResultModes();
+		for(int i = 0; i < topHeaderRows.size(); i++)
+		{
+			TableRow row = topHeaderRows.get(i);
+			if(row instanceof FantasyResultHeaderRow)
+			{
+				FantasyResultHeaderRow headerRow = (FantasyResultHeaderRow)row;
+				headerRow.setFantasyResultMode(fantasyModes[i]);
+			}
 		}
 			
 		if(flag != getRace().getFlag())
@@ -358,6 +371,7 @@ public class SortableTable extends LivePanel
 		return dimensions;
 	}
 	
+	
 	public ResultCell.Mode[] getDefaultResultModes()
 	{
 		return leftHeaderModes;
@@ -380,6 +394,31 @@ public class SortableTable extends LivePanel
 		
 		return modes;
 	}
+	
+	
+	public FantasyResultCell.Mode[] getDefaultFantasyResultModes()
+	{
+		return topHeaderModes;
+	}
+	
+	public FantasyResultCell.Mode[] getFantasyResultModes()
+	{
+		int count = getDefaultFantasyResultModes().length;
+		FantasyResultCell.Mode[] modes = new FantasyResultCell.Mode[count];
+		
+		for(int i = 1; i <= count; i++)
+		{
+			Object value = settings.getValue("fantasyResultMode" + i);
+			
+			if(value instanceof FantasyResultCell.Mode)
+				modes[i - 1] = (FantasyResultCell.Mode)value;
+			else
+				modes[i - 1] = getDefaultFantasyResultModes()[i - 1];			
+		}
+		
+		return modes;
+	}
+	
 	
 	public int getCellMargin()
 	{
@@ -448,7 +487,7 @@ public class SortableTable extends LivePanel
 			moveColumn(playerCells.get(i), i + 1);
 		}
 	}
-	
+
 	
 	public void initResultModes()
 	{
@@ -465,6 +504,23 @@ public class SortableTable extends LivePanel
 			}
 		}
 	}
+	
+	public void initFantasyResultModes()
+	{
+		int count = getDefaultFantasyResultModes().length;
+		
+		for(int i = 1; i <= count; i++)
+		{
+			Setting<?> setting = settings.get("fantasyResultMode" + i);
+			
+			if(setting instanceof FantasyResultModeSetting)
+			{
+				FantasyResultModeSetting modeSetting = (FantasyResultModeSetting)setting;
+				modeSetting.setValue(getDefaultFantasyResultModes()[i - 1]);
+			}
+		}
+	}
+	
 	
 	public void initPlayerCells()
 	{	

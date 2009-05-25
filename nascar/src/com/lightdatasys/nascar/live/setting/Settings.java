@@ -64,7 +64,7 @@ public class Settings
 		}
 
 		{
-			add(new BooleanSetting("highlightActives", "Highlight Actives", false, "Yes", "No"));
+			add(new BooleanSetting("highlightActives", "Highlight Actives", true, "Yes", "No"));
 		}
 
 		{

@@ -61,4 +61,17 @@ public class FantasyResultHeaderRow extends TableRow
 
 		initCellProperties();
 	}
+	
+	
+	public void setFantasyResultMode(FantasyResultCell.Mode mode)
+	{
+		for(Cell cell : cells)
+		{
+			if(cell instanceof FantasyResultCell)
+			{
+				FantasyResultCell resultCell = (FantasyResultCell)cell;
+				resultCell.setMode(mode);
+			}
+		}
+	}
 }
