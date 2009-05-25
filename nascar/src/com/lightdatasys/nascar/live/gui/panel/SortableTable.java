@@ -231,14 +231,17 @@ public class SortableTable extends LivePanel
 			rows.get(i).setResultModes(modes);
 		}
 		
-		FantasyResultCell.Mode[] fantasyModes = getFantasyResultModes();
-		for(int i = 0; i < topHeaderRows.size(); i++)
+		if(topHeaderRows != null)
 		{
-			TableRow row = topHeaderRows.get(i);
-			if(row instanceof FantasyResultHeaderRow)
+			FantasyResultCell.Mode[] fantasyModes = getFantasyResultModes();
+			for(int i = 0; i < topHeaderRows.size(); i++)
 			{
-				FantasyResultHeaderRow headerRow = (FantasyResultHeaderRow)row;
-				headerRow.setFantasyResultMode(fantasyModes[i]);
+				TableRow row = topHeaderRows.get(i);
+				if(row instanceof FantasyResultHeaderRow)
+				{
+					FantasyResultHeaderRow headerRow = (FantasyResultHeaderRow)row;
+					headerRow.setFantasyResultMode(fantasyModes[i]);
+				}
 			}
 		}
 			

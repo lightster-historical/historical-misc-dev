@@ -59,7 +59,7 @@ public class FantasyResult implements Comparable<FantasyResult>
 	
 	public int getPositionChange()
 	{
-		return finishChange;
+		return getLastActualFinish() - getActualFinish();
 	}
 	
 	public ArrayList<String> getPicks()
