@@ -142,6 +142,8 @@ public class DriverRow extends TableRow
 			
 			if(getResult().isCurrent())
 				color = color.darker();
+			
+			return color;
 		}
 		
 		return super.getBackground();
