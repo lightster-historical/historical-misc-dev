@@ -126,6 +126,28 @@ public class DriverRow extends TableRow
 	}
 	
 	
+	public Color getBackground()
+	{
+		String carNo = getResult().getCar();
+		if(carNo.equals("24")
+				|| carNo.equals("88")
+				|| carNo.equals("6"))
+		{
+			Color color;
+			
+			if(getResult().getLapsDown() > 0)
+				color = Color.ORANGE;
+			else
+				color = Color.BLUE;
+			
+			if(getResult().isCurrent())
+				color = color.darker();
+		}
+		
+		return super.getBackground();
+	}
+	
+	
 	public static class DefaultComparator implements Comparator<DriverRow>
 	{
 		public int compare(DriverRow o1, DriverRow o2)
