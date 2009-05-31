@@ -48,7 +48,7 @@ public class SortableTable extends LivePanel
     protected ResultCell.Mode[] leftHeaderModes = 
     {
     	ResultCell.Mode.SEASON_RANK,
-		ResultCell.Mode.LAST_LAP_SPEED,
+		ResultCell.Mode.LAST_LAP_TIME,
 		ResultCell.Mode.SPEED,
 		ResultCell.Mode.LOCAL_INTERVAL,
 		ResultCell.Mode.POSITION
@@ -93,9 +93,6 @@ public class SortableTable extends LivePanel
 	private int posMax;
 	private boolean showHeader;
 	
-
-	private Settings settings;
-	
 	
 	public SortableTable(FullScreenWindow window, int posMin, int posMax, boolean showHeader)
 	{
@@ -105,7 +102,6 @@ public class SortableTable extends LivePanel
 		this.posMax = posMax;
 		this.showHeader = showHeader;
 		
-		settings = getLiveUpdater().getSettings();
 		initResultModes();
 		initFantasyResultModes();
 		
@@ -199,9 +195,9 @@ public class SortableTable extends LivePanel
 			int newX = getColumnPosition(newPosition);
 
 			for(int i = 0; i < playerCellSet.getResultCellCount(); i++)
-				playerCellSet.getResultCell(i).moveToX(newX, settings.getLongValue("swapPeriod"));
-			playerCellSet.getPlayerHeaderCell().moveToX(newX, settings.getLongValue("swapPeriod"));
-			playerCellSet.getPlayerCell().moveToX(newX, settings.getLongValue("swapPeriod"));
+				playerCellSet.getResultCell(i).moveToX(newX, getSettings().getLongValue("swapPeriod"));
+			playerCellSet.getPlayerHeaderCell().moveToX(newX, getSettings().getLongValue("swapPeriod"));
+			playerCellSet.getPlayerCell().moveToX(newX, getSettings().getLongValue("swapPeriod"));
 		}
 	}
 
@@ -218,7 +214,7 @@ public class SortableTable extends LivePanel
 			row.getResult().setRowNumber((short)newPosition);
 
 			int newY = getRowPosition(newPosition);
-			row.moveToY(newY, settings.getLongValue("swapPeriod"));
+			row.moveToY(newY, getSettings().getLongValue("swapPeriod"));
 		}
 	}
 	
@@ -387,7 +383,7 @@ public class SortableTable extends LivePanel
 		
 		for(int i = 1; i <= count; i++)
 		{
-			Object value = settings.getValue("resultMode" + i);
+			Object value = getSettings().getValue("resultMode" + i);
 			
 			if(value instanceof ResultCell.Mode)
 				modes[i - 1] = (ResultCell.Mode)value;
@@ -411,7 +407,7 @@ public class SortableTable extends LivePanel
 		
 		for(int i = 1; i <= count; i++)
 		{
-			Object value = settings.getValue("fantasyResultMode" + i);
+			Object value = getSettings().getValue("fantasyResultMode" + i);
 			
 			if(value instanceof FantasyResultCell.Mode)
 				modes[i - 1] = (FantasyResultCell.Mode)value;
@@ -441,7 +437,7 @@ public class SortableTable extends LivePanel
 	
 	public void updateRowOrdering()
 	{
-		Object objComp = settings.getValue("rowOrder");
+		Object objComp = getSettings().getValue("rowOrder");
 		if(objComp instanceof DriverRow.DefaultComparator)
 		{
 			DriverRow.DefaultComparator comparator 
@@ -449,7 +445,7 @@ public class SortableTable extends LivePanel
 			Collections.sort(rows, comparator);
 		}
 		else
-			Collections.sort(rows, new DriverRow.ResultNumericComparator(new DriverRow.FinishRetriever(), settings));
+			Collections.sort(rows, new DriverRow.ResultNumericComparator(new DriverRow.FinishRetriever(), getSettings()));
 		
 		for(int i = 0; i < rows.size(); i++)
 		{
@@ -458,7 +454,7 @@ public class SortableTable extends LivePanel
 			
 			Result result = row.getResult();			
 			
-			if(!result.isCurrent() || !settings.getBooleanValue("highlightActives").booleanValue())
+			if(!result.isCurrent() || !getSettings().getBooleanValue("highlightActives").booleanValue())
 				row.setBackground(getWindow().getBackground());
 			else
 				row.setBackground(getWindow().getBackground().darker().darker());
@@ -498,7 +494,7 @@ public class SortableTable extends LivePanel
 		
 		for(int i = 1; i <= count; i++)
 		{
-			Setting<?> setting = settings.get("resultMode" + i);
+			Setting<?> setting = getSettings().get("resultMode" + i);
 			
 			if(setting instanceof ResultModeSetting)
 			{
@@ -514,7 +510,7 @@ public class SortableTable extends LivePanel
 		
 		for(int i = 1; i <= count; i++)
 		{
-			Setting<?> setting = settings.get("fantasyResultMode" + i);
+			Setting<?> setting = getSettings().get("fantasyResultMode" + i);
 			
 			if(setting instanceof FantasyResultModeSetting)
 			{
@@ -654,4 +650,10 @@ public class SortableTable extends LivePanel
 			
 		return x;
 	}	
+	
+	
+	protected Settings getSettings()
+	{
+		return getLiveUpdater().getSettings();
+	}
 }

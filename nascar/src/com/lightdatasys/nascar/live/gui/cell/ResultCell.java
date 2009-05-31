@@ -9,6 +9,7 @@ import java.awt.Toolkit;
 
 import com.lightdatasys.gui.FontUtility;
 import com.lightdatasys.nascar.Result;
+import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell.Mode;
 
 public class ResultCell extends Cell 
 {		
@@ -442,6 +443,15 @@ public class ResultCell extends Cell
 					tText = Color.WHITE;
 			}
 		}
+		else if(mode == Mode.POSITION_CHANGE)
+		{
+			if(result.getPositionChange() == 0)
+				tBackground = Color.BLACK;
+			else if(result.getPositionChange() > 0)
+				tBackground = new Color(0x00, 0xCC, 0x00);
+			else
+				tBackground = Color.RED;
+		}
 
 		if(mode == Mode.POSITION || mode == Mode.LEADER_INTERVAL || mode == Mode.LOCAL_INTERVAL
 			|| mode == Mode.SPEED)
@@ -455,7 +465,7 @@ public class ResultCell extends Cell
 			g.setColor(tBackground);
 			g.fillRect(BORDER_WIDTH*2, BORDER_WIDTH*2, getWidth()-4*BORDER_WIDTH, getHeight()-4*BORDER_WIDTH);
 		}
-		else if(mode == Mode.SEASON_RANK)
+		else if(mode == Mode.SEASON_RANK && mode == Mode.POSITION_CHANGE)
 		{
 			g.setColor(tBackground);
 			g.fillRect(0, 0, getWidth(), getHeight());
