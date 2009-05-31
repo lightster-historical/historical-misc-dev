@@ -136,7 +136,7 @@ public class DriverRow extends TableRow
 			Color color;
 			
 			if(getResult().getLapsDown() < 0)
-				color = Color.ORANGE;
+				color = new Color(0xFF, 0x66, 0x00);
 			else
 				color = Color.BLUE;
 			
