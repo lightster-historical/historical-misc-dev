@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Pocono 500
+track:	Pocono Raceway
+location:	Pocono, PA
+length: 	500
+laps: 	200
+track_length: 	2.5
+scale: 	0.587
+x_offset: 	37
+y_offset: 	8
+tv_network: 	TNT
+track_image_file: 	pocono.gif
+</RACE>
+<PARTICIPANTS>
+14	Stewart	Chevrolet	1	Tony	Stewart	1853
+24	J. Gordon	Chevrolet	2	Jeff	Gordon	1807
+48	Johnson	Chevrolet	3	Jimmie	Johnson	1789
+2	Kurt Busch	Dodge	4	Kurt	Busch	1762
+39	Newman	Chevrolet	5	Ryan	Newman	1680
+18	Kyle Busch	Toyota	6	Kyle	Busch	1634
+11	Hamlin	Toyota	7	Denny	Hamlin	1630
+17	Kenseth	Ford	8	Matt	Kenseth	1625
+16	Biffle	Ford	9	Greg	Biffle	1618
+31	J. Burton	Chevrolet	10	Jeff	Burton	1587
+99	Edwards	Ford	11	Carl	Edwards	1582
+5	Martin	Chevrolet	12	Mark	Martin	1567
+00	Reutimann	Toyota	13	David	Reutimann	1536
+9	Kahne	Dodge	14	Kasey	Kahne	1501
+42	Montoya	Chevrolet	15	Juan Pablo	Montoya	1475
+33	Bowyer	Chevrolet	16	Clint	Bowyer	1449
+83	Vickers	Toyota	17	Brian	Vickers	1436
+88	Earnhardt Jr.	Chevrolet	18	Dale	Earnhardt Jr.	1352
+1	Truex Jr.	Chevrolet	19	Martin	Truex Jr.	1338
+47	Ambrose	Toyota	20	Marcos	Ambrose	1319
+07	Mears	Chevrolet	21	Casey	Mears	1306
+26	McMurray	Ford	22	Jamie	McMurray	1289
+20	Logano	Toyota	23	Joey	Logano	1263
+29	Harvick	Chevrolet	24	Kevin	Harvick	1261
+43	Sorenson	Dodge	25	Reed	Sorenson	1259
+77	Hornish Jr.	Dodge	26	Sam	Hornish Jr.	1237
+19	E. Sadler	Dodge	27	Elliott	Sadler	1216
+96	B. Labonte	Ford	28	Bobby	Labonte	1213
+12	Stremme	Dodge	29	David	Stremme	1206
+44	Allmendinger	Dodge	30	A.J.	Allmendinger	1202
+6	Ragan	Ford	31	David	Ragan	1180
+55	Waltrip	Toyota	32	Michael	Waltrip	1153
+98	Menard	Ford	33	Paul	Menard	1100
+7	R. Gordon	Toyota	34	Robby	Gordon	981
+34	Andretti	Chevrolet	35	John	Andretti	804
+09	Marlin	Dodge	36	Sterling	Marlin	123
+82	Speed	Toyota	37	Scott	Speed	917
+71	Gilliland	Chevrolet	38	David	Gilliland	770
+87	Nemechek	Toyota	39	Joe	Nemechek	515
+36	Carpentier	Toyota	40	Patrick	Carpentier	0
+66	Blaney	Toyota	41	Dave	Blaney	428
+78	Smith	Chevrolet	42	Regan	Smith	670
+51	Bean	Dodge	43	Dexter	Bean	0
+</PARTICIPANTS>

@@ -14,11 +14,11 @@ import com.lightdatasys.nascar.live.setting.Settings;
 public class LiveUpdater//extends AppWindow
 	implements Runnable
 {
-	private final static String PROPERTY_FILE = "CocaCola600_2009.txt";
-	private final static int RACE_ID = 1120;
+	private final static String PROPERTY_FILE = "LifeLock400_2009.txt";
+	private final static int RACE_ID = 1126;
 	
 	
-	private final static boolean ALLOW_UPDATES = false;
+	private final static boolean ALLOW_UPDATES = true;
 	private final static boolean SHOW_FPS = false;
 	
 	

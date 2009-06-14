@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Autism Speaks 400
+track:	Dover International Speedway
+location:	Dover, DE
+length: 	400
+laps: 	400
+track_length: 	1.0
+scale: 	0.574
+x_offset: 	28
+y_offset: 	18
+tv_network: 	FOX
+track_image_file: 	dover.gif
+</RACE>
+<PARTICIPANTS>
+00	Reutimann	Toyota	1	David	Reutimann	1422
+9	Kahne	Dodge	2	Kasey	Kahne	1351
+42	Montoya	Chevrolet	3	Juan Pablo	Montoya	1397
+43	Sorenson	Dodge	4	Reed	Sorenson	1148
+16	Biffle	Ford	5	Greg	Biffle	1448
+18	Kyle Busch	Toyota	6	Kyle	Busch	1540
+44	Allmendinger	Dodge	7	A.J.	Allmendinger	1126
+48	Johnson	Chevrolet	8	Jimmie	Johnson	1594
+83	Vickers	Toyota	9	Brian	Vickers	1348
+19	E. Sadler	Dodge	10	Elliott	Sadler	1129
+39	Newman	Chevrolet	11	Ryan	Newman	1538
+77	Hornish Jr.	Dodge	12	Sam	Hornish Jr.	1113
+99	Edwards	Ford	13	Carl	Edwards	1431
+17	Kenseth	Ford	14	Matt	Kenseth	1460
+1	Truex Jr.	Chevrolet	15	Martin	Truex Jr.	1238
+11	Hamlin	Toyota	16	Denny	Hamlin	1575
+07	Mears	Chevrolet	17	Casey	Mears	1168
+26	McMurray	Ford	18	Jamie	McMurray	1168
+2	Kurt Busch	Dodge	19	Kurt	Busch	1607
+47	Ambrose	Toyota	20	Marcos	Ambrose	1216
+20	Logano	Toyota	21	Joey	Logano	1145
+88	Earnhardt Jr.	Chevrolet	22	Dale	Earnhardt Jr.	1225
+82	Speed	Toyota	23	Scott	Speed	865
+71	Gilliland	Chevrolet	24	David	Gilliland	731
+33	Bowyer	Chevrolet	25	Clint	Bowyer	1319
+6	Ragan	Ford	26	David	Ragan	1089
+96	B. Labonte	Ford	27	Bobby	Labonte	1134
+5	Martin	Chevrolet	28	Mark	Martin	1428
+55	Waltrip	Toyota	29	Michael	Waltrip	1095
+12	Stremme	Dodge	30	David	Stremme	1136
+14	Stewart	Chevrolet	31	Tony	Stewart	1678
+31	J. Burton	Chevrolet	32	Jeff	Burton	1472
+78	Smith	Chevrolet	33	Regan	Smith	573
+36	Skinner	Toyota	34	Mike	Skinner	0
+29	Harvick	Chevrolet	35	Kevin	Harvick	1149
+98	Menard	Ford	36	Paul	Menard	1033
+09	Bliss	Dodge	37	Mike	Bliss	157
+87	Nemechek	Toyota	38	Joe	Nemechek	466
+66	Blaney	Toyota	39	Dave	Blaney	382
+7	R. Gordon	Toyota	40	Robby	Gordon	967
+34	Andretti	Chevrolet	41	John	Andretti	743
+24	J. Gordon	Chevrolet	42	Jeff	Gordon	1722
+37	Raines	Chevrolet	43	Tony	Raines	168
+</PARTICIPANTS>

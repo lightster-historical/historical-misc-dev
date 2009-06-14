@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	LifeLock 400
+track:	Michigan Int'l Spwy
+location:	Brooklyn, MI
+length: 	400
+laps: 	200
+track_length: 	2.0
+scale: 	0.591
+x_offset: 	18
+y_offset: 	18
+tv_network: 	TNT
+track_image_file: 	michigan.gif
+</RACE>
+<PARTICIPANTS>
+83	Vickers	Toyota	1	Brian	Vickers	1536
+18	Kyle Busch	Toyota	2	Kyle	Busch	1731
+48	Johnson	Chevrolet	3	Jimmie	Johnson	1940
+00	Reutimann	Toyota	4	David	Reutimann	1701
+2	Kurt Busch	Dodge	5	Kurt	Busch	1819
+44	Allmendinger	Dodge	6	A.J.	Allmendinger	1275
+42	Montoya	Chevrolet	7	Juan Pablo	Montoya	1617
+9	Kahne	Dodge	8	Kasey	Kahne	1619
+33	Bowyer	Chevrolet	9	Clint	Bowyer	1576
+34	Andretti	Chevrolet	10	John	Andretti	862
+14	Stewart	Chevrolet	11	Tony	Stewart	2043
+29	Harvick	Chevrolet	12	Kevin	Harvick	1352
+7	R. Gordon	Toyota	13	Robby	Gordon	1101
+11	Hamlin	Toyota	14	Denny	Hamlin	1679
+21	Elliott	Ford	15	Bill	Elliott	346
+17	Kenseth	Ford	16	Matt	Kenseth	1745
+96	B. Labonte	Ford	17	Bobby	Labonte	1292
+39	Newman	Chevrolet	18	Ryan	Newman	1840
+1	Truex Jr.	Chevrolet	19	Martin	Truex Jr.	1447
+16	Biffle	Ford	20	Greg	Biffle	1753
+82	Speed	Toyota	21	Scott	Speed	984
+31	J. Burton	Chevrolet	22	Jeff	Burton	1725
+6	Ragan	Ford	23	David	Ragan	1265
+20	Logano	Toyota	24	Joey	Logano	1357
+19	E. Sadler	Dodge	25	Elliott	Sadler	1309
+12	Stremme	Dodge	26	David	Stremme	1267
+24	J. Gordon	Chevrolet	27	Jeff	Gordon	1972
+43	Sorenson	Dodge	28	Reed	Sorenson	1362
+99	Edwards	Ford	29	Carl	Edwards	1762
+88	Earnhardt Jr.	Chevrolet	30	Dale	Earnhardt Jr.	1434
+26	McMurray	Ford	31	Jamie	McMurray	1418
+5	Martin	Chevrolet	32	Mark	Martin	1678
+47	Ambrose	Toyota	33	Marcos	Ambrose	1469
+77	Hornish Jr.	Dodge	34	Sam	Hornish Jr.	1371
+71	Gilliland	Chevrolet	35	David	Gilliland	807
+55	Waltrip	Toyota	36	Michael	Waltrip	1265
+07	Mears	Chevrolet	37	Casey	Mears	1432
+98	Menard	Ford	38	Paul	Menard	1176
+66	Blaney	Toyota	39	Dave	Blaney	471
+87	Nemechek	Toyota	40	Joe	Nemechek	555
+37	Raines	Dodge	41	Tony	Raines	205
+09	Marlin	Dodge	42	Sterling	Marlin	169
+13	Papis	Toyota	43	Max	Papis	317
+</PARTICIPANTS>
