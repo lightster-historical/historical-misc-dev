@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Toyota/Save Mart 350
+track:	Infineon Raceway
+location:	Sonoma, CA
+length: 	218.9
+laps: 	110
+track_length: 	1.99
+scale: 	0.682
+x_offset: 	-4
+y_offset: 	-5
+tv_network: 	TNT
+track_image_file: 	sears_point.gif
+</RACE>
+<PARTICIPANTS>
+83	Vickers	Toyota	1	Brian	Vickers	1674
+18	Kyle Busch	Toyota	2	Kyle	Busch	1860
+47	Ambrose	Toyota	3	Marcos	Ambrose	1539
+14	Stewart	Chevrolet	4	Tony	Stewart	2189
+9	Kahne	Dodge	5	Kasey	Kahne	1719
+1	Truex Jr.	Chevrolet	6	Martin	Truex Jr.	1502
+39	Newman	Chevrolet	7	Ryan	Newman	1934
+19	E. Sadler	Dodge	8	Elliott	Sadler	1436
+08	Said	Ford	9	Boris	Said	0
+17	Kenseth	Ford	10	Matt	Kenseth	1848
+48	Johnson	Chevrolet	11	Jimmie	Johnson	2047
+20	Logano	Toyota	12	Joey	Logano	1445
+24	J. Gordon	Chevrolet	13	Jeff	Gordon	2142
+5	Martin	Chevrolet	14	Mark	Martin	1868
+16	Biffle	Ford	15	Greg	Biffle	1913
+29	Harvick	Chevrolet	16	Kevin	Harvick	1461
+42	Montoya	Chevrolet	17	Juan Pablo	Montoya	1767
+77	Hornish Jr.	Dodge	18	Sam	Hornish Jr.	1447
+66	Blaney	Toyota	19	Dave	Blaney	514
+44	Allmendinger	Dodge	20	A.J.	Allmendinger	1321
+07	Mears	Chevrolet	21	Casey	Mears	1523
+7	R. Gordon	Toyota	22	Robby	Gordon	1213
+26	McMurray	Ford	23	Jamie	McMurray	1548
+11	Hamlin	Toyota	24	Denny	Hamlin	1849
+96	B. Labonte	Ford	25	Bobby	Labonte	1371
+33	Bowyer	Chevrolet	26	Clint	Bowyer	1710
+2	Kurt Busch	Dodge	27	Kurt	Busch	1961
+43	Sorenson	Dodge	28	Reed	Sorenson	1444
+09	Fellows	Dodge	29	Ron	Fellows	0
+98	Menard	Ford	30	Paul	Menard	1237
+87	Speed	Toyota	31	Scott	Speed	1036
+71	Gilliland	Chevrolet	32	David	Gilliland	874
+13	Papis	Toyota	33	Max	Papis	375
+99	Edwards	Ford	34	Carl	Edwards	1927
+88	Earnhardt Jr.	Chevrolet	35	Dale	Earnhardt Jr.	1555
+31	J. Burton	Chevrolet	36	Jeff	Burton	1810
+04	Jones	Toyota	37	P.J.	Jones	0
+55	Carpentier	Toyota	38	Patrick	Carpentier	34
+12	Stremme	Dodge	39	David	Stremme	1316
+6	Ragan	Ford	40	David	Ragan	1383
+34	Andretti	Chevrolet	41	John	Andretti	926
+00	Reutimann	Toyota	42	David	Reutimann	1807
+02	Ash	Dodge	43	Brandon	Ash	0
+</PARTICIPANTS>

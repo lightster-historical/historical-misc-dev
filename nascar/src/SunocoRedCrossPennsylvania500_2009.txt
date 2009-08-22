@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Sunoco Red Cross Pennsylvania 500
+track:	Pocono Raceway
+location:	Pocono, PA
+length: 	500
+laps: 	200
+track_length: 	2.5
+scale: 	0.587
+x_offset: 	37
+y_offset: 	8
+tv_network: 	ESPN
+track_image_file: 	pocono.gif
+</RACE>
+<PARTICIPANTS>
+14	Stewart	Chevrolet	1	Tony	Stewart	3054
+48	Johnson	Chevrolet	2	Jimmie	Johnson	2862
+24	J. Gordon	Chevrolet	3	Jeff	Gordon	2847
+2	Kurt Busch	Dodge	4	Kurt	Busch	2608
+99	Edwards	Ford	5	Carl	Edwards	2556
+11	Hamlin	Toyota	6	Denny	Hamlin	2518
+39	Newman	Chevrolet	7	Ryan	Newman	2506
+9	Kahne	Dodge	8	Kasey	Kahne	2482
+5	Martin	Chevrolet	9	Mark	Martin	2471
+42	Montoya	Chevrolet	10	Juan Pablo	Montoya	2461
+16	Biffle	Ford	11	Greg	Biffle	2445
+17	Kenseth	Ford	12	Matt	Kenseth	2429
+00	Reutimann	Toyota	13	David	Reutimann	2361
+18	Kyle Busch	Toyota	14	Kyle	Busch	2347
+83	Vickers	Toyota	15	Brian	Vickers	2309
+33	Bowyer	Chevrolet	16	Clint	Bowyer	2278
+31	J. Burton	Chevrolet	17	Jeff	Burton	2201
+47	Ambrose	Toyota	18	Marcos	Ambrose	2175
+20	Logano	Toyota	19	Joey	Logano	2083
+26	McMurray	Ford	20	Jamie	McMurray	2060
+07	Mears	Chevrolet	21	Casey	Mears	1998
+88	Earnhardt Jr.	Chevrolet	22	Dale	Earnhardt Jr.	1983
+29	Harvick	Chevrolet	23	Kevin	Harvick	1939
+1	Truex Jr.	Chevrolet	24	Martin	Truex Jr.	1932
+19	E. Sadler	Dodge	25	Elliott	Sadler	1924
+43	Sorenson	Dodge	26	Reed	Sorenson	1883
+44	Allmendinger	Dodge	27	A.J.	Allmendinger	1873
+96	B. Labonte	Ford	28	Bobby	Labonte	1873
+77	Hornish Jr.	Dodge	29	Sam	Hornish Jr.	1806
+6	Ragan	Ford	30	David	Ragan	1799
+55	Waltrip	Toyota	31	Michael	Waltrip	1642
+12	Stremme	Dodge	32	David	Stremme	1699
+98	Menard	Ford	33	Paul	Menard	1638
+7	R. Gordon	Toyota	34	Robby	Gordon	1608
+34	Andretti	Chevrolet	35	John	Andretti	1341
+09	Marlin	Dodge	36	Sterling	Marlin	209
+82	Speed	Toyota	37	Scott	Speed	1343
+71	Gilliland	Chevrolet	38	David	Gilliland	1142
+87	Nemechek	Toyota	39	Joe	Nemechek	752
+66	Blaney	Toyota	40	Dave	Blaney	693
+36	Carpentier	Toyota	41	Patrick	Carpentier	235
+64	M. Wallace	Toyota	42	Mike	Wallace	0
+37	Raines	Dodge	43	Tony	Raines	352
+</PARTICIPANTS>

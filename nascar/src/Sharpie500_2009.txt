@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Sharpie 500
+track:	Bristol Motor Speedway
+location:	Bristol, TN
+length: 	266.5
+laps: 	500
+track_length: 	0.533
+scale: 	0.573
+x_offset: 	25
+y_offset: 	16
+tv_network: 	ESPN
+track_image_file: 	bristol.gif
+</RACE>
+<PARTICIPANTS>
+5	Martin	Chevrolet	1	Mark	Martin	2791
+16	Biffle	Ford	2	Greg	Biffle	2821
+82	Speed	Toyota	3	Scott	Speed	1600
+66	Blaney	Toyota	4	Dave	Blaney	810
+17	Kenseth	Ford	5	Matt	Kenseth	2811
+33	Bowyer	Chevrolet	6	Clint	Bowyer	2733
+07	Mears	Chevrolet	7	Casey	Mears	2354
+20	Logano	Toyota	8	Joey	Logano	2426
+39	Newman	Chevrolet	9	Ryan	Newman	2845
+43	Sorenson	Dodge	10	Reed	Sorenson	2087
+42	Montoya	Chevrolet	11	Juan Pablo	Montoya	2887
+71	Gilliland	Chevrolet	12	David	Gilliland	1230
+2	Kurt Busch	Dodge	13	Kurt	Busch	2957
+83	Vickers	Toyota	14	Brian	Vickers	2779
+18	Kyle Busch	Toyota	15	Kyle	Busch	2721
+29	Harvick	Chevrolet	16	Kevin	Harvick	2251
+26	McMurray	Ford	17	Jamie	McMurray	2273
+00	Reutimann	Toyota	18	David	Reutimann	2673
+44	Allmendinger	Dodge	19	A.J.	Allmendinger	2206
+96	B. Labonte	Ford	20	Bobby	Labonte	2065
+48	Johnson	Chevrolet	21	Jimmie	Johnson	3197
+08	T. Labonte	Toyota	22	Terry	Labonte	155
+6	Ragan	Ford	23	David	Ragan	2065
+1	Truex Jr.	Chevrolet	24	Martin	Truex Jr.	2217
+47	Ambrose	Toyota	25	Marcos	Ambrose	2474
+4	Wimmer	Chevrolet	26	Scott	Wimmer	0
+88	Earnhardt Jr.	Chevrolet	27	Dale	Earnhardt Jr.	2278
+78	Smith	Chevrolet	28	Regan	Smith	989
+9	Kahne	Dodge	29	Kasey	Kahne	2884
+14	Stewart	Chevrolet	30	Tony	Stewart	3500
+7	R. Gordon	Toyota	31	Robby	Gordon	1833
+99	Edwards	Ford	32	Carl	Edwards	2995
+24	J. Gordon	Chevrolet	33	Jeff	Gordon	3216
+12	Stremme	Dodge	34	David	Stremme	1980
+37	Raines	Chevrolet	35	Tony	Raines	389
+55	Waltrip	Toyota	36	Michael	Waltrip	1799
+31	J. Burton	Chevrolet	37	Jeff	Burton	2459
+77	Hornish Jr.	Dodge	38	Sam	Hornish Jr.	2176
+98	Menard	Ford	39	Paul	Menard	1919
+34	Andretti	Chevrolet	40	John	Andretti	1571
+11	Hamlin	Toyota	41	Denny	Hamlin	2986
+19	E. Sadler	Dodge	42	Elliott	Sadler	2170
+87	Nemechek	Toyota	43	Joe	Nemechek	844
+</PARTICIPANTS>

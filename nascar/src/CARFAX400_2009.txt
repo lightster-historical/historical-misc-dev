@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	CARFAX 400
+track:	Michigan Int'l Spwy
+location:	Brooklyn, MI
+length: 	400
+laps: 	200
+track_length: 	2.0
+scale: 	0.591
+x_offset: 	18
+y_offset: 	18
+tv_network: 	ESPN
+track_image_file: 	michigan.gif
+</RACE>
+<PARTICIPANTS>
+83	Vickers	Toyota	1	Brian	Vickers	2589
+5	Martin	Chevrolet	2	Mark	Martin	2716
+42	Montoya	Chevrolet	3	Juan Pablo	Montoya	2781
+48	Johnson	Chevrolet	4	Jimmie	Johnson	3123
+1	Truex Jr.	Chevrolet	5	Martin	Truex Jr.	2117
+2	Kurt Busch	Dodge	6	Kurt	Busch	2902
+39	Newman	Chevrolet	7	Ryan	Newman	2727
+20	Logano	Toyota	8	Joey	Logano	2280
+21	Elliott	Ford	9	Bill	Elliott	622
+9	Kahne	Dodge	10	Kasey	Kahne	2754
+82	Speed	Toyota	11	Scott	Speed	1539
+25	Keselowski	Chevrolet	12	Brad	Keselowski	787
+44	Allmendinger	Dodge	13	A.J.	Allmendinger	2109
+77	Hornish Jr.	Dodge	14	Sam	Hornish Jr.	2021
+88	Earnhardt Jr.	Chevrolet	15	Dale	Earnhardt Jr.	2108
+11	Hamlin	Toyota	16	Denny	Hamlin	2847
+16	Biffle	Ford	17	Greg	Biffle	2718
+14	Stewart	Chevrolet	18	Tony	Stewart	3383
+26	McMurray	Ford	19	Jamie	McMurray	2206
+12	Stremme	Dodge	20	David	Stremme	1856
+24	J. Gordon	Chevrolet	21	Jeff	Gordon	3041
+29	Harvick	Chevrolet	22	Kevin	Harvick	2124
+33	Bowyer	Chevrolet	23	Clint	Bowyer	2586
+7	R. Gordon	Toyota	24	Robby	Gordon	1781
+17	Kenseth	Ford	25	Matt	Kenseth	2685
+47	Ambrose	Toyota	26	Marcos	Ambrose	2416
+31	J. Burton	Chevrolet	27	Jeff	Burton	2350
+09	Bliss	Chevrolet	28	Mike	Bliss	243
+34	Andretti	Chevrolet	29	John	Andretti	1492
+55	Waltrip	Toyota	30	Michael	Waltrip	1712
+00	Reutimann	Toyota	31	David	Reutimann	2530
+99	Edwards	Ford	32	Carl	Edwards	2830
+96	B. Labonte	Ford	33	Bobby	Labonte	2031
+19	E. Sadler	Dodge	34	Elliott	Sadler	2082
+98	Menard	Ford	35	Paul	Menard	1829
+71	Gilliland	Chevrolet	36	David	Gilliland	1187
+6	Ragan	Ford	37	David	Ragan	1987
+87	Nemechek	Toyota	38	Joe	Nemechek	798
+18	Kyle Busch	Toyota	39	Kyle	Busch	2627
+43	Sorenson	Dodge	40	Reed	Sorenson	2011
+66	Blaney	Toyota	41	Dave	Blaney	773
+07	Mears	Chevrolet	42	Casey	Mears	2204
+36	Skinner	Toyota	43	Mike	Skinner	126
+</PARTICIPANTS>

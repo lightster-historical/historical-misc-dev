@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Heluva Good Sour Cream Dips At The Glen
+track:	Watkins Glen Int'l
+location:	Watkins Glen, NY
+length: 	220
+laps: 	90
+track_length: 	2.45
+scale: 	0.600
+x_offset: 	36
+y_offset: 	4
+tv_network: 	ESPN
+track_image_file: 	watkins_glen.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	2991
+2	Kurt Busch	Dodge	2	Kurt	Busch	2751
+11	Hamlin	Toyota	3	Denny	Hamlin	2713
+47	Ambrose	Toyota	4	Marcos	Ambrose	2241
+12	Stremme	Dodge	5	David	Stremme	1766
+39	Newman	Chevrolet	6	Ryan	Newman	2627
+16	Biffle	Ford	7	Greg	Biffle	2563
+18	Kyle Busch	Toyota	8	Kyle	Busch	2462
+08	Said	Ford	9	Boris	Said	91
+42	Montoya	Chevrolet	10	Juan Pablo	Montoya	2631
+07	Mears	Chevrolet	11	Casey	Mears	2086
+9	Kahne	Dodge	12	Kasey	Kahne	2642
+14	Stewart	Chevrolet	13	Tony	Stewart	3188
+98	Menard	Ford	14	Paul	Menard	1723
+71	Lally	Chevrolet	15	Andy	Lally	0
+13	Papis	Toyota	16	Max	Papis	502
+55	Carpentier	Toyota	17	Patrick	Carpentier	287
+44	Allmendinger	Dodge	18	A.J.	Allmendinger	1985
+19	E. Sadler	Dodge	19	Elliott	Sadler	2015
+83	Vickers	Toyota	20	Brian	Vickers	2459
+29	Harvick	Chevrolet	21	Kevin	Harvick	2066
+7	R. Gordon	Toyota	22	Robby	Gordon	1672
+1	Truex Jr.	Chevrolet	23	Martin	Truex Jr.	2038
+26	McMurray	Ford	24	Jamie	McMurray	2163
+00	Reutimann	Toyota	25	David	Reutimann	2442
+82	Speed	Toyota	26	Scott	Speed	1437
+96	B. Labonte	Ford	27	Bobby	Labonte	1928
+5	Martin	Chevrolet	28	Mark	Martin	2622
+43	Sorenson	Dodge	29	Reed	Sorenson	1941
+31	J. Burton	Chevrolet	30	Jeff	Burton	2301
+24	J. Gordon	Chevrolet	31	Jeff	Gordon	2989
+88	Earnhardt Jr.	Chevrolet	32	Dale	Earnhardt Jr.	2062
+99	Edwards	Ford	33	Carl	Edwards	2665
+34	Andretti	Chevrolet	34	John	Andretti	1419
+20	Logano	Toyota	35	Joey	Logano	2165
+77	Hornish Jr.	Dodge	36	Sam	Hornish Jr.	1966
+09	Fellows	Chevrolet	37	Ron	Fellows	82
+33	Bowyer	Chevrolet	38	Clint	Bowyer	2448
+04	Jones	Toyota	39	P.J.	Jones	0
+6	Ragan	Ford	40	David	Ragan	1896
+66	Blaney	Toyota	41	Dave	Blaney	736
+17	Kenseth	Ford	42	Matt	Kenseth	2564
+37	Ave	Dodge	43	Tony	Ave	0
+</PARTICIPANTS>

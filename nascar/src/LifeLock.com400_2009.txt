@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	LifeLock.com 400
+track:	Chicagoland
+location:	Joliet, IL
+length: 	400.5
+laps: 	267
+track_length: 	1.5
+scale: 	0.600
+x_offset: 	22
+y_offset: 	12
+tv_network: 	TNT
+track_image_file: 	chicago.gif
+</RACE>
+<PARTICIPANTS>
+83	Vickers	Toyota	1	Brian	Vickers	1998
+82	Speed	Toyota	2	Scott	Speed	1218
+48	Johnson	Chevrolet	3	Jimmie	Johnson	1808
+11	Hamlin	Toyota	4	Denny	Hamlin	2302
+33	Bowyer	Chevrolet	5	Clint	Bowyer	2031
+18	Kyle Busch	Toyota	6	Kyle	Busch	2234
+24	J. Gordon	Chevrolet	7	Jeff	Gordon	2539
+21	Elliott	Ford	8	Bill	Elliott	461
+00	Reutimann	Toyota	9	David	Reutimann	2092
+47	Ambrose	Toyota	10	Marcos	Ambrose	1948
+43	Sorenson	Dodge	11	Reed	Sorenson	1668
+39	Newman	Chevrolet	12	Ryan	Newman	2235
+88	Earnhardt Jr.	Chevrolet	13	Dale	Earnhardt Jr.	1810
+5	Martin	Chevrolet	14	Mark	Martin	2101
+9	Kahne	Dodge	15	Kasey	Kahne	2166
+77	Hornish Jr.	Dodge	16	Sam	Hornish Jr.	1705
+6	Ragan	Ford	17	David	Ragan	1620
+66	Blaney	Toyota	18	Dave	Blaney	622
+42	Montoya	Chevrolet	19	Juan Pablo	Montoya	2187
+44	Allmendinger	Dodge	20	A.J.	Allmendinger	1646
+1	Truex Jr.	Chevrolet	21	Martin	Truex Jr.	1730
+2	Kurt Busch	Dodge	22	Kurt	Busch	2414
+31	J. Burton	Chevrolet	23	Jeff	Burton	2061
+20	Logano	Toyota	24	Joey	Logano	1847
+99	Edwards	Ford	25	Carl	Edwards	2317
+09	Bliss	Chevrolet	26	Mike	Bliss	200
+98	Menard	Ford	27	Paul	Menard	1504
+29	Harvick	Chevrolet	28	Kevin	Harvick	1683
+25	Keselowski	Chevrolet	29	Brad	Keselowski	720
+26	McMurray	Ford	30	Jamie	McMurray	1863
+87	Nemechek	Toyota	31	Joe	Nemechek	678
+14	Stewart	Chevrolet	32	Tony	Stewart	2719
+17	Kenseth	Ford	33	Matt	Kenseth	2201
+19	E. Sadler	Dodge	34	Elliott	Sadler	1794
+16	Biffle	Ford	35	Greg	Biffle	2215
+12	Stremme	Dodge	36	David	Stremme	1499
+55	Waltrip	Toyota	37	Michael	Waltrip	1481
+07	Mears	Chevrolet	38	Casey	Mears	0
+36	Skinner	Toyota	39	Mike	Skinner	0
+34	Andretti	Chevrolet	40	John	Andretti	1201
+7	R. Gordon	Toyota	41	Robby	Gordon	1468
+96	B. Labonte	Ford	42	Bobby	Labonte	1679
+71	Gilliland	Chevrolet	43	David	Gilliland	1027
+</PARTICIPANTS>

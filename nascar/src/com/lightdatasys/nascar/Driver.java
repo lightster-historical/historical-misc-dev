@@ -160,7 +160,7 @@ public class Driver
 		try
 		{
 			Statement sChaseDate = conn.createStatement();
-			sChaseDate.execute("SELECT date FROM nascarRace WHERE seasonId=" + race.getSeason().getId() + " ORDER BY date LIMIT 25,1");
+			sChaseDate.execute("SELECT date FROM nascarRace WHERE seasonId=" + race.getSeason().getId() + " AND forPoints=1 ORDER BY date LIMIT 25,1");
 			
 			ResultSet rsChaseDate = sChaseDate.getResultSet();
 
@@ -243,13 +243,14 @@ public class Driver
 				String sqlPostChase = String.format(
 						"SELECT d.driverId, COUNT(ra.raceId) starts, SUM(IF(finish=1,1,0)) wins, " +
 						"SUM(IF(finish<=5,1,0)) top5s, SUM(IF(finish<=10,1,0)) top10s, " +
-						"SUM(IF(official=0 OR official=1, finish=1,185,IF(finish<=6, 150+(6-finish)*5,IF(finish<=11, 130+(11-finish)*4,IF(finish<=43, 34+(43-finish)*3,0))))+IF(ledLaps>=1,5,0)+IF(ledMostLaps>=1,5,0)+penalties, 0)) AS points " +
+						"SUM(IF(official=0 OR official=1, IF(finish=1,185,IF(finish<=6, 150+(6-finish)*5,IF(finish<=11, 130+(11-finish)*4,IF(finish<=43, 34+(43-finish)*3,0))))+IF(ledLaps>=1,5,0)+IF(ledMostLaps>=1,5,0)+penalties, 0)) AS points " +
 						"FROM nascarDriver AS d " +
 						"INNER JOIN nascarResult AS re ON d.driverId=re.driverId " +
 						"INNER JOIN nascarRace AS ra ON re.raceId=ra.raceId " +
 						"WHERE ra.seasonId=%1$d AND DATE(ra.date)<%4$s'%2$tY-%2$tm-%2$td'%3$s " +
 						"AND ra.forPoints=1 GROUP BY d.driverId ORDER BY points DESC",
 						race.getSeason().getId(), race.getDate(), whereChase, (inclusive ? "=" : ""));
+				System.out.println(sqlPostChase);
 				sPostChase.execute(sqlPostChase);
 				
 				ResultSet rsPostChase = sPostChase.getResultSet();

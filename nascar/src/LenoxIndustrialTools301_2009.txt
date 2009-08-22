@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	LENOX Industrial Tools 301
+track:	New Hampshire Int'l Spwy
+location:	Loudon, NH
+length: 	318.5
+laps: 	301
+track_length: 	1.058
+scale: 	0.582
+x_offset: 	25
+y_offset: 	15
+tv_network: 	TNT
+track_image_file: 	new_hampshire.gif
+</RACE>
+<PARTICIPANTS>
+14	Stewart	Chevrolet	1	Tony	Stewart	2364
+24	J. Gordon	Chevrolet	2	Jeff	Gordon	2280
+48	Johnson	Chevrolet	3	Jimmie	Johnson	2207
+2	Kurt Busch	Dodge	4	Kurt	Busch	2084
+99	Edwards	Ford	5	Carl	Edwards	2051
+39	Newman	Chevrolet	6	Ryan	Newman	2046
+11	Hamlin	Toyota	7	Denny	Hamlin	2009
+16	Biffle	Ford	8	Greg	Biffle	1992
+18	Kyle Busch	Toyota	9	Kyle	Busch	1962
+17	Kenseth	Ford	10	Matt	Kenseth	1957
+5	Martin	Chevrolet	11	Mark	Martin	1926
+42	Montoya	Chevrolet	12	Juan Pablo	Montoya	1917
+9	Kahne	Dodge	13	Kasey	Kahne	1914
+00	Reutimann	Toyota	14	David	Reutimann	1877
+31	J. Burton	Chevrolet	15	Jeff	Burton	1871
+33	Bowyer	Chevrolet	16	Clint	Bowyer	1852
+83	Vickers	Toyota	17	Brian	Vickers	1794
+47	Ambrose	Toyota	18	Marcos	Ambrose	1704
+26	McMurray	Ford	19	Jamie	McMurray	1669
+88	Earnhardt Jr.	Chevrolet	20	Dale	Earnhardt Jr.	1640
+07	Mears	Chevrolet	21	Casey	Mears	1617
+1	Truex Jr.	Chevrolet	22	Martin	Truex Jr.	1590
+19	E. Sadler	Dodge	23	Elliott	Sadler	1570
+20	Logano	Toyota	24	Joey	Logano	1551
+29	Harvick	Chevrolet	25	Kevin	Harvick	1537
+77	Hornish Jr.	Dodge	26	Sam	Hornish Jr.	1496
+43	Sorenson	Dodge	27	Reed	Sorenson	1487
+96	B. Labonte	Ford	28	Bobby	Labonte	1474
+55	Waltrip	Toyota	29	Michael	Waltrip	1338
+44	Allmendinger	Dodge	30	A.J.	Allmendinger	1467
+6	Ragan	Ford	31	David	Ragan	1447
+12	Stremme	Dodge	32	David	Stremme	1362
+98	Menard	Ford	33	Paul	Menard	1337
+7	R. Gordon	Toyota	34	Robby	Gordon	1273
+34	Andretti	Chevrolet	35	John	Andretti	999
+09	Keselowski	Chevrolet	36	Brad	Keselowski	479
+82	Speed	Toyota	37	Scott	Speed	1093
+71	Gilliland	Chevrolet	38	David	Gilliland	941
+87	Nemechek	Toyota	39	Joe	Nemechek	592
+66	Blaney	Toyota	40	Dave	Blaney	551
+36	Carpentier	Toyota	41	Patrick	Carpentier	164
+37	Raines	Dodge	42	Tony	Raines	239
+78	Smith	Chevrolet	43	Regan	Smith	734
+</PARTICIPANTS>

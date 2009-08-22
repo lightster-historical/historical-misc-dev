@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Allstate 400 at the Brickyard
+track:	Indianapolis Motor Spwy
+location:	Indianapolis, IN
+length: 	400
+laps: 	160
+track_length: 	2.5
+scale: 	0.560
+x_offset: 	33
+y_offset: 	20
+tv_network: 	ESPN
+track_image_file: 	indianapolis.gif
+</RACE>
+<PARTICIPANTS>
+5	Martin	Chevrolet	1	Mark	Martin	2296
+42	Montoya	Chevrolet	2	Juan Pablo	Montoya	2321
+88	Earnhardt Jr.	Chevrolet	3	Dale	Earnhardt Jr.	1928
+21	Elliott	Ford	4	Bill	Elliott	537
+00	Reutimann	Toyota	5	David	Reutimann	2219
+83	Vickers	Toyota	6	Brian	Vickers	2149
+14	Stewart	Chevrolet	7	Tony	Stewart	2884
+9	Kahne	Dodge	8	Kasey	Kahne	2336
+43	Sorenson	Dodge	9	Reed	Sorenson	1759
+33	Bowyer	Chevrolet	10	Clint	Bowyer	2169
+47	Ambrose	Toyota	11	Marcos	Ambrose	2078
+16	Biffle	Ford	12	Greg	Biffle	2285
+1	Truex Jr.	Chevrolet	13	Martin	Truex Jr.	1820
+11	Hamlin	Toyota	14	Denny	Hamlin	2457
+77	Hornish Jr.	Dodge	15	Sam	Hornish Jr.	1754
+48	Johnson	Chevrolet	16	Jimmie	Johnson	2672
+39	Newman	Chevrolet	17	Ryan	Newman	2385
+20	Logano	Toyota	18	Joey	Logano	1956
+29	Harvick	Chevrolet	19	Kevin	Harvick	1789
+18	Kyle Busch	Toyota	20	Kyle	Busch	2298
+12	Stremme	Dodge	21	David	Stremme	1584
+24	J. Gordon	Chevrolet	22	Jeff	Gordon	2709
+55	Waltrip	Toyota	23	Michael	Waltrip	1584
+26	McMurray	Ford	24	Jamie	McMurray	1960
+17	Kenseth	Ford	25	Matt	Kenseth	2295
+82	Speed	Toyota	26	Scott	Speed	1273
+07	Mears	Chevrolet	27	Casey	Mears	1887
+98	Menard	Ford	28	Paul	Menard	1562
+6	Ragan	Ford	29	David	Ragan	1708
+87	Nemechek	Toyota	30	Joe	Nemechek	718
+96	B. Labonte	Ford	31	Bobby	Labonte	1779
+7	R. Gordon	Toyota	32	Robby	Gordon	1529
+44	Allmendinger	Dodge	33	A.J.	Allmendinger	1770
+66	Blaney	Toyota	34	Dave	Blaney	656
+34	Andretti	Chevrolet	35	John	Andretti	1274
+78	Smith	Chevrolet	36	Regan	Smith	943
+71	Gilliland	Chevrolet	37	David	Gilliland	1064
+31	J. Burton	Chevrolet	38	Jeff	Burton	2113
+36	Skinner	Toyota	39	Mike	Skinner	86
+2	Kurt Busch	Dodge	40	Kurt	Busch	2526
+99	Edwards	Ford	41	Carl	Edwards	2438
+19	E. Sadler	Dodge	42	Elliott	Sadler	1881
+08	T. Labonte	Toyota	43	Terry	Labonte	91
+</PARTICIPANTS>

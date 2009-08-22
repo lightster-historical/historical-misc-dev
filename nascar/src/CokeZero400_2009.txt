@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Coke Zero 400
+track:	Daytona Int'l Speedway
+location:	Daytona Beach, FL
+length: 	400
+laps: 	160
+track_length: 	2.5
+scale: 	0.637
+x_offset: 	9
+y_offset: 	6
+tv_network: 	TNT
+track_image_file: 	daytona.gif
+</RACE>
+<PARTICIPANTS>
+14	Stewart	Chevrolet	1	Tony	Stewart	2524
+24	J. Gordon	Chevrolet	2	Jeff	Gordon	2455
+48	Johnson	Chevrolet	3	Jimmie	Johnson	2355
+2	Kurt Busch	Dodge	4	Kurt	Busch	2254
+99	Edwards	Ford	5	Carl	Edwards	2157
+11	Hamlin	Toyota	6	Denny	Hamlin	2132
+39	Newman	Chevrolet	7	Ryan	Newman	2127
+18	Kyle Busch	Toyota	8	Kyle	Busch	2108
+16	Biffle	Ford	9	Greg	Biffle	2106
+17	Kenseth	Ford	10	Matt	Kenseth	2054
+5	Martin	Chevrolet	11	Mark	Martin	2052
+42	Montoya	Chevrolet	12	Juan Pablo	Montoya	2049
+9	Kahne	Dodge	13	Kasey	Kahne	2048
+00	Reutimann	Toyota	14	David	Reutimann	2037
+33	Bowyer	Chevrolet	15	Clint	Bowyer	1955
+31	J. Burton	Chevrolet	16	Jeff	Burton	1941
+83	Vickers	Toyota	17	Brian	Vickers	1852
+47	Ambrose	Toyota	18	Marcos	Ambrose	1798
+88	Earnhardt Jr.	Chevrolet	19	Dale	Earnhardt Jr.	1764
+07	Mears	Chevrolet	20	Casey	Mears	1747
+20	Logano	Toyota	21	Joey	Logano	1741
+26	McMurray	Ford	22	Jamie	McMurray	1733
+19	E. Sadler	Dodge	23	Elliott	Sadler	1660
+1	Truex Jr.	Chevrolet	24	Martin	Truex Jr.	1642
+77	Hornish Jr.	Dodge	25	Sam	Hornish Jr.	1638
+43	Sorenson	Dodge	26	Reed	Sorenson	1604
+29	Harvick	Chevrolet	27	Kevin	Harvick	1598
+96	B. Labonte	Ford	28	Bobby	Labonte	1579
+55	Waltrip	Toyota	29	Michael	Waltrip	1429
+44	Allmendinger	Dodge	30	A.J.	Allmendinger	1534
+6	Ragan	Ford	31	David	Ragan	1496
+12	Stremme	Dodge	32	David	Stremme	1441
+98	Menard	Ford	33	Paul	Menard	1410
+7	R. Gordon	Toyota	34	Robby	Gordon	1366
+34	Andretti	Chevrolet	35	John	Andretti	1114
+09	Keselowski	Chevrolet	36	Brad	Keselowski	629
+82	Speed	Toyota	37	Scott	Speed	1148
+71	Gilliland	Chevrolet	38	David	Gilliland	984
+87	Nemechek	Toyota	39	Joe	Nemechek	638
+66	Blaney	Toyota	40	Dave	Blaney	588
+36	Carpentier	Toyota	41	Patrick	Carpentier	198
+37	Raines	Dodge	42	Tony	Raines	279
+78	Smith	Chevrolet	43	Regan	Smith	816
+</PARTICIPANTS>
