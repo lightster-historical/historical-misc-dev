@@ -31,6 +31,7 @@ public class Race
 	
 	private String name;
 	private String nascarComId;
+	private int raceNumber;
 	private Date date;
 	private boolean chaseRace;
 
@@ -79,6 +80,8 @@ public class Race
 		
 		driverBySeasonRank = null;
 		
+		raceNumber = 0;
+		
 		currentLap = 0;
 		lapCount = 0;
 		time = 0;
@@ -113,6 +116,11 @@ public class Race
 	public String getName()
 	{
 		return name;
+	}
+	
+	public int getRaceNumber()
+	{
+		return raceNumber;
 	}
 	
 	public String getNascarComId()
@@ -644,7 +652,7 @@ public class Race
 		try
 		{
 			Statement sRace = conn.createStatement();
-			sRace.execute("SELECT raceId, trackId, seasonId, name, nascarComId, date FROM nascarRace WHERE raceId=" + raceId);
+			sRace.execute("SELECT raceId, trackId, seasonId, name, raceNo, nascarComId, date FROM nascarRace WHERE raceId=" + raceId);
 			
 			ResultSet rsRace = sRace.getResultSet();
 		
@@ -659,6 +667,7 @@ public class Race
 				race.track = Track.getById(rsRace.getInt("trackId"));
 				
 				race.name = rsRace.getString("name");
+				race.raceNumber = rsRace.getInt("raceNo");
 				race.nascarComId = rsRace.getString("nascarComId");
 				race.date = rsRace.getDate("date");
 				

@@ -5,9 +5,9 @@ import com.lightdatasys.nascar.live.gui.cell.FantasyResultCell;
 
 public class FantasyResultModeSetting extends Setting<FantasyResultCell.Mode>
 {
-	public FantasyResultModeSetting(int num)
+	public FantasyResultModeSetting(String name, int num)
 	{
-		super("fantasyResultMode" + num, "Fantasy Result Mode [" + num + "]", FantasyResultCell.Mode.POSITION, true);
+		super(name, "Fantasy Result Mode [" + num + "]", FantasyResultCell.Mode.POSITION, true);
 		
 		for(FantasyResultCell.Mode mode : FantasyResultCell.Mode.values())
 		{

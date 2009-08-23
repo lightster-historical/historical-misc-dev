@@ -386,6 +386,55 @@ public class ResultCell extends Cell
 				tText = Color.WHITE;
 			}
 		}
+		else if(mode == Mode.SEASON_RANK)
+		{
+			Result leaderResult = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(1));
+			Result rank12Result = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(12));
+			Result rank13Result = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(13));
+
+			int leaderLivePoints = leaderResult.getSeasonPoints();
+			int rank12LivePoints = rank12Result.getSeasonPoints();
+			int rank13LivePoints = rank13Result.getSeasonPoints();
+			int livePoints = result.getSeasonPoints();
+			
+			int leaderPoints = leaderLivePoints - leaderResult.getRacePoints();
+			int rank12Points = rank12LivePoints - rank12Result.getRacePoints();
+			int rank13Points = rank13LivePoints - rank13Result.getRacePoints();
+			int points = livePoints - result.getRacePoints();
+			
+			int maxDiff = 195 - 34;
+			
+			int racesLeft = 26 + 1 - result.getRace().getRaceNumber();
+			if(result.getSeasonRank() == 1)
+			{
+				System.out.println(points + " " + rank13Points + " " + (racesLeft * maxDiff));
+			}
+			if(points - rank13Points > racesLeft * maxDiff) 
+			{
+				tBackground = new Color(0x00, 0xFF, 0x00);
+				tText = Color.BLACK;
+			}
+			else if(livePoints - rank13LivePoints > (racesLeft - 1) * maxDiff)
+			{
+				tBackground = new Color(0x99, 0xFF, 0x00);
+				tText = Color.BLACK;
+			}
+			else if(result.getSeasonRank() <= 12)
+			{
+				tBackground = new Color(0xFF, 0xFF, 0x00);
+				tText = Color.BLACK;
+			}
+			else if(rank12LivePoints - livePoints <= (racesLeft - 1)  * maxDiff)
+			{
+				tBackground = new Color(0xFF, 0x00, 0x00);
+				tText = Color.WHITE;
+			}
+			else
+			{
+				tBackground = Color.BLACK;
+				tText = Color.WHITE;
+			}
+		}
 		else if(mode == Mode.LEADER_INTERVAL || mode == Mode.LOCAL_INTERVAL)
 		{
 			float interval = -1;

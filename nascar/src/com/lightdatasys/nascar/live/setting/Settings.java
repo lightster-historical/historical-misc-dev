@@ -55,13 +55,15 @@ public class Settings
 		
 		for(int i = 1; i <= 5; i++)
 		{
-			add(new ResultModeSetting(i));
+			add(new ResultModeSetting("resultMode" + i, i));
 		}
+		add(new ResultModeSetting("resultModeUnderCaution" + 1, 1));
 		
 		for(int i = 1; i <= 2; i++)
 		{	
-			add(new FantasyResultModeSetting(i));
+			add(new FantasyResultModeSetting("fantasyResultMode" + i, i));
 		}
+		add(new ResultModeSetting("fantasyResultModeUnderCaution" + 2, 2));
 
 		{
 			add(new BooleanSetting("highlightActives", "Highlight Actives", true, "On", "Off"));

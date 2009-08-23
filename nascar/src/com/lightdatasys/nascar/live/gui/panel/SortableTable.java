@@ -383,7 +383,15 @@ public class SortableTable extends LivePanel
 		
 		for(int i = 1; i <= count; i++)
 		{
-			Object value = getSettings().getValue("resultMode" + i);
+			Object value;
+			if(getRace().getFlag() == Race.Flag.YELLOW && i == 1)
+			{
+				value = getSettings().getValue("resultModeUnderCaution" + i);
+			}
+			else
+			{
+				value = getSettings().getValue("resultMode" + i);
+			}
 			
 			if(value instanceof ResultCell.Mode)
 				modes[i - 1] = (ResultCell.Mode)value;
@@ -407,7 +415,15 @@ public class SortableTable extends LivePanel
 		
 		for(int i = 1; i <= count; i++)
 		{
-			Object value = getSettings().getValue("fantasyResultMode" + i);
+			Object value;
+			if(getRace().getFlag() == Race.Flag.YELLOW && i == 2)
+			{
+				value = getSettings().getValue("fantasyResultModeUnderCaution" + 2);
+			}
+			else
+			{
+				value = getSettings().getValue("fantasyResultMode" + i);
+			}
 			
 			if(value instanceof FantasyResultCell.Mode)
 				modes[i - 1] = (FantasyResultCell.Mode)value;
@@ -502,6 +518,13 @@ public class SortableTable extends LivePanel
 				modeSetting.setValue(getDefaultResultModes()[i - 1]);
 			}
 		}
+		
+		Setting<?> setting = getSettings().get("resultModeUnderCaution1");
+		if(setting instanceof ResultModeSetting)
+		{
+			ResultModeSetting modeSetting = (ResultModeSetting)setting;
+			modeSetting.setValue(ResultCell.Mode.POSITION_CHANGE);
+		}
 	}
 	
 	public void initFantasyResultModes()
@@ -517,6 +540,13 @@ public class SortableTable extends LivePanel
 				FantasyResultModeSetting modeSetting = (FantasyResultModeSetting)setting;
 				modeSetting.setValue(getDefaultFantasyResultModes()[i - 1]);
 			}
+		}
+		
+		Setting<?> setting = getSettings().get("fantasyResultModeUnderCaution2");
+		if(setting instanceof FantasyResultModeSetting)
+		{
+			FantasyResultModeSetting modeSetting = (FantasyResultModeSetting)setting;
+			modeSetting.setValue(FantasyResultCell.Mode.POSITION_CHANGE);
 		}
 	}
 	
