@@ -63,7 +63,7 @@ public class Settings
 		{	
 			add(new FantasyResultModeSetting("fantasyResultMode" + i, i));
 		}
-		add(new ResultModeSetting("fantasyResultModeUnderCaution" + 2, 2));
+		add(new FantasyResultModeSetting("fantasyResultModeUnderCaution" + 2, 2));
 
 		{
 			add(new BooleanSetting("highlightActives", "Highlight Actives", true, "On", "Off"));

@@ -418,7 +418,7 @@ public class SortableTable extends LivePanel
 			Object value;
 			if(getRace().getFlag() == Race.Flag.YELLOW && i == 2)
 			{
-				value = getSettings().getValue("fantasyResultModeUnderCaution" + 2);
+				value = getSettings().getValue("fantasyResultModeUnderCaution" + i);
 			}
 			else
 			{

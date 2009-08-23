@@ -405,12 +405,9 @@ public class ResultCell extends Cell
 			int maxDiff = 195 - 34;
 			
 			int racesLeft = 26 + 1 - result.getRace().getRaceNumber();
-			if(result.getSeasonRank() == 1)
-			{
-				System.out.println(points + " " + rank13Points + " " + (racesLeft * maxDiff));
-			}
 			if(points - rank13Points > racesLeft * maxDiff) 
 			{
+				System.out.println((points - rank13Points) + " " + (racesLeft * maxDiff));
 				tBackground = new Color(0x00, 0xFF, 0x00);
 				tText = Color.BLACK;
 			}
