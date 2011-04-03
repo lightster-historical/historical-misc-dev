@@ -392,22 +392,35 @@ public class ResultCell extends Cell
 			Result rank12Result = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(12));
 			Result rank13Result = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(13));
 
-			int leaderLivePoints = leaderResult.getSeasonPoints();
-			int rank12LivePoints = rank12Result.getSeasonPoints();
-			int rank13LivePoints = rank13Result.getSeasonPoints();
-			int livePoints = result.getSeasonPoints();
+			int leaderLivePoints = 0;
+			int rank12LivePoints = 0;
+			int rank13LivePoints = 0;
+			int livePoints = 0;
 			
-			int leaderPoints = leaderLivePoints - leaderResult.getRacePoints();
-			int rank12Points = rank12LivePoints - rank12Result.getRacePoints();
-			int rank13Points = rank13LivePoints - rank13Result.getRacePoints();
-			int points = livePoints - result.getRacePoints();
+			int leaderPoints = 0;
+			int rank12Points = 0;
+			int rank13Points = 0;
+			int points = 0;
+			if(leaderResult != null && rank13Result != null && rank12Result != null)
+			{
+				leaderLivePoints = leaderResult.getSeasonPoints();
+				rank12LivePoints = rank12Result.getSeasonPoints();
+				rank13LivePoints = rank13Result.getSeasonPoints();
+				livePoints = result.getSeasonPoints();
+				
+				leaderPoints = leaderLivePoints - leaderResult.getRacePoints();
+				rank12Points = rank12LivePoints - rank12Result.getRacePoints();
+				rank13Points = rank13LivePoints - rank13Result.getRacePoints();
+				points = livePoints - result.getRacePoints();
+			}
+			
 			
 			int maxDiff = 195 - 34;
 			
 			int racesLeft = 26 + 1 - result.getRace().getRaceNumber();
 			if(points - rank13Points > racesLeft * maxDiff) 
 			{
-				System.out.println((points - rank13Points) + " " + (racesLeft * maxDiff));
+//				System.out.println((points - rank13Points) + " " + (racesLeft * maxDiff));
 				tBackground = new Color(0x00, 0xFF, 0x00);
 				tText = Color.BLACK;
 			}
@@ -461,7 +474,8 @@ public class ResultCell extends Cell
 				tText = getColorUsingDistance(dist, true);
 			}
 			
-			Result leaderResult = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(1));
+			//Result leaderResult = result.getRace().getResultByDriver(result.getRace().getDriverByRank().get(1));
+			Result leaderResult = result.getRace().getResultByFinish(1);
 			double tilLapDown = leaderResult.getLastLapTime() - leaderInterval;
 			if(0 <= tilLapDown && tilLapDown <= 5)
 			{

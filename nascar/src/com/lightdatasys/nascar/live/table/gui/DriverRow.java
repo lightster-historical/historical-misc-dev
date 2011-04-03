@@ -131,7 +131,9 @@ public class DriverRow extends TableRow
 		String carNo = getResult().getCar();
 		if(carNo.equals("24")
 				|| carNo.equals("88")
-				|| carNo.equals("6"))
+				|| carNo.equals("6")
+				|| carNo.equals("99")
+				|| carNo.equals("29"))
 		{
 			Color color;
 			

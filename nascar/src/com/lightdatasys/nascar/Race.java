@@ -572,6 +572,8 @@ public class Race
 				String car = rsResults.getString("car");
 				int start = rsResults.getInt("start");
 				int finish = rsResults.getInt("finish");
+				if(finish == 0)
+					finish	= start;
 				boolean ledLaps = (rsResults.getInt("ledLaps") == 0) ? false : true;
 				boolean ledMostLaps = (rsResults.getInt("ledMostLaps") == 0) ? false : true;
 				int penalties = rsResults.getInt("penalties");
