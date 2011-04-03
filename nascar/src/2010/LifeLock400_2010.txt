@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	LifeLock 400.com
+track:	Chicagoland
+location:	Joliet, IL
+length: 	400
+laps: 	267
+track_length: 	1.5
+scale: 	0.600
+x_offset: 	22
+y_offset: 	12
+tv_network: 	TNT
+track_image_file: 	chicago.gif
+</RACE>
+<PARTICIPANTS>
+1	McMurray	Chevrolet	1	Jamie	McMurray	1945
+48	Johnson	Chevrolet	2	Jimmie	Johnson	2459
+14	Stewart	Chevrolet	3	Tony	Stewart	2251
+16	Biffle	Ford	4	Greg	Biffle	2234
+77	Hornish Jr.	Dodge	5	Sam	Hornish Jr.	1604
+24	J. Gordon	Chevrolet	6	Jeff	Gordon	2472
+00	Reutimann	Toyota	7	David	Reutimann	2000
+56	Truex Jr.	Toyota	8	Martin	Truex Jr.	1930
+98	Menard	Ford	9	Paul	Menard	1847
+42	Montoya	Chevrolet	10	Juan Pablo	Montoya	1924
+99	Edwards	Ford	11	Carl	Edwards	2170
+9	Kahne	Ford	12	Kasey	Kahne	2016
+43	Allmendinger	Ford	13	A.J.	Allmendinger	1900
+31	J. Burton	Chevrolet	14	Jeff	Burton	2319
+33	Bowyer	Chevrolet	15	Clint	Bowyer	2121
+19	E. Sadler	Ford	16	Elliott	Sadler	1650
+11	D. Hamlin	Toyota	17	Denny	Hamlin	2400
+20	Logano	Toyota	18	Joey	Logano	1997
+39	Newman	Chevrolet	19	Ryan	Newman	2090
+09	B. Labonte	Chevrolet	20	Bobby	Labonte	1391
+5	Martin	Chevrolet	21	Mark	Martin	2131
+2	Kurt Busch	Dodge	22	Kurt	Busch	2439
+47	Ambrose	Toyota	23	Marcos	Ambrose	1660
+83	Sorenson	Toyota	24	Reed	Sorenson	353
+88	Earnhardt Jr.	Chevrolet	25	Dale	Earnhardt Jr.	2177
+6	Ragan	Ford	26	David	Ragan	1709
+29	Harvick	Chevrolet	27	Kevin	Harvick	2684
+87	Nemechek	Toyota	28	Joe	Nemechek	729
+21	Elliott	Ford	29	Bill	Elliott	448
+12	Keselowski	Dodge	30	Brad	Keselowski	1721
+13	Papis	Toyota	31	Max	Papis	699
+71	Cassill	Chevrolet	32	Landon	Cassill	49
+18	Kyle Busch	Toyota	33	Kyle	Busch	2376
+17	Kenseth	Ford	34	Matt	Kenseth	2322
+36	Mears	Toyota	35	Casey	Mears	556
+26	Stremme	Ford	36	David	Stremme	770
+32	Bliss	Toyota	37	Mike	Bliss	759
+7	R. Gordon	Toyota	38	Robby	Gordon	1334
+82	Speed	Toyota	39	Scott	Speed	1765
+37	Gilliland	Ford	40	David	Gilliland	1193
+78	Smith	Chevrolet	41	Regan	Smith	1496
+34	Conway	Ford	42	Kevin	Conway	1169
+38	Kvapil	Ford	43	Travis	Kvapil	1233
+</PARTICIPANTS>

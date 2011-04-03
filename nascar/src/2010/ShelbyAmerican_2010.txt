@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Shelby American
+track:	Las Vegas Motor Speedway
+location:	Las Vegas, NV
+length: 	400
+laps: 	267
+track_length: 	1.5
+scale: 	0.585
+x_offset: 	21
+y_offset: 	17
+tv_network: 	FOX
+track_image_file: 	las_vegas.gif
+</RACE>
+<PARTICIPANTS>
+2	Kurt Busch	Dodge	1	Kurt	Busch	254
+24	J. Gordon	Chevrolet	2	Jeff	Gordon	198
+39	Newman	Chevrolet	3	Ryan	Newman	116
+88	Earnhardt Jr.	Chevrolet	4	Dale	Earnhardt Jr.	242
+18	Kyle Busch	Toyota	5	Kyle	Busch	252
+20	Logano	Toyota	6	Joey	Logano	263
+16	Biffle	Ford	7	Greg	Biffle	304
+5	Martin	Chevrolet	8	Mark	Martin	297
+14	Stewart	Chevrolet	9	Tony	Stewart	235
+42	Montoya	Chevrolet	10	Juan Pablo	Montoya	196
+17	Kenseth	Ford	11	Matt	Kenseth	288
+99	Edwards	Ford	12	Carl	Edwards	262
+33	Bowyer	Chevrolet	13	Clint	Bowyer	312
+77	Hornish Jr.	Dodge	14	Sam	Hornish Jr.	167
+87	Nemechek	Toyota	15	Joe	Nemechek	77
+12	Keselowski	Dodge	16	Brad	Keselowski	155
+00	Reutimann	Toyota	17	David	Reutimann	273
+6	Ragan	Ford	18	David	Ragan	214
+9	Kahne	Ford	19	Kasey	Kahne	139
+48	Johnson	Chevrolet	20	Jimmie	Johnson	253
+13	Papis	Toyota	21	Max	Papis	122
+31	Burton	Chevrolet	22	Jeff	Burton	300
+82	Speed	Toyota	23	Scott	Speed	246
+1	McMurray	Chevrolet	24	Jamie	McMurray	302
+34	Kvapil	Ford	25	Travis	Kvapil	154
+98	Menard	Ford	26	Paul	Menard	233
+11	D. Hamlin	Toyota	27	Denny	Hamlin	198
+78	Smith	Chevrolet	28	Regan	Smith	152
+71	B. Labonte	Chevrolet	29	Bobby	Labonte	182
+36	Bliss	Chevrolet	30	Mike	Bliss	134
+83	Vickers	Toyota	31	Brian	Vickers	250
+47	Ambrose	Toyota	32	Marcos	Ambrose	98
+55	McDowell	Toyota	33	Michael	McDowell	101
+29	Harvick	Chevrolet	34	Kevin	Harvick	331
+56	Truex Jr.	Toyota	35	Martin	Truex Jr.	201
+66	Blaney	Toyota	36	Dave	Blaney	45
+19	E. Sadler	Ford	37	Elliott	Sadler	187
+38	Gilliland	Ford	38	David	Gilliland	85
+37	Conway	Ford	39	Kevin	Conway	70
+43	Allmendinger	Ford	40	A.J.	Allmendinger	160
+26	Said	Ford	41	Boris	Said	142
+7	R. Gordon	Toyota	42	Robby	Gordon	148
+09	Almirola	Chevrolet	43	Aric	Almirola	34
+</PARTICIPANTS>

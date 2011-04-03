@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Sylvania 300
+track:	New Hampshire Int'l Spwy
+location:	Loudon, NH
+length: 	317
+laps: 	300
+track_length: 	1.058
+scale: 	0.582
+x_offset: 	25
+y_offset: 	15
+tv_network: 	ESPN
+track_image_file: 	new_hampshire.gif
+</RACE>
+<PARTICIPANTS>
+12	Keselowski	Dodge	1	Brad	Keselowski	2515
+33	Bowyer	Chevrolet	2	Clint	Bowyer	5000
+14	Stewart	Chevrolet	3	Tony	Stewart	5010
+1	McMurray	Chevrolet	4	Jamie	McMurray	3050
+42	Montoya	Chevrolet	5	Juan Pablo	Montoya	3017
+43	Allmendinger	Ford	6	A.J.	Allmendinger	2820
+00	Reutimann	Toyota	7	David	Reutimann	2986
+98	Menard	Ford	8	Paul	Menard	2642
+18	Kyle Busch	Toyota	9	Kyle	Busch	5030
+99	Edwards	Ford	10	Carl	Edwards	5000
+6	Ragan	Ford	11	David	Ragan	2550
+2	Kurt Busch	Dodge	12	Kurt	Busch	5020
+31	Burton	Chevrolet	13	Jeff	Burton	5000
+16	Biffle	Ford	14	Greg	Biffle	5010
+77	Hornish Jr.	Dodge	15	Sam	Hornish Jr.	2331
+56	Truex Jr.	Toyota	16	Martin	Truex Jr.	2884
+24	J. Gordon	Chevrolet	17	Jeff	Gordon	5000
+13	Mears	Toyota	18	Casey	Mears	885
+19	Sadler	Ford	19	Elliott	Sadler	2277
+78	Smith	Chevrolet	20	Regan	Smith	2197
+9	Kahne	Ford	21	Kasey	Kahne	2932
+11	D. Hamlin	Toyota	22	Denny	Hamlin	5060
+47	Ambrose	Toyota	23	Marcos	Ambrose	2565
+39	Newman	Chevrolet	24	Ryan	Newman	3079
+48	Johnson	Chevrolet	25	Jimmie	Johnson	5050
+5	Martin	Chevrolet	26	Mark	Martin	3022
+29	Harvick	Chevrolet	27	Kevin	Harvick	5030
+82	Speed	Toyota	28	Scott	Speed	2349
+7	R. Gordon	Toyota	29	Robby	Gordon	1536
+36	Blaney	Chevrolet	30	Dave	Blaney	863
+20	Logano	Toyota	31	Joey	Logano	2878
+88	Earnhardt Jr.	Chevrolet	32	Dale	Earnhardt Jr.	2908
+17	Kenseth	Ford	33	Matt	Kenseth	5000
+64	Cassill	Toyota	34	Landon	Cassill	351
+87	Nemechek	Toyota	35	Joe	Nemechek	1020
+55	Bliss	Toyota	36	Mike	Bliss	836
+83	Sorenson	Toyota	37	Reed	Sorenson	884
+46	McDowell	Dodge	38	Michael	McDowell	696
+37	Gilliland	Ford	39	David	Gilliland	1710
+38	Kvapil	Ford	40	Travis	Kvapil	1857
+34	Raines	Ford	41	Tony	Raines	235
+71	Lally	Chevrolet	42	Andy	Lally	161
+09	B. Labonte	Chevrolet	43	Bobby	Labonte	1903
+</PARTICIPANTS>

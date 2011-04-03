@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Food City 500
+track:	Bristol Motor Speedway
+location:	Bristol, TN
+length: 	266.5
+laps: 	500
+track_length: 	0.533
+scale: 	0.573
+x_offset: 	25
+y_offset: 	16
+tv_network: 	FOX
+track_image_file: 	bristol.gif
+</RACE>
+<PARTICIPANTS>
+20	Logano	Toyota	1	Joey	Logano	471
+2	Kurt Busch	Dodge	2	Kurt	Busch	502
+66	Blaney	Toyota	3	Dave	Blaney	161
+48	Johnson	Chevrolet	4	Jimmie	Johnson	570
+24	J. Gordon	Chevrolet	5	Jeff	Gordon	482
+42	Montoya	Chevrolet	6	Juan Pablo	Montoya	418
+17	Kenseth	Ford	7	Matt	Kenseth	618
+99	Edwards	Ford	8	Carl	Edwards	435
+47	Ambrose	Toyota	9	Marcos	Ambrose	349
+00	Reutimann	Toyota	10	David	Reutimann	440
+14	Stewart	Chevrolet	11	Tony	Stewart	510
+98	Menard	Ford	12	Paul	Menard	505
+5	Martin	Chevrolet	13	Mark	Martin	521
+31	J. Burton	Chevrolet	14	Jeff	Burton	538
+11	D. Hamlin	Toyota	15	Denny	Hamlin	409
+38	Gilliland	Ford	16	David	Gilliland	248
+1	McMurray	Chevrolet	17	Jamie	McMurray	439
+88	Earnhardt Jr.	Chevrolet	18	Dale	Earnhardt Jr.	475
+56	Truex Jr.	Toyota	19	Martin	Truex Jr.	386
+78	Smith	Chevrolet	20	Regan	Smith	373
+39	Newman	Chevrolet	21	Ryan	Newman	337
+77	Hornish Jr.	Dodge	22	Sam	Hornish Jr.	325
+43	Allmendinger	Ford	23	A.J.	Allmendinger	398
+9	Kahne	Ford	24	Kasey	Kahne	447
+16	Biffle	Ford	25	Greg	Biffle	585
+33	Bowyer	Chevrolet	26	Clint	Bowyer	558
+09	Almirola	Chevrolet	27	Aric	Almirola	68
+83	Vickers	Toyota	28	Brian	Vickers	466
+82	Speed	Toyota	29	Scott	Speed	482
+6	Ragan	Ford	30	David	Ragan	360
+26	Stremme	Ford	31	David	Stremme	0
+7	R. Gordon	Toyota	32	Robby	Gordon	249
+29	Harvick	Chevrolet	33	Kevin	Harvick	644
+90	Mears	Chevrolet	34	Casey	Mears	0
+87	Nemechek	Toyota	35	Joe	Nemechek	171
+12	Keselowski	Dodge	36	Brad	Keselowski	295
+19	E. Sadler	Ford	37	Elliott	Sadler	380
+18	Kyle Busch	Toyota	38	Kyle	Busch	468
+55	Waltrip	Toyota	39	Michael	Waltrip	109
+46	Cook	Dodge	40	Terry	Cook	0
+34	Kvapil	Ford	41	Travis	Kvapil	318
+37	Conway	Ford	42	Kevin	Conway	195
+71	B. Labonte	Chevrolet	43	Bobby	Labonte	328
+</PARTICIPANTS>

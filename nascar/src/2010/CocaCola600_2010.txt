@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Coca-Cola 600
+track:	Charlotte Motor Swy
+location:	Concord, NC
+length: 	600
+laps: 	400
+track_length: 	1.5
+scale: 	0.618
+x_offset: 	14
+y_offset: 	9
+tv_network: 	FOX
+track_image_file: 	lowes.gif
+</RACE>
+<PARTICIPANTS>
+39	Newman	Chevrolet	1	Ryan	Newman	1404
+2	Kurt Busch	Dodge	2	Kurt	Busch	1531
+56	Truex Jr.	Toyota	3	Martin	Truex Jr.	1434
+9	Kahne	Ford	4	Kasey	Kahne	1237
+48	Johnson	Chevrolet	5	Jimmie	Johnson	1637
+00	Reutimann	Toyota	6	David	Reutimann	1262
+11	D. Hamlin	Toyota	7	Denny	Hamlin	1618
+20	Logano	Toyota	8	Joey	Logano	1332
+18	Kyle Busch	Toyota	9	Kyle	Busch	1699
+33	Bowyer	Chevrolet	10	Clint	Bowyer	1392
+5	Martin	Chevrolet	11	Mark	Martin	1475
+31	J. Burton	Chevrolet	12	Jeff	Burton	1569
+83	Mears	Toyota	13	Casey	Mears	255
+77	Hornish Jr.	Dodge	14	Sam	Hornish Jr.	1013
+24	J. Gordon	Chevrolet	15	Jeff	Gordon	1605
+17	Kenseth	Ford	16	Matt	Kenseth	1642
+66	Blaney	Toyota	17	Dave	Blaney	422
+43	Allmendinger	Ford	18	A.J.	Allmendinger	1202
+87	Nemechek	Toyota	19	Joe	Nemechek	463
+42	Montoya	Chevrolet	20	Juan Pablo	Montoya	1322
+82	Speed	Toyota	21	Scott	Speed	1185
+36	J. Sauter	Chevrolet	22	Johnny	Sauter	114
+29	Harvick	Chevrolet	23	Kevin	Harvick	1768
+88	Earnhardt Jr.	Chevrolet	24	Dale	Earnhardt Jr.	1391
+21	Elliott	Ford	25	Bill	Elliott	290
+14	Stewart	Chevrolet	26	Tony	Stewart	1397
+1	McMurray	Chevrolet	27	Jamie	McMurray	1346
+37	Gilliland	Ford	28	David	Gilliland	817
+64	T. Bodine	Toyota	29	Todd	Bodine	46
+55	McDowell	Toyota	30	Michael	McDowell	348
+99	Edwards	Ford	31	Carl	Edwards	1487
+78	Smith	Chevrolet	32	Regan	Smith	1010
+98	Menard	Ford	33	Paul	Menard	1217
+47	Ambrose	Toyota	34	Marcos	Ambrose	1068
+6	Ragan	Ford	35	David	Ragan	1227
+7	R. Gordon	Toyota	36	Robby	Gordon	899
+12	Keselowski	Dodge	37	Brad	Keselowski	1210
+71	B. Labonte	Chevrolet	38	Bobby	Labonte	945
+19	E. Sadler	Ford	39	Elliott	Sadler	1050
+16	Biffle	Ford	40	Greg	Biffle	1581
+38	Kvapil	Ford	41	Travis	Kvapil	985
+34	Conway	Ford	42	Kevin	Conway	743
+46	Yeley	Dodge	43	J.J.	Yeley	92
+</PARTICIPANTS>

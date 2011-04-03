@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Emory Healthcare 500
+track:	Atlanta Motor Speedway
+location:	Hampton, GA
+length: 	500
+laps: 	325
+track_length: 	1.54
+scale: 	0.576
+x_offset: 	31
+y_offset: 	15
+tv_network: 	ESPN
+track_image_file: 	atlanta.gif
+</RACE>
+<PARTICIPANTS>
+11	D. Hamlin	Toyota	1	Denny	Hamlin	3108
+39	Newman	Chevrolet	2	Ryan	Newman	2802
+18	Kyle Busch	Toyota	3	Kyle	Busch	3170
+99	Edwards	Ford	4	Carl	Edwards	3113
+14	Stewart	Chevrolet	5	Tony	Stewart	3107
+56	Truex Jr.	Toyota	6	Martin	Truex Jr.	2660
+48	Johnson	Chevrolet	7	Jimmie	Johnson	3077
+42	Montoya	Chevrolet	8	Juan Pablo	Montoya	2728
+6	Ragan	Ford	9	David	Ragan	2350
+9	Kahne	Ford	10	Kasey	Kahne	2784
+2	Kurt Busch	Dodge	11	Kurt	Busch	3073
+1	McMurray	Chevrolet	12	Jamie	McMurray	2820
+00	Reutimann	Toyota	13	David	Reutimann	2765
+33	Bowyer	Chevrolet	14	Clint	Bowyer	2920
+16	Biffle	Ford	15	Greg	Biffle	3055
+43	Allmendinger	Ford	16	A.J.	Allmendinger	2569
+5	Martin	Chevrolet	17	Mark	Martin	2819
+24	J. Gordon	Chevrolet	18	Jeff	Gordon	3242
+98	Menard	Ford	19	Paul	Menard	2499
+82	Speed	Toyota	20	Scott	Speed	2197
+77	Hornish Jr.	Dodge	21	Sam	Hornish Jr.	2179
+19	E. Sadler	Ford	22	Elliott	Sadler	2155
+46	McDowell	Dodge	23	Michael	McDowell	650
+71	B. Labonte	Chevrolet	24	Bobby	Labonte	1787
+88	Earnhardt Jr.	Chevrolet	25	Dale	Earnhardt Jr.	2750
+31	J. Burton	Chevrolet	26	Jeff	Burton	3101
+78	Smith	Chevrolet	27	Regan	Smith	1997
+12	Keselowski	Dodge	28	Brad	Keselowski	2309
+29	Harvick	Chevrolet	29	Kevin	Harvick	3521
+17	Kenseth	Ford	30	Matt	Kenseth	3095
+20	Logano	Toyota	31	Joey	Logano	2636
+47	Ambrose	Toyota	32	Marcos	Ambrose	2276
+83	Sorenson	Toyota	33	Reed	Sorenson	763
+87	Nemechek	Toyota	34	Joe	Nemechek	934
+26	Carpentier	Ford	35	Patrick	Carpentier	176
+37	Gilliland	Ford	36	David	Gilliland	1555
+38	Blaney	Ford	37	Dave	Blaney	699
+36	Yeley	Chevrolet	38	J.J.	Yeley	545
+55	Bliss	Toyota	39	Mike	Bliss	799
+21	Elliott	Ford	40	Bill	Elliott	706
+34	Kvapil	Ford	41	Travis	Kvapil	1723
+7	Conway	Toyota	42	Kevin	Conway	1494
+13	Mears	Toyota	43	Casey	Mears	700
+</PARTICIPANTS>

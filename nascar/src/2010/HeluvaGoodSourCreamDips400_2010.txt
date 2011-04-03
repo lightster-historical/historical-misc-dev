@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Heluva Good! Sour Cream Dips 400
+track:	Michigan Int'l Spwy
+location:	Brooklyn, MI
+length: 	400
+laps: 	200
+track_length: 	2.0
+scale: 	0.591
+x_offset: 	18
+y_offset: 	18
+tv_network: 	TNT
+track_image_file: 	michigan.gif
+</RACE>
+<PARTICIPANTS>
+2	Kurt Busch	Dodge	1	Kurt	Busch	1881
+1	McMurray	Chevrolet	2	Jamie	McMurray	1576
+48	Johnson	Chevrolet	3	Jimmie	Johnson	1849
+9	Kahne	Ford	4	Kasey	Kahne	1446
+31	J. Burton	Chevrolet	5	Jeff	Burton	1803
+24	J. Gordon	Chevrolet	6	Jeff	Gordon	1827
+11	D. Hamlin	Toyota	7	Denny	Hamlin	1927
+39	Newman	Chevrolet	8	Ryan	Newman	1668
+00	Reutimann	Toyota	9	David	Reutimann	1540
+42	Montoya	Chevrolet	10	Juan Pablo	Montoya	1513
+19	E. Sadler	Ford	11	Elliott	Sadler	1220
+20	Logano	Toyota	12	Joey	Logano	1585
+56	Truex Jr.	Toyota	13	Martin	Truex Jr.	1621
+6	Ragan	Ford	14	David	Ragan	1408
+18	Kyle Busch	Toyota	15	Kyle	Busch	2044
+16	Biffle	Ford	16	Greg	Biffle	1727
+14	Stewart	Chevrolet	17	Tony	Stewart	1685
+77	Hornish Jr.	Dodge	18	Sam	Hornish Jr.	1260
+99	Edwards	Ford	19	Carl	Edwards	1729
+7	R. Gordon	Toyota	20	Robby	Gordon	963
+5	Martin	Chevrolet	21	Mark	Martin	1711
+98	Menard	Ford	22	Paul	Menard	1474
+78	Smith	Chevrolet	23	Regan	Smith	1225
+47	Ambrose	Toyota	24	Marcos	Ambrose	1196
+33	Bowyer	Chevrolet	25	Clint	Bowyer	1686
+43	Allmendinger	Ford	26	A.J.	Allmendinger	1457
+88	Earnhardt Jr.	Chevrolet	27	Dale	Earnhardt Jr.	1599
+21	Elliott	Ford	28	Bill	Elliott	372
+82	Speed	Toyota	29	Scott	Speed	1361
+71	B. Labonte	Chevrolet	30	Bobby	Labonte	1069
+29	Harvick	Chevrolet	31	Kevin	Harvick	2063
+83	Mears	Toyota	32	Casey	Mears	425
+12	Keselowski	Dodge	33	Brad	Keselowski	1418
+38	Kvapil	Ford	34	Travis	Kvapil	1161
+09	Cassill	Chevrolet	35	Landon	Cassill	0
+37	Gilliland	Ford	36	David	Gilliland	971
+87	Nemechek	Toyota	37	Joe	Nemechek	543
+13	Papis	Toyota	38	Max	Papis	560
+17	Kenseth	Ford	39	Matt	Kenseth	1893
+46	Yeley	Dodge	40	J.J.	Yeley	205
+64	T. Bodine	Toyota	41	Todd	Bodine	89
+34	Conway	Ford	42	Kevin	Conway	859
+26	Stremme	Ford	43	David	Stremme	565
+</PARTICIPANTS>

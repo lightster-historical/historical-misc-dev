@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Carfax 400
+track:	Michigan Int'l Spwy
+location:	Brooklyn, MI
+length: 	400
+laps: 	200
+track_length: 	2.0
+scale: 	0.591
+x_offset: 	18
+y_offset: 	18
+tv_network: 	ESPN
+track_image_file: 	michigan.gif
+</RACE>
+<PARTICIPANTS>
+9	Kahne	Ford	1	Kasey	Kahne	2508
+48	Johnson	Chevrolet	2	Jimmie	Johnson	2882
+33	Bowyer	Chevrolet	3	Clint	Bowyer	2631
+14	Stewart	Chevrolet	4	Tony	Stewart	2865
+42	Montoya	Chevrolet	5	Juan Pablo	Montoya	2436
+16	Biffle	Ford	6	Greg	Biffle	2743
+17	Kenseth	Ford	7	Matt	Kenseth	2806
+29	Harvick	Chevrolet	8	Kevin	Harvick	3210
+56	Truex Jr.	Toyota	9	Martin	Truex Jr.	2401
+98	Menard	Ford	10	Paul	Menard	2341
+31	J. Burton	Chevrolet	11	Jeff	Burton	2895
+5	Martin	Chevrolet	12	Mark	Martin	2641
+2	Kurt Busch	Dodge	13	Kurt	Busch	2892
+00	Reutimann	Toyota	14	David	Reutimann	2475
+09	Cassill	Chevrolet	15	Landon	Cassill	186
+43	Allmendinger	Ford	16	A.J.	Allmendinger	2387
+39	Newman	Chevrolet	17	Ryan	Newman	2558
+18	Kyle Busch	Toyota	18	Kyle	Busch	2866
+1	McMurray	Chevrolet	19	Jamie	McMurray	2547
+78	Smith	Chevrolet	20	Regan	Smith	1824
+13	Papis	Toyota	21	Max	Papis	867
+87	Nemechek	Toyota	22	Joe	Nemechek	900
+19	E. Sadler	Ford	23	Elliott	Sadler	1936
+99	Edwards	Ford	24	Carl	Edwards	2821
+26	Carpentier	Ford	25	Patrick	Carpentier	100
+12	Keselowski	Dodge	26	Brad	Keselowski	2142
+20	Logano	Toyota	27	Joey	Logano	2393
+77	Hornish Jr.	Dodge	28	Sam	Hornish Jr.	2024
+6	Ragan	Ford	29	David	Ragan	2148
+21	Elliott	Ford	30	Bill	Elliott	609
+82	Speed	Toyota	31	Scott	Speed	2045
+38	Kvapil	Ford	32	Travis	Kvapil	1543
+11	D. Hamlin	Toyota	33	Denny	Hamlin	2872
+83	Sorenson	Toyota	34	Reed	Sorenson	560
+07	R. Gordon	Toyota	35	Robby	Gordon	1493
+24	J. Gordon	Chevrolet	36	Jeff	Gordon	3025
+47	Ambrose	Toyota	37	Marcos	Ambrose	2055
+88	Earnhardt Jr.	Chevrolet	38	Dale	Earnhardt Jr.	2520
+34	Raines	Ford	39	Tony	Raines	37
+71	B. Labonte	Chevrolet	40	Bobby	Labonte	1674
+7	Jones	Toyota	41	PJ	Jones	138
+37	Gilliland	Ford	42	David	Gilliland	1415
+55	McDowell	Toyota	43	Michael	McDowell	579
+</PARTICIPANTS>

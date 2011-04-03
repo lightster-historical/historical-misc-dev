@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Aaron's 499
+track:	Talladega Superspeedway
+location:	Talladega, AL
+length: 	500
+laps: 	188
+track_length: 	2.66
+scale: 	0.617
+x_offset: 	14
+y_offset: 	11
+tv_network: 	FOX
+track_image_file: 	talladega.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	1248
+17	Kenseth	Ford	2	Matt	Kenseth	1140
+16	Biffle	Ford	3	Greg	Biffle	1120
+29	Harvick	Chevrolet	4	Kevin	Harvick	1107
+24	J. Gordon	Chevrolet	5	Jeff	Gordon	1028
+18	Kyle Busch	Toyota	6	Kyle	Busch	1020
+88	Earnhardt Jr.	Chevrolet	7	Dale	Earnhardt Jr.	1013
+31	J. Burton	Chevrolet	8	Jeff	Burton	1005
+2	Kurt Busch	Dodge	9	Kurt	Busch	999
+5	Martin	Chevrolet	10	Mark	Martin	994
+11	D. Hamlin	Toyota	11	Denny	Hamlin	973
+20	Logano	Toyota	12	Joey	Logano	941
+14	Stewart	Chevrolet	13	Tony	Stewart	941
+33	Bowyer	Chevrolet	14	Clint	Bowyer	940
+99	Edwards	Ford	15	Carl	Edwards	937
+39	Newman	Chevrolet	16	Ryan	Newman	932
+56	Truex Jr.	Toyota	17	Martin	Truex Jr.	918
+98	Menard	Ford	18	Paul	Menard	869
+83	Vickers	Toyota	19	Brian	Vickers	835
+82	Speed	Toyota	20	Scott	Speed	831
+1	McMurray	Chevrolet	21	Jamie	McMurray	823
+9	Kahne	Ford	22	Kasey	Kahne	821
+43	Allmendinger	Ford	23	A.J.	Allmendinger	806
+42	Montoya	Chevrolet	24	Juan Pablo	Montoya	789
+12	Keselowski	Dodge	25	Brad	Keselowski	787
+6	Ragan	Ford	26	David	Ragan	775
+19	E. Sadler	Ford	27	Elliott	Sadler	753
+47	Ambrose	Toyota	28	Marcos	Ambrose	785
+77	Hornish Jr.	Dodge	29	Sam	Hornish Jr.	731
+00	Reutimann	Toyota	30	David	Reutimann	723
+78	Smith	Chevrolet	31	Regan	Smith	680
+71	B. Labonte	Chevrolet	32	Bobby	Labonte	680
+38	Conway	Ford	33	Kevin	Conway	490
+34	Kvapil	Ford	34	Travis	Kvapil	649
+37	Richardson	Ford	35	Robert	Richardson	70
+26	Stremme	Ford	36	David	Stremme	143
+09	Bliss	Chevrolet	37	Mike	Bliss	401
+7	R. Gordon	Toyota	38	Robby	Gordon	613
+36	J. Sauter	Chevrolet	39	Johnny	Sauter	40
+13	Papis	Toyota	40	Max	Papis	430
+87	Nemechek	Toyota	41	Joe	Nemechek	343
+66	Blaney	Toyota	42	Dave	Blaney	311
+55	Waltrip	Toyota	43	Michael	Waltrip	149
+</PARTICIPANTS>

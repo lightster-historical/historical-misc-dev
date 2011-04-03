@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	The Heath Calhoun 400
+track:	Richmond Raceway
+location:	Richmond, VA
+length: 	300
+laps: 	400
+track_length: 	0.75
+scale: 	0.578
+x_offset: 	25
+y_offset: 	15
+tv_network: 	FOX
+track_image_file: 	richmond.gif
+</RACE>
+<PARTICIPANTS>
+18	Kyle Busch	Toyota	1	Kyle	Busch	1163
+00	Reutimann	Toyota	2	David	Reutimann	849
+48	Johnson	Chevrolet	3	Jimmie	Johnson	1323
+24	J. Gordon	Chevrolet	4	Jeff	Gordon	1130
+39	Newman	Chevrolet	5	Ryan	Newman	995
+12	Keselowski	Dodge	6	Brad	Keselowski	853
+29	Harvick	Chevrolet	7	Kevin	Harvick	1297
+1	McMurray	Chevrolet	8	Jamie	McMurray	998
+83	Vickers	Toyota	9	Brian	Vickers	916
+33	Bowyer	Chevrolet	10	Clint	Bowyer	1086
+87	Nemechek	Toyota	11	Joe	Nemechek	380
+82	Speed	Toyota	12	Scott	Speed	949
+36	Mears	Chevrolet	13	Casey	Mears	73
+5	Martin	Chevrolet	14	Mark	Martin	1154
+43	Allmendinger	Ford	15	A.J.	Allmendinger	917
+2	Kurt Busch	Dodge	16	Kurt	Busch	1146
+31	J. Burton	Chevrolet	17	Jeff	Burton	1082
+14	Stewart	Chevrolet	18	Tony	Stewart	1061
+42	Montoya	Chevrolet	19	Juan Pablo	Montoya	959
+47	Ambrose	Toyota	20	Marcos	Ambrose	787
+17	Kenseth	Ford	21	Matt	Kenseth	1224
+9	Kahne	Ford	22	Kasey	Kahne	926
+20	Logano	Toyota	23	Joey	Logano	1001
+19	E. Sadler	Ford	24	Elliott	Sadler	822
+88	Earnhardt Jr.	Chevrolet	25	Dale	Earnhardt Jr.	1142
+56	Truex Jr.	Toyota	26	Martin	Truex Jr.	1045
+77	Hornish Jr.	Dodge	27	Sam	Hornish Jr.	827
+99	Edwards	Ford	28	Carl	Edwards	1067
+78	Smith	Chevrolet	29	Regan	Smith	734
+11	D. Hamlin	Toyota	30	Denny	Hamlin	1138
+71	B. Labonte	Chevrolet	31	Bobby	Labonte	774
+98	Menard	Ford	32	Paul	Menard	962
+16	Biffle	Ford	33	Greg	Biffle	1237
+32	Sorenson	Toyota	34	Reed	Sorenson	46
+6	Ragan	Ford	35	David	Ragan	930
+09	Bliss	Chevrolet	36	Mike	Bliss	535
+7	R. Gordon	Toyota	37	Robby	Gordon	721
+34	Kvapil	Ford	38	Travis	Kvapil	763
+26	Stremme	Ford	39	David	Stremme	225
+37	Gilliland	Ford	40	David	Gilliland	601
+46	Cook	Dodge	41	Terry	Cook	118
+38	Conway	Ford	42	Kevin	Conway	563
+64	Raines	Toyota	43	Tony	Raines	0
+</PARTICIPANTS>

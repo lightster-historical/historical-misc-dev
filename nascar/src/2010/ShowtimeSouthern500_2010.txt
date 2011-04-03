@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Showtime Southern 500
+track:	Darlington
+location:	Darlington, SC
+length: 	501
+laps: 	367
+track_length: 	1.366
+scale: 	0.588
+x_offset: 	26
+y_offset: 	6
+tv_network: 	FOX
+track_image_file: 	darlington.gif
+</RACE>
+<PARTICIPANTS>
+1	McMurray	Chevrolet	1	Jamie	McMurray	1104
+24	J. Gordon	Chevrolet	2	Jeff	Gordon	1305
+83	Vickers	Toyota	3	Brian	Vickers	1019
+00	Reutimann	Toyota	4	David	Reutimann	967
+5	Martin	Chevrolet	5	Mark	Martin	1242
+39	Newman	Chevrolet	6	Ryan	Newman	1142
+47	Ambrose	Toyota	7	Marcos	Ambrose	925
+11	D. Hamlin	Toyota	8	Denny	Hamlin	1268
+12	Keselowski	Dodge	9	Brad	Keselowski	974
+9	Kahne	Ford	10	Kasey	Kahne	1026
+31	J. Burton	Chevrolet	11	Jeff	Burton	1247
+43	Allmendinger	Ford	12	A.J.	Allmendinger	1029
+20	Logano	Toyota	13	Joey	Logano	1116
+2	Kurt Busch	Dodge	14	Kurt	Busch	1255
+42	Montoya	Chevrolet	15	Juan Pablo	Montoya	1109
+82	Speed	Toyota	16	Scott	Speed	1007
+16	Biffle	Ford	17	Greg	Biffle	1334
+55	McDowell	Toyota	18	Michael	McDowell	293
+88	Earnhardt Jr.	Chevrolet	19	Dale	Earnhardt Jr.	1209
+98	Menard	Ford	20	Paul	Menard	1044
+6	Ragan	Ford	21	David	Ragan	1021
+48	Johnson	Chevrolet	22	Jimmie	Johnson	1457
+71	B. Labonte	Chevrolet	23	Bobby	Labonte	838
+14	Stewart	Chevrolet	24	Tony	Stewart	1160
+77	Hornish Jr.	Dodge	25	Sam	Hornish Jr.	882
+7	R. Gordon	Toyota	26	Robby	Gordon	800
+33	Bowyer	Chevrolet	27	Clint	Bowyer	1213
+66	Blaney	Toyota	28	Dave	Blaney	345
+17	Kenseth	Ford	29	Matt	Kenseth	1348
+46	Yeley	Dodge	30	J.J.	Yeley	0
+26	Stremme	Ford	31	David	Stremme	301
+78	Smith	Chevrolet	32	Regan	Smith	807
+56	Truex Jr.	Toyota	33	Martin	Truex Jr.	1196
+38	Gilliland	Ford	34	David	Gilliland	671
+29	Harvick	Chevrolet	35	Kevin	Harvick	1467
+32	Sorenson	Toyota	36	Reed	Sorenson	86
+64	T. Bodine	Toyota	37	Todd	Bodine	0
+19	E. Sadler	Ford	38	Elliott	Sadler	871
+18	Kyle Busch	Toyota	39	Kyle	Busch	1358
+34	Kvapil	Ford	40	Travis	Kvapil	824
+99	Edwards	Ford	41	Carl	Edwards	1227
+37	Conway	Ford	42	Kevin	Conway	615
+13	Papis	Toyota	43	Max	Papis	423
+</PARTICIPANTS>

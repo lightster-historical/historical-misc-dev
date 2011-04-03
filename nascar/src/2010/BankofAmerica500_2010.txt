@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Bank of America 500
+track:	Charlotte Motor Swy
+location:	Concord, NC
+length: 	501
+laps: 	334
+track_length: 	1.5
+scale: 	0.618
+x_offset: 	14
+y_offset: 	9
+tv_network: 	ABC
+track_image_file: 	lowes.gif
+</RACE>
+<PARTICIPANTS>
+24	J. Gordon	Chevrolet	1	Jeff	Gordon	5588
+99	Edwards	Ford	2	Carl	Edwards	5511
+43	Allmendinger	Ford	3	A.J.	Allmendinger	3326
+5	Martin	Chevrolet	4	Mark	Martin	3506
+98	Menard	Ford	5	Paul	Menard	3116
+18	Kyle Busch	Toyota	6	Kyle	Busch	5486
+83	Sorenson	Toyota	7	Reed	Sorenson	1241
+88	Earnhardt Jr.	Chevrolet	8	Dale	Earnhardt Jr.	3379
+19	E. Sadler	Ford	9	Elliott	Sadler	2692
+48	Johnson	Chevrolet	10	Jimmie	Johnson	5673
+39	Newman	Chevrolet	11	Ryan	Newman	3656
+20	Logano	Toyota	12	Joey	Logano	3348
+56	Truex Jr.	Toyota	13	Martin	Truex Jr.	3265
+47	Ambrose	Toyota	14	Marcos	Ambrose	2866
+2	Kurt Busch	Dodge	15	Kurt	Busch	5533
+00	Reutimann	Toyota	16	David	Reutimann	3382
+17	Kenseth	Ford	17	Matt	Kenseth	5432
+31	Burton	Chevrolet	18	Jeff	Burton	5496
+77	Hornish Jr.	Dodge	19	Sam	Hornish Jr.	2693
+33	Bowyer	Chevrolet	20	Clint	Bowyer	5426
+82	Speed	Toyota	21	Scott	Speed	2668
+16	Biffle	Ford	22	Greg	Biffle	5458
+11	D. Hamlin	Toyota	23	Denny	Hamlin	5637
+29	Harvick	Chevrolet	24	Kevin	Harvick	5619
+9	Kahne	Ford	25	Kasey	Kahne	3349
+6	Ragan	Ford	26	David	Ragan	2920
+1	McMurray	Chevrolet	27	Jamie	McMurray	3596
+09	Cassill	Chevrolet	28	Landon	Cassill	514
+14	Stewart	Chevrolet	29	Tony	Stewart	5566
+10	B. Labonte	Dodge	30	Bobby	Labonte	2125
+12	Keselowski	Dodge	31	Brad	Keselowski	2905
+78	Smith	Chevrolet	32	Regan	Smith	2605
+46	McDowell	Dodge	33	Michael	McDowell	820
+42	Montoya	Chevrolet	34	Juan Pablo	Montoya	3455
+26	Carpentier	Ford	35	Patrick	Carpentier	342
+38	Gilliland	Ford	36	David	Gilliland	2027
+21	Elliott	Ford	37	Bill	Elliott	888
+71	Lally	Chevrolet	38	Andy	Lally	268
+7	R. Gordon	Toyota	39	Robby	Gordon	1626
+36	Yeley	Chevrolet	40	J.J.	Yeley	699
+37	Blaney	Ford	41	Dave	Blaney	1113
+34	Kvapil	Ford	42	Travis	Kvapil	2136
+64	J. Green	Toyota	43	Jeff	Green	146
+</PARTICIPANTS>

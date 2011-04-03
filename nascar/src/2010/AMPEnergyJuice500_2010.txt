@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	AMP Energy Juice 500
+track:	Talladega Superspeedway
+location:	Talladega, AL
+length: 	500
+laps: 	188
+track_length: 	2.66
+scale: 	0.617
+x_offset: 	14
+y_offset: 	11
+tv_network: 	ESPN
+track_image_file: 	talladega.gif
+</RACE>
+<PARTICIPANTS>
+42	Montoya	Chevrolet	1	Juan Pablo	Montoya	3696
+33	Bowyer	Chevrolet	2	Clint	Bowyer	5592
+2	Kurt Busch	Dodge	3	Kurt	Busch	5721
+87	Nemechek	Toyota	4	Joe	Nemechek	1200
+31	J. Burton	Chevrolet	5	Jeff	Burton	5752
+88	Earnhardt Jr.	Chevrolet	6	Dale	Earnhardt Jr.	3606
+36	Blaney	Chevrolet	7	Dave	Blaney	1235
+39	Newman	Chevrolet	8	Ryan	Newman	3789
+13	Mears	Toyota	9	Casey	Mears	1237
+77	Hornish Jr.	Dodge	10	Sam	Hornish Jr.	2824
+12	Keselowski	Dodge	11	Brad	Keselowski	3121
+1	McMurray	Chevrolet	12	Jamie	McMurray	3916
+97	Fuller	Toyota	13	Jeff	Fuller	0
+29	Harvick	Chevrolet	14	Kevin	Harvick	5936
+46	McDowell	Dodge	15	Michael	McDowell	871
+83	Kahne	Toyota	16	Kasey	Kahne	3519
+11	D. Hamlin	Toyota	17	Denny	Hamlin	5992
+56	Truex Jr.	Toyota	18	Martin	Truex Jr.	3459
+48	Johnson	Chevrolet	19	Jimmie	Johnson	5998
+55	Waltrip	Toyota	20	Michael	Waltrip	200
+00	Reutimann	Toyota	21	David	Reutimann	3607
+71	McCumbee	Chevrolet	22	Chad	McCumbee	37
+99	Edwards	Ford	23	Carl	Edwards	5785
+09	B. Labonte	Chevrolet	24	Bobby	Labonte	2256
+20	Logano	Toyota	25	Joey	Logano	3649
+14	Stewart	Chevrolet	26	Tony	Stewart	5762
+17	Kenseth	Ford	27	Matt	Kenseth	5705
+6	Ragan	Ford	28	David	Ragan	3166
+82	Speed	Toyota	29	Scott	Speed	2868
+5	Martin	Chevrolet	30	Mark	Martin	3802
+24	J. Gordon	Chevrolet	31	Jeff	Gordon	5795
+18	Kyle Busch	Toyota	32	Kyle	Busch	5826
+19	E. Sadler	Ford	33	Elliott	Sadler	2856
+16	Biffle	Ford	34	Greg	Biffle	5682
+47	Ambrose	Toyota	35	Marcos	Ambrose	3047
+43	Allmendinger	Ford	36	A.J.	Allmendinger	3546
+9	Almirola	Ford	37	Aric	Almirola	254
+98	Menard	Ford	38	Paul	Menard	3331
+78	Smith	Chevrolet	39	Regan	Smith	2799
+37	Gilliland	Ford	40	David	Gilliland	2163
+34	Richardson	Ford	41	Robert	Richardson	249
+7	R. Gordon	Toyota	42	Robby	Gordon	1792
+26	Elliott	Ford	43	Bill	Elliott	946
+</PARTICIPANTS>

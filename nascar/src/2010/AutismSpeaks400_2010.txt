@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Autism Speaks 400
+track:	Dover International Speedway
+location:	Dover, DE
+length: 	400
+laps: 	400
+track_length: 	1.0
+scale: 	0.574
+x_offset: 	28
+y_offset: 	18
+tv_network: 	FOX
+track_image_file: 	dover.gif
+</RACE>
+<PARTICIPANTS>
+56	Truex Jr.	Toyota	1	Martin	Truex Jr.	1302
+9	Kahne	Ford	2	Kasey	Kahne	1129
+5	Martin	Chevrolet	3	Mark	Martin	1357
+18	Kyle Busch	Toyota	4	Kyle	Busch	1509
+48	Johnson	Chevrolet	5	Jimmie	Johnson	1512
+39	Newman	Chevrolet	6	Ryan	Newman	1280
+33	Bowyer	Chevrolet	7	Clint	Bowyer	1280
+43	Allmendinger	Ford	8	A.J.	Allmendinger	1081
+99	Edwards	Ford	9	Carl	Edwards	1345
+77	Hornish Jr.	Dodge	10	Sam	Hornish Jr.	952
+1	McMurray	Chevrolet	11	Jamie	McMurray	1279
+2	Kurt Busch	Dodge	12	Kurt	Busch	1420
+00	Reutimann	Toyota	13	David	Reutimann	1102
+11	D. Hamlin	Toyota	14	Denny	Hamlin	1458
+24	J. Gordon	Chevrolet	15	Jeff	Gordon	1475
+14	Stewart	Chevrolet	16	Tony	Stewart	1259
+31	Burton	Chevrolet	17	Jeff	Burton	1394
+20	Logano	Toyota	18	Joey	Logano	1198
+19	E. Sadler	Ford	19	Elliott	Sadler	971
+12	Keselowski	Dodge	20	Brad	Keselowski	1101
+17	Kenseth	Ford	21	Matt	Kenseth	1472
+6	Ragan	Ford	22	David	Ragan	1142
+98	Menard	Ford	23	Paul	Menard	1117
+16	Biffle	Ford	24	Greg	Biffle	1431
+46	Yeley	Dodge	25	J.J.	Yeley	40
+47	Ambrose	Toyota	26	Marcos	Ambrose	1013
+88	Earnhardt Jr.	Chevrolet	27	Dale	Earnhardt Jr.	1318
+42	Montoya	Chevrolet	28	Juan Pablo	Montoya	1264
+82	Speed	Toyota	29	Scott	Speed	1091
+29	Harvick	Chevrolet	30	Kevin	Harvick	1622
+26	Stremme	Ford	31	David	Stremme	392
+09	Bliss	Chevrolet	32	Mike	Bliss	578
+71	B. Labonte	Chevrolet	33	Bobby	Labonte	899
+55	McDowell	Toyota	34	Michael	McDowell	336
+66	Blaney	Toyota	35	Dave	Blaney	382
+87	Nemechek	Toyota	36	Joe	Nemechek	414
+78	Smith	Chevrolet	37	Regan	Smith	919
+34	Kvapil	Ford	38	Travis	Kvapil	909
+83	Mears	Toyota	39	Casey	Mears	158
+38	Gilliland	Ford	40	David	Gilliland	729
+37	Conway	Ford	41	Kevin	Conway	679
+7	R. Gordon	Toyota	42	Robby	Gordon	854
+36	J. Sauter	Chevrolet	43	Johnny	Sauter	80
+</PARTICIPANTS>

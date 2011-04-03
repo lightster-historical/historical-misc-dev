@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Auto Club 500
+track:	Auto Club Speedway
+location:	Fontana, CA
+length: 	500
+laps: 	250
+track_length: 	2.0
+scale: 	0.574
+x_offset: 	27
+y_offset: 	17
+tv_network: 	FOX
+track_image_file: 	california.gif
+</RACE>
+<PARTICIPANTS>
+1	McMurray	Chevrolet	1	Jamie	McMurray	190
+42	Montoya	Chevrolet	2	Juan Pablo	Montoya	139
+33	Bowyer	Chevrolet	3	Clint	Bowyer	165
+9	Kahne	Ford	4	Kasey	Kahne	78
+66	Blaney	Toyota	5	Dave	Blaney	0
+29	Harvick	Chevrolet	6	Kevin	Harvick	156
+48	Johnson	Chevrolet	7	Jimmie	Johnson	58
+77	Hornish Jr.	Dodge	8	Sam	Hornish Jr.	52
+18	Kyle Busch	Toyota	9	Kyle	Busch	126
+5	Martin	Chevrolet	10	Mark	Martin	132
+00	Reutimann	Toyota	11	David	Reutimann	155
+2	Kurt Busch	Dodge	12	Kurt	Busch	99
+82	Speed	Toyota	13	Scott	Speed	111
+31	Burton	Chevrolet	14	Jeff	Burton	130
+6	Ragan	Ford	15	David	Ragan	120
+14	Stewart	Chevrolet	16	Tony	Stewart	97
+36	Bliss	Chevrolet	17	Mike	Bliss	37
+39	Newman	Chevrolet	18	Ryan	Newman	61
+20	Logano	Toyota	19	Joey	Logano	108
+17	Kenseth	Ford	20	Matt	Kenseth	142
+12	Keselowski	Dodge	21	Brad	Keselowski	55
+78	Smith	Chevrolet	22	Regan	Smith	46
+83	Vickers	Toyota	23	Brian	Vickers	118
+09	Almirola	Chevrolet	24	Aric	Almirola	0
+11	D. Hamlin	Toyota	25	Denny	Hamlin	117
+47	Ambrose	Toyota	26	Marcos	Ambrose	40
+88	Earnhardt Jr.	Chevrolet	27	Dale	Earnhardt Jr.	175
+24	J. Gordon	Chevrolet	28	Jeff	Gordon	90
+43	Allmendinger	Ford	29	A.J.	Allmendinger	72
+55	McDowell	Toyota	30	Michael	McDowell	64
+99	Edwards	Ford	31	Carl	Edwards	138
+87	Nemechek	Toyota	32	Joe	Nemechek	34
+71	B. Labonte	Chevrolet	33	Bobby	Labonte	100
+56	Truex Jr.	Toyota	34	Martin	Truex Jr.	155
+16	Biffle	Ford	35	Greg	Biffle	170
+98	Menard	Ford	36	Paul	Menard	124
+19	E. Sadler	Ford	37	Elliott	Sadler	96
+37	Conway	Ford	38	Kevin	Conway	0
+34	Kvapil	Ford	39	Travis	Kvapil	81
+7	R. Gordon	Toyota	40	Robby	Gordon	84
+38	Gilliland	Ford	41	David	Gilliland	0
+26	Said	Ford	42	Boris	Said	93
+13	Papis	Toyota	43	Max	Papis	43
+</PARTICIPANTS>

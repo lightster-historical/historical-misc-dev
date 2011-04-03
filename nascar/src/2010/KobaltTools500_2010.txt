@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Kobalt Tools 500
+track:	Atlanta Motor Speedway
+location:	Hampton, GA
+length: 	500
+laps: 	325
+track_length: 	1.54
+scale: 	0.576
+x_offset: 	31
+y_offset: 	15
+tv_network: 	FOX
+track_image_file: 	atlanta.gif
+</RACE>
+<PARTICIPANTS>
+88	Earnhardt Jr.	Chevrolet	1	Dale	Earnhardt Jr.	357
+18	Kyle Busch	Toyota	2	Kyle	Busch	375
+42	Montoya	Chevrolet	3	Juan Pablo	Montoya	248
+5	Martin	Chevrolet	4	Mark	Martin	457
+24	J. Gordon	Chevrolet	5	Jeff	Gordon	373
+9	Kahne	Ford	6	Kasey	Kahne	277
+39	Newman	Chevrolet	7	Ryan	Newman	225
+19	E. Sadler	Ford	8	Elliott	Sadler	269
+00	Reutimann	Toyota	9	David	Reutimann	397
+99	Edwards	Ford	10	Carl	Edwards	389
+2	Kurt Busch	Dodge	11	Kurt	Busch	312
+47	Ambrose	Toyota	12	Marcos	Ambrose	219
+16	Biffle	Ford	13	Greg	Biffle	443
+17	Kenseth	Ford	14	Matt	Kenseth	448
+14	Stewart	Chevrolet	15	Tony	Stewart	386
+48	Johnson	Chevrolet	16	Jimmie	Johnson	443
+6	Ragan	Ford	17	David	Ragan	308
+33	Bowyer	Chevrolet	18	Clint	Bowyer	459
+56	Truex Jr.	Toyota	19	Martin	Truex Jr.	304
+11	D. Hamlin	Toyota	20	Denny	Hamlin	304
+71	B. Labonte	Chevrolet	21	Bobby	Labonte	231
+31	J. Burton	Chevrolet	22	Jeff	Burton	430
+98	Menard	Ford	23	Paul	Menard	345
+1	McMurray	Chevrolet	24	Jamie	McMurray	363
+43	Allmendinger	Ford	25	A.J.	Allmendinger	248
+83	Vickers	Toyota	26	Brian	Vickers	320
+66	Blaney	Toyota	27	Dave	Blaney	121
+12	Keselowski	Dodge	28	Brad	Keselowski	240
+20	Logano	Toyota	29	Joey	Logano	413
+36	Bliss	Chevrolet	30	Mike	Bliss	180
+13	Papis	Toyota	31	Max	Papis	186
+82	Speed	Toyota	32	Scott	Speed	348
+87	Nemechek	Toyota	33	Joe	Nemechek	117
+21	Elliott	Ford	34	Bill	Elliott	82
+29	Harvick	Chevrolet	35	Kevin	Harvick	506
+77	Hornish Jr.	Dodge	36	Sam	Hornish Jr.	246
+38	Gilliland	Ford	37	David	Gilliland	158
+78	Smith	Chevrolet	38	Regan	Smith	252
+7	R. Gordon	Toyota	39	Robby	Gordon	215
+34	Kvapil	Ford	40	Travis	Kvapil	245
+37	Conway	Ford	41	Kevin	Conway	125
+26	Said	Ford	42	Boris	Said	185
+55	McDowell	Toyota	43	Michael	McDowell	138
+</PARTICIPANTS>

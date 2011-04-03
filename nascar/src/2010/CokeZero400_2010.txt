@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Coke Zero 400
+track:	Daytona Int'l Speedway
+location:	Daytona Beach, FL
+length: 	400
+laps: 	160
+track_length: 	2.5
+scale: 	0.637
+x_offset: 	9
+y_offset: 	6
+tv_network: 	TNT
+track_image_file: 	daytona.gif
+</RACE>
+<PARTICIPANTS>
+29	Harvick	Chevrolet	1	Kevin	Harvick	2489
+48	Johnson	Chevrolet	2	Jimmie	Johnson	2384
+18	Kyle Busch	Toyota	3	Kyle	Busch	2328
+11	D. Hamlin	Toyota	4	Denny	Hamlin	2304
+24	J. Gordon	Chevrolet	5	Jeff	Gordon	2302
+2	Kurt Busch	Dodge	6	Kurt	Busch	2288
+17	Kenseth	Ford	7	Matt	Kenseth	2204
+31	J. Burton	Chevrolet	8	Jeff	Burton	2159
+14	Stewart	Chevrolet	9	Tony	Stewart	2158
+16	Biffle	Ford	10	Greg	Biffle	2126
+5	Martin	Chevrolet	11	Mark	Martin	2047
+99	Edwards	Ford	12	Carl	Edwards	2020
+88	Earnhardt Jr.	Chevrolet	13	Dale	Earnhardt Jr.	2017
+39	Newman	Chevrolet	14	Ryan	Newman	2005
+33	Bowyer	Chevrolet	15	Clint	Bowyer	2004
+20	Logano	Toyota	16	Joey	Logano	1921
+1	McMurray	Chevrolet	17	Jamie	McMurray	1899
+56	Truex Jr.	Toyota	18	Martin	Truex Jr.	1872
+00	Reutimann	Toyota	19	David	Reutimann	1870
+9	Kahne	Ford	20	Kasey	Kahne	1846
+43	Allmendinger	Ford	21	A.J.	Allmendinger	1845
+42	Montoya	Chevrolet	22	Juan Pablo	Montoya	1837
+98	Menard	Ford	23	Paul	Menard	1738
+83	Sorenson	Toyota	24	Reed	Sorenson	211
+6	Ragan	Ford	25	David	Ragan	1660
+12	Keselowski	Dodge	26	Brad	Keselowski	1643
+82	Speed	Toyota	27	Scott	Speed	1631
+47	Ambrose	Toyota	28	Marcos	Ambrose	1593
+19	E. Sadler	Ford	29	Elliott	Sadler	1548
+77	Hornish Jr.	Dodge	30	Sam	Hornish Jr.	1499
+78	Smith	Chevrolet	31	Regan	Smith	1432
+7	R. Gordon	Toyota	32	Robby	Gordon	1202
+34	Conway	Ford	33	Kevin	Conway	1048
+37	Richardson	Ford	34	Robert	Richardson	155
+71	Bliss	Chevrolet	35	Mike	Bliss	621
+26	Stremme	Ford	36	David	Stremme	713
+09	B. Labonte	Chevrolet	37	Bobby	Labonte	1276
+38	Kvapil	Ford	38	Travis	Kvapil	1172
+36	Park	Toyota	39	Steve	Park	0
+13	Papis	Toyota	40	Max	Papis	662
+46	Yeley	Dodge	41	J.J.	Yeley	385
+87	Nemechek	Toyota	42	Joe	Nemechek	689
+66	Blaney	Toyota	43	Dave	Blaney	588
+</PARTICIPANTS>

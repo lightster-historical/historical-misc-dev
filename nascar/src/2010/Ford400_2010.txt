@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Ford 400
+track:	Homestead-Miami
+location:	Homestead, FL
+length: 	400
+laps: 	267
+track_length: 	1.5
+scale: 	0.648
+x_offset: 	5
+y_offset: 	1
+tv_network: 	ESPN
+track_image_file: 	homestead.gif
+</RACE>
+<PARTICIPANTS>
+83	Kahne	Toyota	1	Kasey	Kahne	3806
+99	Edwards	Ford	2	Carl	Edwards	6198
+1	McMurray	Chevrolet	3	Jamie	McMurray	4225
+21	Elliott	Ford	4	Bill	Elliott	989
+43	Allmendinger	Ford	5	A.J.	Allmendinger	3843
+48	Johnson	Chevrolet	6	Jimmie	Johnson	6447
+00	Reutimann	Toyota	7	David	Reutimann	3975
+5	Martin	Chevrolet	8	Mark	Martin	4249
+6	Ragan	Ford	9	David	Ragan	3496
+78	Smith	Chevrolet	10	Regan	Smith	3117
+24	J. Gordon	Chevrolet	11	Jeff	Gordon	6124
+19	E. Sadler	Ford	12	Elliott	Sadler	3155
+17	Kenseth	Ford	13	Matt	Kenseth	6151
+31	Burton	Chevrolet	14	Jeff	Burton	5958
+2	Kurt Busch	Dodge	15	Kurt	Busch	6033
+98	Menard	Ford	16	Paul	Menard	3670
+33	Bowyer	Chevrolet	17	Clint	Bowyer	6028
+12	Keselowski	Dodge	18	Brad	Keselowski	3361
+20	Logano	Toyota	19	Joey	Logano	4139
+47	Ambrose	Toyota	20	Marcos	Ambrose	3337
+36	Yeley	Chevrolet	21	J.J.	Yeley	849
+88	Earnhardt Jr.	Chevrolet	22	Dale	Earnhardt Jr.	3871
+39	Newman	Chevrolet	23	Ryan	Newman	4156
+9	Almirola	Ford	24	Aric	Almirola	544
+56	Truex Jr.	Toyota	25	Martin	Truex Jr.	3781
+77	Hornish Jr.	Dodge	26	Sam	Hornish Jr.	3123
+16	Biffle	Ford	27	Greg	Biffle	6113
+29	Harvick	Chevrolet	28	Kevin	Harvick	6416
+87	Nemechek	Toyota	29	Joe	Nemechek	1321
+66	Bliss	Toyota	30	Mike	Bliss	1016
+14	Stewart	Chevrolet	31	Tony	Stewart	6074
+09	B. Labonte	Chevrolet	32	Bobby	Labonte	2486
+18	Kyle Busch	Toyota	33	Kyle	Busch	6115
+13	Mears	Toyota	34	Casey	Mears	1509
+71	Lally	Chevrolet	35	Andy	Lally	395
+38	Blaney	Ford	36	Dave	Blaney	1361
+11	D. Hamlin	Toyota	37	Denny	Hamlin	6462
+37	Gilliland	Ford	38	David	Gilliland	2357
+34	Kvapil	Ford	39	Travis	Kvapil	2365
+42	Montoya	Chevrolet	40	Juan Pablo	Montoya	4060
+82	Speed	Toyota	41	Scott	Speed	3084
+7	Conway	Toyota	42	Kevin	Conway	1757
+64	Cassill	Toyota	43	Landon	Cassill	674
+</PARTICIPANTS>

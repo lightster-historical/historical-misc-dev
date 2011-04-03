@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Gillette Fusion ProGlide 500
+track:	Pocono Raceway
+location:	Pocono, PA
+length: 	500
+laps: 	200
+track_length: 	2.5
+scale: 	0.587
+x_offset: 	37
+y_offset: 	8
+tv_network: 	TNT
+track_image_file: 	pocono.gif
+</RACE>
+<PARTICIPANTS>
+18	Kyle Busch	Toyota	1	Kyle	Busch	1869
+33	Bowyer	Chevrolet	2	Clint	Bowyer	1543
+88	Earnhardt Jr.	Chevrolet	3	Dale	Earnhardt Jr.	1493
+2	Kurt Busch	Dodge	4	Kurt	Busch	1726
+11	D. Hamlin	Toyota	5	Denny	Hamlin	1732
+14	Stewart	Chevrolet	6	Tony	Stewart	1520
+42	Montoya	Chevrolet	7	Juan Pablo	Montoya	1371
+9	Kahne	Ford	8	Kasey	Kahne	1364
+39	Newman	Chevrolet	9	Ryan	Newman	1547
+24	J. Gordon	Chevrolet	10	Jeff	Gordon	1760
+12	Keselowski	Dodge	11	Brad	Keselowski	1318
+20	Logano	Toyota	12	Joey	Logano	1461
+31	J. Burton	Chevrolet	13	Jeff	Burton	1657
+5	Martin	Chevrolet	14	Mark	Martin	1635
+17	Kenseth	Ford	15	Matt	Kenseth	1781
+47	Ambrose	Toyota	16	Marcos	Ambrose	1123
+43	Allmendinger	Ford	17	A.J.	Allmendinger	1323
+1	McMurray	Chevrolet	18	Jamie	McMurray	1521
+77	Hornish Jr.	Dodge	19	Sam	Hornish Jr.	1125
+13	Papis	Toyota	20	Max	Papis	499
+19	E. Sadler	Ford	21	Elliott	Sadler	1150
+29	Harvick	Chevrolet	22	Kevin	Harvick	1898
+83	Mears	Toyota	23	Casey	Mears	331
+78	Smith	Chevrolet	24	Regan	Smith	1116
+48	Johnson	Chevrolet	25	Jimmie	Johnson	1694
+99	Edwards	Ford	26	Carl	Edwards	1602
+56	Truex Jr.	Toyota	27	Martin	Truex Jr.	1533
+16	Biffle	Ford	28	Greg	Biffle	1648
+00	Reutimann	Toyota	29	David	Reutimann	1422
+87	Nemechek	Toyota	30	Joe	Nemechek	509
+82	Speed	Toyota	31	Scott	Speed	1258
+55	McDowell	Toyota	32	Michael	McDowell	385
+98	Menard	Ford	33	Paul	Menard	1359
+66	Blaney	Toyota	34	Dave	Blaney	456
+6	Ragan	Ford	35	David	Ragan	1323
+46	Yeley	Dodge	36	J.J.	Yeley	153
+37	Gilliland	Ford	37	David	Gilliland	907
+38	Kvapil	Ford	38	Travis	Kvapil	1064
+64	McCumbee	Toyota	39	Chad	McCumbee	0
+36	G. Bodine	Chevrolet	40	Geoffrey	Bodine	0
+71	B. Labonte	Chevrolet	41	Bobby	Labonte	1015
+34	Conway	Ford	42	Kevin	Conway	801
+26	Stremme	Ford	43	David	Stremme	474
+</PARTICIPANTS>

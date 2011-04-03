@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	TUMS Fast Relief 500
+track:	Martinsville Speedway
+location:	Martinsville, VA
+length: 	263
+laps: 	500
+track_length: 	0.526
+scale: 	0.590
+x_offset: 	21
+y_offset: 	7
+tv_network: 	ESPN
+track_image_file: 	martinsville.gif
+</RACE>
+<PARTICIPANTS>
+11	D. Hamlin	Toyota	1	Denny	Hamlin	5802
+47	Ambrose	Toyota	2	Marcos	Ambrose	2981
+16	Biffle	Ford	3	Greg	Biffle	5618
+39	Newman	Chevrolet	4	Ryan	Newman	3711
+42	Montoya	Chevrolet	5	Juan Pablo	Montoya	3590
+14	Stewart	Chevrolet	6	Tony	Stewart	5666
+99	Edwards	Ford	7	Carl	Edwards	5643
+00	Reutimann	Toyota	8	David	Reutimann	3520
+1	McMurray	Chevrolet	9	Jamie	McMurray	3786
+6	Ragan	Ford	10	David	Ragan	3054
+24	J. Gordon	Chevrolet	11	Jeff	Gordon	5687
+98	Menard	Ford	12	Paul	Menard	3207
+78	Smith	Chevrolet	13	Regan	Smith	2729
+82	Speed	Toyota	14	Scott	Speed	2774
+43	Allmendinger	Ford	15	A.J.	Allmendinger	3419
+56	Truex Jr.	Toyota	16	Martin	Truex Jr.	3383
+33	Bowyer	Chevrolet	17	Clint	Bowyer	5543
+31	Burton	Chevrolet	18	Jeff	Burton	5604
+48	Johnson	Chevrolet	19	Jimmie	Johnson	5843
+13	Mears	Toyota	20	Casey	Mears	1189
+5	Martin	Chevrolet	21	Mark	Martin	3632
+20	Logano	Toyota	22	Joey	Logano	3499
+09	B. Labonte	Chevrolet	23	Bobby	Labonte	2222
+77	Hornish Jr.	Dodge	24	Sam	Hornish Jr.	2736
+12	Keselowski	Dodge	25	Brad	Keselowski	2987
+18	Kyle Busch	Toyota	26	Kyle	Busch	5666
+38	Kvapil	Ford	27	Travis	Kvapil	2206
+88	Earnhardt Jr.	Chevrolet	28	Dale	Earnhardt Jr.	3455
+2	Kurt Busch	Dodge	29	Kurt	Busch	5606
+64	Cassill	Toyota	30	Landon	Cassill	551
+19	E. Sadler	Ford	31	Elliott	Sadler	2777
+17	Kenseth	Ford	32	Matt	Kenseth	5587
+83	Kahne	Toyota	33	Kasey	Kahne	3398
+36	Blaney	Chevrolet	34	Dave	Blaney	1180
+9	Almirola	Ford	35	Aric	Almirola	154
+29	Harvick	Chevrolet	36	Kevin	Harvick	5766
+87	Nemechek	Toyota	37	Joe	Nemechek	1160
+26	Schrader	Ford	38	Ken	Schrader	0
+37	Gilliland	Ford	39	David	Gilliland	2111
+34	Raines	Ford	40	Tony	Raines	412
+7	R. Gordon	Toyota	41	Robby	Gordon	1690
+71	H. Sadler	Chevrolet	42	Hermie	Sadler	0
+81	Yeley	Dodge	43	J.J.	Yeley	733
+</PARTICIPANTS>

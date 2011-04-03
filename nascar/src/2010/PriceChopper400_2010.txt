@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Price Chopper 400
+track:	Kansas Speedway
+location:	Kansas City, KS
+length: 	400
+laps: 	267
+track_length: 	1.5
+scale: 	0.575
+x_offset: 	21
+y_offset: 	19
+tv_network: 	ESPN
+track_image_file: 	kansas.gif
+</RACE>
+<PARTICIPANTS>
+9	Kahne	Ford	1	Kasey	Kahne	3132
+98	Menard	Ford	2	Paul	Menard	2867
+24	J. Gordon	Chevrolet	3	Jeff	Gordon	5285
+20	Logano	Toyota	4	Joey	Logano	3106
+16	Biffle	Ford	5	Greg	Biffle	5228
+39	Newman	Chevrolet	6	Ryan	Newman	3363
+42	Montoya	Chevrolet	7	Juan Pablo	Montoya	3253
+17	Kenseth	Ford	8	Matt	Kenseth	5203
+2	Kurt Busch	Dodge	9	Kurt	Busch	5309
+6	Ragan	Ford	10	David	Ragan	2738
+21	Elliott	Ford	11	Bill	Elliott	800
+11	D. Hamlin	Toyota	12	Denny	Hamlin	5368
+78	Smith	Chevrolet	13	Regan	Smith	2388
+14	Stewart	Chevrolet	14	Tony	Stewart	5206
+19	E. Sadler	Ford	15	Elliott	Sadler	2489
+00	Reutimann	Toyota	16	David	Reutimann	3190
+09	B. Labonte	Chevrolet	17	Bobby	Labonte	2036
+77	Hornish Jr.	Dodge	18	Sam	Hornish Jr.	2520
+18	Kyle Busch	Toyota	19	Kyle	Busch	5323
+88	Earnhardt Jr.	Chevrolet	20	Dale	Earnhardt Jr.	3162
+48	Johnson	Chevrolet	21	Jimmie	Johnson	5333
+1	McMurray	Chevrolet	22	Jamie	McMurray	3344
+31	J. Burton	Chevrolet	23	Jeff	Burton	5288
+29	Harvick	Chevrolet	24	Kevin	Harvick	5303
+56	Truex Jr.	Toyota	25	Martin	Truex Jr.	3053
+12	Keselowski	Dodge	26	Brad	Keselowski	2726
+33	Bowyer	Chevrolet	27	Clint	Bowyer	5133
+5	Martin	Chevrolet	28	Mark	Martin	3225
+46	McDowell	Dodge	29	Michael	McDowell	726
+43	Allmendinger	Ford	30	A.J.	Allmendinger	3086
+99	Edwards	Ford	31	Carl	Edwards	5295
+47	Ambrose	Toyota	32	Marcos	Ambrose	2741
+82	Speed	Toyota	33	Scott	Speed	2471
+83	Sorenson	Toyota	34	Reed	Sorenson	1086
+64	Cassill	Toyota	35	Landon	Cassill	437
+26	Carpentier	Ford	36	Patrick	Carpentier	255
+13	Mears	Toyota	37	Casey	Mears	1010
+37	Gilliland	Ford	38	David	Gilliland	1852
+36	Yeley	Chevrolet	39	J.J.	Yeley	625
+34	Kvapil	Ford	40	Travis	Kvapil	1988
+7	Conway	Toyota	41	Kevin	Conway	1638
+71	Raines	Chevrolet	42	Tony	Raines	366
+38	Blaney	Ford	43	Dave	Blaney	967
+</PARTICIPANTS>

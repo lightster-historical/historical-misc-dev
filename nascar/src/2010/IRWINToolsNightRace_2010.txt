@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	IRWIN Tools Night Race
+track:	Bristol Motor Speedway
+location:	Bristol, TN
+length: 	266
+laps: 	500
+track_length: 	0.533
+scale: 	0.573
+x_offset: 	25
+y_offset: 	16
+tv_network: 	ABC
+track_image_file: 	bristol.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	3014
+99	Edwards	Ford	2	Carl	Edwards	2986
+20	Logano	Toyota	3	Joey	Logano	2527
+14	Stewart	Chevrolet	4	Tony	Stewart	3020
+00	Reutimann	Toyota	5	David	Reutimann	2590
+39	Newman	Chevrolet	6	Ryan	Newman	2652
+1	McMurray	Chevrolet	7	Jamie	McMurray	2650
+42	Montoya	Chevrolet	8	Juan Pablo	Montoya	2582
+56	Truex Jr.	Toyota	9	Martin	Truex Jr.	2548
+43	Allmendinger	Ford	10	A.J.	Allmendinger	2499
+9	Kahne	Ford	11	Kasey	Kahne	2629
+98	Menard	Ford	12	Paul	Menard	2399
+5	Martin	Chevrolet	13	Mark	Martin	2720
+17	Kenseth	Ford	14	Matt	Kenseth	2961
+12	Keselowski	Dodge	15	Brad	Keselowski	2203
+31	Burton	Chevrolet	16	Jeff	Burton	2986
+11	D. Hamlin	Toyota	17	Denny	Hamlin	3047
+83	Sorenson	Toyota	18	Reed	Sorenson	645
+18	Kyle Busch	Toyota	19	Kyle	Busch	2975
+2	Kurt Busch	Dodge	20	Kurt	Busch	2935
+16	Biffle	Ford	21	Greg	Biffle	2913
+47	Ambrose	Toyota	22	Marcos	Ambrose	2173
+82	Speed	Toyota	23	Scott	Speed	2133
+33	Bowyer	Chevrolet	24	Clint	Bowyer	2755
+77	Hornish Jr.	Dodge	25	Sam	Hornish Jr.	2091
+24	J. Gordon	Chevrolet	26	Jeff	Gordon	3107
+88	Earnhardt Jr.	Chevrolet	27	Dale	Earnhardt Jr.	2626
+29	Harvick	Chevrolet	28	Kevin	Harvick	3400
+78	Smith	Chevrolet	29	Regan	Smith	1924
+09	B. Labonte	Chevrolet	30	Bobby	Labonte	1738
+26	J. Green	Ford	31	Jeff	Green	0
+66	Riggs	Toyota	32	Scott	Riggs	79
+34	Kvapil	Ford	33	Travis	Kvapil	1621
+38	Gilliland	Ford	34	David	Gilliland	1470
+55	McDowell	Toyota	35	Michael	McDowell	616
+64	T. Bodine	Toyota	36	Todd	Bodine	273
+07	R. Gordon	Toyota	37	Robby	Gordon	1493
+6	Ragan	Ford	38	David	Ragan	2283
+37	Raines	Ford	39	Tony	Raines	107
+7	Conway	Toyota	40	Kevin	Conway	1439
+19	E. Sadler	Ford	41	Elliott	Sadler	2079
+71	Cassill	Chevrolet	42	Landon	Cassill	235
+13	Mears	Toyota	43	Casey	Mears	654
+</PARTICIPANTS>

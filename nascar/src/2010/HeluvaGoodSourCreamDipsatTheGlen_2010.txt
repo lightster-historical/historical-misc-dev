@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Heluva Good! Sour Cream Dips at The Glen
+track:	Watkins Glen Int'l
+location:	Watkins Glen, NY
+length: 	220
+laps: 	90
+track_length: 	2.45
+scale: 	0.600
+x_offset: 	36
+y_offset: 	4
+tv_network: 	ESPN
+track_image_file: 	watkins_glen.gif
+</RACE>
+<PARTICIPANTS>
+99	Edwards	Ford	1	Carl	Edwards	2666
+1	McMurray	Chevrolet	2	Jamie	McMurray	2392
+42	Montoya	Chevrolet	3	Juan Pablo	Montoya	2241
+43	Allmendinger	Ford	4	A.J.	Allmendinger	2227
+2	Kurt Busch	Dodge	5	Kurt	Busch	2722
+14	Stewart	Chevrolet	6	Tony	Stewart	2719
+16	Biffle	Ford	7	Greg	Biffle	2652
+82	Speed	Toyota	8	Scott	Speed	2011
+48	Johnson	Chevrolet	9	Jimmie	Johnson	2803
+18	Kyle Busch	Toyota	10	Kyle	Busch	2724
+47	Ambrose	Toyota	11	Marcos	Ambrose	1885
+77	Hornish Jr.	Dodge	12	Sam	Hornish Jr.	1903
+83	Said	Toyota	13	Boris	Said	399
+11	D. Hamlin	Toyota	14	Denny	Hamlin	2820
+7	R. Gordon	Toyota	15	Robby	Gordon	1438
+24	J. Gordon	Chevrolet	16	Jeff	Gordon	2891
+26	Carpentier	Ford	17	Patrick	Carpentier	0
+20	Logano	Toyota	18	Joey	Logano	2329
+39	Newman	Chevrolet	19	Ryan	Newman	2426
+29	Harvick	Chevrolet	20	Kevin	Harvick	3080
+36	Fellows	Chevrolet	21	Ron	Fellows	0
+31	J. Burton	Chevrolet	22	Jeff	Burton	2757
+98	Menard	Ford	23	Paul	Menard	2226
+5	Martin	Chevrolet	24	Mark	Martin	2530
+56	Truex Jr.	Toyota	25	Martin	Truex Jr.	2283
+55	McDowell	Toyota	26	Michael	McDowell	542
+78	Smith	Chevrolet	27	Regan	Smith	1763
+13	Papis	Toyota	28	Max	Papis	770
+09	B. Labonte	Chevrolet	29	Bobby	Labonte	1616
+00	Reutimann	Toyota	30	David	Reutimann	2381
+17	Kenseth	Ford	31	Matt	Kenseth	2682
+12	Keselowski	Dodge	32	Brad	Keselowski	2039
+71	Lally	Chevrolet	33	Andy	Lally	52
+33	Bowyer	Chevrolet	34	Clint	Bowyer	2564
+6	Ragan	Ford	35	David	Ragan	2060
+9	Kahne	Ford	36	Kasey	Kahne	2396
+87	Nemechek	Toyota	37	Joe	Nemechek	854
+19	E. Sadler	Ford	38	Elliott	Sadler	1860
+07	Jones	Toyota	39	PJ	Jones	98
+88	Earnhardt Jr.	Chevrolet	40	Dale	Earnhardt Jr.	2435
+37	Kvapil	Ford	41	Travis	Kvapil	1470
+34	Conway	Ford	42	Kevin	Conway	1369
+38	Gilliland	Ford	43	David	Gilliland	1333
+</PARTICIPANTS>

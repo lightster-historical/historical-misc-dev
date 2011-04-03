@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Sunoco Red Cross Pennsylvania 500
+track:	Pocono Raceway
+location:	Pocono, PA
+length: 	500
+laps: 	200
+track_length: 	2.5
+scale: 	0.587
+x_offset: 	37
+y_offset: 	8
+tv_network: 	ESPN
+track_image_file: 	pocono.gif
+</RACE>
+<PARTICIPANTS>
+14	Stewart	Chevrolet	1	Tony	Stewart	2544
+42	Montoya	Chevrolet	2	Juan Pablo	Montoya	2121
+11	D. Hamlin	Toyota	3	Denny	Hamlin	2660
+24	J. Gordon	Chevrolet	4	Jeff	Gordon	2736
+39	Newman	Chevrolet	5	Ryan	Newman	2299
+48	Johnson	Chevrolet	6	Jimmie	Johnson	2659
+43	Allmendinger	Ford	7	A.J.	Allmendinger	2136
+31	J. Burton	Chevrolet	8	Jeff	Burton	2615
+1	McMurray	Chevrolet	9	Jamie	McMurray	2295
+5	Martin	Chevrolet	10	Mark	Martin	2384
+12	Keselowski	Dodge	11	Brad	Keselowski	1936
+16	Biffle	Ford	12	Greg	Biffle	2462
+2	Kurt Busch	Dodge	13	Kurt	Busch	2658
+29	Harvick	Chevrolet	14	Kevin	Harvick	2920
+77	Hornish Jr.	Dodge	15	Sam	Hornish Jr.	1768
+9	Kahne	Ford	16	Kasey	Kahne	2290
+20	Logano	Toyota	17	Joey	Logano	2241
+6	Ragan	Ford	18	David	Ragan	1939
+47	Ambrose	Toyota	19	Marcos	Ambrose	1839
+88	Earnhardt Jr.	Chevrolet	20	Dale	Earnhardt Jr.	2353
+18	Kyle Busch	Toyota	21	Kyle	Busch	2630
+71	B. Labonte	Chevrolet	22	Bobby	Labonte	1537
+98	Menard	Ford	23	Paul	Menard	2102
+00	Reutimann	Toyota	24	David	Reutimann	2269
+99	Edwards	Ford	25	Carl	Edwards	2496
+17	Kenseth	Ford	26	Matt	Kenseth	2573
+82	Speed	Toyota	27	Scott	Speed	1926
+56	Truex Jr.	Toyota	28	Martin	Truex Jr.	2145
+19	E. Sadler	Ford	29	Elliott	Sadler	1799
+46	Yeley	Dodge	30	J.J.	Yeley	491
+83	Sorenson	Toyota	31	Reed	Sorenson	493
+38	Kvapil	Ford	32	Travis	Kvapil	1394
+87	Nemechek	Toyota	33	Joe	Nemechek	811
+78	Smith	Chevrolet	34	Regan	Smith	1663
+09	Cassill	Chevrolet	35	Landon	Cassill	146
+55	McDowell	Toyota	36	Michael	McDowell	508
+37	Gilliland	Ford	37	David	Gilliland	1260
+66	Blaney	Toyota	38	Dave	Blaney	662
+36	Mears	Toyota	39	Casey	Mears	599
+33	Bowyer	Chevrolet	40	Clint	Bowyer	2446
+34	Conway	Ford	41	Kevin	Conway	1299
+7	Jones	Toyota	42	PJ	Jones	40
+64	T. Bodine	Toyota	43	Todd	Bodine	221
+</PARTICIPANTS>

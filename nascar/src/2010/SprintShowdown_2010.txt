@@ -1,0 +1,48 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Sprint Showdown
+track:	Lowes Motor Swy
+location:	Concord, NC
+length: 	60
+laps: 	40
+track_length: 	1.5
+scale: 	0.618
+x_offset: 	14
+y_offset: 	9
+tv_network: 	SPEED
+track_image_file: 	lowes.gif
+</RACE>
+<PARTICIPANTS>
+6	Ragan	Ford	1	David	Ragan	0
+13	Papis	Toyota	2	Max	Papis	0
+77	Hornish Jr.	Dodge	3	Sam	Hornish Jr.	0
+37	Conway	Ford	4	Kevin	Conway	0
+16	Biffle	Ford	5	Greg	Biffle	0
+32	Sorenson	Toyota	6	Reed	Sorenson	0
+21	Elliott	Ford	7	Bill	Elliott	0
+43	Allmendinger	Ford	8	A.J.	Allmendinger	0
+33	Bowyer	Chevrolet	9	Clint	Bowyer	0
+7	R. Gordon	Toyota	10	Robby	Gordon	0
+78	Smith	Chevrolet	11	Regan	Smith	0
+98	Menard	Ford	12	Paul	Menard	0
+55	Waltrip	Toyota	13	Michael	Waltrip	0
+42	Montoya	Chevrolet	14	Juan Pablo	Montoya	0
+57	Benning	Chevrolet	15	Norm	Benning	0
+19	Sadler	Ford	16	Elliott	Sadler	0
+31	Burton	Chevrolet	17	Jeff	Burton	0
+82	Speed	Toyota	18	Scott	Speed	0
+47	Ambrose	Toyota	19	Marcos	Ambrose	0
+56	Truex Jr.	Toyota	20	Martin	Truex Jr.	0
+64	Bodine	Toyota	21	Todd	Bodine	0
+92	Richardson	Dodge	22	Robert	Richardson	0
+46	Yeley	Dodge	23	J.J.	Yeley	0
+34	Kvapil	Ford	24	Travis	Kvapil	0
+87	Nemechek	Toyota	25	Joe	Nemechek	0
+99	Edwards	Ford	26	Carl	Edwards	0
+36	Raines	Chevrolet	27	Tony	Raines	0
+75	Cope	Dodge	28	Derrike	Cope	0
+38	Gilliland	Ford	29	David	Gilliland	0
+</PARTICIPANTS>

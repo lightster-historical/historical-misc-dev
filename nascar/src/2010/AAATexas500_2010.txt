@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	AAA Texas 500
+track:	Texas Motor Spdwy
+location:	Fort Worth, TX
+length: 	500
+laps: 	334
+track_length: 	1.5
+scale: 	0.576
+x_offset: 	27
+y_offset: 	15
+tv_network: 	ESPN  
+track_image_file: 	texas.gif
+</RACE>
+<PARTICIPANTS>
+19	E. Sadler	Ford	1	Elliott	Sadler	2982
+16	Biffle	Ford	2	Greg	Biffle	5788
+99	Edwards	Ford	3	Carl	Edwards	5902
+42	Montoya	Chevrolet	4	Juan Pablo	Montoya	3866
+6	Ragan	Ford	5	David	Ragan	3266
+2	Kurt Busch	Dodge	6	Kurt	Busch	5799
+33	Bowyer	Chevrolet	7	Clint	Bowyer	5782
+78	Smith	Chevrolet	8	Regan	Smith	2926
+5	Martin	Chevrolet	9	Mark	Martin	3937
+43	Allmendinger	Ford	10	A.J.	Allmendinger	3613
+14	Stewart	Chevrolet	11	Tony	Stewart	5832
+98	Menard	Ford	12	Paul	Menard	3460
+9	Almirola	Ford	13	Aric	Almirola	362
+39	Newman	Chevrolet	14	Ryan	Newman	3883
+24	J. Gordon	Chevrolet	15	Jeff	Gordon	5942
+31	J. Burton	Chevrolet	16	Jeff	Burton	5797
+48	Johnson	Chevrolet	17	Jimmie	Johnson	6149
+00	Reutimann	Toyota	18	David	Reutimann	3772
+17	Kenseth	Ford	19	Matt	Kenseth	5825
+20	Logano	Toyota	20	Joey	Logano	3809
+56	Truex Jr.	Toyota	21	Martin	Truex Jr.	3614
+88	Earnhardt Jr.	Chevrolet	22	Dale	Earnhardt Jr.	3662
+82	Speed	Toyota	23	Scott	Speed	2944
+83	Kahne	Toyota	24	Kasey	Kahne	3609
+1	McMurray	Chevrolet	25	Jamie	McMurray	3976
+29	Harvick	Chevrolet	26	Kevin	Harvick	6111
+77	Hornish Jr.	Dodge	27	Sam	Hornish Jr.	2947
+21	Bayne	Ford	28	Trevor	Bayne	0
+18	Kyle Busch	Toyota	29	Kyle	Busch	5919
+11	D. Hamlin	Toyota	30	Denny	Hamlin	6135
+10	B. Labonte	Dodge	31	Bobby	Labonte	2305
+47	Ambrose	Toyota	32	Marcos	Ambrose	3113
+38	Gilliland	Ford	33	David	Gilliland	2227
+87	Nemechek	Toyota	34	Joe	Nemechek	1287
+13	Mears	Toyota	35	Casey	Mears	1328
+12	Keselowski	Dodge	36	Brad	Keselowski	3260
+26	Carpentier	Ford	37	Patrick	Carpentier	399
+66	Bliss	Toyota	38	Mike	Bliss	919
+7	R. Gordon	Toyota	39	Robby	Gordon	1901
+71	Lally	Chevrolet	40	Andy	Lally	329
+34	Kvapil	Ford	41	Travis	Kvapil	2264
+37	Blaney	Ford	42	Dave	Blaney	1272
+09	Cassill	Chevrolet	43	Landon	Cassill	588
+</PARTICIPANTS>

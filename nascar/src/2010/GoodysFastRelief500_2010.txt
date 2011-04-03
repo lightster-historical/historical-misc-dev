@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Goody's Fast Pain Relief 500
+track:	Martinsville Speedway
+location:	Martinsville, VA
+length: 	263
+laps: 	500
+track_length: 	0.526
+scale: 	0.590
+x_offset: 	21
+y_offset: 	7
+tv_network: 	FOX
+track_image_file: 	martinsville.gif
+</RACE>
+<PARTICIPANTS>
+29	Harvick	Chevrolet	1	Kevin	Harvick	774
+17	Kenseth	Ford	2	Matt	Kenseth	773
+48	Johnson	Chevrolet	3	Jimmie	Johnson	760
+16	Biffle	Ford	4	Greg	Biffle	750
+14	Stewart	Chevrolet	5	Tony	Stewart	685
+2	Kurt Busch	Dodge	6	Kurt	Busch	677
+31	J. Burton	Chevrolet	7	Jeff	Burton	677
+88	Earnhardt Jr.	Chevrolet	8	Dale	Earnhardt Jr.	621
+98	Menard	Ford	9	Paul	Menard	614
+18	Kyle Busch	Toyota	10	Kyle	Busch	606
+24	J. Gordon	Chevrolet	11	Jeff	Gordon	603
+33	Bowyer	Chevrolet	12	Clint	Bowyer	601
+99	Edwards	Ford	13	Carl	Edwards	585
+83	Vickers	Toyota	14	Brian	Vickers	584
+1	McMurray	Chevrolet	15	Jamie	McMurray	581
+5	Martin	Chevrolet	16	Mark	Martin	579
+20	Logano	Toyota	17	Joey	Logano	558
+82	Speed	Toyota	18	Scott	Speed	552
+11	D. Hamlin	Toyota	19	Denny	Hamlin	515
+56	Truex Jr.	Toyota	20	Martin	Truex Jr.	513
+43	Allmendinger	Ford	21	A.J.	Allmendinger	510
+42	Montoya	Chevrolet	22	Juan Pablo	Montoya	508
+9	Kahne	Ford	23	Kasey	Kahne	508
+00	Reutimann	Toyota	24	David	Reutimann	489
+19	E. Sadler	Ford	25	Elliott	Sadler	483
+39	Newman	Chevrolet	26	Ryan	Newman	452
+6	Ragan	Ford	27	David	Ragan	436
+78	Smith	Chevrolet	28	Regan	Smith	428
+71	B. Labonte	Chevrolet	29	Bobby	Labonte	428
+12	Keselowski	Dodge	30	Brad	Keselowski	424
+47	Ambrose	Toyota	31	Marcos	Ambrose	413
+38	Conway	Ford	32	Kevin	Conway	274
+77	Hornish Jr.	Dodge	33	Sam	Hornish Jr.	392
+34	Kvapil	Ford	34	Travis	Kvapil	406
+37	Gilliland	Ford	35	David	Gilliland	342
+26	Stremme	Ford	36	David	Stremme	91
+09	Almirola	Chevrolet	37	Aric	Almirola	114
+7	R. Gordon	Toyota	38	Robby	Gordon	346
+36	Bliss	Chevrolet	39	Mike	Bliss	276
+13	Papis	Toyota	40	Max	Papis	247
+55	McDowell	Toyota	41	Michael	McDowell	175
+66	Blaney	Toyota	42	Dave	Blaney	198
+87	Nemechek	Toyota	43	Joe	Nemechek	205
+</PARTICIPANTS>

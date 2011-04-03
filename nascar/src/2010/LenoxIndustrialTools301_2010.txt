@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Lenox Industrial Tools 301
+track:	New Hampshire Motor Spwy
+location:	Loudon, NH
+length: 	318
+laps: 	301
+track_length: 	1.058
+scale: 	0.582
+x_offset: 	25
+y_offset: 	15
+tv_network: 	TNT
+track_image_file: 	new_hampshire.gif
+</RACE>
+<PARTICIPANTS>
+42	Montoya	Chevrolet	1	Juan Pablo	Montoya	1771
+9	Kahne	Ford	2	Kasey	Kahne	1781
+2	Kurt Busch	Dodge	3	Kurt	Busch	2118
+5	Martin	Chevrolet	4	Mark	Martin	1947
+39	Newman	Chevrolet	5	Ryan	Newman	1850
+00	Reutimann	Toyota	6	David	Reutimann	1752
+87	Nemechek	Toyota	7	Joe	Nemechek	643
+77	Hornish Jr.	Dodge	8	Sam	Hornish Jr.	1405
+33	Bowyer	Chevrolet	9	Clint	Bowyer	1858
+48	Johnson	Chevrolet	10	Jimmie	Johnson	2194
+20	Logano	Toyota	11	Joey	Logano	1783
+47	Ambrose	Toyota	12	Marcos	Ambrose	1469
+98	Menard	Ford	13	Paul	Menard	1659
+12	Keselowski	Dodge	14	Brad	Keselowski	1558
+82	Speed	Toyota	15	Scott	Speed	1549
+24	J. Gordon	Chevrolet	16	Jeff	Gordon	2142
+31	J. Burton	Chevrolet	17	Jeff	Burton	2027
+78	Smith	Chevrolet	18	Regan	Smith	1368
+6	Ragan	Ford	19	David	Ragan	1557
+11	D. Hamlin	Toyota	20	Denny	Hamlin	2183
+99	Edwards	Ford	21	Carl	Edwards	1932
+18	Kyle Busch	Toyota	22	Kyle	Busch	2193
+36	Mears	Toyota	23	Casey	Mears	480
+29	Harvick	Chevrolet	24	Kevin	Harvick	2334
+14	Stewart	Chevrolet	25	Tony	Stewart	1983
+56	Truex Jr.	Toyota	26	Martin	Truex Jr.	1775
+1	McMurray	Chevrolet	27	Jamie	McMurray	1790
+43	Allmendinger	Ford	28	A.J.	Allmendinger	1711
+83	Sorenson	Toyota	29	Reed	Sorenson	120
+19	E. Sadler	Ford	30	Elliott	Sadler	1437
+88	Earnhardt Jr.	Chevrolet	31	Dale	Earnhardt Jr.	1875
+13	Papis	Toyota	32	Max	Papis	628
+17	Kenseth	Ford	33	Matt	Kenseth	2092
+16	Biffle	Ford	34	Greg	Biffle	2011
+46	Yeley	Dodge	35	J.J.	Yeley	336
+66	Blaney	Toyota	36	Dave	Blaney	551
+55	McDowell	Toyota	37	Michael	McDowell	431
+26	Stremme	Ford	38	David	Stremme	643
+37	Gilliland	Ford	39	David	Gilliland	1135
+71	Lally	Chevrolet	40	Andy	Lally	0
+34	Conway	Ford	41	Kevin	Conway	981
+7	B. Labonte	Toyota	42	Bobby	Labonte	1203
+64	T. Bodine	Toyota	43	Todd	Bodine	126
+</PARTICIPANTS>

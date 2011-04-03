@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	AAA 400
+track:	Dover International Speedway
+location:	Dover, DE
+length: 	400
+laps: 	400
+track_length: 	1.0
+scale: 	0.574
+x_offset: 	28
+y_offset: 	18
+tv_network: 	ESPN
+track_image_file: 	dover.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	5138
+43	Allmendinger	Ford	2	A.J.	Allmendinger	2947
+56	Truex Jr.	Toyota	3	Martin	Truex Jr.	2987
+11	D. Hamlin	Toyota	4	Denny	Hamlin	5230
+42	Montoya	Chevrolet	5	Juan Pablo	Montoya	3132
+16	Biffle	Ford	6	Greg	Biffle	5122
+1	McMurray	Chevrolet	7	Jamie	McMurray	3220
+2	Kurt Busch	Dodge	8	Kurt	Busch	5144
+98	Menard	Ford	9	Paul	Menard	2721
+99	Edwards	Ford	10	Carl	Edwards	5135
+18	Kyle Busch	Toyota	11	Kyle	Busch	5168
+83	Sorenson	Toyota	12	Reed	Sorenson	966
+39	Newman	Chevrolet	13	Ryan	Newman	3221
+17	Kenseth	Ford	14	Matt	Kenseth	5094
+24	J. Gordon	Chevrolet	15	Jeff	Gordon	5155
+9	Kahne	Ford	16	Kasey	Kahne	3053
+00	Reutimann	Toyota	17	David	Reutimann	3132
+78	Smith	Chevrolet	18	Regan	Smith	2303
+20	Logano	Toyota	19	Joey	Logano	2936
+82	Speed	Toyota	20	Scott	Speed	2404
+77	Hornish Jr.	Dodge	21	Sam	Hornish Jr.	2465
+19	E. Sadler	Ford	22	Elliott	Sadler	2377
+47	Ambrose	Toyota	23	Marcos	Ambrose	2638
+33	Bowyer	Chevrolet	24	Clint	Bowyer	5045
+14	Stewart	Chevrolet	25	Tony	Stewart	5106
+13	Mears	Toyota	26	Casey	Mears	934
+31	Burton	Chevrolet	27	Jeff	Burton	5118
+87	Nemechek	Toyota	28	Joe	Nemechek	1068
+6	Ragan	Ford	29	David	Ragan	2647
+34	Kvapil	Ford	30	Travis	Kvapil	1924
+12	Keselowski	Dodge	31	Brad	Keselowski	2629
+88	Earnhardt Jr.	Chevrolet	32	Dale	Earnhardt Jr.	3068
+29	Harvick	Chevrolet	33	Kevin	Harvick	5185
+09	B. Labonte	Chevrolet	34	Bobby	Labonte	1949
+38	Gilliland	Ford	35	David	Gilliland	1774
+81	Yeley	Dodge	36	J.J.	Yeley	588
+36	Blaney	Chevrolet	37	Dave	Blaney	933
+55	Bliss	Toyota	38	Mike	Bliss	876
+71	Cassill	Chevrolet	39	Landon	Cassill	388
+7	Conway	Toyota	40	Kevin	Conway	1586
+37	Raines	Ford	41	Tony	Raines	296
+5	Martin	Chevrolet	42	Mark	Martin	3098
+46	McDowell	Dodge	43	Michael	McDowell	730
+</PARTICIPANTS>

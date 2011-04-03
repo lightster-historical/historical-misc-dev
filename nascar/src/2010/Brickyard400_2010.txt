@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Brickyard 400
+track:	Indianapolis Motor Spwy
+location:	Indianapolis, IN
+length: 	400
+laps: 	160
+track_length: 	2.5
+scale: 	0.560
+x_offset: 	33
+y_offset: 	20
+tv_network: 	ESPN
+track_image_file: 	indianapolis.gif
+</RACE>
+<PARTICIPANTS>
+42	Montoya	Chevrolet	1	Juan Pablo	Montoya	2044
+48	Johnson	Chevrolet	2	Jimmie	Johnson	2557
+5	Martin	Chevrolet	3	Mark	Martin	2249
+1	McMurray	Chevrolet	4	Jamie	McMurray	2105
+39	Newman	Chevrolet	5	Ryan	Newman	2187
+33	Bowyer	Chevrolet	6	Clint	Bowyer	2286
+16	Biffle	Ford	7	Greg	Biffle	2292
+24	J. Gordon	Chevrolet	8	Jeff	Gordon	2642
+29	Harvick	Chevrolet	9	Kevin	Harvick	2745
+31	Burton	Chevrolet	10	Jeff	Burton	2465
+12	Keselowski	Dodge	11	Brad	Keselowski	1830
+56	Truex Jr.	Toyota	12	Martin	Truex Jr.	2060
+17	Kenseth	Ford	13	Matt	Kenseth	2446
+2	Kurt Busch	Dodge	14	Kurt	Busch	2524
+14	Stewart	Chevrolet	15	Tony	Stewart	2389
+43	Allmendinger	Ford	16	A.J.	Allmendinger	2021
+88	Earnhardt Jr.	Chevrolet	17	Dale	Earnhardt Jr.	2271
+11	D. Hamlin	Toyota	18	Denny	Hamlin	2542
+99	Edwards	Ford	19	Carl	Edwards	2345
+71	Cassill	Chevrolet	20	Landon	Cassill	95
+7	R. Gordon	Toyota	21	Robby	Gordon	1383
+78	Smith	Chevrolet	22	Regan	Smith	1599
+18	Kyle Busch	Toyota	23	Kyle	Busch	2488
+9	Kahne	Ford	24	Kasey	Kahne	2166
+77	Hornish Jr.	Dodge	25	Sam	Hornish Jr.	1695
+98	Menard	Ford	26	Paul	Menard	1981
+19	E. Sadler	Ford	27	Elliott	Sadler	1750
+6	Ragan	Ford	28	David	Ragan	1836
+00	Reutimann	Toyota	29	David	Reutimann	2190
+82	Speed	Toyota	30	Scott	Speed	1838
+21	Elliott	Ford	31	Bill	Elliott	500
+83	Sorenson	Toyota	32	Reed	Sorenson	435
+87	Nemechek	Toyota	33	Joe	Nemechek	763
+20	Logano	Toyota	34	Joey	Logano	2103
+13	Papis	Toyota	35	Max	Papis	736
+09	B. Labonte	Chevrolet	36	Bobby	Labonte	1467
+55	McDowell	Toyota	37	Michael	McDowell	471
+37	Kvapil	Ford	38	Travis	Kvapil	1303
+64	T. Bodine	Toyota	39	Todd	Bodine	169
+66	Blaney	Toyota	40	Dave	Blaney	622
+47	Ambrose	Toyota	41	Marcos	Ambrose	1739
+34	Conway	Ford	42	Kevin	Conway	1233
+32	Villeneuve	Toyota	43	Jacques 	Villeneuve	0
+</PARTICIPANTS>

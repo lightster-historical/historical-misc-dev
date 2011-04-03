@@ -1,0 +1,40 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Sprint All Star Race
+track:	Lowes Motor Swy
+location:	Concord, NC
+length: 	150
+laps: 	100
+track_length: 	1.5
+scale: 	0.618
+x_offset: 	14
+y_offset: 	9
+tv_network: 	SPEED
+track_image_file: 	lowes.gif
+</RACE>
+<PARTICIPANTS>
+2	Kurt Busch	Dodge	1	Kurt	Busch	0
+18	Kyle Busch	Toyota	2	Kyle	Busch	0
+88	Earnhardt Jr.	Chevrolet	3	Dale	Earnhardt Jr.	0
+24	J. Gordon	Chevrolet	4	Jeff	Gordon	0
+48	Johnson	Chevrolet	5	Jimmie	Johnson	0
+29	Harvick	Chevrolet	6	Kevin	Harvick	0
+17	Kenseth	Ford	7	Matt	Kenseth	0
+9	Kahne	Ford	8	Kasey	Kahne	0
+71	B. Labonte	Chevrolet	9	Bobby	Labonte	0
+12	Keselowski	Dodge	10	Brad	Keselowski	0
+5	Martin	Chevrolet	11	Mark	Martin	0
+20	Logano	Toyota	12	Joey	Logano	0
+83	Mears	Toyota	13	Casey	Mears	0
+1	McMurray	Chevrolet	14	Jamie	McMurray	0
+00	Reutimann	Toyota	15	David	Reutimann	0
+39	Newman	Chevrolet	16	Ryan	Newman	0
+56	Truex Jr.	Toyota	17	Martin	Truex Jr.	0
+14	Stewart	Chevrolet	18	Tony	Stewart	0
+99	Edwards	Ford	19	Carl	Edwards	0
+16	Biffle	Ford	20	Greg	Biffle	0
+11	D. Hamlin	Toyota	21	Denny	Hamlin	0
+</PARTICIPANTS>
