@@ -150,6 +150,7 @@ public class Result
 	{
 		int points = 0;
 		
+		/*
 		if(finish == 1)
 			points = 185;
 		else if(finish <= 6)
@@ -158,12 +159,17 @@ public class Result
 			points = 130 + (11-finish)*4;
 		else if(finish <= 43)
 			points = 34 + (43 -finish)*3;
+		*/
+		points	= 44 - finish;
 		
 		if(ledLaps)
-			points += 5;
+			points += 1;
 		
 		if(ledMostLaps)
-			points += 5;
+			points += 1;
+		
+		if(finish == 1)
+			points += 3;
 		
 		return points;
 	}

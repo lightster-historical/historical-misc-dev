@@ -6,10 +6,10 @@ import java.sql.SQLException;
 
 public class NASCARData
 {
-	public static final String SQL_HOST = "lightdatasys.light";
+	public static final String SQL_HOST = "sarge.local";
 	public static final String SQL_DB_NAME = "litesign_alpha2";
-	public static final String SQL_USERNAME = "litesign_mlight";
-	public static final String SQL_PASSWORD = "***REMOVED***";
+	public static final String SQL_USERNAME = "lightster";
+	public static final String SQL_PASSWORD = "lightster";
 	
 	private static Connection conn;
 	

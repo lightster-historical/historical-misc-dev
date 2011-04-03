@@ -179,6 +179,29 @@ public class Driver
 			if(chaseDate != null)
 				whereChase = String.format(" AND DATE(ra.date)<='%1$tY-%1$tm-%1$td'", chaseDate);
 			
+			int raceId	= 0;
+			if(!inclusive)
+			{
+				Statement sPrevRace = conn.createStatement();
+				sPrevRace.execute(
+						"SELECT prevRace.raceId " +
+						"FROM nascarRace AS race " +
+						"INNER JOIN nascarRace AS prevRace " +
+						"	ON prevRace.raceNo = race.raceNo - 1 " +
+						"	AND prevRace.seasonId = race.seasonId " +
+						"WHERE race.raceId = " + race.getId()
+					);
+				
+				ResultSet rsPrevRace = sPrevRace.getResultSet();
+				if(rsPrevRace.next())
+					raceId = rsPrevRace.getInt("raceId");
+			}
+			else
+			{
+				raceId	= race.getId();
+			}
+			
+			/*
 			Statement sPreChase = conn.createStatement();
 			String sqlPreChase = String.format(
 					"SELECT d.driverId, COUNT(ra.raceId) starts, SUM(IF(finish=1,1,0)) wins, " +
@@ -192,6 +215,25 @@ public class Driver
 					"WHERE ra.seasonId=%1$d AND DATE(ra.date)<%4$s'%2$tY-%2$tm-%2$td'%3$s " +
 					"AND ra.forPoints=1 GROUP BY d.driverId ORDER BY points DESC",
 					race.getSeason().getId(), race.getDate(), whereChase, (inclusive ? "=" : ""));
+			//System.out.println(race.getId() + " " + inclusive + " " + sqlPreChase);
+			sPreChase.execute(sqlPreChase);
+			*/
+			Statement sPreChase = conn.createStatement();
+			String sqlPreChase = String.format(
+					"SELECT driverId, startCount AS starts, winCount AS wins, " +
+					"top5Count AS top5s, top10Count AS top10s, " +
+					"adjustedSeasonPoints AS points " +
+					"FROM nascarDriverStanding " +
+					"WHERE raceId = %1$d"
+					//"penalty AS chasePenalties " +
+					//"FROM nascarDriver AS d " +
+					//"INNER JOIN nascarResult AS re ON d.driverId=re.driverId " +
+					//"INNER JOIN nascarRace AS ra ON re.raceId=ra.raceId " +
+					//"LEFT JOIN nascarChasePenalty AS cp ON ra.seasonId=cp.seasonId AND d.driverId=cp.driverId " +
+					//"WHERE ra.seasonId=%1$d AND DATE(ra.date)<%4$s'%2$tY-%2$tm-%2$td'%3$s " +
+					//"AND ra.forPoints=1 GROUP BY d.driverId ORDER BY points DESC",
+					,
+					raceId);//, race.getDate(), whereChase, (inclusive ? "=" : ""));
 			//System.out.println(race.getId() + " " + inclusive + " " + sqlPreChase);
 			sPreChase.execute(sqlPreChase);
 			
@@ -209,7 +251,8 @@ public class Driver
 				standing.top10s = rsPreChase.getInt("top10s");
 				standing.top5s = rsPreChase.getInt("top5s");
 				standing.points = rsPreChase.getInt("points");
-				standing.chasePenalties = rsPreChase.getInt("chasePenalties");
+				//standing.chasePenalties = rsPreChase.getInt("chasePenalties");
+//System.out.println(raceId + " " + driverId + " " + standing.points);
 			}
 			
 			for(Driver d : driversById.values())
@@ -227,6 +270,7 @@ public class Driver
 				if(date.compareTo(chaseDate) > 0)
 					race.setChaseRace(true);
 				
+				/*
 				ArrayList<Standing> sorted = new ArrayList<Standing>();
 				sorted.addAll(standings.values());
 				Collections.sort(sorted);
@@ -276,6 +320,7 @@ public class Driver
 					
 					//standing.points = -1;
 				}
+				*/
 			}
 		}
 		catch(Exception ex)
