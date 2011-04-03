@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Price Chopper 400
+track:	Kansas Speedway
+location:	Kansas City, KS
+length: 	400
+laps: 	267
+track_length: 	1.5
+scale: 	0.575
+x_offset: 	21
+y_offset: 	19
+tv_network: 	ABC
+track_image_file: 	kansas.gif
+</RACE>
+<PARTICIPANTS>
+5	Martin	Chevrolet	1	Mark	Martin	5400
+88	Earnhardt Jr.	Chevrolet	2	Dale	Earnhardt Jr.	2789
+25	Keselowski	Chevrolet	3	Brad	Keselowski	927
+26	McMurray	Ford	4	Jamie	McMurray	2752
+14	Stewart	Chevrolet	5	Tony	Stewart	5294
+9	Kahne	Dodge	6	Kasey	Kahne	5211
+87	Nemechek	Toyota	7	Joe	Nemechek	1062
+33	Bowyer	Chevrolet	8	Clint	Bowyer	3311
+24	J. Gordon	Chevrolet	9	Jeff	Gordon	5278
+82	Speed	Toyota	10	Scott	Speed	2022
+48	Johnson	Chevrolet	11	Jimmie	Johnson	5390
+83	Vickers	Toyota	12	Brian	Vickers	5249
+00	Reutimann	Toyota	13	David	Reutimann	3275
+42	Montoya	Chevrolet	14	Juan Pablo	Montoya	5335
+44	Allmendinger	Dodge	15	A.J.	Allmendinger	2689
+21	Elliott	Ford	16	Bill	Elliott	737
+99	Edwards	Ford	17	Carl	Edwards	5247
+20	Logano	Toyota	18	Joey	Logano	2842
+09	Bliss	Dodge	19	Mike	Bliss	412
+98	Menard	Ford	20	Paul	Menard	2374
+1	Truex Jr.	Chevrolet	21	Martin	Truex Jr.	2625
+11	D. Hamlin	Toyota	22	Denny	Hamlin	5292
+17	Kenseth	Ford	23	Matt	Kenseth	3424
+66	Blaney	Toyota	24	Dave	Blaney	1001
+6	Ragan	Ford	25	David	Ragan	2469
+71	B. Labonte	Chevrolet	26	Bobby	Labonte	2495
+47	Ambrose	Toyota	27	Marcos	Ambrose	3059
+43	Sorenson	Dodge	28	Reed	Sorenson	2503
+55	Waltrip	Toyota	29	Michael	Waltrip	2155
+39	Newman	Chevrolet	30	Ryan	Newman	5290
+16	Biffle	Ford	31	Greg	Biffle	5262
+12	Stremme	Dodge	32	David	Stremme	2444
+77	Hornish Jr.	Dodge	33	Sam	Hornish Jr.	2571
+18	Kyle Busch	Toyota	34	Kyle	Busch	3395
+31	Burton	Chevrolet	35	Jeff	Burton	2968
+07	Mears	Chevrolet	36	Casey	Mears	2875
+7	R. Gordon	Toyota	37	Robby	Gordon	2167
+29	Harvick	Chevrolet	38	Kevin	Harvick	2807
+2	Kurt Busch	Dodge	39	Kurt	Busch	5325
+34	Andretti	Chevrolet	40	John	Andretti	1957
+96	Darnell	Ford	41	Erik	Darnell	146
+19	Sadler	Dodge	42	Elliott	Sadler	2631
+13	Papis	Toyota	43	Max	Papis	739
+</PARTICIPANTS>

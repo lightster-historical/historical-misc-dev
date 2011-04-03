@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Pepsi 500
+track:	Auto Club Speedway
+location:	Fontana, CA
+length: 	500
+laps: 	250
+track_length: 	2.0
+scale: 	0.574
+x_offset: 	27
+y_offset: 	17
+tv_network: 	ABC
+track_image_file: 	california.gif
+</RACE>
+<PARTICIPANTS>
+11	D. Hamlin	Toyota	1	Denny	Hamlin	5452
+16	Biffle	Ford	2	Greg	Biffle	5437
+48	Johnson	Chevrolet	3	Jimmie	Johnson	5533
+42	Montoya	Chevrolet	4	Juan Pablo	Montoya	5500
+1	Truex Jr.	Chevrolet	5	Martin	Truex Jr.	2745
+20	Logano	Toyota	6	Joey	Logano	2921
+29	Harvick	Chevrolet	7	Kevin	Harvick	2898
+33	Bowyer	Chevrolet	8	Clint	Bowyer	3411
+5	Martin	Chevrolet	9	Mark	Martin	5551
+24	J. Gordon	Chevrolet	10	Jeff	Gordon	5448
+99	Edwards	Ford	11	Carl	Edwards	5386
+44	Allmendinger	Dodge	12	A.J.	Allmendinger	2801
+87	Nemechek	Toyota	13	Joe	Nemechek	1099
+12	Stremme	Dodge	14	David	Stremme	2532
+13	Papis	Toyota	15	Max	Papis	806
+07	Mears	Chevrolet	16	Casey	Mears	2993
+17	Kenseth	Ford	17	Matt	Kenseth	3475
+31	Burton	Chevrolet	18	Jeff	Burton	3062
+18	Kyle Busch	Toyota	19	Kyle	Busch	5460
+14	Stewart	Chevrolet	20	Tony	Stewart	5484
+82	Speed	Toyota	21	Scott	Speed	2104
+77	Hornish Jr.	Dodge	22	Sam	Hornish Jr.	2680
+09	Bliss	Dodge	23	Mike	Bliss	452
+2	Kurt Busch	Dodge	24	Kurt	Busch	3522
+9	Kahne	Dodge	25	Kasey	Kahne	5361
+78	Smith	Chevrolet	26	Regan	Smith	1181
+47	Ambrose	Toyota	27	Marcos	Ambrose	3180
+43	Sorenson	Dodge	28	Reed	Sorenson	2588
+26	McMurray	Ford	29	Jamie	McMurray	2822
+71	Gilliland	Chevrolet	30	David	Gilliland	1524
+6	Ragan	Ford	31	David	Ragan	2527
+83	Vickers	Toyota	32	Brian	Vickers	5301
+66	Blaney	Toyota	33	Dave	Blaney	1044
+55	Waltrip	Toyota	34	Michael	Waltrip	2204
+96	B. Labonte	Ford	35	Bobby	Labonte	2529
+39	Newman	Chevrolet	36	Ryan	Newman	5387
+88	Earnhardt Jr.	Chevrolet	37	Dale	Earnhardt Jr.	2849
+7	R. Gordon	Toyota	38	Robby	Gordon	2228
+19	Sadler	Dodge	39	Elliott	Sadler	2739
+34	Andretti	Chevrolet	40	John	Andretti	2026
+98	Menard	Ford	41	Paul	Menard	2447
+00	Reutimann	Toyota	42	David	Reutimann	3417
+36	McDowell	Toyota	43	Michael	McDowell	129
+</PARTICIPANTS>

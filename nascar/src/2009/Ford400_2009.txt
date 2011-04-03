@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Ford 400
+track:	Homestead-Miami
+location:	Homestead, FL
+length: 	400
+laps: 	267
+track_length: 	1.5
+scale: 	0.648
+x_offset: 	5
+y_offset: 	1
+tv_network: 	ABC
+track_image_file: 	homestead.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	6492
+82	Speed	Toyota	2	Scott	Speed	2608
+47	Ambrose	Toyota	3	Marcos	Ambrose	3767
+5	Martin	Chevrolet	4	Mark	Martin	6384
+14	Stewart	Chevrolet	5	Tony	Stewart	6207
+29	Harvick	Chevrolet	6	Kevin	Harvick	3626
+39	Newman	Chevrolet	7	Ryan	Newman	6081
+16	Biffle	Ford	8	Greg	Biffle	6171
+21	Elliott	Ford	9	Bill	Elliott	980
+33	Bowyer	Chevrolet	10	Clint	Bowyer	4224
+26	McMurray	Ford	11	Jamie	McMurray	3495
+2	Kurt Busch	Dodge	12	Kurt	Busch	6281
+44	Allmendinger	Ford	13	A.J.	Allmendinger	3342
+1	Truex Jr.	Chevrolet	14	Martin	Truex Jr.	3365
+07	Mears	Chevrolet	15	Casey	Mears	3653
+78	Smith	Chevrolet	16	Regan	Smith	1373
+02	Gilliland	Dodge	17	David	Gilliland	1852
+36	McDowell	Toyota	18	Michael	McDowell	292
+71	B. Labonte	Chevrolet	19	Bobby	Labonte	3058
+24	J. Gordon	Chevrolet	20	Jeff	Gordon	6323
+19	E. Sadler	Dodge	21	Elliott	Sadler	3310
+00	Reutimann	Toyota	22	David	Reutimann	4103
+42	Montoya	Chevrolet	23	Juan Pablo	Montoya	6203
+99	Edwards	Ford	24	Carl	Edwards	5972
+9	Kahne	Dodge	25	Kasey	Kahne	6016
+31	J. Burton	Chevrolet	26	Jeff	Burton	3847
+12	Keselowski	Dodge	27	Brad	Keselowski	1440
+37	Kvapil	Chevrolet	28	Travis	Kvapil	326
+77	Hornish Jr.	Dodge	29	Sam	Hornish Jr.	3103
+18	Kyle Busch	Toyota	30	Kyle	Busch	4310
+96	E. Darnell	Ford	31	Erik	Darnell	417
+88	Earnhardt Jr.	Chevrolet	32	Dale	Earnhardt Jr.	3343
+83	Vickers	Toyota	33	Brian	Vickers	5826
+17	Kenseth	Ford	34	Matt	Kenseth	4265
+20	Logano	Toyota	35	Joey	Logano	3700
+98	Menard	Ford	36	Paul	Menard	2894
+7	R. Gordon	Toyota	37	Robby	Gordon	2653
+11	Hamlin	Toyota	38	Denny	Hamlin	6140
+55	Waltrip	Toyota	39	Michael	Waltrip	2761
+34	Andretti	Chevrolet	40	John	Andretti	2533
+6	Ragan	Ford	41	David	Ragan	3191
+43	Sorenson	Dodge	42	Reed	Sorenson	3104
+08	T. Labonte	Toyota	43	Terry	Labonte	301
+</PARTICIPANTS>

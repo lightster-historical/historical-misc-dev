@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Chevy Rock & Roll 400
+track:	Richmond Int'l Raceway
+location:	Richmond, VA
+length: 	300
+laps: 	400
+track_length: 	0.75
+scale: 	0.578
+x_offset: 	25
+y_offset: 	15
+tv_network: 	ABC
+track_image_file: 	richmond.gif
+</RACE>
+<PARTICIPANTS>
+5	Martin	Chevrolet	1	Mark	Martin	3126
+1	Truex Jr.	Chevrolet	2	Martin	Truex Jr.	2409
+11	Hamlin	Toyota	3	Denny	Hamlin	3296
+48	Johnson	Chevrolet	4	Jimmie	Johnson	3404
+9	Kahne	Dodge	5	Kasey	Kahne	3153
+83	Vickers	Toyota	6	Brian	Vickers	3057
+24	J. Gordon	Chevrolet	7	Jeff	Gordon	3457
+18	Kyle Busch	Toyota	8	Kyle	Busch	3040
+09	Keselowski	Dodge	9	Brad	Keselowski	878
+99	Edwards	Ford	10	Carl	Edwards	3162
+43	Sorenson	Dodge	11	Reed	Sorenson	2275
+12	Stremme	Dodge	12	David	Stremme	2204
+2	Kurt Busch	Dodge	13	Kurt	Busch	3152
+42	Montoya	Chevrolet	14	Juan Pablo	Montoya	3145
+88	Earnhardt Jr.	Chevrolet	15	Dale	Earnhardt Jr.	2528
+47	Ambrose	Toyota	16	Marcos	Ambrose	2733
+44	Allmendinger	Dodge	17	A.J.	Allmendinger	2361
+33	Bowyer	Chevrolet	18	Clint	Bowyer	2909
+29	Harvick	Chevrolet	19	Kevin	Harvick	2475
+82	Speed	Toyota	20	Scott	Speed	1809
+39	Newman	Chevrolet	21	Ryan	Newman	3138
+31	J. Burton	Chevrolet	22	Jeff	Burton	2629
+00	Reutimann	Toyota	23	David	Reutimann	2945
+16	Biffle	Ford	24	Greg	Biffle	3125
+26	McMurray	Ford	25	Jamie	McMurray	2482
+6	Ragan	Ford	26	David	Ragan	2250
+20	Logano	Toyota	27	Joey	Logano	2584
+17	Kenseth	Ford	28	Matt	Kenseth	3077
+14	Stewart	Chevrolet	29	Tony	Stewart	3694
+7	Gilliland	Toyota	30	David	Gilliland	1382
+71	Bliss	Chevrolet	31	Mike	Bliss	332
+66	Blaney	Toyota	32	Dave	Blaney	878
+77	Hornish Jr.	Dodge	33	Sam	Hornish Jr.	2292
+19	E. Sadler	Dodge	34	Elliott	Sadler	2355
+78	Smith	Chevrolet	35	Regan	Smith	1071
+87	Nemechek	Toyota	36	Joe	Nemechek	921
+96	B. Labonte	Ford	37	Bobby	Labonte	2229
+07	Mears	Chevrolet	38	Casey	Mears	2566
+34	Andretti	Chevrolet	39	John	Andretti	1714
+55	Waltrip	Toyota	40	Michael	Waltrip	1946
+36	McDowell	Toyota	41	Michael	McDowell	0
+98	Menard	Ford	42	Paul	Menard	2128
+13	Papis	Toyota	43	Max	Papis	687
+</PARTICIPANTS>

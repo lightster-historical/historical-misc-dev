@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	NASCAR Banking 500
+track:	Lowes Motor Swy
+location:	Concord, NC
+length: 	501
+laps: 	334
+track_length: 	1.5
+scale: 	0.618
+x_offset: 	14
+y_offset: 	9
+tv_network: 	ABC
+track_image_file: 	lowes.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	5728
+5	Martin	Chevrolet	2	Mark	Martin	5716
+9	Kahne	Dodge	3	Kasey	Kahne	5422
+17	Kenseth	Ford	4	Matt	Kenseth	3599
+14	Stewart	Chevrolet	5	Tony	Stewart	5644
+39	Newman	Chevrolet	6	Ryan	Newman	5505
+71	Bliss	Chevrolet	7	Mike	Bliss	486
+25	Keselowski	Chevrolet	8	Brad	Keselowski	1056
+24	J. Gordon	Chevrolet	9	Jeff	Gordon	5623
+18	Kyle Busch	Toyota	10	Kyle	Busch	3613
+33	Bowyer	Chevrolet	11	Clint	Bowyer	3549
+20	Logano	Toyota	12	Joey	Logano	3042
+47	Ambrose	Toyota	13	Marcos	Ambrose	3274
+02	Gilliland	Toyota	14	David	Gilliland	1561
+2	Kurt Busch	Dodge	15	Kurt	Busch	5607
+82	Speed	Toyota	16	Scott	Speed	2204
+11	Hamlin	Toyota	17	Denny	Hamlin	5509
+42	Montoya	Chevrolet	18	Juan Pablo	Montoya	5670
+7	R. Gordon	Toyota	19	Robby	Gordon	2277
+26	McMurray	Ford	20	Jamie	McMurray	2877
+00	Reutimann	Toyota	21	David	Reutimann	3526
+77	Hornish Jr.	Dodge	22	Sam	Hornish Jr.	2807
+16	Biffle	Ford	23	Greg	Biffle	5540
+96	B. Labonte	Ford	24	Bobby	Labonte	2614
+1	Truex Jr.	Chevrolet	25	Martin	Truex Jr.	2847
+44	Allmendinger	Dodge	26	A.J.	Allmendinger	2865
+12	Stremme	Dodge	27	David	Stremme	2647
+99	Edwards	Ford	28	Carl	Edwards	5536
+6	Ragan	Ford	29	David	Ragan	2673
+83	Vickers	Toyota	30	Brian	Vickers	5377
+98	Menard	Ford	31	Paul	Menard	2529
+29	Harvick	Chevrolet	32	Kevin	Harvick	3032
+55	Waltrip	Toyota	33	Michael	Waltrip	2316
+31	J. Burton	Chevrolet	34	Jeff	Burton	3135
+87	Nemechek	Toyota	35	Joe	Nemechek	1145
+21	Elliott	Ford	36	Bill	Elliott	843
+43	Sorenson	Dodge	37	Reed	Sorenson	2658
+19	E. Sadler	Dodge	38	Elliott	Sadler	2806
+88	Earnhardt Jr.	Chevrolet	39	Dale	Earnhardt Jr.	2937
+13	Papis	Toyota	40	Max	Papis	864
+34	Andretti	Chevrolet	41	John	Andretti	2137
+07	Mears	Chevrolet	42	Casey	Mears	3123
+08	T. Labonte	Toyota	43	Terry	Labonte	244
+</PARTICIPANTS>

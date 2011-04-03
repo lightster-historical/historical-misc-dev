@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Pep Boys Auto 500
+track:	Atlanta Motor Speedway
+location:	Hampton, GA
+length: 	500.5
+laps: 	325
+track_length: 	1.54
+scale: 	0.576
+x_offset: 	31
+y_offset: 	15
+tv_network: 	ESPN
+track_image_file: 	atlanta.gif
+</RACE>
+<PARTICIPANTS>
+1	Truex Jr.	Chevrolet	1	Martin	Truex Jr.	2314
+9	Kahne	Dodge	2	Kasey	Kahne	2963
+48	Johnson	Chevrolet	3	Jimmie	Johnson	3344
+24	J. Gordon	Chevrolet	4	Jeff	Gordon	3310
+18	Kyle Busch	Toyota	5	Kyle	Busch	2911
+2	Kurt Busch	Dodge	6	Kurt	Busch	3103
+5	Martin	Chevrolet	7	Mark	Martin	2971
+83	Vickers	Toyota	8	Brian	Vickers	2833
+12	Stremme	Dodge	9	David	Stremme	2083
+11	Hamlin	Toyota	10	Denny	Hamlin	3141
+47	Ambrose	Toyota	11	Marcos	Ambrose	2639
+14	Stewart	Chevrolet	12	Tony	Stewart	3564
+43	Sorenson	Dodge	13	Reed	Sorenson	2193
+99	Edwards	Ford	14	Carl	Edwards	3110
+17	Kenseth	Ford	15	Matt	Kenseth	2945
+6	Ragan	Ford	16	David	Ragan	2186
+21	Gilliland	Ford	17	David	Gilliland	1276
+29	Harvick	Chevrolet	18	Kevin	Harvick	2300
+55	Waltrip	Toyota	19	Michael	Waltrip	1874
+33	Bowyer	Chevrolet	20	Clint	Bowyer	0
+19	E. Sadler	Dodge	21	Elliott	Sadler	2255
+42	Montoya	Chevrolet	22	Juan Pablo	Montoya	2975
+39	Newman	Chevrolet	23	Ryan	Newman	2995
+31	J. Burton	Chevrolet	24	Jeff	Burton	2568
+71	B. Labonte	Chevrolet	25	Bobby	Labonte	2120
+16	Biffle	Ford	26	Greg	Biffle	2986
+26	McMurray	Ford	27	Jamie	McMurray	2403
+00	Reutimann	Toyota	28	David	Reutimann	2785
+7	R. Gordon	Toyota	29	Robby	Gordon	1900
+77	Hornish Jr.	Dodge	30	Sam	Hornish Jr.	2234
+88	Earnhardt Jr.	Chevrolet	31	Dale	Earnhardt Jr.	2416
+82	Speed	Toyota	32	Scott	Speed	1718
+07	Mears	Chevrolet	33	Casey	Mears	2478
+20	Logano	Toyota	34	Joey	Logano	2487
+44	Allmendinger	Dodge	35	A.J.	Allmendinger	2258
+87	Nemechek	Toyota	36	Joe	Nemechek	884
+66	Blaney	Toyota	37	Dave	Blaney	844
+09	Bliss	Dodge	38	Mike	Bliss	292
+13	Papis	Toyota	39	Max	Papis	644
+34	Andretti	Chevrolet	40	John	Andretti	1644
+98	Menard	Ford	41	Paul	Menard	2010
+96	E. Darnell	Ford	42	Erik	Darnell	0
+08	T. Labonte	Toyota	43	Terry	Labonte	198
+</PARTICIPANTS>

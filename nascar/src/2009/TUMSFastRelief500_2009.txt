@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	TUMS Fast Relief 500
+track:	Martinsville Speedway
+location:	Martinsville, VA
+length: 	263
+laps: 	500
+track_length: 	0.526
+scale: 	0.590
+x_offset: 	21
+y_offset: 	7
+tv_network: 	ABC
+track_image_file: 	martinsville.gif
+</RACE>
+<PARTICIPANTS>
+39	Newman	Chevrolet	1	Ryan	Newman	5635
+24	J. Gordon	Chevrolet	2	Jeff	Gordon	5788
+1	Truex Jr.	Chevrolet	3	Martin	Truex Jr.	2985
+5	Martin	Chevrolet	4	Mark	Martin	5833
+00	Reutimann	Toyota	5	David	Reutimann	3644
+07	Mears	Chevrolet	6	Casey	Mears	3269
+20	Logano	Toyota	7	Joey	Logano	3197
+96	B. Labonte	Ford	8	Bobby	Labonte	2684
+43	Sorenson	Dodge	9	Reed	Sorenson	2758
+29	Harvick	Chevrolet	10	Kevin	Harvick	3141
+12	Stremme	Dodge	11	David	Stremme	2753
+88	Earnhardt Jr.	Chevrolet	12	Dale	Earnhardt Jr.	2986
+14	Stewart	Chevrolet	13	Tony	Stewart	5768
+6	Ragan	Ford	14	David	Ragan	2776
+48	Johnson	Chevrolet	15	Jimmie	Johnson	5923
+44	Allmendinger	Dodge	16	A.J.	Allmendinger	2959
+11	D. Hamlin	Toyota	17	Denny	Hamlin	5551
+82	Speed	Toyota	18	Scott	Speed	2283
+33	Bowyer	Chevrolet	19	Clint	Bowyer	3699
+16	Biffle	Ford	20	Greg	Biffle	5655
+42	Montoya	Chevrolet	21	Juan Pablo	Montoya	5728
+31	J. Burton	Chevrolet	22	Jeff	Burton	3256
+26	McMurray	Ford	23	Jamie	McMurray	2941
+83	Vickers	Toyota	24	Brian	Vickers	5438
+37	Kvapil	Dodge	25	Travis	Kvapil	292
+9	Kahne	Dodge	26	Kasey	Kahne	5592
+34	Andretti	Chevrolet	27	John	Andretti	2192
+87	Nemechek	Toyota	28	Joe	Nemechek	1179
+99	Edwards	Ford	29	Carl	Edwards	5582
+98	Menard	Ford	30	Paul	Menard	2611
+77	Hornish Jr.	Dodge	31	Sam	Hornish Jr.	2850
+17	Kenseth	Ford	32	Matt	Kenseth	3774
+7	R. Gordon	Toyota	33	Robby	Gordon	2350
+47	Ambrose	Toyota	34	Marcos	Ambrose	3371
+71	Gilliland	Chevrolet	35	David	Gilliland	1649
+55	Waltrip	Toyota	36	Michael	Waltrip	2388
+2	Kurt Busch	Dodge	37	Kurt	Busch	5746
+09	Marlin	Dodge	38	Sterling	Marlin	258
+66	Blaney	Toyota	39	Dave	Blaney	1084
+19	E. Sadler	Dodge	40	Elliott	Sadler	2891
+18	Kyle Busch	Toyota	41	Kyle	Busch	3755
+36	McDowell	Toyota	42	Michael	McDowell	172
+64	Cope	Toyota	43	Derrike	Cope	0
+</PARTICIPANTS>

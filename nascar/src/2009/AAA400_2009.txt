@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	AAA 400
+track:	Dover Int'l Speedway
+location:	Dover, DE
+length: 	400
+laps: 	400
+track_length: 	1.0
+scale: 	0.574
+x_offset: 	28
+y_offset: 	18
+tv_network: 	ABC
+track_image_file: 	dover.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	5195
+42	Montoya	Chevrolet	2	Juan Pablo	Montoya	5175
+39	Newman	Chevrolet	3	Ryan	Newman	5151
+16	Biffle	Ford	4	Greg	Biffle	5138
+00	Reutimann	Toyota	5	David	Reutimann	3175
+9	Kahne	Dodge	6	Kasey	Kahne	5069
+24	J. Gordon	Chevrolet	7	Jeff	Gordon	5128
+33	Bowyer	Chevrolet	8	Clint	Bowyer	3193
+77	Hornish Jr.	Dodge	9	Sam	Hornish Jr.	2486
+98	Menard	Ford	10	Paul	Menard	2268
+20	Logano	Toyota	11	Joey	Logano	2805
+83	Vickers	Toyota	12	Brian	Vickers	5140
+11	Hamlin	Toyota	13	Denny	Hamlin	5195
+5	Martin	Chevrolet	14	Mark	Martin	5230
+18	Kyle Busch	Toyota	15	Kyle	Busch	3350
+2	Kurt Busch	Dodge	16	Kurt	Busch	5165
+12	Stremme	Dodge	17	David	Stremme	2368
+71	Gilliland	Chevrolet	18	David	Gilliland	1473
+44	Allmendinger	Dodge	19	A.J.	Allmendinger	2543
+29	Harvick	Chevrolet	20	Kevin	Harvick	2680
+6	Ragan	Ford	21	David	Ragan	2378
+14	Stewart	Chevrolet	22	Tony	Stewart	5156
+17	Kenseth	Ford	23	Matt	Kenseth	3259
+88	Earnhardt Jr.	Chevrolet	24	Dale	Earnhardt Jr.	2686
+26	McMurray	Ford	25	Jamie	McMurray	2673
+43	Sorenson	Dodge	26	Reed	Sorenson	2445
+47	Ambrose	Toyota	27	Marcos	Ambrose	2938
+31	J. Burton	Chevrolet	28	Jeff	Burton	2853
+07	Mears	Chevrolet	29	Casey	Mears	2763
+99	Edwards	Ford	30	Carl	Edwards	5117
+7	R. Gordon	Toyota	31	Robby	Gordon	2106
+1	Truex Jr.	Chevrolet	32	Martin	Truex Jr.	2561
+78	Smith	Chevrolet	33	Regan	Smith	1114
+19	E. Sadler	Dodge	34	Elliott	Sadler	2558
+66	Blaney	Toyota	35	Dave	Blaney	949
+09	Bliss	Dodge	36	Mike	Bliss	369
+34	Andretti	Chevrolet	37	John	Andretti	1875
+55	Waltrip	Toyota	38	Michael	Waltrip	2100
+82	Speed	Toyota	39	Scott	Speed	1934
+87	Nemechek	Toyota	40	Joe	Nemechek	1022
+96	B. Labonte	Ford	41	Bobby	Labonte	2401
+37	Raines	Chevrolet	42	Tony	Raines	460
+36	McDowell	Toyota	43	Michael	McDowell	80
+</PARTICIPANTS>

@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Amp Energy 500
+track:	Talladega Superspeedway
+location:	Talladega, AL
+length: 	500
+laps: 	188
+track_length: 	2.66
+scale: 	0.617
+x_offset: 	14
+y_offset: 	11
+tv_network: 	ABC
+track_image_file: 	talladega.gif
+</RACE>
+<PARTICIPANTS>
+48	Johnson	Chevrolet	1	Jimmie	Johnson	6098
+5	Martin	Chevrolet	2	Mark	Martin	5980
+24	J. Gordon	Chevrolet	3	Jeff	Gordon	5948
+14	Stewart	Chevrolet	4	Tony	Stewart	5906
+42	Montoya	Chevrolet	5	Juan Pablo	Montoya	5898
+2	Kurt Busch	Dodge	6	Kurt	Busch	5858
+39	Newman	Chevrolet	7	Ryan	Newman	5786
+16	Biffle	Ford	8	Greg	Biffle	5748
+11	D. Hamlin	Toyota	9	Denny	Hamlin	5746
+99	Edwards	Ford	10	Carl	Edwards	5685
+9	Kahne	Dodge	11	Kasey	Kahne	5659
+83	Vickers	Toyota	12	Brian	Vickers	5568
+18	Kyle Busch	Toyota	13	Kyle	Busch	3920
+17	Kenseth	Ford	14	Matt	Kenseth	3895
+33	Bowyer	Chevrolet	15	Clint	Bowyer	3805
+00	Reutimann	Toyota	16	David	Reutimann	3764
+47	Ambrose	Toyota	17	Marcos	Ambrose	3453
+31	Burton	Chevrolet	18	Jeff	Burton	3379
+07	Mears	Chevrolet	19	Casey	Mears	3378
+20	Logano	Toyota	20	Joey	Logano	3324
+29	Harvick	Chevrolet	21	Kevin	Harvick	3275
+26	McMurray	Ford	22	Jamie	McMurray	3091
+1	Truex Jr.	Chevrolet	23	Martin	Truex Jr.	3064
+88	Earnhardt Jr.	Chevrolet	24	Dale	Earnhardt Jr.	3062
+44	Allmendinger	Dodge	25	A.J.	Allmendinger	3020
+19	Sadler	Dodge	26	Elliott	Sadler	2991
+77	Hornish Jr.	Dodge	27	Sam	Hornish Jr.	2905
+6	Ragan	Ford	28	David	Ragan	2873
+43	Sorenson	Dodge	29	Reed	Sorenson	2849
+12	Stremme	Dodge	30	David	Stremme	2817
+96	Darnell	Ford	31	Erik	Darnell	222
+98	Menard	Ford	32	Paul	Menard	2705
+55	Waltrip	Toyota	33	Michael	Waltrip	2461
+7	R. Gordon	Toyota	34	Robby	Gordon	2402
+34	Andretti	Chevrolet	35	John	Andretti	2282
+09	Keselowski	Dodge	36	Brad	Keselowski	1183
+71	B. Labonte	Chevrolet	37	Bobby	Labonte	2808
+82	Speed	Toyota	38	Scott	Speed	2353
+87	Nemechek	Toyota	39	Joe	Nemechek	1228
+66	Blaney	Toyota	40	Dave	Blaney	1127
+36	Richardson Jr.	Toyota	41	Robert	Richardson Jr.	0
+13	Papis	Toyota	42	Max	Papis	904
+78	Smith	Chevrolet	43	Regan	Smith	1260
+</PARTICIPANTS>

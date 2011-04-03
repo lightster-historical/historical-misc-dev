@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Checker O'Reilly Auto Parts 500
+track:	Phoenix Int'l Raceway
+location:	Phoenix, AZ
+length: 	312
+laps: 	312
+track_length: 	1.0
+scale: 	0.598
+x_offset: 	23
+y_offset: 	9
+tv_network: 	ABC
+track_image_file: 	phoenix.gif
+</RACE>
+<PARTICIPANTS>
+1	Truex Jr.	Chevrolet	1	Martin	Truex Jr.	3260
+2	Kurt Busch	Dodge	2	Kurt	Busch	6126
+48	Johnson	Chevrolet	3	Jimmie	Johnson	6297
+9	Kahne	Dodge	4	Kasey	Kahne	5898
+11	Hamlin	Toyota	5	Denny	Hamlin	5975
+16	Biffle	Ford	6	Greg	Biffle	6050
+18	Kyle Busch	Toyota	7	Kyle	Busch	4183
+14	Stewart	Chevrolet	8	Tony	Stewart	6119
+07	Mears	Chevrolet	9	Casey	Mears	3571
+5	Martin	Chevrolet	10	Mark	Martin	6224
+55	Waltrip	Toyota	11	Michael	Waltrip	2706
+77	Hornish Jr.	Dodge	12	Sam	Hornish Jr.	2991
+33	Bowyer	Chevrolet	13	Clint	Bowyer	4078
+24	J. Gordon	Chevrolet	14	Jeff	Gordon	6185
+00	Reutimann	Toyota	15	David	Reutimann	3969
+44	Allmendinger	Ford	16	A.J.	Allmendinger	3218
+42	Montoya	Chevrolet	17	Juan Pablo	Montoya	6061
+88	Earnhardt Jr.	Chevrolet	18	Dale	Earnhardt Jr.	3285
+83	Vickers	Toyota	19	Brian	Vickers	5777
+71	B. Labonte	Chevrolet	20	Bobby	Labonte	3012
+47	Ambrose	Toyota	21	Marcos	Ambrose	3637
+7	R. Gordon	Toyota	22	Robby	Gordon	2556
+13	Papis	Toyota	23	Max	Papis	980
+39	Newman	Chevrolet	24	Ryan	Newman	5973
+99	Edwards	Ford	25	Carl	Edwards	5857
+12	Keselowski	Dodge	26	Brad	Keselowski	1388
+20	Logano	Toyota	27	Joey	Logano	3600
+17	Kenseth	Ford	28	Matt	Kenseth	4151
+09	Gilliland	Dodge	29	David	Gilliland	1779
+26	McMurray	Ford	30	Jamie	McMurray	3389
+29	Harvick	Chevrolet	31	Kevin	Harvick	3535
+66	Blaney	Toyota	32	Dave	Blaney	1167
+6	Ragan	Ford	33	David	Ragan	3097
+87	Nemechek	Toyota	34	Joe	Nemechek	1299
+19	E. Sadler	Dodge	35	Elliott	Sadler	3231
+31	J. Burton	Chevrolet	36	Jeff	Burton	3677
+82	Speed	Toyota	37	Scott	Speed	2544
+36	McDowell	Toyota	38	Michael	McDowell	252
+96	E. Darnell	Ford	39	Erik	Darnell	347
+43	Sorenson	Dodge	40	Reed	Sorenson	3019
+98	Menard	Ford	41	Paul	Menard	2818
+34	Andretti	Chevrolet	42	John	Andretti	2472
+37	Raines	Chevrolet	43	Tony	Raines	494
+</PARTICIPANTS>

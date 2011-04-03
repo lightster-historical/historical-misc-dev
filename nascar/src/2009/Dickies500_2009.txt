@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Dickies 500
+track:	Texas Motor Spdwy
+location:	Fort Worth, TX
+length: 	500
+laps: 	334
+track_length: 	1.5
+scale: 	0.576
+x_offset: 	27
+y_offset: 	15
+tv_network: 	ABC
+track_image_file: 	texas.gif
+</RACE>
+<PARTICIPANTS>
+24	J. Gordon	Chevrolet	1	Jeff	Gordon	6056
+9	Kahne	Dodge	2	Kasey	Kahne	5834
+2	Kurt Busch	Dodge	3	Kurt	Busch	5936
+14	Stewart	Chevrolet	4	Tony	Stewart	5969
+18	Kyle Busch	Toyota	5	Kyle	Busch	4043
+99	Edwards	Ford	6	Carl	Edwards	5811
+5	Martin	Chevrolet	7	Mark	Martin	6064
+16	Biffle	Ford	8	Greg	Biffle	5908
+88	Earnhardt Jr.	Chevrolet	9	Dale	Earnhardt Jr.	3197
+33	Bowyer	Chevrolet	10	Clint	Bowyer	3932
+77	Hornish Jr.	Dodge	11	Sam	Hornish Jr.	2948
+48	Johnson	Chevrolet	12	Jimmie	Johnson	6248
+00	Reutimann	Toyota	13	David	Reutimann	3854
+20	Logano	Toyota	14	Joey	Logano	3494
+83	Vickers	Toyota	15	Brian	Vickers	5692
+44	Allmendinger	Ford	16	A.J.	Allmendinger	3084
+6	Ragan	Ford	17	David	Ragan	2985
+43	Sorenson	Dodge	18	Reed	Sorenson	2964
+47	Ambrose	Toyota	19	Marcos	Ambrose	3519
+42	Montoya	Chevrolet	20	Juan Pablo	Montoya	6009
+02	Gilliland	Toyota	21	David	Gilliland	1700
+26	McMurray	Ford	22	Jamie	McMurray	3286
+70	Skinner	Chevrolet	23	Mike	Skinner	166
+29	Harvick	Chevrolet	24	Kevin	Harvick	3380
+11	D. Hamlin	Toyota	25	Denny	Hamlin	5800
+39	Newman	Chevrolet	26	Ryan	Newman	5846
+1	Truex Jr.	Chevrolet	27	Martin	Truex Jr.	3139
+71	B. Labonte	Chevrolet	28	Bobby	Labonte	2942
+7	R. Gordon	Toyota	29	Robby	Gordon	2474
+17	Kenseth	Ford	30	Matt	Kenseth	3986
+82	Speed	Toyota	31	Scott	Speed	2435
+78	Smith	Chevrolet	32	Regan	Smith	1306
+19	E. Sadler	Dodge	33	Elliott	Sadler	3134
+87	Nemechek	Toyota	34	Joe	Nemechek	1262
+12	Keselowski	Dodge	35	Brad	Keselowski	1330
+07	Mears	Chevrolet	36	Casey	Mears	3471
+36	McDowell	Toyota	37	Michael	McDowell	212
+96	Darnell	Ford	38	Erik	Darnell	274
+98	Menard	Ford	39	Paul	Menard	2742
+55	Waltrip	Toyota	40	Michael	Waltrip	2612
+34	Andretti	Chevrolet	41	John	Andretti	2381
+31	Burton	Chevrolet	42	Jeff	Burton	3539
+21	Elliott	Ford	43	Bill	Elliott	919
+</PARTICIPANTS>

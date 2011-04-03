@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Sylvania 300
+track:	New Hampshire Int'l Spwy
+location:	Loudon, NH
+length: 	317
+laps: 	300
+track_length: 	1.058
+scale: 	0.582
+x_offset: 	25
+y_offset: 	15
+tv_network: 	ABC
+track_image_file: 	new_hampshire.gif
+</RACE>
+<PARTICIPANTS>
+42	Montoya	Chevrolet	1	Juan Pablo	Montoya	5000
+14	Stewart	Chevrolet	2	Tony	Stewart	5030
+2	Kurt Busch	Dodge	3	Kurt	Busch	5010
+11	Hamlin	Toyota	4	Denny	Hamlin	5020
+99	Edwards	Ford	5	Carl	Edwards	5000
+12	Stremme	Dodge	6	David	Stremme	2289
+1	Truex Jr.	Chevrolet	7	Martin	Truex Jr.	2480
+71	B. Labonte	Chevrolet	8	Bobby	Labonte	2299
+18	Kyle Busch	Toyota	9	Kyle	Busch	3195
+24	J. Gordon	Chevrolet	10	Jeff	Gordon	5010
+9	Kahne	Dodge	11	Kasey	Kahne	5020
+29	Harvick	Chevrolet	12	Kevin	Harvick	2613
+00	Reutimann	Toyota	13	David	Reutimann	3048
+5	Martin	Chevrolet	14	Mark	Martin	5040
+66	Blaney	Toyota	15	Dave	Blaney	912
+48	Johnson	Chevrolet	16	Jimmie	Johnson	5030
+33	Bowyer	Chevrolet	17	Clint	Bowyer	3059
+39	Newman	Chevrolet	18	Ryan	Newman	5000
+07	Mears	Chevrolet	19	Casey	Mears	2639
+87	Nemechek	Toyota	20	Joe	Nemechek	979
+55	Waltrip	Toyota	21	Michael	Waltrip	2018
+16	Biffle	Ford	22	Greg	Biffle	5000
+88	Earnhardt Jr.	Chevrolet	23	Dale	Earnhardt Jr.	2628
+77	Hornish Jr.	Dodge	24	Sam	Hornish Jr.	2434
+43	Sorenson	Dodge	25	Reed	Sorenson	2390
+83	Vickers	Toyota	26	Brian	Vickers	5010
+82	Speed	Toyota	27	Scott	Speed	1864
+7	R. Gordon	Toyota	28	Robby	Gordon	2065
+26	McMurray	Ford	29	Jamie	McMurray	2564
+64	M. Wallace	Toyota	30	Mike	Wallace	34
+47	Ambrose	Toyota	31	Marcos	Ambrose	2830
+31	Burton	Chevrolet	32	Jeff	Burton	2738
+20	Logano	Toyota	33	Joey	Logano	2705
+44	Allmendinger	Dodge	34	A.J.	Allmendinger	2455
+19	Sadler	Dodge	35	Elliott	Sadler	2416
+37	Raines	Chevrolet	36	Tony	Raines	426
+96	Darnell	Ford	37	Erik	Darnell	73
+17	Kenseth	Ford	38	Matt	Kenseth	3165
+09	Almirola	Dodge	39	Aric	Almirola	451
+98	Menard	Ford	40	Paul	Menard	2207
+34	Andretti	Chevrolet	41	John	Andretti	1790
+6	Ragan	Ford	42	David	Ragan	2314
+36	McDowell	Toyota	43	Michael	McDowell	40
+</PARTICIPANTS>
