@@ -1,0 +1,62 @@
+<HEADER>
+format_version:	2.0
+event_type:	r 
+</HEADER>
+<RACE>
+race_name:	Goodys Fast Relief 500
+track:	Martinsville Speedway
+location:	Martinsville, VA
+length: 	263
+laps: 	500
+track_length: 	0.526
+scale: 	0.590
+x_offset: 	21
+y_offset: 	7
+tv_network: 	FOX
+track_image_file: 	martinsville.gif
+</RACE>
+<PARTICIPANTS>
+1	McMurray	Chevrolet	1	Jamie	McMurray	97
+39	Newman	Chevrolet	2	Ryan	Newman	178
+4	Kahne	Toyota	3	Kasey	Kahne	157
+20	Logano	Toyota	4	Joey	Logano	93
+11	D. Hamlin	Toyota	5	Denny	Hamlin	112
+43	Allmendinger	Ford	6	A.J.	Allmendinger	137
+47	B. Labonte	Toyota	7	Bobby	Labonte	121
+00	Reutimann	Toyota	8	David	Reutimann	100
+29	Harvick	Chevrolet	9	Kevin	Harvick	157
+78	Smith	Chevrolet	10	Regan	Smith	92
+18	Kyle Busch	Toyota	11	Kyle	Busch	176
+5	Martin	Chevrolet	12	Mark	Martin	147
+83	Vickers	Toyota	13	Brian	Vickers	105
+6	Ragan	Ford	14	David	Ragan	111
+33	Bowyer	Chevrolet	15	Clint	Bowyer	122
+27	Menard	Chevrolet	16	Paul	Menard	164
+48	Johnson	Chevrolet	17	Jimmie	Johnson	173
+56	Truex Jr.	Toyota	18	Martin	Truex Jr.	147
+9	Ambrose	Ford	19	Marcos	Ambrose	121
+22	Kurt Busch	Dodge	20	Kurt	Busch	177
+24	J. Gordon	Chevrolet	21	Jeff	Gordon	130
+2	Keselowski	Dodge	22	Brad	Keselowski	107
+99	Edwards	Ford	23	Carl	Edwards	187
+17	Kenseth	Ford	24	Matt	Kenseth	157
+21	Bayne	Ford	25	Trevor	Bayne	0
+88	Earnhardt Jr.	Chevrolet	26	Dale	Earnhardt Jr.	156
+42	Montoya	Chevrolet	27	Juan Pablo	Montoya	161
+14	Stewart	Chevrolet	28	Tony	Stewart	170
+36	Blaney	Chevrolet	29	Dave	Blaney	58
+13	Mears	Toyota	30	Casey	Mears	67
+38	Kvapil	Ford	31	Travis	Kvapil	0
+31	Burton	Chevrolet	32	Jeff	Burton	103
+16	Biffle	Ford	33	Greg	Biffle	119
+7	R. Gordon	Dodge	34	Robby	Gordon	69
+66	McDowell	Toyota	35	Michael	McDowell	9
+34	Gilliland	Ford	36	David	Gilliland	101
+87	Nemechek	Toyota	37	Joe	Nemechek	0
+09	Cassill	Chevrolet	38	Landon	Cassill	0
+60	Skinner	Toyota	39	Mike	Skinner	0
+32	Schrader	Ford	40	Ken	Schrader	11
+37	Raines	Ford	41	Tony	Raines	52
+46	Yeley	Chevrolet	42	J.J.	Yeley	20
+71	H. Sadler	Chevrolet	43	Hermie	Sadler	0
+</PARTICIPANTS>
